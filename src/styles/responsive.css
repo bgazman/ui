@@ -1,0 +1,29 @@
+/* responsive.css */
+@media (max-width: 768px) {
+  .navigation-container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .features-container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .feature-card {
+    padding: var(--spacing-lg);
+  }
+
+  .features-title {
+    font-size: var(--font-size-h2);
+  }
+
+  .features-subtitle {
+    font-size: var(--font-size-h3);
+  }
+
+  .toolbar-button-bottom-right,
+  .toolbar-button-bottom-left,
+  .toolbar-button-top-right,
+  .toolbar-button-top-left {
+    --space-lg: var(--space-md);
+  }
+}

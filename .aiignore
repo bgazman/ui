@@ -1,0 +1,33 @@
+
+# .aiignore file
+
+# Ignore build output directories
+dist/
+build/
+.out/
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore log files
+*.log
+npm-debug.log*
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.iml
+
+# Ignore TypeScript-related files
+*.tsbuildinfo
+
+# Ignore temporary files or system-generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

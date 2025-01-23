@@ -1,0 +1,6 @@
+/* src/styles/index.css */
+@import './root-theme.css';
+@import './styles-landing.css';
+@import './responsive.css';
+@import './navigation.css';
+@import './button.css';

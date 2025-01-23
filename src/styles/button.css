@@ -1,0 +1,55 @@
+/* button.css */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 6px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: background-color var(--transition-speed), transform 100ms, opacity var(--transition-speed);
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button[data-loading="true"] {
+  cursor: wait;
+}
+
+.toolbar-button {
+  position: fixed;
+}
+
+.toolbar-button-bottom-right {
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+}
+
+.toolbar-button-bottom-left {
+  bottom: var(--space-lg);
+  left: var(--space-lg);
+}
+
+.toolbar-button-top-right {
+  top: var(--space-lg);
+  right: var(--space-lg);
+}
+
+.toolbar-button-top-left {
+  top: var(--space-lg);
+  left: var(--space-lg);
+}

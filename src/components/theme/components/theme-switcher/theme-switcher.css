@@ -1,0 +1,43 @@
+/* Light theme */
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #1a1a1a;
+    --hover-bg: #f3f4f6;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+    --bg-primary: #121212;
+    --text-primary: #ffffff;
+    --hover-bg: #1f1f1f;
+}
+
+/* Styling the theme switcher button (optional styles) */
+.theme-btn {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+}
+
+.theme-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+.theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-block;
+}
+
+/* Apply the theme to the document */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}

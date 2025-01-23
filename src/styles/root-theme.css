@@ -1,0 +1,66 @@
+/* root-theme.css */
+:root {
+  --container-width: 80%;
+  --container-padding: 1.5rem;
+
+  --primary-color: #3B82F6;
+  --primary-light: #60A5FA;
+  --primary-dark: #1E40AF;
+  --secondary-color: #1E40AF;
+  --secondary-light: #3B82F6;
+  --secondary-dark: #1E3A8A;
+  --background-color: #F3F4F6;
+  --background-alt: #E5E7EB;
+  --background-hover: #D1D5DB;
+  --surface-color: #FFFFFF;
+  --surface-hover: #F9FAFB;
+
+  --font-family-base: monospace;
+  --heading-font: var(--font-family-base);
+  --font-size-base: 16px;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --transition-speed: 0.3s;
+  --transition-timing: ease-in-out;
+
+  --card-bg: #FFFFFF;
+  --card-hover: #F8FAFC;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-inverse: #FFFFFF;
+  --accent-blue: #3B82F6;
+  --accent-hover: #2563EB;
+  --text-color: #1F2937;
+  --text-muted: #6B7280;
+
+
+    --header-padding: 1rem 2rem;
+    --header-bg: #ffffff;
+
+
+}
+
+
+
+[data-theme="dark"] {
+  --color-primary: #4d9eff;
+  --color-secondary: #8c959d;
+  --color-background: #1a1a1a;
+  --color-text: #ffffff;
+  --color-text-muted: #cccccc;
+  --color-border: #404040;
+  --text-color: #F9FAFB;  /* Gray-50 */
+  --text-muted: #9CA3AF;  /* Gray-400 */
+  --header-padding: 1rem 2rem;
+  --header-bg: #181818;
+
+
+}

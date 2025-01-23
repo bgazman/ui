@@ -1,0 +1,42 @@
+/* Add to styles-landing.css */
+.footer-section {
+    position: relative;
+    width: 100%;
+    background-color: var(--secondary-dark);
+    padding: 4rem 0;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+}
+
+/* Update responsive.css */
+@media (max-width: 768px) {
+    /* Existing styles... */
+
+    .footer-section {
+        padding: 2rem 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
+        gap: 1rem;
+    }
+
+    .contact-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-note {
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,86 @@
+/* Base layout container */
+.layout-container {
+    display: grid;
+    min-height: 100vh;
+}
+
+/* Landing page layout */
+.layout-container[data-layout="landing"] {
+    grid-template-areas:
+    "header"
+    "main";
+    grid-template-rows: var(--header-height) 1fr;
+}
+
+/* Dashboard layout */
+.layout-container[data-layout="dashboard"] {
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+    grid-template-columns: var(--navigation-width) 1fr;
+    grid-template-rows: var(--header-height) 1fr;
+}
+
+/* Content layout */
+.layout-container[data-layout="content"] {
+    grid-template-areas:
+    "header header"
+    "sidebar main";
+    grid-template-columns: var(--navigation-width) 1fr;
+    grid-template-rows: var(--header-height) 1fr;
+}
+
+/* Header/Navigation styles */
+.header {
+    grid-area: header;
+    background-color: var(--primary-color);
+    z-index: 20;
+}
+
+/* Sidebar styles */
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--background-alt);
+    padding: var(--space-md);
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+}
+
+/* Main content area */
+.main-content {
+    grid-area: main;
+    padding: var(--space-lg);
+    overflow-y: auto;
+}
+
+/* Show/hide elements based on layout */
+.layout-container[data-layout="dashboard"] .sidebar,
+.layout-container[data-layout="content"] .sidebar {
+    display: block;
+}
+
+/* Adjust main content margin based on layout */
+.layout-container[data-layout="dashboard"] .main-content,
+.layout-container[data-layout="content"] .main-content {
+    margin-left: var(--navigation-width);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .layout-container[data-layout="dashboard"],
+    .layout-container[data-layout="content"] {
+        grid-template-areas:
+      "header"
+      "main";
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
