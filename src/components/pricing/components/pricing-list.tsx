@@ -1,5 +1,5 @@
 import React from 'react';
-import {PricingCard} from './pricing-card';
+import {PricingCard} from './pricing-card.tsx';
 
 export type PricingItem = {
     title: string,

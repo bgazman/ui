@@ -1,6 +1,20 @@
-/* src/styles/index.css */
+@import '../styles/global.css';
 @import './root-theme.css';
-@import './styles-landing.css';
 @import './responsive.css';
-@import './navigation.css';
+@import 'src/components/layout/layout.css';
+@import 'src/components/sidebar/sidebar.css';
+@import 'src/components/navigation/navigation.css';
+@import "src/components/footer/footer.css";
+@import 'src/components/footer/footer.css';
+@import 'src/components/tools/toolbar.css';
+
+@import 'src/components/theme/components/theme-pallete/theme-pallete.css';
+@import 'src/components/theme/components/theme-switcher/theme-switcher.css';
+@import 'src/components/hero/hero.css';
+@import 'src/components/floating-menu/floating-menu.css';
+@import '../components/floating-menu/components/floating-button/floating-button.css';
+@import 'src/components/features/features.css';
+@import 'src/components/pricing/pricing.css';
+
 @import './button.css';
+

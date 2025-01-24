@@ -1,63 +1,48 @@
-/* styles-landing.css */
+/* hero.css */
 .hero-section {
-    padding: 4rem 0;
-}
-
-.hero-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.hero-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.hero-card:hover {
-    transform: translateY(-4px);
-    background-color: var(--card-hover);
-}
-
-.hero-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.hero-description {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-.footer-section {
-    background-color: var(--secondary-dark);
-    padding: 4rem 0;
-    margin-top: 4rem;
-}
-
-.footer-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    background-color: var(--primary-color); /* Use theme primary color */
+    padding: var(--section-padding); /* Use section padding from theme */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-.contact-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.hero-container {
+    max-width: var(--container-width); /* Theme-based container width */
+    padding: var(--space-3_5); /* Use spacing variable for padding */
+    margin: 0 auto; /* Center the container */
 }
 
-.contact-email,
-.contact-address {
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+.hero-content {
+    display: none; /* Default hidden content */
 }
 
-.footer-note {
-    margin-top: 2rem;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
+.hero-content--active {
+    display: block; /* Show when active */
+}
+
+.hero-title {
+    font-size: var(--font-7_5); /* Theme-based large font size */
+    font-weight: var(--weight-4_4); /* Bold weight from theme */
+    margin-bottom: var(--space-2_5); /* Spacing for bottom margin */
+}
+
+.hero-description {
+    font-size: var(--font-4_5); /* Medium font size from theme */
+    margin-bottom: var(--space-3_5); /* Bottom margin spacing */
+}
+
+.hero-button {
+    background-color: var(--accent-blue); /* Use theme's accent color for button */
+    color: var(--color-text); /* Use theme text color */
+    padding: var(--space-1_5) var(--space-3_5); /* Button padding from theme */
+    border-radius: var(--radius-2_5); /* Rounded corners using theme variable */
+    text-align: center;
+    transition: background-color var(--transition-2_3); /* Smooth background transition */
+}
+
+.hero-button:hover {
+    background-color: var(--accent-hover); /* Hover color from theme */
 }

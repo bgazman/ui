@@ -1,73 +1,40 @@
-/* toolbar.css */
+/* Toolbar wrapper */
 .toolbar {
-    position: fixed;
-    z-index: 50;
-}
-
-.toolbar-button {
-    position: fixed;
-}
-
-/* Position variants */
-.toolbar-button-bottom-right {
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-}
-
-.toolbar-button-bottom-left {
-    bottom: var(--spacing-lg);
-    left: var(--spacing-lg);
-}
-
-.toolbar-button-top-right {
-    top: var(--spacing-lg);
-    right: var(--spacing-lg);
-}
-
-.toolbar-button-top-left {
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
-}
-
-.toolbar-menu {
-    position: fixed;
-    bottom: calc(var(--spacing-lg) + 4rem);
-    right: var(--spacing-lg);
-    background-color: var(--surface-color);
-    border-radius: var(--spacing-sm);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    padding: var(--spacing-sm);
-    min-width: 150px;
-    z-index: 50;
-}
-
-.menu-item {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: background-color var(--transition-speed) var(--transition-timing);
-    border-radius: var(--spacing-xs);
+    flex-direction: column;
+    align-items: flex-start; /* Aligns toolbar content to the start */
+    gap: var(--space-4_5); /* Adds spacing between toolbar elements */
 }
 
-.menu-item:hover {
-    background-color: var(--background-hover);
+/* Floating menu styles specifically under toolbar */
+.toolbar-menu {
+    display: flex;
+    flex-direction: column; /* Vertical stacking for menu items */
+    gap: var(--space-4_5); /* Theme-based spacing between menu items */
+    padding: var(--space-5_5); /* Internal padding for menu */
+    background-color: var(--surface-color); /* Theme surface background */
+    border-radius: var(--radius-2_5); /* Rounded corners for the menu */
+    box-shadow: var(--shadow-2_3); /* Theme-based shadow for floating effect */
 }
 
-.menu-item svg {
-    color: var(--text-muted);
+/* Individual menu item */
+.toolbar-menu-item {
+    display: flex;
+    flex-direction: column; /* Vertical stacking for each item's content */
+    gap: var(--space-2_5); /* Theme spacing between item title and controls */
+    padding: var(--space-3_5); /* Internal padding for menu items */
+    border-radius: var(--radius-2_5); /* Subtle rounding for individual items */
+    transition: background-color var(--transition-2_3); /* Smooth hover effect */
 }
 
-@media (max-width: 768px) {
-    .toolbar-button-bottom-right,
-    .toolbar-button-bottom-left,
-    .toolbar-button-top-right,
-    .toolbar-button-top-left {
-        --spacing-lg: var(--spacing-md);
-    }
+.toolbar-menu-item:hover {
+    background-color: var(--hover-bg-color); /* Theme-based hover background color */
+}
+
+/* Example heading styles inside items */
+.toolbar-menu-item h3 {
+    font-size: var(--font-4_5); /* Theme font size for small headings */
+    font-weight: var(--weight-2_4); /* Medium font weight from theme */
+    margin-bottom: var(--space-2_5); /* Spacing below the title */
+    color: var(--color-text); /* Theme text color */
 }

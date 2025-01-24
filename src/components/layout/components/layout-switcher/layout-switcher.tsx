@@ -1,54 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { layouts } from './layouts';
-import { useLayout } from './layout-context';
-import FloatingMenu from "../../../floating-menu/floating-menu";
+import React from 'react';
 
-const LayoutSwitcher = () => {
-    const { layout, setLayout } = useLayout();
-    const [isOpen, setIsOpen] = useState(false);
+interface LayoutSwitcherProps {
+    currentLayout: 'top' | 'sidebar-left' | 'sidebar-right';
+    onLayoutChange: (layout: 'top' | 'sidebar-left' | 'sidebar-right') => void;
+}
 
-    const handleLayoutChange = (newLayout: string) => {
-        console.log(newLayout);
-        setLayout(newLayout);
-        setIsOpen(false);
-    };
-
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (isOpen && !(event.target instanceof HTMLElement && event.target.closest('.layout-switcher'))) {
-                setIsOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [isOpen]);
+const LayoutSwitcher: React.FC<LayoutSwitcherProps> = ({ currentLayout, onLayoutChange }) => {
+    const layouts = ['top', 'sidebar-left', 'sidebar-right'];
 
     return (
-        <div className="layout-switcher">
-            <FloatingMenu
-                title="Layout Options"
-                width="w-96"
-                buttonPosition="bottom-left"
-                defaultOpen={isOpen}
-                onOpenChange={setIsOpen}
-            >
-                <div className="space-y-2">
-                    {layouts.map((layoutOption) => (
-                        <button
-                            key={layoutOption.id}
-                            onClick={() => handleLayoutChange(layoutOption.id)}
-                            className={`w-full p-3 text-left rounded hover:bg-gray-100 transition-colors
-                                ${layout === layoutOption.id ? 'bg-blue-50 text-blue-600' : 'text-gray-700'}`}
-                        >
-                            <div className="flex items-center gap-3">
-                                {layoutOption.icon && React.createElement(layoutOption.icon)}
-                                <span className="font-medium">{layoutOption.label}</span>
-                            </div>
-                        </button>
-                    ))}
-                </div>
-            </FloatingMenu>
+        <div className="flex gap-4">
+            {layouts.map((layout) => (
+                <button
+                    key={layout}
+                    onClick={() => onLayoutChange(layout as 'top' | 'sidebar-left' | 'sidebar-right')}
+                    className={`p-4 border rounded-lg flex-1 ${currentLayout === layout ? 'border-blue-500 bg-blue-50' : 'hover:bg-gray-50'}`}
+                >
+                    {layout.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                </button>
+            ))}
         </div>
     );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
-import './pricing.css';
-import {PricingSubtitle, PricingTitle} from "./pricing-title.tsx";
-import {PricingItem, PricingList} from "./pricing-list.tsx";
+import {PricingSubtitle, PricingTitle} from "./components/pricing-title.tsx";
+import {PricingItem, PricingList} from "./components/pricing-list.tsx";
 
 
 

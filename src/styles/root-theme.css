@@ -1,66 +1,98 @@
-/* root-theme.css */
 :root {
-  --container-width: 80%;
-  --container-padding: 1.5rem;
+  /* Typography */
+  --font-size-base: 16px; /* Base font size */
+  --line-height: 1.5; /* Default line height */
+  --font-family-base: 'Arial', sans-serif; /* Base font family */
+  --color-text-inverse: #FFFFFF; /* Text color for use on dark backgrounds */
+  --hover-bg-color: #E5E7EB; /* Background color for hover state */
+  /* Colors - VS Code-inspired */
+  --color-text: #1a1a1c; /* Default text color */
+  --color-background: #1E1E1E; /* Default background color */
+  --accent-blue: #007ACC; /* Accent color */
+  --accent-hover: #005A9E; /* Accent hover color */
+  --text-secondary: #9CDCFE; /* Secondary text color */
+  --primary-color: #569CD6; /* Primary color */
+  --surface-color: #252526; /* Surface color */
+  --neutral-color: #797979; /* Neutral color */
+  --highlight-color: #3C3C3C; /* Highlight color */
+  --color-content-background: var(--surface-color, #252526); /* Default to surface color or fallback */
+  /* Scroll and Smoothing */
+  --scroll-behavior: smooth; /* Smooth scrolling */
+  --font-smoothing: antialiased; /* Smoothing for webkit-based browsers */
 
-  --primary-color: #3B82F6;
-  --primary-light: #60A5FA;
-  --primary-dark: #1E40AF;
-  --secondary-color: #1E40AF;
-  --secondary-light: #3B82F6;
-  --secondary-dark: #1E3A8A;
-  --background-color: #F3F4F6;
-  --background-alt: #E5E7EB;
-  --background-hover: #D1D5DB;
-  --surface-color: #FFFFFF;
-  --surface-hover: #F9FAFB;
+  /* Transitions */
+  --transition-speed: var(--transition-2_3, 300ms); /* Default transition speed */
+  --transition-timing: ease; /* Default timing for transitions */
 
-  --font-family-base: monospace;
-  --heading-font: var(--font-family-base);
-  --font-size-base: 16px;
-  --font-size-h1: 2.5rem;
-  --font-size-h2: 2rem;
-  --font-size-h3: 1.75rem;
+  /* Base */
+  --font-family: 'Arial', sans-serif;
+  --container-width: 1200px;
+  --section-padding: 4rem;
+  --section-margin-top: 2rem;
 
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
+  /* Typography */
+  --font-0_5: 0.75rem;
+  --font-1_5: 0.875rem;
+  --font-2_5: 1rem;
+  --font-3_5: 1.125rem;
+  --font-4_5: 1.25rem;
+  --font-5_5: 1.5rem;
+  --font-6_5: 1.75rem;
+  --font-7_5: 2rem;
+  --font-8_5: 2.25rem;
+  --font-9_5: 3rem;
 
-  --transition-speed: 0.3s;
-  --transition-timing: ease-in-out;
+  --weight-1_4: 300;
+  --weight-2_4: 400;
+  --weight-3_4: 500;
+  --weight-4_4: 700;
 
-  --card-bg: #FFFFFF;
-  --card-hover: #F8FAFC;
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
-  --text-inverse: #FFFFFF;
-  --accent-blue: #3B82F6;
-  --accent-hover: #2563EB;
-  --text-color: #1F2937;
-  --text-muted: #6B7280;
+  /* Spacing */
+  --space-0_5: 0.25rem;
+  --space-1_5: 0.5rem;
+  --space-2_5: 1rem;
+  --space-3_5: 1.5rem;
+  --space-4_5: 2rem;
+  --space-5_5: 3rem;
+  --space-6_5: 4rem;
+  --space-7_5: 5rem;
 
+  /* Borders */
+  --radius-0_5: 0px;
+  --radius-1_5: 4px;
+  --radius-2_5: 8px;
+  --radius-3_5: 12px;
+  --radius-4_5: 16px;
+  --radius-5_5: 9999px;
 
-    --header-padding: 1rem 2rem;
-    --header-bg: #ffffff;
+  /* Effects */
+  --shadow-1_3: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-2_3: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-3_3: 0 12px 24px rgba(0,0,0,0.2);
 
+  /* Layout */
+  --z-1_3: 1;
+  --z-2_3: 10;
+  --z-3_3: 100;
 
-}
+  /* Animation */
+  --transition-1_3: 150ms;
+  --transition-2_3: 300ms;
+  --transition-3_3: 500ms;
 
+  /* Header and Navigation */
+  --header-height: 60px; /* Default header height */
+  --navigation-width: 250px; /* Default sidebar width */
+  --collapsed-sidebar-width: 60px; /* Width for collapsed sidebar */
 
+  /* Grid */
+  --grid-gap-1_1: 1.5rem;
+  --grid-gap-2_1: 2rem;
+  --grid-gap-3_1: 2.5rem;
+  --grid-gap-4_1: 3rem;
 
-[data-theme="dark"] {
-  --color-primary: #4d9eff;
-  --color-secondary: #8c959d;
-  --color-background: #1a1a1a;
-  --color-text: #ffffff;
-  --color-text-muted: #cccccc;
-  --color-border: #404040;
-  --text-color: #F9FAFB;  /* Gray-50 */
-  --text-muted: #9CA3AF;  /* Gray-400 */
-  --header-padding: 1rem 2rem;
-  --header-bg: #181818;
-
-
+  /* Buttons */
+  --btn-height: 2.5rem;
+  --btn-padding: 0 1rem;
+  --btn-radius: var(--radius-1_5);
 }

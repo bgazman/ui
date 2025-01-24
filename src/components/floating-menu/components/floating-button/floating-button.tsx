@@ -1,12 +1,12 @@
-import React from 'react';
-import './floating-button.css';
+
+type Position = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
 interface FloatingButtonProps {
     children: React.ReactNode;
     onClick?: () => void;
     ariaLabel?: string;
     tooltip?: string;
-    position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+    position?: Position;
     className?: string;
 }
 
@@ -18,21 +18,15 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
                                                            position = 'bottom-right',
                                                            className = '',
                                                        }) => {
-    const positionStyles: Record<string, string> = {
-        'bottom-right': 'bottom-4 right-4',
-        'bottom-left': 'bottom-4 left-4',
-        'top-right': 'top-4 right-4',
-        'top-left': 'top-4 left-4',
-    };
-
-    const positionClass = positionStyles[position];
-
     return (
-        <div className={`fixed ${positionClass}`} title={tooltip}>
+        <div
+            className={`floating-button-container ${position}`}
+            title={tooltip}
+        >
             <button
                 onClick={onClick}
                 aria-label={ariaLabel}
-                className={`p-4 rounded-full shadow-lg bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-300 ${className}`}
+                className={`floating-button ${className}`}
             >
                 {children}
             </button>

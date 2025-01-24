@@ -1,6 +1,7 @@
-// Sidebar.tsx
+// sidebar.tsx
 import React from 'react';
-import Navigation, {NavItem} from "../navigation/navigation.tsx";
+import NavigationMenu from "../navigation/components/navigation-menu.tsx";
+import {NavItem} from "../navigation/navigation.tsx";
 
 interface SidebarProps {
   navItems: NavItem[];
@@ -8,12 +9,10 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ navItems }) => {
   return (
-      <div className="sidebar">
     <aside className="sidebar bg-gray-100 w-64 p-4 shadow-md">
       {/* Navigation Component */}
-      <Navigation navItems={navItems} />
+      <NavigationMenu navMenuItems={navItems} />
     </aside>
-      </div>
   );
 };
 

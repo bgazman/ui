@@ -1,3 +1,4 @@
+
 interface BrandNameProps {
     name: string;
 }

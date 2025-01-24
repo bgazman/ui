@@ -1,29 +1,56 @@
-/* responsive.css */
+
 @media (max-width: 768px) {
-  .navigation-container {
+  /* Top layout */
+  .layout-container[data-layout="top"] {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) 1fr;
+  }
+
+  /* Sidebar-left layout */
+  .layout-container[data-layout="sidebar-left"] {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) 1fr;
+  }
+
+  /* Sidebar-right layout */
+  .layout-container[data-layout="sidebar-right"] {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) 1fr;
+  }
+
+  /* Hide the sidebar in all layouts */
+  .sidebar {
+    display: none;
+  }
+
+  /* Main content adjustments for full width */
+  .main-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Footer adjustments */
+  .footer-section {
+    padding: 2rem 0;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
     padding: 0 var(--spacing-md);
+    gap: 1rem;
   }
 
-  .features-container {
-    padding: 0 var(--spacing-md);
-  }
-
-  .feature-card {
-    padding: var(--spacing-lg);
-  }
-
-  .features-title {
-    font-size: var(--font-size-h2);
-  }
-
-  .features-subtitle {
-    font-size: var(--font-size-h3);
-  }
-
-  .toolbar-button-bottom-right,
-  .toolbar-button-bottom-left,
-  .toolbar-button-top-right,
-  .toolbar-button-top-left {
-    --space-lg: var(--space-md);
+  .contact-title {
+    font-size: 1.25rem;
   }
 }

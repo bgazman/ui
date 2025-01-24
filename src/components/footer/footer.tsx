@@ -1,5 +1,4 @@
 import React from 'react';
-import './footer.css';
 import Contact  from './components/contact/contact.tsx';
 import Note from './components/note/note.tsx';
 

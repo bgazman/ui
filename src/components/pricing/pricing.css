@@ -1,72 +1,72 @@
 /* pricing.css */
 .pricing-section {
-    padding: 4rem 0;
+    padding: var(--space-6_5) 0; /* Consistent section padding from theme */
 }
 
 .pricing-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    max-width: var(--container-width); /* Theme-based container width */
+    margin: 0 auto; /* Center align */
+    padding: 0 var(--space-3_5); /* Responsive container padding */
 }
 
 .pricing-title {
-    font-size: 2.5rem;
+    font-size: var(--font-7_5); /* Theme heading font size */
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4_5); /* Adjust margin-bottom using spacing variable */
 }
 
 .pricing-subtitle {
-    color: var(--text-secondary);
+    color: var(--color-secondary); /* Use theme secondary text color */
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-6_5); /* Theme spacing for margin */
 }
 
 .pricing-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr)); /* Flexible responsive columns */
+    gap: var(--space-4_5); /* Theme-based gap for grid */
 }
 
 .pricing-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: transform 0.2s;
+    background-color: var(--surface-color); /* Theme-based surface background */
+    padding: var(--space-5); /* Consistent card padding */
+    border-radius: var(--radius-2_5); /* Rounded corners using theme value */
+    transition: transform var(--transition-2_3); /* Smooth transform transition */
 }
 
 .pricing-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(var(--space-negative-1)); /* Slight hover lift effect */
 }
 
 .pricing-plan-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: var(--font-5_5); /* Theme-based subheading font size */
+    margin-bottom: var(--space-2_5); /* Vertical spacing for margin-bottom */
 }
 
 .pricing-plan-price {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--accent-blue);
+    font-size: var(--font-6_5); /* Theme font size for pricing */
+    font-weight: var(--weight-3_4); /* Bold weight for price emphasis */
+    margin-bottom: var(--space-4_5); /* Adjust vertical spacing */
+    color: var(--accent-blue); /* Theme accent color for pricing */
 }
 
 .pricing-plan-features {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
+    color: var(--color-secondary); /* Theme secondary text color */
+    margin-bottom: var(--space-6_5); /* Spacing for bottom margin */
+    padding-left: var(--space-3_5); /* Padding for feature list */
 }
 
 .choose-plan-btn {
     display: inline-block;
-    background-color: var(--accent-blue);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    background-color: var(--accent-blue); /* Theme primary accent color for button */
+    color: var(--color-white); /* Theme text color for button */
+    padding: var(--space-2_5) var(--space-5); /* Consistent button padding */
+    border-radius: var(--radius-2_5); /* Rounded button corners */
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    font-weight: var(--weight-2_5); /* Theme-based button font weight */
+    transition: background-color var(--transition-2_3); /* Smooth transition */
 }
 
 .choose-plan-btn:hover {
-    background-color: var(--accent-hover);
+    background-color: var(--accent-hover); /* Theme hover color for button */
 }

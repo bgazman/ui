@@ -1,6 +1,6 @@
 import React from 'react';
-import {FeaturesCard} from './features-card';
-import {FeaturesItem} from "./features.tsx";
+import {FeaturesCard} from './features-card.tsx';
+import {FeaturesItem} from "../features.tsx";
 
 export type FeaturesListProps = {
     featuresItems: FeaturesItem[];

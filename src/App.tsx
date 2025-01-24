@@ -1,18 +1,19 @@
-import LandingPage from './pages/landing-page.tsx';
-import {LayoutProvider} from "./components/layout/components/layout-switcher/layout-context.tsx";
-import {ThemeProvider} from "./components/theme/theme-context.tsx";
+
+
+// import LayoutDemo from './pages/layout-demo/layout-demo.tsx'; // Import the new page (replace location if needed)
+import { ThemeProvider } from "./components/theme/theme-context.tsx";
 import Toolbar from "./components/tools/toolbar.tsx";
+import LayoutDemo from "./pages/layout-demo/layout-demo.tsx";
+import {LayoutProvider} from "./components/layout/context/layout-context.tsx";
 
 const App = () => {
     return (
         <ThemeProvider>
+            <LayoutProvider>
+                    <LayoutDemo />
+                    <Toolbar />
 
-        <LayoutProvider>
-            <div className="app">
-                <Toolbar/>
-                <LandingPage/>
-            </div>
-        </LayoutProvider>
+            </LayoutProvider>
         </ThemeProvider>
     );
 };

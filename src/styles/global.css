@@ -5,18 +5,18 @@
 }
 
 html {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-base); /* Base font size */
   height: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: var(--scroll-behavior); /* Smooth scrolling */
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  line-height: var(--line-height); /* Line height */
+  font-family: var(--font-family-base), serif; /* Base font family */
+  color: var(--color-text); /* Text color */
+  background-color: var(--color-background); /* Background color */
+  transition:
+          background-color var(--transition-speed) var(--transition-timing),
+          color var(--transition-speed) var(--transition-timing);
   overflow-x: hidden;
-  font-family: var(--font-family-base);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  transition: background-color var(--transition-speed) var(--transition-timing),
-    color var(--transition-speed) var(--transition-timing);
 }

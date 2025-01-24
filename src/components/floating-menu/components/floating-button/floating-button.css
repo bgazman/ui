@@ -1,0 +1,50 @@
+/* Positional classes for the button's container */
+.floating-button-container {
+  position: fixed;
+  z-index: 50;
+}
+
+.bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.top-right {
+  top: 1rem;
+  right: 1rem;
+}
+
+.top-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+/* Base button styles */
+.floating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 12 units */
+  height: 3rem; /* 12 units */
+  border-radius: 50%; /* Circular button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #3b82f6; /* Tailwind's 'bg-blue-500' */
+  color: #fff; /* Text color */
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover Styles */
+.floating-button:hover {
+  background-color: #2563eb; /* Tailwind's 'hover:bg-blue-600' */
+}
+
+/* Focus Styles */
+.floating-button:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5); /* Tailwind's 'focus:ring-2 focus:ring-blue-300' */
+}

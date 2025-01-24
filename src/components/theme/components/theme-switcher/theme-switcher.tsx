@@ -1,5 +1,4 @@
 import { Sun, Moon } from 'lucide-react';
-import './theme-switcher.css';
 import { useTheme } from '../../theme-context.tsx';
 
 const ThemeSwitcher = () => {

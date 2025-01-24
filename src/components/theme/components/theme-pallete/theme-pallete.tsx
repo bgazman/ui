@@ -1,5 +1,4 @@
 import { Sun, Moon, Palette, Check } from 'lucide-react';
-import './theme-pallete.css'
 import { useState } from 'react';
 import { LucideIcon } from 'lucide-react';
 import {Theme, useTheme} from "../../theme-context.tsx";

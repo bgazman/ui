@@ -15,7 +15,7 @@ export const useLayout = () => {
 
 export const LayoutProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-    const [layout, setLayout] = useState<string | null>(null);  const onToggle = useCallback(() => {
+  const [layout, setLayout] = useState<string | null>(null);  const onToggle = useCallback(() => {
     setIsOpen(prev => !prev);
   }, []);
 
@@ -28,9 +28,9 @@ export const LayoutProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             onToggle,
           }}
       >
-          <div className="layout-container" data-layout={layout}>
-              {children}
-          </div>
+        <div className="layout-container" data-layout={layout}>
+          {children}
+        </div>
       </LayoutContext.Provider>
   );
 };

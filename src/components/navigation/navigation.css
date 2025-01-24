@@ -1,17 +1,53 @@
 .navigation {
-    grid-area: topbar;
-    height: var(--header-height);
-    background-color: var(--primary-color);
-    padding: 0 var(--spacing-lg);
-    color: var(--text-inverse);
+    background-color: var(--surface-color); /* Use theme surface background */
+    color: var(--color-text); /* Theme-based text color */
+    box-shadow: var(--shadow-2_5); /* Theme-based shadow */
+    padding: var(--space-1_5) var(--space-4_5); /* Consistent padding from theme */
 }
 
 .navigation-container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-lg);
+    max-width: var(--container-width); /* Use theme max container width */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Navigation menu styles */
+.navigation-menu {
+    list-style-type: none; /* Remove default list style */
+    margin: 0; /* Reset margins */
+    padding: 0; /* Reset padding */
+    display: flex; /* Flexible layout */
+    gap: var(--space-2_5); /* Use theme for spacing between items */
+}
+
+.navigation-menu.vertical-menu {
+    flex-direction: column;
+}
+
+.navigation-menu.horizontal-menu {
+    flex-direction: row;
+}
+
+/* Navigation link styles */
+.navigation-link {
+    text-decoration: none; /* No underline */
+    color: var(--color-text); /* Use theme-based default text color */
+    font-size: var(--font-4_5); /* Base font size from theme */
+    padding: var(--space-1_5) var(--space-3_5); /* Consistent padding for links */
+    border-radius: var(--radius-2_5); /* Theme radius for rounded corners */
+    transition: background-color var(--transition-2_3), color var(--transition-2_3); /* Smooth transitions */
+}
+
+.navigation-link:hover {
+    background-color: var(--accent-blue); /* Theme-based hover background */
+    color: var(--surface-color); /* Text color on hover */
+}
+
+/* Brand name (example styles) */
+.brand-name {
+    font-size: var(--font-7_5); /* Large font size matching theme */
+    font-weight: var(--weight-3_4); /* Bold font weight */
+    color: var(--primary-color); /* Primary color for branding */
 }
