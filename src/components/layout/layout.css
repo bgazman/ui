@@ -1,19 +1,21 @@
 /* Base layout container */
 .layout-container {
     display: grid;
-    min-height: 100vh;
-    background-color: var(--color-background); /* Use theme background variable */
-    color: var(--color-text); /* Use theme text color variable */
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
-
-/* Top layout (Header + Main main) */
+ .sidebar {
+    display: none; /* Sidebar is not visible in a top layout */
+}
+/* Default/Top layout */
+.layout-container,
 .layout-container[data-layout="top"] {
     grid-template-areas:
         "header"
         "main";
-    grid-template-rows: var(--header-height) 1fr; /* Use dynamic header height */
+    grid-template-rows: var(--header-height) 1fr;
+    grid-template-columns: 1fr;
 }
-
 .layout-container[data-layout="top"] .sidebar {
     display: none; /* Sidebar is not visible in a top layout */
 }
@@ -48,4 +50,14 @@
     border-right: 1px solid var(--sidebar-border-color); /* Use consistent border color */
 }
 
+.header {
+    grid-area: header;
+}
 
+.sidebar {
+    grid-area: sidebar;
+}
+
+.main {
+    grid-area: main;
+}

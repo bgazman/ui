@@ -1,16 +1,16 @@
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .layout-container[data-layout="sidebar-left"],
-  .layout-container[data-layout="sidebar-right"] {
-    grid-template-areas:
-            "header"
-            "main";
-    grid-template-columns: 1fr; /* No sidebar on smaller screens */
-    grid-template-rows: var(--header-height) 1fr;
-  }
+/*!* Responsive adjustments *!*/
+/*@media (max-width: 768px) {*/
+/*  .layout-container[data-layout="sidebar-left"],*/
+/*  .layout-container[data-layout="sidebar-right"] {*/
+/*    grid-template-areas:*/
+/*            "header"*/
+/*            "main";*/
+/*    grid-template-columns: 1fr; !* No sidebar on smaller screens *!*/
+/*    grid-template-rows: var(--header-height) 1fr;*/
+/*  }*/
 
-  .layout-container[data-layout="sidebar-left"] .sidebar,
-  .layout-container[data-layout="sidebar-right"] .sidebar {
-    display: none; /* Try hiding the sidebar in mobile views */
-  }
-}
+/*  .layout-container[data-layout="sidebar-left"] .sidebar,*/
+/*  .layout-container[data-layout="sidebar-right"] .sidebar {*/
+/*    display: none; !* Try hiding the sidebar in mobile views *!*/
+/*  }*/
+/*}*/

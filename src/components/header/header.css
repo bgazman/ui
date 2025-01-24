@@ -10,7 +10,7 @@
 
 /* Container for header contents */
 .header-container {
-  width: var(--container-width);
+  width: 100%;
   margin: 0 auto; /* Center the container */
   display: flex;
   justify-content: space-between; /* Ensure proper spacing between child elements */

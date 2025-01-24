@@ -1,30 +1,66 @@
-/* Sidebar-specific styles */
-.sidebar {
-    background-color: var(--bg-surface, #252526); /* Surface background color */
-    width: var(--sidebar-width, 250px); /* Sidebar width */
-    min-height: 100vh; /* Full viewport height for sidebar */
-    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Subtle shadow */
-    padding: var(--sidebar-padding, 1rem 0); /* Vertical padding for sidebar content */
+/* Toolbar container */
+.toolbar {
+    position: relative;
+    background-color: var(--bg-secondary-color); /* Background color */
+    border-radius: var(--radius-md); /* Rounded edges */
+    box-shadow: var(--shadow-md); /* Subtle shadow */
+    padding: var(--space-md); /* Inner padding */
+    margin: var(--space-md); /* Margin around the toolbar */
 }
 
-.sidebar .navigation-menu {
-    display: flex; /* Flex layout */
-    flex-direction: column; /* Vertical alignment of navigation items */
-    gap: var(--sidebar-item-spacing, 1rem); /* Vertical spacing between nav items */
+/* Floating Menu styles */
+.toolbar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md); /* Space between menu items */
 }
 
-/* Sidebar-specific navigation link styles */
-.sidebar .navigation-link {
-    display: block; /* Block-level link for a large clickable area */
-    text-align: left; /* Left-aligned text for sidebar links */
-    padding: var(--space-sm, 0.5rem) var(--space-lg, 1.5rem); /* Padding for better click area */
-    border-radius: var(--radius-md, 8px); /* Ensure rounded corners */
-    transition: background-color var(--transition-fast, 150ms ease-in-out), color var(--transition-fast, 150ms ease-in-out); /* Smooth hover transitions */
-    color: var(--sidebar-text-color, #D4D4D4); /* Sidebar link text color */
-    background-color: transparent; /* Transparent background by default */
+.toolar-menu-item {
+    background-color: var(--light-color); /* Background for items */
+    padding: var(--space-md); /* Padding inside items */
+    border-radius: var(--radius-sm); /* Rounded edges for items */
+    box-shadow: var(--shadow-sm); /* Subtle shadow on items */
+    transition: transform var(--transition-speed) var(--transition-timing),
+    box-shadow var(--transition-speed) var(--transition-timing);
 }
 
-.sidebar .navigation-link:hover {
-    background-color: var(--hover-bg-color, var(--accent-blue, #0078D4)); /* Use hover background color with fallback */
-    color: var(--text-inverse, #FFFFFF); /* Inverse text color for high contrast */
+.toolar-menu-item h3 {
+    font-size: var(--font-sm); /* Smaller font size for headings */
+    color: var(--text-primary); /* Primary text color */
+    margin-bottom: var(--space-sm); /* Space below heading */
+}
+
+.toolbar-menu .toolar-menu-item:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: var(--shadow-md); /* Enhance shadow on hover */
+}
+
+/* Layout Switcher */
+.layout-switcher, .theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm); /* Space between elements */
+}
+
+.layout-switcher button,
+.theme-switcher button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) var(--transition-timing),
+    transform var(--transition-fast);
+}
+
+.layout-switcher button:hover,
+.theme-switcher button:hover {
+    background-color: var(--button-hover-bg-color);
+    transform: translateY(-2px); /* Slight movement */
+}
+
+.layout-switcher button:focus,
+.theme-switcher button:focus {
+    outline: 2px solid var(--focus-border);
 }
