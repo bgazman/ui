@@ -1,6 +1,6 @@
 /* Overall header styles */
 .header {
-  background-color: var(--surface-color); /* Theme-based surface background */
+  background-color: var(--header-bg); /* Theme-based surface background */
   box-shadow: var(--shadow-2_3); /* Use theme shadow variable */
   padding: var(--space-4_5); /* Consistent spacing from theme */
   display: flex;

@@ -1,7 +1,7 @@
 /* Sidebar-specific styles */
 .sidebar {
     background-color: var(--surface-color); /* Theme-based surface/background color */
-    width: var(--space-64); /* 16rem as per theme spacing variable */
+    width: var(--space-3_5); /* 16rem as per theme spacing variable */
     min-height: 100vh; /* Full viewport height */
     box-shadow: var(--shadow-3_3); /* Theme-defined shadow */
     padding: var(--space-5_5); /* Consistent medium padding from theme */

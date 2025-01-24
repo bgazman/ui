@@ -1,36 +1,49 @@
 :root {
   /* Typography */
-  --font-size-base: 16px; /* Base font size */
-  --line-height: 1.5; /* Default line height */
-  --font-family-base: 'Arial', sans-serif; /* Base font family */
-  --color-text-inverse: #FFFFFF; /* Text color for use on dark backgrounds */
-  --hover-bg-color: #E5E7EB; /* Background color for hover state */
-  /* Colors - VS Code-inspired */
-  --color-text: #1a1a1c; /* Default text color */
-  --color-background: #1E1E1E; /* Default background color */
-  --accent-blue: #007ACC; /* Accent color */
-  --accent-hover: #005A9E; /* Accent hover color */
-  --text-secondary: #9CDCFE; /* Secondary text color */
-  --primary-color: #569CD6; /* Primary color */
-  --surface-color: #252526; /* Surface color */
-  --neutral-color: #797979; /* Neutral color */
-  --highlight-color: #3C3C3C; /* Highlight color */
-  --color-content-background: var(--surface-color, #252526); /* Default to surface color or fallback */
+  --font-size-base: 16px;
+  --line-height: 1.6;
+  --font-family-base: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-monospace: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  --header-bg: orange;    /* Dark blue */
+  --sidebar-bg: blue;   /* Slightly lighter blue */
+  --content-bg: yellow;   /* Light gray */
+  /* Colors - Enhanced VS Code-inspired palette */
+  --color-text: #D4D4D4;
+  --color-background: #1E1E1E;
+  --color-text-inverse: #FFFFFF;
+  --accent-blue: #0078D4;
+  --accent-hover: #2B88D8;
+  --text-secondary: #9CDCFE;
+  --primary-color: #569CD6;
+  --surface-color: #252526;
+  --neutral-color: #808080;
+  --highlight-color: #3C3C3C;
+  --error-color: #F85149;
+  --success-color: #4EC9B0;
+  --warning-color: #CCA700;
+  --info-color: #75BEFF;
+
+  /* Hover and Focus States */
+  --hover-bg-color: #2A2D2E;
+  --focus-border-color: #007FD4;
+
+  /* Content Background */
+  --color-content-background: var(--surface-color);
+
   /* Scroll and Smoothing */
-  --scroll-behavior: smooth; /* Smooth scrolling */
-  --font-smoothing: antialiased; /* Smoothing for webkit-based browsers */
+  --scroll-behavior: smooth;
+  --font-smoothing: antialiased;
 
   /* Transitions */
-  --transition-speed: var(--transition-2_3, 300ms); /* Default transition speed */
-  --transition-timing: ease; /* Default timing for transitions */
+  --transition-speed: var(--transition-2_3, 300ms);
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Base */
-  --font-family: 'Arial', sans-serif;
   --container-width: 1200px;
   --section-padding: 4rem;
   --section-margin-top: 2rem;
 
-  /* Typography */
+  /* Typography Scale */
   --font-0_5: 0.75rem;
   --font-1_5: 0.875rem;
   --font-2_5: 1rem;
@@ -42,12 +55,13 @@
   --font-8_5: 2.25rem;
   --font-9_5: 3rem;
 
+  /* Font Weights */
   --weight-1_4: 300;
   --weight-2_4: 400;
   --weight-3_4: 500;
   --weight-4_4: 700;
 
-  /* Spacing */
+  /* Spacing Scale */
   --space-0_5: 0.25rem;
   --space-1_5: 0.5rem;
   --space-2_5: 1rem;
@@ -57,7 +71,7 @@
   --space-6_5: 4rem;
   --space-7_5: 5rem;
 
-  /* Borders */
+  /* Border Radii */
   --radius-0_5: 0px;
   --radius-1_5: 4px;
   --radius-2_5: 8px;
@@ -65,27 +79,27 @@
   --radius-4_5: 16px;
   --radius-5_5: 9999px;
 
-  /* Effects */
-  --shadow-1_3: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-2_3: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-3_3: 0 12px 24px rgba(0,0,0,0.2);
+  /* Shadows */
+  --shadow-1_3: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-2_3: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+  --shadow-3_3: 0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10);
 
-  /* Layout */
+  /* Z-index Scale */
   --z-1_3: 1;
   --z-2_3: 10;
   --z-3_3: 100;
 
-  /* Animation */
+  /* Animation Durations */
   --transition-1_3: 150ms;
   --transition-2_3: 300ms;
   --transition-3_3: 500ms;
 
-  /* Header and Navigation */
-  --header-height: 60px; /* Default header height */
-  --navigation-width: 250px; /* Default sidebar width */
-  --collapsed-sidebar-width: 60px; /* Width for collapsed sidebar */
+  /* Layout */
+  --header-height: 60px;
+  --navigation-width: 250px;
+  --collapsed-sidebar-width: 60px;
 
-  /* Grid */
+  /* Grid Gaps */
   --grid-gap-1_1: 1.5rem;
   --grid-gap-2_1: 2rem;
   --grid-gap-3_1: 2.5rem;
@@ -95,4 +109,30 @@
   --btn-height: 2.5rem;
   --btn-padding: 0 1rem;
   --btn-radius: var(--radius-1_5);
+
+  /* Cards */
+  --card-hover-lift: -0.5rem;
+  --card-padding: 1.5rem;
+  --card-border-radius: var(--radius-2_5);
+  --card-bg-color: var(--surface-color);
+
+  /* Forms */
+  --input-height: 2.5rem;
+  --input-padding: 0.5rem 1rem;
+  --input-border-color: var(--neutral-color);
+  --input-focus-border-color: var(--accent-blue);
+
+  /* Tooltips */
+  --tooltip-bg-color: var(--highlight-color);
+  --tooltip-text-color: var(--color-text-inverse);
+
+  /* Scrollbar */
+  --scrollbar-width: 10px;
+  --scrollbar-track-color: var(--surface-color);
+  --scrollbar-thumb-color: var(--neutral-color);
+
+  /* Code Blocks */
+  --code-bg-color: #1E1E1E;
+  --code-text-color: #D4D4D4;
+  --code-border-color: #3C3C3C;
 }

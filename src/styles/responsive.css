@@ -33,7 +33,7 @@
   }
 
   /* Main content adjustments for full width */
-  .main-content {
+  .content {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
@@ -46,7 +46,7 @@
   .footer-container {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--space-2_5);
     gap: 1rem;
   }
 

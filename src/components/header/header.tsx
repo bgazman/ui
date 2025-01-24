@@ -15,11 +15,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ logo, navItems, brandName, onSettingsClick }) => {
     return (
-        <header className="header bg-white shadow-md p-4">
-            <div className="header-container container mx-auto flex justify-between items-center">
+        <header className="header ">
+            <div className="header-container">
                 {/* Logo */}
                 <div className="header-logo">
-                    <a href={logo.src} className="header-brand text-xl font-bold text-gray-800">
+                    <a href={logo.src} className="header-brand">
                         {brandName}
                     </a>
                 </div>

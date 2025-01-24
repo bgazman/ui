@@ -9,7 +9,7 @@
 /* Top layout */
 .layout-container[data-layout="top"] {
     grid-template-areas:
-        "topbar"
+        "header"
         "content";
     grid-template-rows: var(--header-height) 1fr; /* Use dynamic header height */
 }
@@ -21,7 +21,7 @@
 /* Left sidebar layout */
 .layout-container[data-layout="sidebar-left"] {
     grid-template-areas:
-        "topbar topbar"
+        "header header"
         "sidebar content";
     grid-template-columns: var(--navigation-width) 1fr; /* Use theme sidebar width */
     grid-template-rows: var(--header-height) 1fr;
@@ -36,7 +36,7 @@
 /* Right sidebar layout */
 .layout-container[data-layout="sidebar-right"] {
     grid-template-areas:
-        "topbar topbar"
+        "header header"
         "content sidebar";
     grid-template-columns: 1fr var(--navigation-width); /* Sidebar width defined in theme */
     grid-template-rows: var(--header-height) 1fr;
@@ -49,9 +49,9 @@
 }
 
 /* Shared grid areas */
-.topbar {
-    grid-area: topbar;
-    background-color: var(--primary-color); /* Use theme primary color */
+.header {
+    grid-area: header;
+    background-color: var(--header-bg);
     color: var(--text-secondary); /* Contrasting color for readability */
     padding: 0 var(--space-4_5); /* Use large spacing for padding */
     display: flex;
@@ -61,7 +61,7 @@
 
 .sidebar {
     grid-area: sidebar;
-    background-color: var(--surface-color); /* Surface background variable */
+    background-color: var(--sidebar-bg);
     border-right: 1px solid var(--highlight-color); /* Sidebar border color */
     padding: var(--space-2_5); /* Use spacing variable for consistent padding */
     overflow-y: auto;
@@ -74,7 +74,7 @@
     grid-area: content;
     padding: var(--space-3_5); /* Use theme spacing variable */
     overflow-y: auto;
-    background-color: var(--color-content-background, var(--color-background)); /* Fallback for content area */
+    background-color: var(--content-bg);
     color: var(--color-text); /* Theme text color */
 }
 
@@ -91,20 +91,4 @@
     color: var(--primary-color); /* Change to primary color on hover */
 }
 
-/* Root layout variables */
-:root {
-    /* Header and Navigation */
-    --layout-header-height: var(--header-height, 60px); /* Header height (supports fallback) */
-    --layout-sidebar-width: var(--navigation-width, 250px); /* Sidebar width */
-    --layout-sidebar-collapsed-width: var(--collapsed-sidebar-width, 60px); /* Collapsed sidebar width */
 
-    /* Grid Gaps */
-    --layout-grid-gap-sm: var(--grid-gap-1_1, 1.5rem); /* Smaller gaps */
-    --layout-grid-gap-md: var(--grid-gap-2_1, 2rem); /* Medium gaps */
-    --layout-grid-gap-lg: var(--grid-gap-3_1, 2.5rem); /* Larger gaps */
-
-    /* Sizing */
-    --layout-max-width: var(--container-width, 1200px); /* Maximum container width */
-    --layout-section-padding: var(--section-padding, 4rem); /* Section padding */
-    --layout-content-margin: var(--space-2_5, 1rem); /* Content margin controlled dynamically */
-}
