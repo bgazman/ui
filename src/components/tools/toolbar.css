@@ -1,40 +1,30 @@
-/* Toolbar wrapper */
-.toolbar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligns toolbar content to the start */
-    gap: var(--space-4_5); /* Adds spacing between toolbar elements */
+/* Sidebar-specific styles */
+.sidebar {
+    background-color: var(--bg-surface, #252526); /* Surface background color */
+    width: var(--sidebar-width, 250px); /* Sidebar width */
+    min-height: 100vh; /* Full viewport height for sidebar */
+    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Subtle shadow */
+    padding: var(--sidebar-padding, 1rem 0); /* Vertical padding for sidebar content */
 }
 
-/* Floating menu styles specifically under toolbar */
-.toolbar-menu {
-    display: flex;
-    flex-direction: column; /* Vertical stacking for menu items */
-    gap: var(--space-4_5); /* Theme-based spacing between menu items */
-    padding: var(--space-5_5); /* Internal padding for menu */
-    background-color: var(--surface-color); /* Theme surface background */
-    border-radius: var(--radius-2_5); /* Rounded corners for the menu */
-    box-shadow: var(--shadow-2_3); /* Theme-based shadow for floating effect */
+.sidebar .navigation-menu {
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical alignment of navigation items */
+    gap: var(--sidebar-item-spacing, 1rem); /* Vertical spacing between nav items */
 }
 
-/* Individual menu item */
-.toolbar-menu-item {
-    display: flex;
-    flex-direction: column; /* Vertical stacking for each item's content */
-    gap: var(--space-2_5); /* Theme spacing between item title and controls */
-    padding: var(--space-3_5); /* Internal padding for menu items */
-    border-radius: var(--radius-2_5); /* Subtle rounding for individual items */
-    transition: background-color var(--transition-2_3); /* Smooth hover effect */
+/* Sidebar-specific navigation link styles */
+.sidebar .navigation-link {
+    display: block; /* Block-level link for a large clickable area */
+    text-align: left; /* Left-aligned text for sidebar links */
+    padding: var(--space-sm, 0.5rem) var(--space-lg, 1.5rem); /* Padding for better click area */
+    border-radius: var(--radius-md, 8px); /* Ensure rounded corners */
+    transition: background-color var(--transition-fast, 150ms ease-in-out), color var(--transition-fast, 150ms ease-in-out); /* Smooth hover transitions */
+    color: var(--sidebar-text-color, #D4D4D4); /* Sidebar link text color */
+    background-color: transparent; /* Transparent background by default */
 }
 
-.toolbar-menu-item:hover {
-    background-color: var(--hover-bg-color); /* Theme-based hover background color */
-}
-
-/* Example heading styles inside items */
-.toolbar-menu-item h3 {
-    font-size: var(--font-4_5); /* Theme font size for small headings */
-    font-weight: var(--weight-2_4); /* Medium font weight from theme */
-    margin-bottom: var(--space-2_5); /* Spacing below the title */
-    color: var(--color-text); /* Theme text color */
+.sidebar .navigation-link:hover {
+    background-color: var(--hover-bg-color, var(--accent-blue, #0078D4)); /* Use hover background color with fallback */
+    color: var(--text-inverse, #FFFFFF); /* Inverse text color for high contrast */
 }

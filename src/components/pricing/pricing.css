@@ -1,76 +1,77 @@
 .pricing-section {
-    padding: var(--section-padding); /* Reuse section padding from theme */
-    margin-top: var(--section-margin-top); /* Optional: Consistent vertical spacing */
+    padding: var(--container-padding, 4rem); /* Use section padding from theme or fallback */
+    margin-top: var(--section-margin, 2rem); /* Consistent vertical spacing across sections */
 }
 
 .pricing-container {
-    max-width: var(--layout-max-width); /* Use the defined maximum container width */
-    margin: 0 auto; /* Center alignment */
-    padding: 0 var(--space-3_5); /* Inner horizontal spacing based on root variables */
+    max-width: var(--layout-container-width, 1200px); /* Define maximum layout width */
+    margin: 0 auto; /* Center section */
+    padding: 0 var(--space-lg, 1.5rem); /* Horizontal spacing within container */
 }
 
 .pricing-title {
-    font-size: var(--font-7_5); /* Use theme heading font size */
-    text-align: center;
-    margin-bottom: var(--space-4_5); /* Vertical spacing for separation */
+    font-size: var(--font-4xl, 2.25rem); /* Large heading font size */
+    font-weight: var(--font-weight-bold, 700); /* Bold text for emphasis */
+    text-align: center; /* Center-align the title text */
+    margin-bottom: var(--space-xl, 2rem); /* Add spacing below the title */
 }
 
 .pricing-subtitle {
-    color: var(--text-secondary); /* Use root secondary text color */
-    text-align: center;
-    margin-bottom: var(--space-6_5); /* Consistent bottom spacing */
+    color: var(--text-secondary, #9CDCFE); /* Use muted secondary text color */
+    text-align: center; /* Center-align the subtitle*/
+    margin-bottom: var(--space-2xl, 3rem); /* Consistent spacing below subtitle */
 }
 
 .pricing-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr)); /* Responsive columns for cards */
-    gap: var(--layout-grid-gap-lg); /* Consistent grid spacing */
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr)); /* Responsive grid for cards */
+    gap: var(--grid-gap-lg, 2.5rem); /* Define large grid gaps */
 }
 
 .pricing-card {
-    background-color: var(--surface-color); /* Surface background set by theme */
-    padding: var(--card-padding, var(--space-5_5)); /* Card inner spacing */
-    border-radius: var(--radius-2_5); /* Theme-defined border radius */
-    box-shadow: var(--shadow-2_3); /* Subtle shadow for cards */
-    transition: transform var(--transition-2_3), box-shadow var(--transition-2_3); /* Smooth interaction effects */
+    background-color: var(--card-bg, #252526); /* Card surface background */
+    padding: var(--card-padding, 1.5rem); /* Card inner spacing */
+    border-radius: var(--card-radius, 8px); /* Rounded corners from the theme */
+    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Subtle shadow for depth */
+    transition: transform var(--transition-medium, 300ms ease-in-out), box-shadow var(--transition-medium, 300ms ease-in-out); /* Smooth card interactions */
 }
 
 .pricing-card:hover {
-    transform: translateY(var(--card-hover-lift, -0.5rem)); /* Minor lift effect on hover */
-    box-shadow: var(--shadow-3_3); /* Enhanced depth for hover state */
+    transform: translateY(var(--card-hover-lift, -0.5rem)); /* Slight lift effect on hover */
+    box-shadow: var(--shadow-lg, 0 10px 20px rgba(0, 0, 0, 0.15)); /* Add depth when hovered */
 }
 
 .pricing-plan-title {
-    font-size: var(--font-5_5); /* Subheading font size */
-    font-weight: var(--weight-3_4); /* Bold emphasis */
-    margin-bottom: var(--space-2_5); /* Space for visual separation */
+    font-size: var(--font-xl, 1.5rem); /* Medium heading font size */
+    font-weight: var(--font-weight-medium, 500); /* Emphasized text weight */
+    margin-bottom: var(--space-md, 1rem); /* Bottom margin for spacing */
 }
 
 .pricing-plan-price {
-    font-size: var(--font-6_5); /* Font size for pricing */
-    font-weight: var(--weight-4_4); /* Enhanced weight for emphasis */
-    margin-bottom: var(--space-4_5); /* Spacing from next element */
-    color: var(--primary-color); /* Pricing color set to primary theme color */
+    font-size: var(--font-2xl, 1.75rem); /* Slightly larger font size for price */
+    font-weight: var(--font-weight-bold, 700); /* Bold weight for visibility */
+    margin-bottom: var(--space-xl, 2rem); /* Spaced to separate from the next section */
+    color: var(--primary-color, #007bff); /* Theme-defined primary color */
 }
 
 .pricing-plan-features {
-    color: var(--text-secondary); /* Use secondary text color */
-    margin-bottom: var(--space-6_5); /* Consistent bottom margin */
-    padding-left: var(--space-3_5); /* Left padding for list indentation */
+    color: var(--text-secondary, #9CDCFE); /* Align with secondary muted text color */
+    margin-bottom: var(--space-2xl, 3rem); /* Vertical spacing below features */
+    padding-left: var(--space-lg, 1.5rem); /* Indentation for list items */
 }
 
 .choose-plan-btn {
     display: inline-block;
-    background-color: var(--accent-blue); /* Accent color for buttons */
-    color: #ffffff; /* Ensure readable text on button */
-    padding: var(--space-2_5) var(--space-5); /* Button paddings */
-    border-radius: var(--radius-2_5); /* Rounded corners */
-    font-weight: var(--weight-2_4); /* Medium weight for button text */
-    text-decoration: none; /* Remove underline for links styled as buttons */
-    transition: background-color var(--transition-2_3), transform var(--transition-2_3); /* Smooth hover effects */
+    background-color: var(--accent-blue, #0078D4); /* Accent color for buttons */
+    color: var(--text-inverse, #fff); /* Text color for button contrast */
+    padding: var(--space-sm, 0.5rem) var(--space-lg, 1.5rem); /* Button padding for size */
+    border-radius: var(--btn-radius, 4px); /* Rounded corners for the button */
+    font-weight: var(--font-weight-medium, 500); /* Medium weight for the button text */
+    text-decoration: none; /* No underline for the button */
+    transition: background-color var(--transition-fast, 150ms ease-in-out), transform var(--transition-fast, 150ms ease-in-out); /* Responsive hover effects */
 }
 
 .choose-plan-btn:hover {
-    background-color: var(--accent-hover); /* Use hover state accent color */
-    transform: scale(1.05); /* Slight scaling effect for visual feedback */
+    background-color: var(--accent-hover, #2B88D8); /* Slightly darker shade of blue on hover */
+    transform: scale(1.05); /* Enlarge button slightly on hover */
 }

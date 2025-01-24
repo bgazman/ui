@@ -1,50 +1,50 @@
 /* Positional classes for the button's container */
 .floating-button-container {
-  position: fixed;
-  z-index: 50;
+  position: fixed; /* Fixed positioning for floating functionality */
+  z-index: 50; /* Ensure high stacking order */
 }
 
 .bottom-right {
-  bottom: 1rem;
-  right: 1rem;
+  bottom: var(--space-md, 1rem); /* Bottom-right corner positioning */
+  right: var(--space-md, 1rem);
 }
 
 .bottom-left {
-  bottom: 1rem;
-  left: 1rem;
+  bottom: var(--space-md, 1rem); /* Bottom-left corner positioning */
+  left: var(--space-md, 1rem);
 }
 
 .top-right {
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-md, 1rem); /* Top-right corner positioning */
+  right: var(--space-md, 1rem);
 }
 
 .top-left {
-  top: 1rem;
-  left: 1rem;
+  top: var(--space-md, 1rem); /* Top-left corner positioning */
+  left: var(--space-md, 1rem);
 }
 
 /* Base button styles */
 .floating-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem; /* 12 units */
-  height: 3rem; /* 12 units */
-  border-radius: 50%; /* Circular button */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #3b82f6; /* Tailwind's 'bg-blue-500' */
-  color: #fff; /* Text color */
-  outline: none;
-  transition: background-color 0.2s ease-in-out;
+  display: flex; /* Flexbox for centering icon or text */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  width: var(--button-size, 3rem); /* Flexible button size */
+  height: var(--button-size, 3rem); /* Ensure circular dimensions */
+  border-radius: 50%; /* Fully rounded for circular button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: var(--button-bg-color, #3b82f6); /* Button background (blue), fallback provided */
+  color: var(--button-text-color, #ffffff); /* Text/icon color */
+  outline: none; /* Remove default browser outline */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
 }
 
 /* Hover Styles */
 .floating-button:hover {
-  background-color: #2563eb; /* Tailwind's 'hover:bg-blue-600' */
+  background-color: var(--button-hover-bg-color, #2563eb); /* Darker blue on hover */
 }
 
 /* Focus Styles */
 .floating-button:focus {
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5); /* Tailwind's 'focus:ring-2 focus:ring-blue-300' */
+  box-shadow: 0 0 0 4px var(--button-focus-ring-color, rgba(59, 130, 246, 0.5)); /* Accessible focus ring */
 }

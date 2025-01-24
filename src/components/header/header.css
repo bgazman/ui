@@ -1,61 +1,61 @@
 /* Overall header styles */
 .header {
-  background-color: var(--header-bg); /* Theme-based surface background */
-  box-shadow: var(--shadow-2_3); /* Use theme shadow variable */
-  padding: var(--space-4_5); /* Consistent spacing from theme */
+  background-color: var(--header-bg, #ffffff); /* Theme-based header background with fallback */
+  box-shadow: var(--shadow-md, 0 2px 4px rgba(0, 0, 0, 0.1)); /* Subtle shadow for depth */
+  padding: var(--space-md, 1rem); /* Consistent padding across devices */
   display: flex;
-  justify-content: space-between; /* Align logo, nav, and settings button */
-  align-items: center; /* Vertically align contents */
+  justify-content: space-between; /* Align contents evenly */
+  align-items: center; /* Vertical alignment for header elements */
 }
 
 /* Container for header contents */
 .header-container {
-  max-width: var(--container-width); /* Consistent container width */
+  width: var(--container-width);
   margin: 0 auto; /* Center the container */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Ensure proper spacing between child elements */
+  align-items: center; /* Vertical alignment */
 }
 
 /* Logo container */
 .header-logo {
-  display: flex;
-  align-items: center;
+  display: flex; /* Use flex for alignment */
+  align-items: center; /* Ensure visual alignment */
 }
 
 .header-brand {
-  font-size: var(--font-6_5); /* Theme-based large font size */
-  font-weight: var(--weight-3_4); /* Theme-based font weight */
-  color: var(--primary-color); /* Theme primary color */
-  text-decoration: none;
+  font-size: var(--font-lg, 2rem); /* Large font size for the brand */
+  font-weight: var(--font-weight-bold, 700); /* Bold text weight */
+  color: var(--primary-color, #0056b3); /* Primary branding color */
+  text-decoration: none; /* Remove underline for branding */
 }
 
 /* Navigation styles */
 .header-nav {
-  flex-grow: 1; /* Allow navigation to grow */
-  display: flex;
+  flex-grow: 1; /* Allow navigation area to grow proportionally */
+  display: flex; /* Flexible navigation layout */
   justify-content: center; /* Center navigation items */
 }
 
 /* Settings button styles */
 .settings-button {
-  background: none;
-  color: var(--primary-color); /* Theme-based button text color */
-  border: 1px solid var(--highlight-color); /* Theme-based border color */
-  padding: var(--space-2_5) var(--space-4_5); /* Consistent padding */
-  border-radius: var(--radius-1_5); /* Theme-based small border radius */
-  cursor: pointer;
-  font-size: var(--font-4_5); /* Theme-based small font size */
-
-  transition: background-color var(--transition-speed), border-color var(--transition-speed) var(--transition-timing); /* Smooth transitions */
+  background: none; /* Transparent background */
+  color: var(--primary-color, #0056b3); /* Consistent button text color */
+  border: 1px solid var(--highlight-color, #cccccc); /* Theme-based border with fallback */
+  padding: var(--space-sm, 0.5rem) var(--space-md, 1rem); /* Button padding for clickability */
+  border-radius: var(--radius-sm, 4px); /* Rounded corners using theme variable */
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
+  font-size: var(--font-md, 1rem); /* Small button font size */
+  transition: background-color var(--transition-fast, 150ms ease-in-out),
+  border-color var(--transition-fast, 150ms ease-in-out); /* Smooth transition for interactivity */
 }
 
 .settings-button:hover {
-  background-color: var(--accent-hover); /* Theme hover background */
-  border-color: var(--highlight-color); /* Theme hover border color */
+  background-color: var(--accent-hover, #f0f0f0); /* Slight hover background highlight */
+  border-color: var(--highlight-color, #aaaaaa); /* Darker border color on hover */
 }
 
 .settings-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--accent-blue); /* Focus outline using theme accent color */
+  outline: none; /* Remove default outline for focus */
+  box-shadow: 0 0 0 2px var(--accent-blue, #0078D4); /* Focus ring using the theme's accent color */
 }

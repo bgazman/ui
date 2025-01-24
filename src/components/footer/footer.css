@@ -1,55 +1,58 @@
+/* Footer section general styles */
 .footer-section {
-    background-color: var(--color-background); /* Use theme background color */
-    padding: var(--space-6_5) var(--space-7_5); /* Use theme spacing variables */
-    border-top: 1px solid var(--highlight-color); /* Use theme border/highlight color */
-    color: var(--color-text); /* Use theme text color */
+    background-color: var(--color-background, #f8f9fa); /* Theme-based background with fallback */
+    padding: var(--space-lg, 2rem) var(--space-xl, 4rem); /* Consistent spacing */
+    border-top: 1px solid var(--highlight-color, #e0e0e0); /* Border for section separation */
+    color: var(--color-text, #333333); /* Default text color with fallback */
 }
 
+/* Footer container setup */
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-6_5); /* Theme spacing for consistent gap */
-    max-width: var(--container-width); /* Consistent max width from theme */
-    margin: 0 auto; /* Center align */
+    display: flex; /* Flexible layout for items */
+    flex-wrap: wrap; /* Adjust layout for smaller screens */
+    align-items: flex-start; /* Align items flex-start for top alignment */
+    justify-content: space-between; /* Spread child elements evenly */
+    gap: var(--space-lg, 2rem); /* Spacing between child elements */
+    max-width: var(--container-width, 1200px); /* Content maximum width */
+    margin: 0 auto; /* Center layout horizontally */
 }
 
 /* Contact section styles */
 .contact {
-    flex: 1;
-    min-width: var(--navigation-width); /* Use responsive min-width matching theme */
+    flex: 1; /* Allow responsive resizing */
+    min-width: var(--navigation-width, 200px); /* Minimum width with flexible fallback */
 }
 
 .contact-title {
-    font-size: var(--font-5_5); /* Use theme font size */
-    font-weight: var(--weight-4_4); /* Use theme font weight for bold */
-    margin-bottom: var(--space-4_5); /* Use spacing for consistent vertical space */
-    color: var(--primary-color); /* Use primary theme color */
+    font-size: var(--font-lg, 1.5rem); /* Bold and large font size */
+    font-weight: var(--font-weight-bold, 700); /* Bold weight for title */
+    margin-bottom: var(--space-md, 1rem); /* Spacing below title */
+    color: var(--primary-color, #0056b3); /* Highlighted primary theme color */
 }
 
 .contact-email,
 .contact-address {
-    font-size: var(--font-3_5); /* Use medium font size */
-    color: var(--text-secondary); /* Use secondary text color */
-    line-height: var(--line-height); /* Use theme line-height */
+    font-size: var(--font-md, 1rem); /* Medium-sized text for readability */
+    color: var(--text-secondary, #666666); /* Secondary text color */
+    line-height: var(--line-height, 1.6); /* Adequate line spacing for text */
 }
 
 /* Footer note styles */
 .footer-note {
-    font-size: var(--font-2_5); /* Use small font size from theme */
-    color: var(--neutral-color); /* Secondary/neutral color for less emphasis */
-    text-align: center;
-    margin-top: var(--space-6_5); /* Consistent margin from theme */
-    padding-top: var(--space-4_5); /* Padding for spacing */
-    border-top: 1px solid var(--highlight-color); /* Use theme border color */
-    max-width: var(--container-width); /* Ensure consistent max width */
+    font-size: var(--font-sm, 0.875rem); /* Smaller font size for notes */
+    color: var(--neutral-color, #999999); /* Neutral/less emphasized text color */
+    text-align: center; /* Center-align footer note */
+    margin-top: var(--space-lg, 2rem); /* Vertical spacing above footer note */
+    padding-top: var(--space-md, 1rem); /* Padding for spacing inside */
+    border-top: 1px solid var(--highlight-color, #e0e0e0); /* Separator line for footer notes */
+    max-width: var(--container-width, 1200px); /* Ensure consistent width with layout */
     margin-left: auto;
-    margin-right: auto; /* Center align */
+    margin-right: auto; /* Horizontal centering */
 }
 
+/* Responsive styles for smaller devices */
 @media (max-width: 480px) {
     .footer-note {
-        font-size: var(--font-1_5); /* Use a smaller font size for mobile */
+        font-size: var(--font-xs, 0.75rem); /* Smaller font size for mobile responsiveness */
     }
 }

@@ -1,56 +1,16 @@
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  /* Top layout */
-  .layout-container[data-layout="top"] {
-    grid-template-areas:
-      "header"
-      "main";
-    grid-template-columns: 1fr;
-    grid-template-rows: var(--header-height) 1fr;
-  }
-
-  /* Sidebar-left layout */
-  .layout-container[data-layout="sidebar-left"] {
-    grid-template-areas:
-      "header"
-      "main";
-    grid-template-columns: 1fr;
-    grid-template-rows: var(--header-height) 1fr;
-  }
-
-  /* Sidebar-right layout */
+  .layout-container[data-layout="sidebar-left"],
   .layout-container[data-layout="sidebar-right"] {
     grid-template-areas:
-      "header"
-      "main";
-    grid-template-columns: 1fr;
+            "header"
+            "main";
+    grid-template-columns: 1fr; /* No sidebar on smaller screens */
     grid-template-rows: var(--header-height) 1fr;
   }
 
-  /* Hide the sidebar in all layouts */
-  .sidebar {
-    display: none;
-  }
-
-  /* Main content adjustments for full width */
-  .content {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  /* Footer adjustments */
-  .footer-section {
-    padding: 2rem 0;
-  }
-
-  .footer-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 0 var(--space-2_5);
-    gap: 1rem;
-  }
-
-  .contact-title {
-    font-size: 1.25rem;
+  .layout-container[data-layout="sidebar-left"] .sidebar,
+  .layout-container[data-layout="sidebar-right"] .sidebar {
+    display: none; /* Try hiding the sidebar in mobile views */
   }
 }

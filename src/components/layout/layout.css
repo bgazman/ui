@@ -6,89 +6,46 @@
     color: var(--color-text); /* Use theme text color variable */
 }
 
-/* Top layout */
+/* Top layout (Header + Main main) */
 .layout-container[data-layout="top"] {
     grid-template-areas:
         "header"
-        "content";
+        "main";
     grid-template-rows: var(--header-height) 1fr; /* Use dynamic header height */
 }
 
 .layout-container[data-layout="top"] .sidebar {
-    display: none; /* Sidebar is hidden when not relevant */
+    display: none; /* Sidebar is not visible in a top layout */
 }
 
 /* Left sidebar layout */
 .layout-container[data-layout="sidebar-left"] {
     grid-template-areas:
         "header header"
-        "sidebar content";
-    grid-template-columns: var(--navigation-width) 1fr; /* Use theme sidebar width */
+        "sidebar main";
+    grid-template-columns: var(--sidebar-width) 1fr; /* Sidebar width from theme */
     grid-template-rows: var(--header-height) 1fr;
 }
 
 .layout-container[data-layout="sidebar-left"] .sidebar.collapsed {
-    width: var(--collapsed-sidebar-width); /* Adjust width for collapsed state */
+    width: var(--sidebar-collapsed-width); /* Adjust sidebar width for collapsed state */
     border-right: none; /* Remove default border */
-    border-left: 1px solid var(--highlight-color); /* Use theme border color */
+    border-left: 1px solid var(--sidebar-border-color); /* Use theme border color for collapsed state */
 }
 
 /* Right sidebar layout */
 .layout-container[data-layout="sidebar-right"] {
     grid-template-areas:
         "header header"
-        "content sidebar";
-    grid-template-columns: 1fr var(--navigation-width); /* Sidebar width defined in theme */
+        "main sidebar";
+    grid-template-columns: 1fr var(--sidebar-width); /* Sidebar width defined in theme */
     grid-template-rows: var(--header-height) 1fr;
 }
 
 .layout-container[data-layout="sidebar-right"] .sidebar.collapsed {
-    width: var(--collapsed-sidebar-width); /* Dynamic sidebar size when collapsed */
+    width: var(--sidebar-collapsed-width); /* Dynamic sidebar size when collapsed */
     border-left: none;
-    border-right: 1px solid var(--highlight-color); /* Theme border color */
-}
-
-/* Shared grid areas */
-.header {
-    grid-area: header;
-    background-color: var(--header-bg);
-    color: var(--text-secondary); /* Contrasting color for readability */
-    padding: 0 var(--space-4_5); /* Use large spacing for padding */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.sidebar {
-    grid-area: sidebar;
-    background-color: var(--sidebar-bg);
-    border-right: 1px solid var(--highlight-color); /* Sidebar border color */
-    padding: var(--space-2_5); /* Use spacing variable for consistent padding */
-    overflow-y: auto;
-    height: 100vh;
-    width: var(--navigation-width); /* Sidebar width from theme */
-    transition: width var(--transition-speed) var(--transition-timing); /* Smooth resizing */
-}
-
-.content {
-    grid-area: content;
-    padding: var(--space-3_5); /* Use theme spacing variable */
-    overflow-y: auto;
-    background-color: var(--content-bg);
-    color: var(--color-text); /* Theme text color */
-}
-
-/* Sidebar navigation link styles */
-.sidebar__nav-link {
-    display: block;
-    padding: var(--space-1_5) 0; /* Vertical padding with theme spacing */
-    color: var(--accent-blue); /* Use accent color for links */
-    text-decoration: none;
-    transition: color var(--transition-speed) var(--transition-timing); /* Smooth color transition */
-}
-
-.sidebar__nav-link:hover {
-    color: var(--primary-color); /* Change to primary color on hover */
+    border-right: 1px solid var(--sidebar-border-color); /* Use consistent border color */
 }
 
 

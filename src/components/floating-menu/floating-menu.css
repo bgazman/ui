@@ -1,36 +1,38 @@
 /* Floating Menu button container */
 .floating-menu-container {
-  position: fixed;
-  z-index: 50;
+  position: fixed; /* Fixed to stay in viewport */
+  z-index: 50; /* Ensure the floating menu is above other content */
 }
 
 /* Dialog container for the menu */
 .floating-menu-dialog {
-  position: fixed;
-  bottom: 0;
+  position: fixed; /* Stick to the viewport */
+  bottom: 0; /* Attach to the bottom of the screen */
   left: 0;
   right: 0;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  transform: translateY(100%); /* Hidden by default */
+  background-color: var(--color-background, #ffffff); /* Theme-based background with fallback */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
+  transform: translateY(100%); /* Hidden by default (slides off-screen) */
 }
 
-/* Open state of the dialog (transitioned to visible) */
+/* Open state of the dialog (visible menu) */
 .floating-menu-dialog-open {
-  transform: translateY(0);
+  transform: translateY(0); /* Transition the menu into view */
 }
 
 /* Menu content wrapper */
 .floating-menu-content {
-  margin-left: auto;
+  margin-left: auto; /* Center the content horizontally */
   margin-right: auto;
-  padding: 1rem;
+  padding: var(--space-md, 1rem); /* Consistent padding */
+  max-width: var(--container-width, 1200px); /* Limit the width of the content */
 }
 
 /* Title inside the menu */
 .floating-menu-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: var(--font-md, 1.125rem); /* Medium font size */
+  font-weight: var(--font-weight-semibold, 600); /* Semi-bold font weight */
+  margin-bottom: var(--space-sm, 0.5rem); /* Ensure spacing below the title */
+  color: var(--text-color, #333333); /* Theme-based text color */
 }

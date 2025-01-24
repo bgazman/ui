@@ -1,70 +1,72 @@
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr));
-    gap: var(--layout-grid-gap-md, var(--space-3_5)); /* Default to medium gap */
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr)); /* Responsive card widths */
+    gap: var(--grid-gap-md, 2rem); /* Medium gap fallback */
 }
+
 .features-section {
-    padding: var(--section-padding, var(--space-4_5)); /* Default to defined space scale */
-    margin-top: var(--section-margin-top, var(--space-2_5)); /* Use appropriate space */
-    background-color: var(--color-content-background, #252526);
+    padding: var(--container-padding, 4rem); /* Default to container padding fallback */
+    margin-top: var(--section-margin, 2rem); /* Section spacing */
+    background-color: var(--bg-surface, #252526); /* Background surface color fallback */
 }
 
 .features-title {
-    font-size: var(--font-7_5); /* Use typography variables for titles */
-    font-weight: var(--weight-4_4); /* Use weight variables */
-    margin-bottom: var(--space-3_5);
+    font-size: var(--font-3xl, 2rem); /* Typography scale for larger titles */
+    font-weight: var(--font-weight-bold, 700); /* Bold weight for emphasis */
+    margin-bottom: var(--space-lg, 1.5rem); /* Space below title */
     text-align: center;
-    color: var(--primary-color); /* Utilize primary color for title */
+    color: var(--primary-color, #007bff); /* Primary color fallback */
 }
 
 .feature-card {
-    padding: var(--card-padding, var(--space-2_5)); /* Defined spacing */
-    border: 1px solid var(--neutral-color); /* Use neutral color for card border */
-    border-radius: var(--radius-2_5, 8px);
-    box-shadow: var(--shadow-1_3); /* Subtle shadow */
-    background-color: var(--surface-color, #ffffff);
-    transition: transform var(--transition-2_3, 300ms) var(--transition-timing, ease);
+    padding: var(--card-padding, 1.5rem); /* Card content padding */
+    border: 1px solid var(--bg-neutral, #808080); /* Neutral border color */
+    border-radius: var(--card-radius, 8px); /* Default rounded corners */
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.12)); /* Subtle shadow for elevation */
+    background-color: var(--card-bg, #ffffff); /* Surface color fallback */
+    transition: all var(--transition-medium, 300ms ease-in-out); /* Ensure natural transitions */
 }
 
 .feature-card:hover {
-    transform: translateY(var(--card-hover-lift, -4px));
-    box-shadow: var(--shadow-2_3); /* Increase the shadow depth on hover */
-    background-color: var(--highlight-color, #3C3C3C); /* Ensure a more visible hover */
+    transform: translateY(var(--card-hover-lift, -4px)); /* Card lift effect on hover */
+    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Elevated shadow on hover */
+    background-color: var(--bg-highlight, #3C3C3C); /* Highlighted background on hover */
 }
 
 .feature-card__title {
-    font-size: var(--font-4_5, 1.25rem); /* Title font size */
-    font-weight: var(--weight-3_4); /* Semi-bold weight */
-    margin-bottom: var(--space-1_5); /* Spacing consistency */
-    color: var(--primary-color, #569CD6); /* Use primary color */
+    font-size: var(--font-lg, 1.25rem); /* Medium title size with fallback */
+    font-weight: var(--font-weight-medium, 500); /* Medium weight for readability */
+    margin-bottom: var(--space-md, 1rem); /* Consistent spacing below title */
+    color: var(--primary-color, #007bff); /* Primary color fallback */
 }
 
 .feature-card__description {
-    font-size: var(--font-2_5, 1rem); /* Description font size */
-    margin-bottom: var(--space-2_5); /* Appropriate spacing */
-    color: var(--text-secondary, #9CDCFE); /* Match secondary text color */
+    font-size: var(--font-base, 1rem); /* Standard base font size */
+    margin-bottom: var(--space-md, 1rem); /* Text spacing */
+    color: var(--text-secondary, #9CDCFE); /* Secondary muted text color */
 }
 
 .feature-card__benefits {
     list-style-type: disc;
-    padding-left: var(--space-2_5);
-    font-size: var(--font-1_5); /* Secondary font sizing for lists */
+    padding-left: var(--space-md, 1rem); /* Padding for list indentation */
+    font-size: var(--font-sm, 0.875rem); /* Slightly smaller font size for lists */
     color: var(--text-secondary, #9CDCFE); /* Align with secondary style */
 }
+
 .feature-card__button {
     display: inline-block;
-    height: var(--btn-height, 2.5rem);
-    padding: var(--btn-padding, 0 1rem);
-    border-radius: var(--btn-radius, var(--radius-1_5, 4px));
-    font-size: var(--font-2_5, 1rem);
-    font-weight: var(--weight-3_4); /* Ensure legible button text */
-    color: #fff;
-    background-color: var(--accent-blue);
+    height: var(--btn-height, 2.5rem); /* Standard button height */
+    padding: var(--btn-padding, 0 1rem); /* Button padding preference */
+    border-radius: var(--btn-radius, 4px); /* Use small radius */
+    font-size: var(--font-base, 1rem); /* Align button text size */
+    font-weight: var(--font-weight-medium, 500); /* Default medium weight */
+    color: var(--text-inverse, #ffffff); /* Light button text color */
+    background-color: var(--accent-blue, #0078D4); /* Accent blue for primary action */
     text-align: center;
     text-decoration: none;
-    transition: all var(--transition-1_3);
+    transition: all var(--transition-fast, 150ms ease-in-out); /* Quick hover responsiveness */
 }
 
 .feature-card__button:hover {
-    background-color: var(--accent-hover); /* Darker hover color */
+    background-color: var(--accent-hover, #2B88D8); /* Slightly darker hover shade */
 }

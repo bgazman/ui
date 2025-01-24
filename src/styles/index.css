@@ -1,20 +1,28 @@
-@import '../styles/global.css';
-@import './root-theme.css';
-@import './responsive.css';
-@import 'src/components/layout/layout.css';
-@import 'src/components/sidebar/sidebar.css';
-@import 'src/components/navigation/navigation.css';
-@import "src/components/footer/footer.css";
-@import 'src/components/footer/footer.css';
-@import 'src/components/tools/toolbar.css';
+/* GLOBAL STYLES */
+@import '@styles/global.css'; /* Global resets, base styles */
+@import '@styles/responsive.css'; /* Responsive utilities and breakpoints */
 
-@import 'src/components/theme/components/theme-pallete/theme-pallete.css';
-@import 'src/components/theme/components/theme-switcher/theme-switcher.css';
-@import 'src/components/hero/hero.css';
-@import 'src/components/floating-menu/floating-menu.css';
-@import '../components/floating-menu/components/floating-button/floating-button.css';
-@import 'src/components/features/features.css';
-@import 'src/components/pricing/pricing.css';
+/* APPLICATION THEME */
+@import '@theme/themes.css'; /* Base theme variables */
+@import '@theme/components/theme-pallete/theme-pallete.css'; /* Theme palettes */
+@import '@theme/components/theme-switcher/theme-switcher.css'; /* Theme switching utilities */
 
-@import './button.css';
+/* LAYOUT STYLES */
+@import '@layout/layout.css'; /* Base layout styles */
+@import '@components/header/header.css'; /* Header-specific styles */
+/*@import '@components/main/main.css'; !* Main content area *!*/
+@import '@components/sidebar/sidebar.css'; /* Sidebar navigation */
+@import '@navigation/navigation.css'; /* Navigation-related styles */
+@import '@components/footer/footer.css'; /* Footer styles */
 
+/* COMPONENT-SPECIFIC STYLES */
+@import '@components/hero/hero.css'; /* Hero component styles */
+@import '@components/floating-menu/floating-menu.css'; /* Floating menu design */
+@import '@features/features.css'; /* Features section styles */
+@import '@components/pricing/pricing.css'; /* Pricing cards and lists */
+
+/* TOOLBAR STYLES */
+@import '@components/tools/toolbar.css'; /* Toolbar-related styles */
+
+/* GENERIC UTILITIES */
+@import '@styles/button.css'; /* Global button utilities */

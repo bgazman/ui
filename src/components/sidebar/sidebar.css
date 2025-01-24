@@ -1,27 +1,30 @@
 /* Sidebar-specific styles */
 .sidebar {
-    background-color: var(--surface-color); /* Theme-based surface/background color */
-    width: var(--space-3_5); /* 16rem as per theme spacing variable */
-    min-height: 100vh; /* Full viewport height */
-    box-shadow: var(--shadow-3_3); /* Theme-defined shadow */
-    padding: var(--space-5_5); /* Consistent medium padding from theme */
+    background-color: var(--bg-surface, #252526); /* Surface background color */
+    width: var(--sidebar-width, 250px); /* Sidebar width */
+    min-height: 100vh; /* Full viewport height for sidebar */
+    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Subtle shadow */
+    padding: var(--sidebar-padding, 1rem 0); /* Vertical padding for sidebar content */
 }
 
 .sidebar .navigation-menu {
-    flex-direction: column; /* Align nav items vertically */
-    gap: var(--space-3_5); /* Theme spacing for vertical layout gaps */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical alignment of navigation items */
+    gap: var(--sidebar-item-spacing, 1rem); /* Vertical spacing between nav items */
 }
 
 /* Sidebar-specific navigation link styles */
 .sidebar .navigation-link {
-    display: block;
-    text-align: left; /* Left alignment for sidebar links */
-    padding: var(--space-2_5) var(--space-4_5); /* Spacing for clickable areas */
-    border-radius: var(--radius-2_5); /* Theme-based rounded corners */
-    transition: background-color var(--transition-2_3), color var(--transition-2_3); /* Smooth hover transitions */
+    display: block; /* Block-level link for a large clickable area */
+    text-align: left; /* Left-aligned text for sidebar links */
+    padding: var(--space-sm, 0.5rem) var(--space-lg, 1.5rem); /* Padding for better click area */
+    border-radius: var(--radius-md, 8px); /* Ensure rounded corners */
+    transition: background-color var(--transition-fast, 150ms ease-in-out), color var(--transition-fast, 150ms ease-in-out); /* Smooth hover transitions */
+    color: var(--sidebar-text-color, #D4D4D4); /* Sidebar link text color */
+    background-color: transparent; /* Transparent background by default */
 }
 
 .sidebar .navigation-link:hover {
-    background-color: var(--accent-blue); /* Use theme accent color */
-    color: var(--color-text-inverse); /* Theme color for inverse text on hover */
+    background-color: var(--accent-blue, #0078D4); /* Theme-defined accent color for hover state */
+    color: var(--text-inverse, #FFFFFF); /* Inverse text color for high contrast */
 }

@@ -1,55 +1,56 @@
 /* button.css */
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: 6px;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  transition: background-color var(--transition-speed), transform 100ms, opacity var(--transition-speed);
-  cursor: pointer;
+  display: inline-flex; /* Flex layout for aligning child elements */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Center the text/icon */
+  padding: var(--space-sm, 0.5rem) var(--space-lg, 1.5rem); /* Button paddings */
+  border-radius: var(--btn-radius, 4px); /* Use predefined button border radius */
+  font-family: var(--font-family-sans, Arial, sans-serif), serif; /* Button font family */
+  font-size: var(--font-base, 1rem); /* Base font size for buttons */
+  font-weight: var(--font-weight-medium, 500); /* Medium weight for button text */
+  transition: background-color var(--transition-fast, 150ms ease-in-out), transform 100ms, opacity var(--transition-fast, 150ms ease-in-out); /* Smooth state transitions */
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
 }
 
 .button:disabled {
-  opacity: 0.5;
-  pointer-events: none;
+  opacity: 0.5; /* Reduce visibility for disabled state */
+  pointer-events: none; /* Disable interactive events */
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+  outline: 2px solid var(--focus-border, #007FD4); /* Focus outline color from theme */
+  outline-offset: 2px; /* Offset for visible focus */
 }
 
 .button:active {
-  transform: translateY(1px);
+  transform: translateY(1px); /* Slight press-down effect */
 }
 
 .button[data-loading="true"] {
-  cursor: wait;
+  cursor: wait; /* Show wait cursor when loading */
 }
 
+/* Toolbar button styles */
 .toolbar-button {
-  position: fixed;
+  position: fixed; /* Toolbar button always stays fixed */
 }
 
 .toolbar-button-bottom-right {
-  bottom: var(--space-lg);
-  right: var(--space-lg);
+  bottom: var(--space-lg, 1.5rem); /* Bottom-right alignment */
+  right: var(--space-lg, 1.5rem);
 }
 
 .toolbar-button-bottom-left {
-  bottom: var(--space-lg);
-  left: var(--space-lg);
+  bottom: var(--space-lg, 1.5rem); /* Bottom-left alignment */
+  left: var(--space-lg, 1.5rem);
 }
 
 .toolbar-button-top-right {
-  top: var(--space-lg);
-  right: var(--space-lg);
+  top: var(--space-lg, 1.5rem); /* Top-right alignment */
+  right: var(--space-lg, 1.5rem);
 }
 
 .toolbar-button-top-left {
-  top: var(--space-lg);
-  left: var(--space-lg);
+  top: var(--space-lg, 1.5rem); /* Top-left alignment */
+  left: var(--space-lg, 1.5rem);
 }
