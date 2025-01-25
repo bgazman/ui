@@ -4,7 +4,7 @@
     background-color: var(--color-background);
     color: var(--color-text);
 }
- .sidebar {
+.layout-container[data-layout="top"] .sidebar {
     display: none; /* Sidebar is not visible in a top layout */
 }
 /* Default/Top layout */

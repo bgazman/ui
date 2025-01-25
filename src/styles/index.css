@@ -26,3 +26,8 @@
 
 /* GENERIC UTILITIES */
 @import '@styles/button.css'; /* Global button utilities */
+
+
+/*UI COMPONENTS */
+@import '@components/card/card.css';
+@import '@components/dynamic-grid/dynamic-grid.css';

@@ -1,72 +1,87 @@
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr)); /* Responsive card widths */
-    gap: var(--grid-gap-md, 2rem); /* Medium gap fallback */
-}
-
+/* Features Section */
 .features-section {
-    padding: var(--container-padding, 4rem); /* Default to container padding fallback */
-    margin-top: var(--section-margin, 2rem); /* Section spacing */
-    background-color: var(--bg-surface, #252526); /* Background surface color fallback */
+    padding: var(--container-padding, 4rem); /* Section padding */
+    margin-top: var(--section-margin, 2rem); /* Spacing from previous section */
+    background-color: var(--bg-surface, #252526); /* Background color */
 }
 
+/* Features Container: Horizontal layout */
+.features-container {
+    display: flex; /* Flexbox for horizontal alignment */
+    flex-direction: row; /* Ensure horizontal layout */
+    align-items: flex-start; /* Align items at the top */
+    justify-content: space-between; /* Equal spacing between items */
+    gap: var(--grid-gap-md, 2rem); /* Medium gap between children */
+    flex-wrap: wrap; /* Ensure wrapping for smaller screens */
+    margin: 0 auto; /* Center container */
+    max-width: var(--layout-container-width, 1200px); /* Limit max-width */
+    padding: var(--space-md, 1rem);
+}
+
+/* Features Title */
 .features-title {
-    font-size: var(--font-3xl, 2rem); /* Typography scale for larger titles */
-    font-weight: var(--font-weight-bold, 700); /* Bold weight for emphasis */
+    flex: 1 1 100%;
+    font-size: var(--font-3xl, 2rem); /* Large title */
+    font-weight: var(--font-weight-bold, 700); /* Emphasized text */
     margin-bottom: var(--space-lg, 1.5rem); /* Space below title */
     text-align: center;
-    color: var(--primary-color, #007bff); /* Primary color fallback */
+    color: var(--primary-color, #007bff); /* Primary color */
 }
 
+/* Features Subtitle */
+.features-subtitle {
+    flex: 1 1 100%;
+    font-size: var(--font-lg, 1.25rem); /* Slightly smaller than the title */
+    font-weight: var(--font-weight-medium, 500); /* Medium balanced weight */
+    color: var(--text-secondary, #9CDCFE); /* Subtitle muted color */
+    text-align: center;
+    margin-bottom: var(--space-lg, 1.5rem); /* Space below subtitle */
+}
+
+/* Features List Styling */
+.features-list {
+    flex: 1 1 100%; /* Full-width list in the container */
+    display: flex; /* Apply flexbox to list */
+    flex-wrap: wrap; /* Wrap items if screen is smaller */
+    gap: var(--grid-gap-lg, 2.5rem); /* Larger gap for cards/list items */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Feature Card */
 .feature-card {
-    padding: var(--card-padding, 1.5rem); /* Card content padding */
-    border: 1px solid var(--bg-neutral, #808080); /* Neutral border color */
-    border-radius: var(--card-radius, 8px); /* Default rounded corners */
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.12)); /* Subtle shadow for elevation */
-    background-color: var(--card-bg, #ffffff); /* Surface color fallback */
-    transition: all var(--transition-medium, 300ms ease-in-out); /* Ensure natural transitions */
+    flex: 1 1 calc(33.333% - var(--grid-gap-lg, 2.5rem)); /* Three columns layout */
+    max-width: calc(33.333% - var(--grid-gap-lg, 2.5rem)); /* Ensures proper spacing */
+    padding: var(--card-padding, 1.5rem); /* Inner card padding */
+    background-color: var(--card-bg, #ffffff); /* Card surface color */
+    border: 1px solid var(--bg-neutral, #808080); /* Neutral border */
+    border-radius: var(--card-radius, 8px); /* Rounded corners */
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.12)); /* Subtle elevation */
+    transition: transform var(--transition-medium, 300ms ease-in-out),
+    box-shadow var(--transition-medium, 300ms ease-in-out);
 }
 
 .feature-card:hover {
-    transform: translateY(var(--card-hover-lift, -4px)); /* Card lift effect on hover */
-    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Elevated shadow on hover */
-    background-color: var(--bg-highlight, #3C3C3C); /* Highlighted background on hover */
+    transform: translateY(var(--card-hover-lift, -4px)); /* Lift effect */
+    box-shadow: var(--shadow-md, 0 3px 6px rgba(0, 0, 0, 0.15)); /* Elevated shadow */
 }
 
-.feature-card__title {
-    font-size: var(--font-lg, 1.25rem); /* Medium title size with fallback */
-    font-weight: var(--font-weight-medium, 500); /* Medium weight for readability */
-    margin-bottom: var(--space-md, 1rem); /* Consistent spacing below title */
-    color: var(--primary-color, #007bff); /* Primary color fallback */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .feature-card {
+        flex: 1 1 calc(50% - var(--grid-gap-md, 2rem)); /* Two columns layout */
+        max-width: calc(50% - var(--grid-gap-md, 2rem));
+    }
 }
 
-.feature-card__description {
-    font-size: var(--font-base, 1rem); /* Standard base font size */
-    margin-bottom: var(--space-md, 1rem); /* Text spacing */
-    color: var(--text-secondary, #9CDCFE); /* Secondary muted text color */
-}
+@media (max-width: 768px) {
+    .feature-card {
+        flex: 1 1 100%; /* Stacks all cards vertically */
+        max-width: 100%; /* Full width for small screens */
+    }
 
-.feature-card__benefits {
-    list-style-type: disc;
-    padding-left: var(--space-md, 1rem); /* Padding for list indentation */
-    font-size: var(--font-sm, 0.875rem); /* Slightly smaller font size for lists */
-    color: var(--text-secondary, #9CDCFE); /* Align with secondary style */
-}
-
-.feature-card__button {
-    display: inline-block;
-    height: var(--btn-height, 2.5rem); /* Standard button height */
-    padding: var(--btn-padding, 0 1rem); /* Button padding preference */
-    border-radius: var(--btn-radius, 4px); /* Use small radius */
-    font-size: var(--font-base, 1rem); /* Align button text size */
-    font-weight: var(--font-weight-medium, 500); /* Default medium weight */
-    color: var(--text-inverse, #ffffff); /* Light button text color */
-    background-color: var(--accent-blue, #0078D4); /* Accent blue for primary action */
-    text-align: center;
-    text-decoration: none;
-    transition: all var(--transition-fast, 150ms ease-in-out); /* Quick hover responsiveness */
-}
-
-.feature-card__button:hover {
-    background-color: var(--accent-hover, #2B88D8); /* Slightly darker hover shade */
+    .features-container {
+        flex-direction: column; /* Switch to vertical stacking */
+        align-items: center; /* Center items in mobile view */
+        gap: var(--grid-gap-sm, 1.5rem); /* Reduce gap */
+    }
 }

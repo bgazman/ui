@@ -1,0 +1,19 @@
+.dynamic-grid {
+    display: grid;
+    width: 100%;
+}
+
+.dynamic-grid__item {
+    transition: box-shadow var(--transition-fast) var(--transition-timing);
+}
+
+.dynamic-grid__item:hover {
+    box-shadow: var(--section-box-shadow-hover);
+}
+
+.dynamic-grid__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}

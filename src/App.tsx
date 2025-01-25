@@ -1,18 +1,23 @@
-
-
-// import LayoutDemo from './pages/layout-demo/layout-demo.tsx'; // Import the new page (replace location if needed)
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/theme/theme-context.tsx";
-import Toolbar from "./components/tools/toolbar.tsx";
+import { LayoutProvider } from "./components/layout/context/layout-context.tsx";
 import LayoutDemo from "./pages/layout-demo/layout-demo.tsx";
-import {LayoutProvider} from "./components/layout/context/layout-context.tsx";
+import DynamicGridDemo from "./pages/dynamic-grid-demo/dynamic-grid-demo.tsx";
+import Home from "./pages/home/home.tsx";
+
+
 
 const App = () => {
     return (
         <ThemeProvider>
             <LayoutProvider>
-                    <LayoutDemo />
-                    <Toolbar />
-
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/layout-demo" element={<LayoutDemo />} />
+                        <Route path="/dynamic-grid-demo" element={<DynamicGridDemo />} />
+                    </Routes>
+                </Router>
             </LayoutProvider>
         </ThemeProvider>
     );
