@@ -1,9 +1,11 @@
 /* Footer section general styles */
-.footer-section {
-    background-color: var(--color-background, #f8f9fa); /* Theme-based background with fallback */
-    padding: var(--space-lg, 2rem) var(--space-xl, 4rem); /* Consistent spacing */
-    border-top: 1px solid var(--highlight-color, #e0e0e0); /* Border for section separation */
-    color: var(--color-text, #333333); /* Default text color with fallback */
+/* Common footer styles */
+.footer {
+    grid-area: footer;
+    background-color: var(--color-footer-background);
+    color: var(--color-footer-text);
+    padding: var(--footer-padding, 1rem);
+    text-align: center; /* Center-align footer content */
 }
 
 /* Footer container setup */

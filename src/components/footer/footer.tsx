@@ -1,20 +1,29 @@
 import React from 'react';
-import Contact  from './components/contact/contact.tsx';
-import Note from './components/note/note.tsx';
-
 
 export interface FooterProps {
-    contact: Contact;
-    note: Note;
+    contact: string;
+    note: string;
+    bgColor?: string;
+    textColor?: string;
+    padding?: string;
 }
 
-
-const Footer: React.FC<FooterProps> = ({contact, note}) => {
+const Footer: React.FC<FooterProps> = ({
+    contact,
+    note,
+    bgColor = "var(--color-footer-background)",
+    textColor = "var(--color-footer-text)",
+    padding = "var(--footer-padding)"
+}) => {
     return (
-        <footer id="contact" className="footer-section">
+        <footer className="footer-section" style={{ backgroundColor: bgColor, color: textColor, padding: padding }}>
             <div className="footer-container">
-                <Contact contact={contact}/>
-                <Note note={note}/>
+                <div className="footer-contact">
+                    <p>{contact}</p>
+                </div>
+                <div className="footer-note">
+                    <p>{note}</p>
+                </div>
             </div>
         </footer>
     );

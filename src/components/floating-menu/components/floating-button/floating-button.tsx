@@ -1,3 +1,5 @@
+import React from 'react';
+import './floating-button.css'; // Ensure this import is present
 
 type Position = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
@@ -11,13 +13,13 @@ interface FloatingButtonProps {
 }
 
 const FloatingButton: React.FC<FloatingButtonProps> = ({
-                                                           children,
-                                                           onClick,
-                                                           ariaLabel,
-                                                           tooltip,
-                                                           position = 'bottom-right',
-                                                           className = '',
-                                                       }) => {
+    children,
+    onClick,
+    ariaLabel,
+    tooltip,
+    position = 'bottom-right',
+    className = '',
+}) => {
     return (
         <div
             className={`floating-button-container ${position}`}

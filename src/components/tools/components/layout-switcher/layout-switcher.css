@@ -1,0 +1,23 @@
+/* src/components/tools/components/layout-switcher/layout-switcher.css */
+
+.layout-switcher {
+  display: flex;
+  gap: var(--space-md); /* Space between buttons */
+}
+
+.layout-switcher button {
+  padding: var(--space-md);
+  border: var(--section-border-width) solid var(--section-border-color);
+  border-radius: var(--radius-md);
+  flex: 1;
+  transition: background-color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing);
+}
+
+.layout-switcher button:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.layout-switcher button.active {
+  border-color: var(--primary-color);
+  background-color: var(--bg-secondary-color);
+}

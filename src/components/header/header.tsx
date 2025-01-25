@@ -1,42 +1,71 @@
-import React from 'react';
-import Navigation, { NavItem } from "../navigation/navigation.tsx";
+import React, { useState } from 'react';
+import Navigation from "../navigation/navigation.tsx";
 
+type MenuItem = {
+    label: string;
+    href: string;
+};
 type Logo = {
     src: string;
     alt: string;
 };
 
-interface HeaderProps {
-    brandName: string;
-    logo: Logo;
-    navItems: NavItem[];
-    onSettingsClick?: () => void; // Add this optional prop
-}
+export type HeaderProps = {
+    logo?: string | Logo;
+    menuItems: MenuItem[];
+    brandName?: string;
+    logoColor?: string;
+    bgColor?: string;
+    textColor?: string;
+    showUserIcon?: boolean;
+    onUserClick?: () => void;
+    onSettingsClick?: () => void;
+};
 
-const Header: React.FC<HeaderProps> = ({ logo, navItems, brandName, onSettingsClick }) => {
+const Header: React.FC<HeaderProps> = ({
+    logo = "Logo",
+    menuItems,
+    brandName = "",
+    logoColor = "var(--primary-color)",
+    bgColor = "var(--header-bg)",
+    textColor = "var(--header-text-color)",
+    showUserIcon = true,
+    onUserClick = () => {},
+}) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const renderLogo = () => {
+        if (typeof logo === 'string') {
+            return logo;
+        } else {
+            return <img src={logo.src} alt={logo.alt} />;
+        }
+    };
+
     return (
-        <header className="header ">
-            <div className="header-container">
-                {/* Logo */}
-                <div className="header-logo">
-                    <a href={logo.src} className="header-brand">
-                        {brandName}
-                    </a>
-                </div>
-
-                <nav className="header-nav">
-                    <Navigation navItems={navItems} />
-                </nav>
-
-                {/* Add a button or trigger for onSettingsClick if necessary */}
-                {onSettingsClick && (
-                    <button
-                        className="settings-button"
-                        onClick={onSettingsClick}>
-                        Settings
-                    </button>
-                )}
+        <header className="header" style={{ backgroundColor: bgColor }}>
+            <div className="header-logo" style={{ color: logoColor }}>
+                {renderLogo()}
+                {brandName && <span className="header-brand">{brandName}</span>}
             </div>
+
+            <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="header-menu-toggle"
+            >
+                {isMenuOpen ? 'Close' : 'Menu'}
+            </button>
+
+            <Navigation navItems={menuItems.map(item => ({ label: item.label, link: item.href }))} orientation="horizontal" />
+
+            {showUserIcon && (
+                <div
+                    className="header-user-icon"
+                    onClick={onUserClick}
+                >
+                    <span className="material-icons" style={{ color: textColor }}>account_circle</span>
+                </div>
+            )}
         </header>
     );
 };

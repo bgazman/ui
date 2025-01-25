@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import DynamicGrid from '../../components/dynamic-grid/dynamic-grid.tsx'; // Assuming the DynamicGrid is in the same directory
-
+import HeaderLayout from '../../components/layout/components/header-layout/header-layout.tsx';
+import { mockHeaderData } from './data/header-data';
 
 const DynamicGridDemo: React.FC = () => {
-    // State to keep track of rows and columns
+    const [currentLayout] = useState<'top' | 'sidebar-left' | 'sidebar-right'>('sidebar-left');
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    console.log("[LayoutDemo] Current Layout State:", currentLayout); // Logs the current layout
+
     const [rows, setRows] = useState<number>(3); // Default is 3 rows
     const [columns, setColumns] = useState<number>(3); // Default is 3 columns
 
@@ -18,50 +21,50 @@ const DynamicGridDemo: React.FC = () => {
         setColumns(newColumns > 0 ? newColumns : 1); // Ensure at least one column
     };
 
+    const handleSettingsClick = () => {
+        const newDrawerState = !isDrawerOpen;
+        console.log("[Settings Click] Toggling Drawer State to:", newDrawerState); // Logs new state on toggle
+        setIsDrawerOpen(newDrawerState);
+        console.log("[LayoutDemo] Current Layout State:", currentLayout); // Logs the current layout
+    };
+
     return (
-        <div className="dynamic-grid-demo">
-            <div className="controls">
-                {/* Selector for rows */}
-                <div className="control">
-                    <label htmlFor="rowsSelector">Number of Rows:</label>
-                    <input
-                        id="rowsSelector"
-                        type="number"
-                        value={rows}
-                        min={1}
-                        onChange={handleRowChange}
-                        className="input"
-                    />
+        <HeaderLayout header={mockHeaderData}>
+            <div className="dynamic-grid-demo">
+                <div className="controls">
+                    {/* Selector for rows */}
+                    <div className="control">
+                        <label htmlFor="rowsSelector">Number of Rows:</label>
+                        <input
+                            id="rowsSelector"
+                            type="number"
+                            value={rows}
+                            min={1}
+                            onChange={handleRowChange}
+                            className="input"
+                        />
+                    </div>
+
+                    {/* Selector for columns */}
+                    <div className="control">
+                        <label htmlFor="columnsSelector">Number of Columns:</label>
+                        <input
+                            id="columnsSelector"
+                            type="number"
+                            value={columns}
+                            min={1}
+                            onChange={handleColumnChange}
+                            className="input"
+                        />
+                    </div>
+
+                    {/* Button to toggle settings */}
+                    <button onClick={handleSettingsClick}>Toggle Settings</button>
                 </div>
 
-                {/* Selector for columns */}
-                <div className="control">
-                    <label htmlFor="columnsSelector">Number of Columns:</label>
-                    <input
-                        id="columnsSelector"
-                        type="number"
-                        value={columns}
-                        min={1}
-                        onChange={handleColumnChange}
-                        className="input"
-                    />
-                </div>
+                <div>Hello World</div>
             </div>
-
-            {/* Render the DynamicGrid component */}
-            <DynamicGrid
-                rows={rows}
-                columns={columns}
-                gap={4} // Gap between grid items
-                minItemWidth="150px" // Minimum item width
-                itemBgColor="bg-blue-100" // Background color for cards
-                renderItem={(index) => <span>Card {index + 1}</span>} // Render dynamic content inside cards
-                cardRounded // Round card corners
-                cardPadding // Enable card padding
-                cardElevation="low" // Set card elevation level
-                cardOnClick={(e) => console.log(`Card clicked! Index: ${e.currentTarget}`)} // Click handler
-            />
-        </div>
+        </HeaderLayout>
     );
 };
 

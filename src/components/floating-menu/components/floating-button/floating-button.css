@@ -1,4 +1,4 @@
-/* Positional classes for the button's container */
+/* floating-button.css */
 .floating-button-container {
   position: fixed; /* Fixed positioning for floating functionality */
   z-index: 50; /* Ensure high stacking order */
@@ -24,7 +24,6 @@
   left: var(--space-md, 1rem);
 }
 
-/* Base button styles */
 .floating-button {
   display: flex; /* Flexbox for centering icon or text */
   align-items: center; /* Vertical alignment */
@@ -39,12 +38,10 @@
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
 }
 
-/* Hover Styles */
 .floating-button:hover {
   background-color: var(--button-hover-bg-color, #2563eb); /* Darker blue on hover */
 }
 
-/* Focus Styles */
 .floating-button:focus {
   box-shadow: 0 0 0 4px var(--button-focus-ring-color, rgba(59, 130, 246, 0.5)); /* Accessible focus ring */
 }

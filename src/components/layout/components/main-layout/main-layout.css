@@ -1,0 +1,6 @@
+[data-layout="content"] {
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "main";
+}
+
+.main { grid-area: main; }

@@ -1,0 +1,20 @@
+[data-layout="dashboard"] .sidebar,
+[data-layout="landing"] .sidebar,
+[data-layout="main"] .sidebar,
+[data-layout="top"] .sidebar {
+    display: none;
+}
+
+[data-layout="dashboard"] .footer,
+[data-layout="landing"] .footer,
+[data-layout="content"] .footer,
+[data-layout="top"] .footer {
+    display: none;
+}
+
+[data-layout="dashboard"] .header,
+[data-layout="landing"] .header,
+[data-layout="content"] .header,
+[data-layout="top"] .header {
+    display: none;
+}

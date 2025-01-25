@@ -1,0 +1,8 @@
+[data-layout="sidebar-right"] {
+    grid-template: 1fr / 1fr var(--sidebar-width);
+    grid-template-areas: "main sidebar";
+}
+.header { grid-area: header; }
+.main { grid-area: main; }
+.sidebar { grid-area: sidebar; }
+.footer { grid-area: footer; }

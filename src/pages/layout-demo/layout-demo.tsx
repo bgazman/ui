@@ -1,71 +1,45 @@
 import React, { useState } from 'react';
-import './layout-demo.css';
-import Header from "../../components/header/header.tsx";
+import DynamicLayout from '../../components/layout/components/dynamic-layout/dynamic-layout.tsx';
 import HeroSection from "../../components/hero/hero.tsx";
-import FeaturesSection from "../../components/features/features.tsx";
 import PricingSection from "../../components/pricing/pricing.tsx";
+import Toolbar from "../../components/tools/toolbar.tsx";
 import Footer from "../../components/footer/footer.tsx";
-import Sidebar from "../../components/sidebar/sidebar.tsx";
-import {_navigationItems} from "./data/navigation-items.ts";
-import {_heroItems} from "./data/hero-items.ts";
-import {_contact, _note} from "./data/footer-data.ts";
-import {_pricingItems} from "./data/pricing-items.ts";
-import {_featuresItems} from "./data/features-items.ts";
-
-
-
-
-
-const _header = {
-    brandName: "YourBrandName",
-    navigationItems: _navigationItems,
-    logo: {
-        alt: "YourBrandName",
-        src: "/images/logo.svg",
-    },
-};
+import FeaturesSection from "../../components/features/features.tsx";
+import { mockHeaderData } from './data/header-data.ts';
+import { sidebarMockData } from './data/sidebar-data.ts';
+import { _heroItems, _featuresItems, _pricingItems } from './data/main-data.ts';
+import { _contact, _note } from './data/footer-data.ts';
+import HeaderLayout from '../../components/layout/components/header-layout/header-layout.tsx';
 
 const LayoutDemo: React.FC = () => {
-    const [currentLayout] = useState<'top' | 'sidebar-left' | 'sidebar-right'>('sidebar-left');
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    console.log("[LayoutDemo] Current Layout State:", currentLayout); // Logs the current layout
-    console.log("[LayoutDemo] Drawer Open State (isDrawerOpen):", isDrawerOpen); // Logs state of drawer
-
     const handleSettingsClick = () => {
-        const newDrawerState = !isDrawerOpen;
-        console.log("[Settings Click] Toggling Drawer State to:", newDrawerState); // Logs new state on toggle
-        setIsDrawerOpen(newDrawerState);
+        setIsDrawerOpen(!isDrawerOpen);
     };
 
     return (
-        <>
-
-                    <Header
-                        navItems={_header.navigationItems}
-                        brandName={_header.brandName}
-                        logo={_header.logo}
-                        onSettingsClick={handleSettingsClick}
-                    />
-
-                    <Sidebar navItems={_header.navigationItems} />
-                    <main className="main-content">
-
-                        <HeroSection heroItems={_heroItems} />
-
-                        {/* Features Section */}
-                        <FeaturesSection featuresItems={_featuresItems} />
-
-                        {/* Pricing Section */}
-                        <PricingSection pricingItems={_pricingItems} />
-
-                        {/* Footer */}
-                        <Footer contact={_contact} note={_note} />
-                    </main>
-
-
-
-        </>
+        <HeaderLayout header={{
+            menuItems: mockHeaderData.menuItems,
+            brandName: mockHeaderData.brandName,
+            logo: mockHeaderData.logo,
+            onSettingsClick: handleSettingsClick
+        }}>
+            <DynamicLayout
+                sidebar={{ sideBarMenuItems: sidebarMockData.sidebarMenuItems }}
+                main={{
+                    children: (
+                        <>
+                            <HeroSection heroItems={_heroItems} />
+                            <FeaturesSection featuresItems={_featuresItems} />
+                            <PricingSection pricingItems={_pricingItems} />
+                            <Footer contact={_contact.email} note={_note.noteText} />
+                        </>
+                    )
+                }}
+            />
+            <Toolbar />
+        </HeaderLayout>
     );
 };
 

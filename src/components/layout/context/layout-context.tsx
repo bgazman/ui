@@ -1,9 +1,11 @@
-import React, {createContext, useCallback, useContext, useState} from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
 
 const LayoutContext = createContext<{
-  layout: string | null;  // Changed from null
+  layout: string | null;
+  dynamicLayout: string | null;
   isOpen: boolean;
   setLayout: React.Dispatch<React.SetStateAction<string | null>>;
+  setDynamicLayout: React.Dispatch<React.SetStateAction<string | null>>;
   onToggle: () => void;
 } | undefined>(undefined);
 
@@ -15,7 +17,9 @@ export const useLayout = () => {
 
 export const LayoutProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [layout, setLayout] = useState<string | null>(null);  const onToggle = useCallback(() => {
+  const [layout, setLayout] = useState<string | null>(null);
+  const [dynamicLayout, setDynamicLayout] = useState<string | null>(null);
+  const onToggle = useCallback(() => {
     setIsOpen(prev => !prev);
   }, []);
 
@@ -23,14 +27,14 @@ export const LayoutProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       <LayoutContext.Provider
           value={{
             layout,
+            dynamicLayout,
             isOpen,
             setLayout,
+            setDynamicLayout,
             onToggle,
           }}
       >
-        <div className="layout-container" data-layout={layout}>
-          {children}
-        </div>
+        {children}
       </LayoutContext.Provider>
   );
 };

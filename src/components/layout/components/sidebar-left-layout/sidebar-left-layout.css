@@ -1,0 +1,4 @@
+[data-layout="sidebar-left"] {
+    grid-template: 1fr / var(--sidebar-width) 1fr;
+    grid-template-areas: "sidebar main";
+}

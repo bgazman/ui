@@ -5,8 +5,6 @@ import LayoutDemo from "./pages/layout-demo/layout-demo.tsx";
 import DynamicGridDemo from "./pages/dynamic-grid-demo/dynamic-grid-demo.tsx";
 import Home from "./pages/home/home.tsx";
 
-
-
 const App = () => {
     return (
         <ThemeProvider>

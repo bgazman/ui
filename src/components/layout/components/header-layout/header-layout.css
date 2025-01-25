@@ -1,0 +1,8 @@
+
+[data-layout="header"] {
+    grid-template: var(--header-height) / 1fr;
+    grid-template-areas: "header";
+}
+
+
+.main { grid-area: main; }

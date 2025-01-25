@@ -1,7 +1,7 @@
 /* CSS Style Using Provided Variables */
 
 /* Root Level Styling */
-body {
+.main {
     font-family: var(--font-family-base), serif;
     font-size: var(--font-size-base);
     line-height: var(--line-height);
@@ -13,7 +13,7 @@ body {
     transition: color var(--transition-speed) var(--transition-timing), background-color var(--transition-speed) var(--transition-timing);
 }
 
-header {
+.header {
     height: var(--header-height);
     background-color: var(--header-bg);
     color: var(--header-text-color);

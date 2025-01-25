@@ -38,51 +38,39 @@
   --section-box-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.2);
   --surface-color: #ffffff;
   --hover-bg-color: #f3f4f6;
-  /* Background Color */
-  --color-background: #f9f9f9;       /* Light gray background, suitable for most layouts */
-
-  /* Primary Text Color */
-  --color-text: #333333;             /* Dark gray text color for readability */
-
-  /* Transition Timing */
-  --transition-timing: ease-in-out; /* Smooth and natural transition effect */
-
-
-  /* Layout Dimensions */
+  --color-background: #f9f9f9;
+  --color-text: #333333;
+  --transition-timing: ease-in-out;
   --layout-container-width: 1200px;
-
-  --header-height: 70px;                  /* Standard height for the header */
-  --header-bg: #1E1E1E;                   /* Dark gray background */
-  --header-text-color: #D4D4D4;           /* Light gray text color */
-  --header-shadow: var(--shadow-sm);      /* Small shadow for visual elevation */
-  --header-padding: 0 1rem;               /* Horizontal padding */
-  --header-border-bottom-color: #252526;  /* Subtle border at the bottom */
-  --sidebar-width: 250px;                 /* Full width when expanded */
-  --sidebar-collapsed-width: 70px;        /* Width when collapsed */
-  --sidebar-bg: #252526;                  /* Sidebar background color */
-  --sidebar-text-color: #D4D4D4;          /* Sidebar text color */
-  --sidebar-hover-bg: #2A2D2E;            /* Background color for hover states */
-  --sidebar-border-color: #3C3C3C;        /* Border to isolate sidebar visually */
-  --sidebar-padding: 1rem 0;              /* Vertical padding in the sidebar */
-  --sidebar-item-spacing: 1rem;           /* Space between navigation items */
-  --sidebar-icon-size: 24px;              /* Icon size for items */
-  --main-bg: #1E1E1E;                  /* Background color for the main area */
-  --main-text-color: #D4D4D4;          /* Text color for the main */
-  --main-padding: 2rem;                /* Padding around main */
-  --main-margin: 2rem auto;            /* Center the main in the main area */
-  --main-max-width: 1200px;            /* Control the max width for a better layout */
-  --main-border-radius: var(--radius-lg); /* Rounded corners for main blocks */
-  --main-shadow: var(--shadow-md);     /* Subtle shadow for main elevation */
-
-
-  --bg-header: orange;           /* Dark blue */
-  --bg-sidebar: blue;            /* Slightly lighter blue */
-  --bg-main: yellow;          /* Light gray */
-
-  /* Typography */
-
-  /* Background Colors */
-
+  --header-height: 70px;
+  --header-bg: #1E1E1E;
+  --header-text-color: #D4D4D4;
+  --header-shadow: var(--shadow-sm);
+  --header-padding: 0 1rem;
+  --header-border-bottom-color: #252526;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 70px;
+  --sidebar-bg: #252526;
+  --sidebar-text-color: #D4D4D4;
+  --sidebar-hover-bg: #2A2D2E;
+  --sidebar-border-color: #3C3C3C;
+  --sidebar-padding: 1rem 0;
+  --sidebar-item-spacing: 1rem;
+  --sidebar-icon-size: 24px;
+  --main-bg: #1E1E1E;
+  --main-text-color: #D4D4D4;
+  --main-padding: 2rem;
+  --main-margin: 2rem auto;
+  --main-max-width: 1200px;
+  --main-border-radius: var(--radius-lg);
+  --main-shadow: var(--shadow-md);
+  --footer-height: 70px;
+  --color-footer-background: #D4D4D4;
+  --color-footer-text: #D4D4D4;
+  --footer-padding: 2rem;
+  --bg-header: orange;
+  --bg-sidebar: blue;
+  --bg-main: yellow;
   --bg-surface: #252526;
   --bg-neutral: #808080;
   --bg-highlight: #3C3C3C;
@@ -90,21 +78,12 @@
   --bg-success: #4EC9B0;
   --bg-warning: #CCA700;
   --bg-info: #75BEFF;
-
-  /* Text Colors */
   --text-primary: #D4D4D4;
   --text-inverse: #FFFFFF;
   --text-secondary: #9CDCFE;
-
-  /* Accents */
   --accent-blue: #0078D4;
   --accent-hover: #2B88D8;
-
-  /* Borders and Focus */
   --focus-border: #007FD4;
-
-  /* Typography Scale (Headings & Sizes) */
-
   --font-base: 1rem;
   --font-xs: 0.75rem;
   --font-sm: 0.75rem;
@@ -119,15 +98,12 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
-
-  /* Font Weights */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-line-height: 1.6;
   --font-family-sans: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-family-mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
-  /* Spacing Scale */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -136,33 +112,21 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 5rem;
-
-  /* Borders */
   --radius-none: 0px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 9999px;
-
-  /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   --shadow-md: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
   --shadow-lg: 0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10);
-
-  /* Z-index */
   --z-low: 1;
   --z-medium: 10;
   --z-high: 100;
-
-  /* Animation Timing */
   --transition-fast: 150ms;
   --transition-medium: 300ms;
   --transition-slow: 500ms;
-
-
-
-  /* Card Styles */
   --card-bg: var(--bg-surface);
   --card-padding: 1.5rem;
   --card-radius: var(--radius-md);
@@ -170,13 +134,10 @@
   --card-min-width: 20rem;
   --card-max-width: 30rem;
   --card-shadow: var(--shadow-md);
-  /* Grid Gaps */
   --grid-gap-sm: 1.5rem;
   --grid-gap-md: 2rem;
   --grid-gap-lg: 2.5rem;
   --grid-gap-xl: 3rem;
-
-  /* Buttons */
   --btn-height: 2.5rem;
   --btn-padding: 0 1rem;
   --btn-radius: var(--radius-sm);
@@ -185,25 +146,17 @@
   --button-text-color: var(--text-inverse);
   --button-bg-color: var(--bg-highlight);
   --button-size: 2.5rem;
-  /* Input Fields */
   --input-height: 2.5rem;
   --input-padding: 0.5rem 1rem;
   --input-border-color: var(--bg-neutral);
   --input-focus-border: var(--accent-blue);
-
-  /* Tooltip */
   --tooltip-bg: var(--bg-highlight);
   --tooltip-color: var(--text-inverse);
-
-  /* Scrollbar */
   --scrollbar-width: 10px;
   --scrollbar-track: var(--bg-surface);
   --scrollbar-thumb: var(--bg-neutral);
   --navigation-width: 250px;
-  /* Code Blocks */
   --code-bg: #1E1E1E;
   --code-color: #D4D4D4;
   --code-border: #3C3C3C;
-
-  /* Additional */
 }

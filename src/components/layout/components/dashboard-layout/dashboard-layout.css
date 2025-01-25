@@ -1,0 +1,9 @@
+[data-layout="dashboard"] {
+    grid-template: var(--header-height) 1fr / var(--sidebar-width) 1fr;
+    grid-template-areas:
+   "header header"
+   "sidebar main";
+}
+
+.header { grid-area: header; }
+.main { grid-area: main; }
