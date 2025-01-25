@@ -5,7 +5,7 @@
     background-color: var(--color-footer-background);
     color: var(--color-footer-text);
     padding: var(--footer-padding, 1rem);
-    text-align: center; /* Center-align footer content */
+    text-align: center; /* Center-align footer content-layout */
 }
 
 /* Footer container setup */

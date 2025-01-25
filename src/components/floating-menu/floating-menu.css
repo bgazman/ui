@@ -1,7 +1,7 @@
 /* Floating Menu button container */
 .floating-menu-container {
   position: fixed; /* Fixed to stay in viewport */
-  z-index: 50; /* Ensure the floating menu is above other content */
+  z-index: 50; /* Ensure the floating menu is above other content-layout */
 }
 
 /* Dialog container for the menu */
@@ -21,12 +21,12 @@
   transform: translateY(0); /* Transition the menu into view */
 }
 
-/* Menu content wrapper */
+/* Menu content-layout wrapper */
 .floating-menu-content {
-  margin-left: auto; /* Center the content horizontally */
+  margin-left: auto; /* Center the content-layout horizontally */
   margin-right: auto;
   padding: var(--space-md, 1rem); /* Consistent padding */
-  max-width: var(--container-width, 1200px); /* Limit the width of the content */
+  max-width: var(--container-width, 1200px); /* Limit the width of the content-layout */
 }
 
 /* Title inside the menu */

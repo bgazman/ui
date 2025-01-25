@@ -1,0 +1,15 @@
+.layout-container.topbar {
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr;
+    grid-template-areas:
+        "header"
+        "main";
+}
+
+.layout-container.topbar .header {
+    grid-area: header;
+}
+
+.layout-container.topbar .main {
+    grid-area: main;
+}

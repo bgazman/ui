@@ -4,7 +4,7 @@
     padding: var(--section-padding, 3rem); /* Flexible section padding */
     display: flex; /* Flexbox layout for centering */
     flex-direction: column; /* Vertical alignment of elements */
-    align-items: center; /* Center align content */
+    align-items: center; /* Center align content-layout */
     justify-content: center; /* Center vertically */
     text-align: center; /* Center text alignment */
 }
@@ -20,7 +20,7 @@
 }
 
 .hero-content--active {
-    display: block; /* Display active content */
+    display: block; /* Display active content-layout */
 }
 
 .hero-title {

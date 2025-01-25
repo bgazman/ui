@@ -11,12 +11,10 @@ export interface FooterProps {
 const Footer: React.FC<FooterProps> = ({
     contact,
     note,
-    bgColor = "var(--color-footer-background)",
-    textColor = "var(--color-footer-text)",
-    padding = "var(--footer-padding)"
+
 }) => {
     return (
-        <footer className="footer-section" style={{ backgroundColor: bgColor, color: textColor, padding: padding }}>
+        <footer className="footer" >
             <div className="footer-container">
                 <div className="footer-contact">
                     <p>{contact}</p>

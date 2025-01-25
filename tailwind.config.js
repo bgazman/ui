@@ -20,25 +20,25 @@ export default {
           border: 'var(--sidebar-border-color)',   // Sidebar border color
         },
         content: {
-          bg: 'var(--content-bg)',                 // Content background color
-          text: 'var(--content-text-color)',       // Content text color
+          bg: 'var(--content-layout-bg)',                 // Content background color
+          text: 'var(--content-layout-text-color)',       // Content text color
         },
       },
       spacing: {
         header: 'var(--header-height)',            // Header height
         sidebar: 'var(--sidebar-width)',           // Full sidebar width
         'sidebar-collapsed': 'var(--sidebar-collapsed-width)', // Collapsed sidebar width
-        content: 'var(--content-padding)',         // Content padding
+        content: 'var(--content-layout-padding)',         // Content padding
       },
       borderRadius: {
-        content: 'var(--content-border-radius)',   // Content border radius
+        content: 'var(--content-layout-border-radius)',   // Content border radius
       },
       boxShadow: {
         header: 'var(--header-shadow)',            // Header shadow
-        content: 'var(--content-shadow)',          // Content shadow
+        content: 'var(--content-layout-shadow)',          // Content shadow
       },
       maxWidth: {
-        content: 'var(--content-max-width)',       // Max width for content
+        content: 'var(--content-layout-max-width)',       // Max width for content-layout
       },
     },
   },

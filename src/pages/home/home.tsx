@@ -1,12 +1,10 @@
 import React from 'react';
-import { footerMockData } from "./data/footer-data.ts";
-import { mockHeaderData } from "./data/header-data.ts";
-import LandingLayout from "../../components/layout/components/landing-layout/landing-layout.tsx";
+import { footerMockData } from "./data/footer-data";
+import { mockHeaderData } from "./data/header-data";
+import LandingLayout from "@components/layout/components/landing-layout/landing-layout";
 
 const mainProps = {
-    bgColor: "var(--main-bg)",
-    textColor: "var(--main-text-color)",
-    padding: "var(--main-padding)",
+
     children: <div>Main content goes here</div>
 };
 

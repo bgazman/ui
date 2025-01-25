@@ -5,7 +5,7 @@ interface MainLayoutProps {
     children: React.ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const ContentLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
         <div className="layout-container main">
             <Main>
@@ -15,4 +15,4 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     );
 };
 
-export default MainLayout;
+export default ContentLayout;

@@ -1,9 +1,26 @@
+/* Hide sidebar for landing layout */
+[data-layout="landing"] .sidebar {
+    display: none;
+}
+
+/* Layout specific styles for landing layout */
 [data-layout="landing"] {
-    grid-template: var(--header-height) 1fr var(--footer-height) / 1fr;
     grid-template-areas:
-   "header"
-   "main"
-   "footer";
-}.header { grid-area: header; }
-.main { grid-area: main; }
-.footer { grid-area: footer; }
+        "header header"
+        "main main"
+        "footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) 1fr var(--footer-height);
+}
+
+[data-layout="landing"] .header {
+    grid-area: header;
+}
+
+[data-layout="landing"] .main {
+    grid-area: main;
+}
+
+[data-layout="landing"] .footer {
+    grid-area: footer;
+}

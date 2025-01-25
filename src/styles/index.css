@@ -8,17 +8,18 @@
 @import '@theme/components/theme-switcher/theme-switcher.css'; /* Theme switching utilities */
 
 /* LAYOUT STYLES */
-@import '@layout/components/header-layout/header-layout.css';
+@import '@layout/base-layout.css'; /* Base layout styles */
+@import '@layout/components/topbar-layout/topbar-layout.css';
 @import '@layout/components/sidebar-left-layout/sidebar-left-layout.css';
 @import '@layout/components/sidebar-right-layout/sidebar-right-layout.css';
-@import '@layout/components/main-layout/main-layout.css';
+@import '@layout/components/content-layout/content-layout.css';
 @import '@layout/components/dynamic-layout/dynamic-layout.css';
 @import '@layout/components/dashboard-layout/dashboard-layout.css';
 @import '@layout/components/landing-layout/landing-layout.css';
 
 
 @import '@components/header/header.css'; /* Header-specific styles */
-@import '@components/main/main.css'; /* Main content area */
+@import '@components/main/main.css'; /* Main content-layout area */
 @import '@components/sidebar/sidebar.css'; /* Sidebar navigation */
 @import '@navigation/navigation.css'; /* Navigation-related styles */
 @import '@components/footer/footer.css'; /* Footer styles */

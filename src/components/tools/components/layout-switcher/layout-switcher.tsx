@@ -1,5 +1,5 @@
 import React from 'react';
-import { layouts } from '../../../layout/layouts.ts';
+import { layouts } from '@layout/layouts';
 
 interface LayoutSwitcherProps {
     currentLayout: string;

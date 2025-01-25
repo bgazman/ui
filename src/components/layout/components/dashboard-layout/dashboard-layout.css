@@ -1,9 +1,20 @@
-[data-layout="dashboard"] {
-    grid-template: var(--header-height) 1fr / var(--sidebar-width) 1fr;
+.layout-container.dashboard {
+    display: grid;
     grid-template-areas:
-   "header header"
-   "sidebar main";
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: var(--header-height) 1fr var(--footer-height);
 }
 
-.header { grid-area: header; }
-.main { grid-area: main; }
+.layout-container.dashboard .header {
+    grid-area: header;
+}
+
+.layout-container.dashboard .main {
+    grid-area: main;
+}
+
+.layout-container.dashboard .footer {
+    grid-area: footer;
+}

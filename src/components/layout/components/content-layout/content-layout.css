@@ -1,0 +1,9 @@
+[data-layout="main"] {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "main";
+}
+
+[data-layout="main"] .main {
+    grid-area: main;
+}

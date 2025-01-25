@@ -1,4 +1,25 @@
-[data-layout="sidebar-left"] {
-    grid-template: 1fr / var(--sidebar-width) 1fr;
-    grid-template-areas: "sidebar main";
+.layout-container.sidebar-left {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: var(--header-height) 1fr var(--footer-height);
+}
+
+.layout-container.sidebar-left .header {
+    grid-area: header;
+}
+
+.layout-container.sidebar-left .sidebar {
+    grid-area: sidebar;
+}
+
+.layout-container.sidebar-left .main {
+    grid-area: main;
+}
+
+.layout-container.sidebar-left .footer {
+    grid-area: footer;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navigation from "../navigation/navigation.tsx";
+import Navigation from "../navigation/navigation";
 
 type MenuItem = {
     label: string;
@@ -26,9 +26,6 @@ const Header: React.FC<HeaderProps> = ({
     logo = "Logo",
     menuItems,
     brandName = "",
-    logoColor = "var(--primary-color)",
-    bgColor = "var(--header-bg)",
-    textColor = "var(--header-text-color)",
     showUserIcon = true,
     onUserClick = () => {},
 }) => {
@@ -43,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({
     };
 
     return (
-        <header className="header" style={{ backgroundColor: bgColor }}>
-            <div className="header-logo" style={{ color: logoColor }}>
+        <header className="header" >
+            <div className="header-logo" >
                 {renderLogo()}
                 {brandName && <span className="header-brand">{brandName}</span>}
             </div>
@@ -63,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
                     className="header-user-icon"
                     onClick={onUserClick}
                 >
-                    <span className="material-icons" style={{ color: textColor }}>account_circle</span>
+                    <span className="material-icons" >account_circle</span>
                 </div>
             )}
         </header>

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header, { HeaderProps } from '../../../../components/header/header';
-import Footer, { FooterProps } from '../../../../components/footer/footer';
-import Main, { MainProps } from '../../../main/main.tsx';
+import Header, { HeaderProps } from '@components/header/header';
+import Footer, { FooterProps } from '@components/footer/footer';
+import Main, { MainProps } from '@components/main/main';
 
 interface LandingLayoutProps {
     main: MainProps;

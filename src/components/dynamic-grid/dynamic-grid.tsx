@@ -9,7 +9,7 @@ interface DynamicGridProps {
     minItemWidth?: string; // Minimum width for each grid item
     itemPadding?: number; // Padding applied for each card
     itemBgColor?: string; // Background color class for the card
-    renderItem?: (index: number) => React.ReactNode; // Callback to render each card's content
+    renderItem?: (index: number) => React.ReactNode; // Callback to render each card's content-layout
     aspectRatio?: string; // Aspect ratio class for grid items
     className?: string; // Custom classes for grid container
     cardElevation?: 'low' | 'high'; // Elevation level for each card
@@ -52,7 +52,7 @@ const DynamicGrid: React.FC<DynamicGridProps> = ({
                 padding: `${itemPadding}px`, // Properly using `itemPadding` to apply card spacing
             }}
         >
-            {renderItem(index)} {/* Render dynamic card content */}
+            {renderItem(index)} {/* Render dynamic card content-layout */}
         </Card>
     ));
 

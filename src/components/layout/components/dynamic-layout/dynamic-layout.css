@@ -1,20 +1,69 @@
-[data-layout="dashboard"] .sidebar,
-[data-layout="landing"] .sidebar,
-[data-layout="main"] .sidebar,
-[data-layout="top"] .sidebar {
+
+
+/* Hide sidebar for specific layouts */
+[data-layout="topbar"] .sidebar,
+[data-layout="content"] .sidebar {
     display: none;
 }
 
-[data-layout="dashboard"] .footer,
-[data-layout="landing"] .footer,
+/* Hide header for specific layouts */
+[data-layout="content"] .header {
+    display: none;
+}
+
+/* Add styles for footer if needed */
 [data-layout="content"] .footer,
-[data-layout="top"] .footer {
+[data-layout="topbar"] .footer,
+[data-layout="sidebar-left"] .footer,
+[data-layout="sidebar-right"] .footer,
+[data-layout="dashboard"] .footer {
     display: none;
 }
 
-[data-layout="dashboard"] .header,
-[data-layout="landing"] .header,
-[data-layout="content"] .header,
-[data-layout="top"] .header {
+/* Layout specific styles */
+/* Hide header and footer for sidebar-left and sidebar-right layouts */
+/* Hide header and footer for sidebar-left and sidebar-right layouts */
+[data-layout="sidebar-left"] .header,
+[data-layout="sidebar-left"] .footer,
+[data-layout="sidebar-right"] .header,
+[data-layout="sidebar-right"] .footer {
     display: none;
+}
+
+/* Layout specific styles */
+[data-layout="sidebar-left"] {
+    grid-template-areas:
+        "sidebar main";
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: 1fr;
+}
+
+[data-layout="sidebar-right"] {
+    grid-template-areas:
+        "main sidebar";
+    grid-template-columns: 1fr var(--sidebar-width);
+    grid-template-rows: 1fr;
+}
+
+[data-layout="topbar"] {
+    grid-template-areas:
+        "header"
+        "main";
+    grid-template-rows: var(--header-height) 1fr;
+}
+
+[data-layout="content"] {
+    grid-template-areas:
+        "main";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+/* Dashboard Layout */
+[data-layout="dashboard"] {
+    grid-template-areas:
+        "header"
+        "sidebar main";
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: var(--header-height) 1fr;
 }

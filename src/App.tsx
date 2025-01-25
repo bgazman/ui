@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./components/theme/theme-context.tsx";
-import { LayoutProvider } from "./components/layout/context/layout-context.tsx";
-import LayoutDemo from "./pages/layout-demo/layout-demo.tsx";
-import DynamicGridDemo from "./pages/dynamic-grid-demo/dynamic-grid-demo.tsx";
-import Home from "./pages/home/home.tsx";
+import { ThemeProvider } from "@theme/theme-context";
+import { LayoutProvider } from "@layout/context/layout-context";
+import LayoutDemo from "@pages/layout-demo/layout-demo";
+import DynamicGridDemo from "@pages/dynamic-grid-demo/dynamic-grid-demo";
+import Home from "@pages/home/home";
+import React from "react";
 
 const App = () => {
     return (

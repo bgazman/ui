@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation, { NavItem } from "../navigation/navigation.tsx";
+import Navigation, { NavItem } from "@components/navigation/navigation";
 
 export type SidebarProps = {
     sideBarMenuItems: NavItem[];
@@ -10,12 +10,9 @@ export type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({
                                              sideBarMenuItems,
-    bgColor = "var(--sidebar-bg)",
-    textColor = "var(--sidebar-text-color)",
-    padding = "var(--sidebar-padding)"
 }) => {
     return (
-        <aside className="sidebar" style={{ backgroundColor: bgColor, color: textColor, padding: padding }}>
+        <aside className="sidebar" >
             <Navigation navItems={sideBarMenuItems} orientation="vertical" />
         </aside>
     );

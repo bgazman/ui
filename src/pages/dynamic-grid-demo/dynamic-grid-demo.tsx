@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HeaderLayout from '../../components/layout/components/header-layout/header-layout.tsx';
+import TopbarLayout from '@layout/components/topbar-layout/topbar-layout.tsx';
 import { mockHeaderData } from './data/header-data';
 
 const DynamicGridDemo: React.FC = () => {
@@ -29,7 +29,7 @@ const DynamicGridDemo: React.FC = () => {
     };
 
     return (
-        <HeaderLayout header={mockHeaderData}>
+        <TopbarLayout header={mockHeaderData}>
             <div className="dynamic-grid-demo">
                 <div className="controls">
                     {/* Selector for rows */}
@@ -64,7 +64,7 @@ const DynamicGridDemo: React.FC = () => {
 
                 <div>Hello World</div>
             </div>
-        </HeaderLayout>
+        </TopbarLayout>
     );
 };
 

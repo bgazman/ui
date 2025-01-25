@@ -14,9 +14,9 @@ interface SidebarRightLayoutProps {
 
 const SidebarRightLayout: React.FC<SidebarRightLayoutProps> = ({ children, header, contact, note, bgColor = "var(--layout-bg)", textColor = "var(--layout-text-color)" }) => {
     return (
-        <div className="app-layout sidebar-right" style={{ backgroundColor: bgColor, color: textColor }}>
+        <div className="layout-container sidebar-right" style={{ backgroundColor: bgColor, color: textColor }}>
             {/* Shared Header */}
-            <Header {...header} />
+            <Header {...header}  />
 
             {/* Main Content */}
             <main className="main">
@@ -24,7 +24,7 @@ const SidebarRightLayout: React.FC<SidebarRightLayoutProps> = ({ children, heade
             </main>
 
             {/* Sidebar */}
-            <Sidebar navItems={header.menuItems.map(item => ({ label: item.label, link: item.href }))} />
+            <Sidebar sideBarMenuItems={header.menuItems.map(item => ({ label: item.label, link: item.href }))} />
 
             {/* Shared Footer */}
             <Footer contact={contact} note={note} />
