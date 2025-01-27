@@ -1,19 +1,44 @@
 {
   "compilerOptions": {
+    /* Path Aliases */
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@pages/*": ["src/pages/*"],
-      "@features/*": ["src/components/features/*"],
-      "@navigation/*": ["src/components/navigation/*"],
-      "@theme/*": ["src/components/theme/*"],
-      "@tools/*": ["src/components/tools/*"],
-      "@layout/*": ["src/components/layout/*"]
+      "@theme/*": ["src/theme/*"],
+      "@tools/*": ["src/tools/*"],
+      "@layout/*": ["src/layout/*"]
     },
-    "jsx": "react",
-    "esModuleInterop": true
+
+    /* Compilation Settings */
+    "target": "ES2022",                       // Latest target across configurations
+    "lib": ["ES2023", "DOM", "DOM.Iterable"], // Combined lib settings
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+
+    /* Bundler Mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting and Strictness */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Miscellaneous */
+    "skipLibCheck": true,
+    "useDefineForClassFields": true
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "vite.config.ts" // Ensure `vite.config.ts` is included for tooling support
+  ]
 }

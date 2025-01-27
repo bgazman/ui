@@ -3,9 +3,6 @@ import Navigation, { NavItem } from "@components/navigation/navigation";
 
 export type SidebarProps = {
     sideBarMenuItems: NavItem[];
-    bgColor?: string;
-    textColor?: string;
-    padding?: string;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({

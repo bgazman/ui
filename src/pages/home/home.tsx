@@ -1,7 +1,7 @@
 import React from 'react';
 import { footerMockData } from "./data/footer-data";
 import { mockHeaderData } from "./data/header-data";
-import LandingLayout from "@components/layout/components/landing-layout/landing-layout";
+import LandingLayout from "@layout/landing-layout/landing-layout";
 
 const mainProps = {
 

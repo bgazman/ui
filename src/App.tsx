@@ -4,7 +4,6 @@ import { LayoutProvider } from "@layout/context/layout-context";
 import LayoutDemo from "@pages/layout-demo/layout-demo";
 import DynamicGridDemo from "@pages/dynamic-grid-demo/dynamic-grid-demo";
 import Home from "@pages/home/home";
-import React from "react";
 
 const App = () => {
     return (

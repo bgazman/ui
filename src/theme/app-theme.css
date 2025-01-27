@@ -1,0 +1,4 @@
+   /* APPLICATION THEME */
+   @import '@theme/themes.css'; /* Base theme variables */
+   @import '@theme/components/theme-pallete/theme-pallete.css'; /* Theme palettes */
+   @import '@theme/components/theme-switcher/theme-switcher.css'; /* Theme switching utilities */

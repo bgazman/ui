@@ -1,7 +1,7 @@
 import React from 'react';
 import FloatingMenu from "../floating-menu/floating-menu";
 import { useLayout } from "@layout/context/layout-context";
-import LayoutSwitcher from "@tools/components/layout-switcher/layout-switcher";
+import LayoutSwitcher from "@components/tools/layout-switcher/layout-switcher";
 import ThemeSwitcher from "@theme/components/theme-switcher/theme-switcher";
 
 const Toolbar: React.FC = () => {
@@ -18,7 +18,7 @@ const Toolbar: React.FC = () => {
                 defaultOpen={false}
                 title="Toolbar Menu"
                 width="w-96"
-                buttonPosition="bottom-left"
+                buttonPosition="bottom-right"
             >
                 <div className="toolbar-menu">
                     <div className="toolbar-menu-item">

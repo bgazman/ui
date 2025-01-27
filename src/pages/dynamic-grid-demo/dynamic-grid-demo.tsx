@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TopbarLayout from '@layout/components/topbar-layout/topbar-layout.tsx';
+import TopbarLayout from '@layout/topbar-layout/topbar-layout';
 import { mockHeaderData } from './data/header-data';
 
 const DynamicGridDemo: React.FC = () => {

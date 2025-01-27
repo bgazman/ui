@@ -1,7 +1,7 @@
 import React from 'react';
-import Header, { HeaderProps } from "../../../../components/header/header";
-import Footer from "../../../../components/footer/footer";
-import Sidebar from "../../../../components/sidebar/sidebar";
+import Header, { HeaderProps } from "@components/header/header";
+import Footer from "@components/footer/footer";
+import Sidebar from "@components/sidebar/sidebar";
 
 interface SidebarRightLayoutProps {
     children: React.ReactNode;

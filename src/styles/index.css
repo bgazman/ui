@@ -1,47 +1,20 @@
-/* GLOBAL STYLES */
-@import '@styles/global.css'; /* Global resets, base styles */
-@import '@styles/responsive.css'; /* Responsive utilities and breakpoints */
+/* Global Styles */
+@import '@styles/global-styles.css';
 
-/* APPLICATION THEME */
-@import '@theme/themes.css'; /* Base theme variables */
-@import '@theme/components/theme-pallete/theme-pallete.css'; /* Theme palettes */
-@import '@theme/components/theme-switcher/theme-switcher.css'; /* Theme switching utilities */
+/* Application Theme */
+@import '@theme/app-theme.css';
 
-/* LAYOUT STYLES */
-@import '@layout/base-layout.css'; /* Base layout styles */
-@import '@layout/components/topbar-layout/topbar-layout.css';
-@import '@layout/components/sidebar-left-layout/sidebar-left-layout.css';
-@import '@layout/components/sidebar-right-layout/sidebar-right-layout.css';
-@import '@layout/components/content-layout/content-layout.css';
-@import '@layout/components/dynamic-layout/dynamic-layout.css';
-@import '@layout/components/dashboard-layout/dashboard-layout.css';
-@import '@layout/components/landing-layout/landing-layout.css';
+/* Layout Styles */
+@import '@layout/layout-styles.css';
 
+/* Component Styles */
+@import '@components/components-styles.css';
 
-@import '@components/header/header.css'; /* Header-specific styles */
-@import '@components/main/main.css'; /* Main content-layout area */
-@import '@components/sidebar/sidebar.css'; /* Sidebar navigation */
-@import '@navigation/navigation.css'; /* Navigation-related styles */
-@import '@components/footer/footer.css'; /* Footer styles */
+/* Navigation Styles */
+@import '@navigation/navigation-styles.css';
 
-/* COMPONENT-SPECIFIC STYLES */
-@import '@components/hero/hero.css'; /* Hero component styles */
-@import '@components/floating-menu/floating-menu.css'; /* Floating menu design */
-@import '@features/features.css'; /* Features section styles */
-@import '@components/pricing/pricing.css'; /* Pricing cards and lists */
+/* Features Section */
+@import '@features/features-styles.css';
 
-/* TOOLBAR STYLES */
-@import '@components/tools/toolbar.css'; /* Toolbar-related styles */
-
-/* GENERIC UTILITIES */
-@import '@styles/button.css'; /* Global button utilities */
-
-
-/*UI COMPONENTS */
-@import '@components/card/card.css';
-@import '@components/dynamic-grid/dynamic-grid.css';
-
-
-@import "@pages/home/home.css";
-@import "@pages/layout-demo/layout-demo.css";
-@import "@pages/dynamic-grid-demo/dynamic-grid-demo.css";
+/* Page-Specific Styles */
+@import '@pages/page-styles.css';

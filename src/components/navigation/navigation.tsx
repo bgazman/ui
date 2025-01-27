@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationMenu from "./components/navigation-menu.tsx";
+import NavigationMenu from "./components/navigation-menu";
 
 export interface NavigationProps {
     orientation?: 'horizontal' | 'vertical';

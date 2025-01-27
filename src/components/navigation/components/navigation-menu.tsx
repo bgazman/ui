@@ -1,5 +1,5 @@
-import NavigationLink from "./navigation-link.tsx";
-import {NavItem} from "../navigation.tsx";
+import NavigationLink from "./navigation-link";
+import {NavItem} from "../navigation";
 interface NavigationMenuProps {
     navMenuItems: NavItem[];
     orientation?: 'vertical' | 'horizontal'; // Add orientation prop to define menu layout

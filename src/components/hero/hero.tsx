@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroCard from "./components/hero-card.tsx";
+import HeroCard from "./components/hero-card";
 export type HeroItem ={
     title: string;
     description: string;

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import DynamicLayout from '@components/layout/components/dynamic-layout/dynamic-layout';
+import React from 'react';
+import DynamicLayout from '@layout/dynamic-layout/dynamic-layout';
 import HeroSection from "@components/hero/hero";
 import PricingSection from "@components/pricing/pricing";
 import Toolbar from "@components/tools/toolbar";
@@ -8,14 +8,9 @@ import { mockHeaderData } from './data/header-data';
 import { sidebarMockData } from './data/sidebar-data';
 import { _heroItems, _featuresItems, _pricingItems } from './data/main-data';
 import { _contact, _note } from './data/footer-data';
-import TopbarLayout from '@layout/components/topbar-layout/topbar-layout';
 
 const LayoutDemo: React.FC = () => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const handleSettingsClick = () => {
-        setIsDrawerOpen(!isDrawerOpen);
-    };
 
     return (
         <>

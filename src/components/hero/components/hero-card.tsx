@@ -1,6 +1,6 @@
 import React from "react";
-import HeroButton from "./hero-btn.tsx";
-import {HeroItem} from "../hero.tsx";
+import HeroButton from "./hero-btn";
+import {HeroItem} from "../hero";
 export interface HeroCardProps {
     heroItems: HeroItem;
 }

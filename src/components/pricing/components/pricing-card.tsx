@@ -1,5 +1,5 @@
 import React from 'react';
-import {PricingItem} from "./pricing-list.tsx";
+import {PricingItem} from "./pricing-list";
 
 export interface PricingCardProps {
     pricingItem: PricingItem;

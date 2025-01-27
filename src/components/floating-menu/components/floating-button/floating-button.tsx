@@ -1,5 +1,4 @@
 import React from 'react';
-import './floating-button.css'; // Ensure this import is present
 
 type Position = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 

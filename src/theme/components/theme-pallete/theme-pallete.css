@@ -1,0 +1,61 @@
+.theme-palette {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-dropdown {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 12rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    z-index: 50;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.theme-option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-option svg {
+    margin-right: 0.5rem;
+}
+
+.theme-option .check-icon {
+    margin-left: auto;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .theme-dropdown {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+    }
+
+    .theme-button:hover,
+    .theme-option:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}

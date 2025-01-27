@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card } from '../card/card.tsx';
-import './dynamic-grid.css';
+import { Card } from '@components/card/card';
 
 interface DynamicGridProps {
     rows?: number; // Number of rows in the grid

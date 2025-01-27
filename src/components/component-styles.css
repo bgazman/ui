@@ -1,0 +1,13 @@
+   /* COMPONENT-SPECIFIC STYLES */
+   @import '@components/header/header.css'; /* Header-specific styles */
+   @import '@components/main/main.css'; /* Main content-layout area */
+   @import '@components/sidebar/sidebar.css'; /* Sidebar navigation */
+   @import '@components/footer/footer.css'; /* Footer styles */
+   @import '@components/hero/hero.css'; /* Hero component styles */
+   @import '@components/floating-menu/floating-menu.css'; /* Floating menu design */
+   @import '@components/pricing/pricing.css'; /* Pricing cards and lists */
+   @import '@components/tools/toolbar.css'; /* Toolbar-related styles */
+
+   /* UI COMPONENTS */
+   @import '@components/card/card.css';
+   @import '@components/dynamic-grid/dynamic-grid.css';

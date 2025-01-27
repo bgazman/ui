@@ -1,7 +1,7 @@
 import React from 'react';
-import { FeaturesTitle } from "./components/features-title.tsx";
-import { FeaturesSubtitle } from "./components/features-subtitle.tsx";
-import { FeaturesList } from "./components/features-list.tsx";
+import { FeaturesTitle } from "./components/features-title";
+import { FeaturesSubtitle } from "./components/features-subtitle";
+import { FeaturesList } from "./components/features-list";
 
 export type FeaturesItem = {
     title: string;

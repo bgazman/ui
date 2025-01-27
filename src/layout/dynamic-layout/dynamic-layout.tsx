@@ -1,10 +1,9 @@
 import React from 'react';
-import './dynamic-layout.css';
-import Main, { MainProps } from "@components/main/main";
-import Sidebar, { SidebarProps } from "@components/sidebar/sidebar";
-import Footer, { FooterProps } from "@components/footer/footer";
-import Header, { HeaderProps } from '@components/header/header';
-import { useLayout } from '../../context/layout-context';
+import Main, { MainProps } from "@components/main/main.tsx";
+import Sidebar, { SidebarProps } from "@components/sidebar/sidebar.tsx";
+import Footer, { FooterProps } from "@components/footer/footer.tsx";
+import Header, { HeaderProps } from '@components/header/header.tsx';
+import { useLayout } from '../context/layout-context.tsx';
 
 interface DynamicLayoutProps {
     header?: HeaderProps;
