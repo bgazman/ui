@@ -1,6 +1,0 @@
-   /* GLOBAL STYLES */
-   @import '@styles/global.css'; /* Global resets, base styles */
-   @import '@styles/responsive.css'; /* Responsive utilities and breakpoints */
-
-   /* GENERIC UTILITIES */
-   @import '@styles/button.css'; /* Global button utilities */

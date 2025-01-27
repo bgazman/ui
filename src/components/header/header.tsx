@@ -14,20 +14,14 @@ export type HeaderProps = {
     logo?: string | Logo;
     menuItems: MenuItem[];
     brandName?: string;
-    logoColor?: string;
-    bgColor?: string;
-    textColor?: string;
-    showUserIcon?: boolean;
-    onUserClick?: () => void;
-    onSettingsClick?: () => void;
+
 };
 
 const Header: React.FC<HeaderProps> = ({
     logo = "Logo",
     menuItems,
     brandName = "",
-    showUserIcon = true,
-    onUserClick = () => {},
+
 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -55,14 +49,6 @@ const Header: React.FC<HeaderProps> = ({
 
             <Navigation navItems={menuItems.map(item => ({ label: item.label, link: item.href }))} orientation="horizontal" />
 
-            {showUserIcon && (
-                <div
-                    className="header-user-icon"
-                    onClick={onUserClick}
-                >
-                    <span className="material-icons" >account_circle</span>
-                </div>
-            )}
         </header>
     );
 };

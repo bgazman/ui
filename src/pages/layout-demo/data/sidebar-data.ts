@@ -1,5 +1,5 @@
 export const sidebarMockData = {
-    sidebarMenuItems: [
+    children: [
         { label: "Dashboard", link: "/dashboard" },
         { label: "Profile", link: "/profile" },
         { label: "Settings", link: "/settings" },
