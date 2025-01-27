@@ -1,18 +1,37 @@
 import React from 'react';
 
-export type MainProps = {
-    bgColor?: string;
-    textColor?: string;
-    padding?: string;
-    children: React.ReactNode;
+export type HeroItem = {
+    title: string;
+    description: string;
+    actionText: string;
+    actionLink: string;
 };
 
-const Main: React.FC<MainProps> = ({
+export type PricingItem = {
+    title: string;
+    price: string;
+    features: string[];
+    link: string;
+};
 
-    children
-}) => {
+export type FeatureItem = {
+    title: string;
+    description: string;
+    benefits: string[];
+};
+
+export type MainProps = {
+    children: React.ReactNode;
+    heroItems: HeroItem[];
+    pricingItems: PricingItem[];
+    featuresItems: FeatureItem[];
+};
+
+
+
+const Main: React.FC<MainProps> = ({ children, ...props }) => {
     return (
-        <main className="main">
+        <main className="main" {...props}>
             {children}
         </main>
     );

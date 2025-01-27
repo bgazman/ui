@@ -34,9 +34,7 @@ import React, { createContext, useCallback, useContext, useState } from "react";
                         onToggle,
                       }}
                   >
-                    <div data-layout={layout}>
                       {children}
-                    </div>
                   </LayoutContext.Provider>
               );
             };

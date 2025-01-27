@@ -1,29 +1,33 @@
+// src/layout/landing-layout/landing-layout.tsx
 import React, { useEffect } from 'react';
-    import Header, { HeaderProps } from '@components/header/header.tsx';
-    import Footer, { FooterProps } from '@components/footer/footer.tsx';
-    import Main, { MainProps } from '@components/main/main.tsx';
-    import { useLayout } from '@layout/context/layout-context';
+import Header, { HeaderProps } from '@components/header/header';
+import Footer, { FooterProps } from '@components/footer/footer';
+import Main, { MainProps } from '@components/main/main';
+import { useLayout } from '@layout/context/layout-context';
 
-    interface LandingLayoutProps {
-        main: MainProps;
-        header: HeaderProps;
-        footer: FooterProps;
-    }
+interface LandingLayoutProps {
+    mainData: Omit<MainProps, 'children'>; // Exclude children from mainData
+    headerData: HeaderProps;
+    footerData: FooterProps;
+    children: React.ReactNode;
+}
 
-    const LandingLayout: React.FC<LandingLayoutProps> = ({ main, header, footer }) => {
-        const { layout, setLayout } = useLayout();
+const LandingLayout: React.FC<LandingLayoutProps> = ({ mainData, headerData, footerData, children }) => {
+    const { layout, setLayout } = useLayout();
 
-        useEffect(() => {
-            setLayout('landing');
-        }, [setLayout]);
+    useEffect(() => {
+        setLayout('landing');
+    }, [setLayout]);
 
-        return (
-            <div className="layout-container landing" data-layout={layout}>
-                <Header {...header} />
-                <Main {...main} />
-                <Footer {...footer} />
-            </div>
-        );
-    };
+    return (
+        <div className="layout-container landing" data-layout={layout}>
+            <Header {...headerData} />
+            <Main {...mainData}>
+                {children}
+            </Main>
+            <Footer {...footerData} />
+        </div>
+    );
+};
 
-    export default LandingLayout;
+export default LandingLayout;
