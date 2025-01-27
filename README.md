@@ -48,3 +48,22 @@ export default tseslint.config({
   },
 })
 ```
+theme-container
+└── layout-container landing
+├── header
+│   ├── header-logo
+│   │   ├── img
+│   │   └── header-brand
+│   ├── header-menu-toggle
+│   └── navigation
+│       └── navigation-container
+│           └── navigation-menu horizontal-menu
+│               └── navigation-link
+├── main
+│   ├── intro (2 sections)
+│   ├── about
+│   └── contact
+└── footer
+└── footer-container
+├── footer-contact
+└── footer-note

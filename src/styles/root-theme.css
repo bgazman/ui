@@ -1,3 +1,4 @@
+@import '@theme/themes.css';
 :root {
   --font-size-base: 16px;
   --font-family-base: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

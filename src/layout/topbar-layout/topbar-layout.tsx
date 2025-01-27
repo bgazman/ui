@@ -1,6 +1,6 @@
-import React from 'react';
-import Header, { HeaderProps } from "@components/header/header.tsx";
-import Main from "@components/main/main.tsx";
+import React, { useEffect } from 'react';
+import Header, { HeaderProps } from "@components/header/header";
+import Main from "@components/main/main";
 import { useLayout } from '@layout/context/layout-context';
 
 interface HeaderLayoutProps {
@@ -9,9 +9,11 @@ interface HeaderLayoutProps {
 }
 
 const TopbarLayout: React.FC<HeaderLayoutProps> = ({ header, children }) => {
-    const { layout } = useLayout();
+    const { setLayout } = useLayout();
 
-    console.log('Layout value:', layout); // Debugging line
+    useEffect(() => {
+        setLayout('topbar');
+    }, [setLayout]);
 
     return (
         <div className="layout-container topbar" data-layout="topbar">
@@ -19,7 +21,11 @@ const TopbarLayout: React.FC<HeaderLayoutProps> = ({ header, children }) => {
             <Header {...header} />
 
             {/* Main Content */}
-            <Main>
+            <Main
+                heroItems={[]}
+                pricingItems={[]}
+                featuresItems={[]}
+            >
                 {children}
             </Main>
         </div>

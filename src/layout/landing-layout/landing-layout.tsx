@@ -1,18 +1,51 @@
-// src/layout/landing-layout/landing-layout.tsx
 import React, { useEffect } from 'react';
-import Header, { HeaderProps } from '@components/header/header';
+import Header from '@components/header/header';
+import type { HeaderProps } from '@components/header/header';
 import Footer, { FooterProps } from '@components/footer/footer';
 import Main, { MainProps } from '@components/main/main';
 import { useLayout } from '@layout/context/layout-context';
 
+interface LayoutConfig {
+    header: {
+        height: string;
+        position: 'sticky' | 'relative';
+    };
+    main: {
+        maxWidth: string;
+        padding: string;
+    };
+    footer: {
+        height: string;
+        position: 'sticky' | 'relative';
+    };
+}
+
 interface LandingLayoutProps {
-    mainData: Omit<MainProps, 'children'>; // Exclude children from mainData
+    mainData: Omit<MainProps, 'children'>;
     headerData: HeaderProps;
     footerData: FooterProps;
     children: React.ReactNode;
+    layoutConfig: LayoutConfig;
 }
 
-const LandingLayout: React.FC<LandingLayoutProps> = ({ mainData, headerData, footerData, children }) => {
+const defaultHeaderItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Features', href: '/features' },
+    { label: 'About', href: '/about' },
+];
+
+const LandingLayout: React.FC<LandingLayoutProps> = ({
+    mainData,
+    headerData: {
+        logo = '/logo.png',
+        menuItems = defaultHeaderItems,
+        brandName = 'Your Brand',
+        ...headerRest
+    },
+    footerData,
+    children,
+    layoutConfig
+}) => {
     const { layout, setLayout } = useLayout();
 
     useEffect(() => {
@@ -20,14 +53,24 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({ mainData, headerData, foo
     }, [setLayout]);
 
     return (
-        <div className="layout-container landing" data-layout={layout}>
-            <Header {...headerData} />
-            <Main {...mainData}>
+        <div className="grid w-full min-h-screen grid-cols-1"
+             style={{
+                 gridTemplateAreas: '"header" "main" "footer"',
+                 gridTemplateRows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`
+             }}
+             data-layout={layout}>
+            <Header
+                className="[grid-area:header]"
+                logo={logo}
+                menuItems={menuItems}
+                brandName={brandName}
+                {...headerRest}
+            />
+            <Main className="[grid-area:main]" {...mainData}>
                 {children}
             </Main>
-            <Footer {...footerData} />
+            <Footer className="[grid-area:footer]" {...footerData} />
         </div>
     );
 };
-
 export default LandingLayout;

@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation, { NavItem } from "@components/navigation/navigation";
 
 export type SidebarProps = {
+    className?: string;
     sideBarMenuItems: NavItem[];
 };
 

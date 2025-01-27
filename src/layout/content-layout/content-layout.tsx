@@ -1,14 +1,39 @@
-import React from 'react';
-import Main from "@components/main/main";
+import React, { useEffect } from 'react';
+import Main, { MainProps } from '@components/main/main';
+import { useLayout } from '@layout/context/layout-context';
 
-interface MainLayoutProps {
+interface ContentLayoutProps {
+    mainData?: Omit<MainProps, 'children'>;
     children: React.ReactNode;
 }
 
-const ContentLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const ContentLayout: React.FC<ContentLayoutProps> = ({
+    mainData = {
+        heroItems: [],
+        pricingItems: [],
+        featuresItems: [],
+    },
+    children
+}) => {
+    const { layout, setLayout } = useLayout();
+
+    useEffect(() => {
+        setLayout('content');
+    }, [setLayout]);
+
     return (
-        <div className="layout-container main">
-            <Main>
+        <div
+            className="grid w-full min-h-screen grid-cols-1"
+            style={{
+                gridTemplateAreas: '"main"',
+                gridTemplateRows: '1fr'
+            }}
+            data-layout={layout}
+        >
+            <Main
+                className="[grid-area:main]"
+                {...mainData}
+            >
                 {children}
             </Main>
         </div>

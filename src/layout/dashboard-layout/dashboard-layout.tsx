@@ -1,24 +1,82 @@
-import React from 'react';
-import Header, { HeaderProps } from "@components/header/header.tsx";
-import Sidebar, {SidebarProps} from "@components/sidebar/sidebar.tsx";
-import Main from "@components/main/main.tsx";
+import React, { useEffect } from 'react';
+import Header from '@components/header/header';
+import type { HeaderProps } from '@components/header/header';
+import Sidebar, { SidebarProps } from '@components/sidebar/sidebar';
+import Main, { MainProps } from '@components/main/main';
+import { useLayout } from '@layout/context/layout-context';
 
-interface DashboardLayoutProps {
-    children: React.ReactNode;
-    header: HeaderProps;
-    sidebar: SidebarProps;
+interface LayoutConfig {
+    header: {
+        height: string;
+        position: 'sticky' | 'relative';
+    };
+    sidebar: {
+        width: string;
+        position: 'sticky' | 'relative';
+    };
+    main: {
+        maxWidth: string;
+        padding: string;
+    };
 }
 
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, header}) => {
+interface DashboardLayoutProps {
+    mainData: Omit<MainProps, 'children'>;
+    headerData: HeaderProps;
+    sidebarData: SidebarProps;
+    children: React.ReactNode;
+    layoutConfig: LayoutConfig;
+}
+
+const defaultHeaderItems = [
+    { label: 'Dashboard', href: '/dashboard' },
+    { label: 'Analytics', href: '/analytics' },
+    { label: 'Settings', href: '/settings' },
+];
+
+export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
+                                                             mainData,
+                                                             headerData: {
+                                                                 logo = '/dashboard-logo.png',
+                                                                 menuItems = defaultHeaderItems,
+                                                                 brandName = 'Dashboard',
+                                                                 ...headerRest
+                                                             },
+                                                             sidebarData,
+                                                             children,
+                                                             layoutConfig
+                                                         }) => {
+    const { layout, setLayout } = useLayout();
+
+    useEffect(() => {
+        setLayout('dashboard');
+    }, [setLayout]);
+
     return (
-        <div className="layout-container dashboard">
-            {/* Shared Header */}
-            <Header {...header} />
-
-            {/* Sidebar */}
-            <Sidebar sideBarMenuItems={[]} />
-
-            <Main children={children}/>
+        <div className="grid w-full min-h-screen"
+             style={{
+                 gridTemplateAreas: '"header header" "sidebar main"',
+                 gridTemplateColumns: `${layoutConfig.sidebar.width} 1fr`,
+                 gridTemplateRows: `${layoutConfig.header.height} 1fr`
+             }}
+             data-layout={layout}>
+            <Header
+                className="[grid-area:header]"
+                logo={logo}
+                menuItems={menuItems}
+                brandName={brandName}
+                {...headerRest}
+            />
+            <Sidebar
+                className="[grid-area:sidebar]"
+                {...sidebarData}
+            />
+            <Main
+                className="[grid-area:main]"
+                {...mainData}
+            >
+                {children}
+            </Main>
         </div>
     );
 };

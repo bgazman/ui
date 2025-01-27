@@ -1,11 +1,9 @@
 import React from 'react';
 
 export interface FooterProps {
+    className?: string;
     contact: string;
     note: string;
-    bgColor?: string;
-    textColor?: string;
-    padding?: string;
 }
 
 const Footer: React.FC<FooterProps> = ({

@@ -1,5 +1,10 @@
-@import "tailwindcss/preflight"; /* Replaces @tailwind base */
-@import "tailwindcss/utilities"; /* Replaces @tailwind utilities */
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
-
-
+/* Add your custom styles or variables here */
+:root {
+    --color-primary: #4299e1;
+    --color-secondary: #f687b3;
+    --color-bg: #ffffff;
+    --color-text: #333333;
+}

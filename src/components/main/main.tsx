@@ -25,13 +25,19 @@ export type MainProps = {
     heroItems: HeroItem[];
     pricingItems: PricingItem[];
     featuresItems: FeatureItem[];
+    className?: string;
 };
 
-
-
-const Main: React.FC<MainProps> = ({ children, ...props }) => {
+const Main: React.FC<MainProps> = ({ children, heroItems, }) => {
     return (
-        <main className="main" {...props}>
+        <main className="main">
+            {heroItems.map((item, index) => (
+                <section key={index} className="intro">
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <a href={item.actionLink}>{item.actionText}</a>
+                </section>
+            ))}
             {children}
         </main>
     );

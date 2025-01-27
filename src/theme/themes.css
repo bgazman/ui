@@ -1,3 +1,11 @@
+
+.theme-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 :root[data-theme="light"] {
     --bg-primary: #ffffff;
     --bg-secondary: #f3f4f6;
