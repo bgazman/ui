@@ -1,18 +1,27 @@
 import React from 'react';
-import Navigation, { NavItem } from "@components/navigation.tsx";
+import SidebarContainer from '@components/sidebar-container.tsx';
+import { NavItem } from '@components/navigation.tsx';
 
 export type SidebarProps = {
     className?: string;
+    style?: React.CSSProperties;
     sideBarMenuItems: NavItem[];
+    position?: 'fixed' | 'sticky' | 'relative';
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
-                                             sideBarMenuItems,
+    className,
+    style,
+    sideBarMenuItems,
+    position = 'sticky',
 }) => {
     return (
-        <aside className="sidebar" >
-            <Navigation navItems={sideBarMenuItems} orientation="vertical" />
-        </aside>
+        <SidebarContainer
+            className={className}
+            style={style}
+            sideBarMenuItems={sideBarMenuItems}
+            position={position}
+        />
     );
 };
 

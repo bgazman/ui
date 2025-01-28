@@ -12,7 +12,7 @@ export type NavItem = {
 };
 
 const Navigation: React.FC<NavigationProps> = ({ navItems, orientation = 'horizontal', className }) => {
-    const containerClass = `${className} ${orientation === 'vertical' ? 'flex-col' : 'flex-row'}`;
+    const containerClass = `${className || ''} ${orientation === 'vertical' ? 'flex flex-col' : 'flex flex-row'}`;
 
     return (
         <nav className={containerClass}>

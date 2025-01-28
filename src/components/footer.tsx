@@ -1,11 +1,12 @@
 import React from 'react';
-import Box from '@components/box.tsx'; // Import the Box component
-import Navigation from '@components/navigation.tsx'; // Import the Navigation component
+import Box from '@components/box.tsx';
+import Navigation from '@components/navigation.tsx';
 
 type MenuItemType = {
     label: string;
     href: string;
 };
+
 export interface FooterProps {
     menuItems: MenuItemType[];
     copyright?: string;
@@ -15,20 +16,23 @@ export interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-                                           menuItems ,
-                                           copyright = '© 2023 Your Brand. All rights reserved.',
-                                           contactInfo,
-                                           className = '',
-                                           style,
-                                       }) => {
+    menuItems,
+    copyright = '© 2023 Your Brand. All rights reserved.',
+    contactInfo,
+    className = '',
+    style,
+}) => {
     return (
         <Box
             as="footer"
-            className={`w-full bg-gray-100 text-gray-600 py-4 px-6 sm:px-8 ${className}`}
-            style={style}
+            className={`w-full py-4 px-6 sm:px-8 ${className}`}
+            style={{
+                backgroundColor: `var(--footer-bg-color)`,
+                color: `var(--footer-text-color)`,
+                ...style,
+            }}
         >
             <Box className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                {/* Navigation Links */}
                 {menuItems.length > 0 && (
                     <Navigation
                         className="flex space-x-6"
@@ -39,8 +43,6 @@ const Footer: React.FC<FooterProps> = ({
                         }))}
                     />
                 )}
-
-                {/* Contact Information */}
                 {contactInfo && (
                     <Box className="text-sm text-left md:flex md:justify-end md:space-x-4">
                         {contactInfo.email && (
@@ -54,12 +56,7 @@ const Footer: React.FC<FooterProps> = ({
                             </p>
                         )}
                     </Box>
-
-
-
                 )}
-
-                {/* Copyright */}
                 <Box as="p" className="text-sm text-center md:text-right">
                     {copyright}
                 </Box>

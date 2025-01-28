@@ -6,7 +6,6 @@ export const mockHeaderData = {
     },
     menuItems: [
         { label: "Home", href: "/" },
-        { label: "Docs", href: "/docs" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },
         { label: "Contact", href: "#contact" }

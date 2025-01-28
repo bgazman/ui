@@ -1,3 +1,4 @@
+
 .theme-container {
     height: 100%;
     width: 100%;
@@ -16,10 +17,16 @@
     --text-primary: #111827;
     --text-secondary: #4b5563;
     --border-color: #e5e7eb;
+    --sidebar-border-color: #e5e7eb; /* Add this line */
     --button-bg-color: #1d4ed8;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #2563eb;
     --button-focus-ring-color: #3b82f6;
+    --input-bg-color: #ffffff;
+    --header-bg-color: #ffffff;
+    --header-text-color: #111827;
+    --footer-bg-color: #f3f4f6;
+    --footer-text-color: #111827;
 }
 
 .theme-container[data-theme="dark"] {
@@ -30,10 +37,16 @@
     --text-primary: #ffffff;
     --text-secondary: #9ca3af;
     --border-color: #374151;
+    --sidebar-border-color: #374151; /* Add this line */
     --button-bg-color: #2563eb;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #3b82f6;
     --button-focus-ring-color: #60a5fa;
+    --input-bg-color: #1f2937;
+    --header-bg-color: #111827;
+    --header-text-color: #ffffff;
+    --footer-bg-color: #1f2937;
+    --footer-text-color: #ffffff;
 }
 
 .theme-container[data-theme="forest"] {
@@ -44,10 +57,16 @@
     --text-primary: #ecfdf5;
     --text-secondary: #a7f3d0;
     --border-color: #10b981;
+    --sidebar-border-color: #10b981; /* Add this line */
     --button-bg-color: #047857;
     --button-text-color: #ecfdf5;
     --button-hover-bg-color: #059669;
     --button-focus-ring-color: #10b981;
+    --input-bg-color: #065f46;
+    --header-bg-color: #064e3b;
+    --header-text-color: #ecfdf5;
+    --footer-bg-color: #065f46;
+    --footer-text-color: #ecfdf5;
 }
 
 .theme-container[data-theme="ocean"] {
@@ -58,8 +77,14 @@
     --text-primary: #f0f9ff;
     --text-secondary: #bae6fd;
     --border-color: #3b82f6;
+    --sidebar-border-color: #3b82f6; /* Add this line */
     --button-bg-color: #0284c7;
     --button-text-color: #f0f9ff;
     --button-hover-bg-color: #0ea5e9;
     --button-focus-ring-color: #3b82f6;
+    --input-bg-color: #0369a1;
+    --header-bg-color: #0c4a6e;
+    --header-text-color: #f0f9ff;
+    --footer-bg-color: #0369a1;
+    --footer-text-color: #f0f9ff;
 }

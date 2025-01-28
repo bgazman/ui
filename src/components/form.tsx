@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import Button from '@components/button';
+import InputField from './input-field';
+import TextAreaField from './text-area';
+import SubmitButton from './submit-button';
 
 interface FormProps {
     onSubmit: (data: Record<string, string>) => void;
     className?: string;
     style?: React.CSSProperties;
+    theme?: string;
 }
 
-const Form: React.FC<FormProps> = ({ onSubmit, className = '', style }) => {
+const Form: React.FC<FormProps> = ({ onSubmit, className = '', style, theme = 'light' }) => {
     const [formData, setFormData] = useState<Record<string, string>>({
         name: '',
         email: '',
@@ -30,51 +33,39 @@ const Form: React.FC<FormProps> = ({ onSubmit, className = '', style }) => {
             style={style}
             onSubmit={handleSubmit}
         >
-            <div className="flex flex-col">
-                <label htmlFor="name" className="mb-2 font-semibold text-gray-700">
-                    Name
-                </label>
-                <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-            </div>
-            <div className="flex flex-col">
-                <label htmlFor="email" className="mb-2 font-semibold text-gray-700">
-                    Email
-                </label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-            </div>
-            <div className="flex flex-col">
-                <label htmlFor="message" className="mb-2 font-semibold text-gray-700">
-                    Message
-                </label>
-                <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-            </div>
-            <Button type="submit" label="Submit" />
+            <InputField
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="bg-var(--input-bg-color)"
+                theme={theme}
+            />
+            <InputField
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="bg-var(--input-bg-color)"
+                theme={theme}
+            />
+            <TextAreaField
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="bg-var(--input-bg-color)"
+                theme={theme}
+            />
+            <SubmitButton label="Submit" />
         </form>
     );
 };

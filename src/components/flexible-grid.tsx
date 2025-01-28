@@ -16,7 +16,7 @@ const FlexibleGrid: React.FC<FlexibleGridProps> = ({
     style = {},
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [columns, setColumns] = useState(1);
+    const [, setColumns] = useState(1);
 
     const updateLayout = () => {
         if (!containerRef.current) return;

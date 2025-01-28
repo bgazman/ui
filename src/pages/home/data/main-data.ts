@@ -1,4 +1,3 @@
-import { HeroItem, PricingItem, FeatureItem } from '@layout/landing-layout/landing-layout';
 
 const mockMainData = {
     heroItems: [

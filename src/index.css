@@ -4,21 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Custom root-level styles and variables */
 :root {
-    --color-primary: #4299e1;
-    --color-secondary: #f687b3;
+
     --color-bg: #ffffff;
     --color-text: #333333;
-    --button-bg-color: #1d4ed8; /* Example color */
-    --button-text-color: #ffffff;
-    --button-hover-bg-color: #2563eb;
-    --button-focus-ring-color: #3b82f6;
-    /* Root-level sizing */
-    --font-size: 16px; /* Default root font size */
-    --spacing-container: 2rem; /* Custom container padding */
-    --text-primary: #333333; /* Default value */
-    --text-secondary: #666666;
 }
 
 html, body {
@@ -29,6 +20,7 @@ html, body {
     background-color: var(--color-bg);
     color: var(--color-text);
 }
+/* Add this to index.css or themes.css */
 
 body {
     @apply antialiased font-sans bg-gray-50 text-gray-800;
@@ -49,4 +41,17 @@ main {
 
 footer {
     @apply w-full bg-gray-100 text-center py-4;
+}
+
+/* Add this to index.css or themes.css */
+
+nav a {
+    margin: 0.5rem 0; /* Adjust the margin as needed */
+    padding: 0.5rem;  /* Optional: Add padding if needed */
+}
+
+.sidebar {
+    padding: 1rem; /* Adjust the padding as needed */
+    margin: 1rem;  /* Adjust the margin as needed */
+    border-radius: 0.5rem; /* Optional: Add border radius */
 }
