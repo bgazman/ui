@@ -5,32 +5,61 @@
     flex-direction: column;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    border-color: var(--border-color);
 }
 
 .theme-container[data-theme="light"] {
     --bg-primary: #ffffff;
     --bg-secondary: #f3f4f6;
+    --bg-alt1: #e5e7eb;
+    --bg-alt2: #d1d5db;
     --text-primary: #111827;
     --text-secondary: #4b5563;
+    --border-color: #e5e7eb;
+    --button-bg-color: #1d4ed8;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #2563eb;
+    --button-focus-ring-color: #3b82f6;
 }
 
 .theme-container[data-theme="dark"] {
     --bg-primary: #111827;
     --bg-secondary: #1f2937;
+    --bg-alt1: #374151;
+    --bg-alt2: #4b5563;
     --text-primary: #ffffff;
     --text-secondary: #9ca3af;
+    --border-color: #374151;
+    --button-bg-color: #2563eb;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #3b82f6;
+    --button-focus-ring-color: #60a5fa;
 }
 
 .theme-container[data-theme="forest"] {
     --bg-primary: #064e3b;
     --bg-secondary: #065f46;
+    --bg-alt1: #047857;
+    --bg-alt2: #059669;
     --text-primary: #ecfdf5;
     --text-secondary: #a7f3d0;
+    --border-color: #10b981;
+    --button-bg-color: #047857;
+    --button-text-color: #ecfdf5;
+    --button-hover-bg-color: #059669;
+    --button-focus-ring-color: #10b981;
 }
 
 .theme-container[data-theme="ocean"] {
     --bg-primary: #0c4a6e;
     --bg-secondary: #0369a1;
+    --bg-alt1: #0284c7;
+    --bg-alt2: #0ea5e9;
     --text-primary: #f0f9ff;
     --text-secondary: #bae6fd;
+    --border-color: #3b82f6;
+    --button-bg-color: #0284c7;
+    --button-text-color: #f0f9ff;
+    --button-hover-bg-color: #0ea5e9;
+    --button-focus-ring-color: #3b82f6;
 }

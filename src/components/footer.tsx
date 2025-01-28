@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@components/box'; // Import the Box component
-import Navigation from '@components/navigation/navigation'; // Import the Navigation component
+import Box from '@components/box.tsx'; // Import the Box component
+import Navigation from '@components/navigation.tsx'; // Import the Navigation component
 
 type MenuItemType = {
     label: string;

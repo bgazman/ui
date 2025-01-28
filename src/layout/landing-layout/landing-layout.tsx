@@ -1,30 +1,10 @@
 import React, { useEffect } from 'react';
-import Header from '@components/header/header';
-import type { HeaderProps } from '@components/header/header';
-import Footer, { FooterProps } from '@components/footer/footer';
-import Main from '@components/main/main';
+import Header from '@components/header';
+import type { HeaderProps } from '@components/header';
+import Footer, { FooterProps } from '@components/footer';
+import Main from '@components/main';
 import { useLayout } from '@layout/context/layout-context';
-import Grid from '@components/grid'; // Import your Grid component
-
-export type HeroItem = {
-    title: string;
-    description: string;
-    actionText: string;
-    actionLink: string;
-};
-
-export type PricingItem = {
-    title: string;
-    price: string;
-    features: string[];
-    link: string;
-};
-
-export type FeatureItem = {
-    title: string;
-    description: string;
-    benefits: string[];
-};
+import Grid from '@components/grid';
 
 interface LayoutConfig {
     header: {
@@ -32,9 +12,8 @@ interface LayoutConfig {
         position: 'sticky' | 'relative';
     };
     main: {
-        maxWidth: string;
-        padding: string;
-        isCentered?: boolean;
+        maxWidth?: string;
+        padding?: string;
     };
     footer: {
         height: string;
@@ -49,30 +28,16 @@ interface LandingLayoutProps {
     layoutConfig: LayoutConfig;
 }
 
-const defaultHeaderItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Features', href: '/features' },
-    { label: 'About', href: '/about' },
-];
-
 const LandingLayout: React.FC<LandingLayoutProps> = ({
-    headerData: {
-        logo = '/logo.png',
-        menuItems = defaultHeaderItems,
-        brandName = 'Your Brand',
-        ...headerRest
-    },
-    footerData: {
-        menuItems: footerMenuItems = [], // Add default value here
-        ...footerRest
-    },
+    headerData,
+    footerData,
     children,
     layoutConfig,
 }) => {
     const { layout, setLayout } = useLayout();
 
     useEffect(() => {
-        setLayout('landing'); // Dynamically set the layout value
+        setLayout('landing');
     }, [setLayout]);
 
     return (
@@ -82,29 +47,19 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
                 gridTemplateAreas: '"header" "main" "footer"',
                 gridTemplateRows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
             }}
-            columns={1} // Single column layout
-            data-layout={layout} // Add semantic context
+            columns={1}
+            data-layout={layout}
         >
-            <Header
-                className="[grid-area:header]"
-                logo={logo}
-                menuItems={menuItems}
-                brandName={brandName}
-                {...headerRest}
-            />
-            <Main
-                className={`[grid-area:main] w-full ${
-                    layoutConfig.main.isCentered ? 'flex items-center justify-center' : ''
-                }`}
-            >
-                {children}
+            <Header className="[grid-area:header]" {...headerData} />
+            <Main className="[grid-area:main] w-full">
+                <div
+                    className={`w-full ${layoutConfig.main.padding || 'px-0'} mx-auto`}
+                    style={{ maxWidth: layoutConfig.main.maxWidth }}
+                >
+                    {children}
+                </div>
             </Main>
-
-            <Footer
-                className="[grid-area:footer]"
-                menuItems={footerMenuItems} // Use the default value here
-                {...footerRest}
-            />
+            <Footer className="[grid-area:footer]" {...footerData} />
         </Grid>
     );
 };

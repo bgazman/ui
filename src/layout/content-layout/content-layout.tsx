@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Main, { MainProps } from '@components/main/main';
+import Main, { MainProps } from '@components/main.tsx';
 import { useLayout } from '@layout/context/layout-context';
 
 interface ContentLayoutProps {

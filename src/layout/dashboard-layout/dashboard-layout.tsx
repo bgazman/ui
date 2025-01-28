@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Header from '@components/header/header';
-import type { HeaderProps } from '@components/header/header';
-import Sidebar, { SidebarProps } from '@components/sidebar/sidebar';
-import Main, { MainProps } from '@components/main/main';
+import Header from '@components/header.tsx';
+import type { HeaderProps } from '@components/header.tsx';
+import Sidebar, { SidebarProps } from '@components/sidebar.tsx';
+import Main, { MainProps } from '@components/main.tsx';
 import { useLayout } from '@layout/context/layout-context';
 
 interface LayoutConfig {

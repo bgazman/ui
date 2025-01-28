@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation, { NavItem } from "@components/navigation/navigation";
+import Navigation, { NavItem } from "@components/navigation.tsx";
 
 export type SidebarProps = {
     className?: string;

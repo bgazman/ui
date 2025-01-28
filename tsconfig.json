@@ -5,10 +5,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@styles/*": ["src/styles/*"],
       "@pages/*": ["src/pages/*"],
       "@theme/*": ["src/theme/*"],
-      "@tools/*": ["src/tools/*"],
       "@layout/*": ["src/layout/*"]
     },
 

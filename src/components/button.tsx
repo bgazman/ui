@@ -1,3 +1,5 @@
+import React from "react";
+
 interface ButtonProps {
     type?: 'button' | 'submit' | 'reset';
     children: React.ReactNode;
@@ -7,7 +9,7 @@ interface ButtonProps {
     disabled?: boolean;
     size?: 'sm' | 'md' | 'lg';
     variant?: 'default' | 'icon';
-    label?: string; // Add the label prop
+    label?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
     disabled = false,
     size = 'md',
     variant = 'default',
-    label, // Destructure the label prop
+    label,
 }) => {
     const sizeClasses = {
         sm: 'p-1',
@@ -32,10 +34,10 @@ const Button: React.FC<ButtonProps> = ({
             type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`${sizeClasses[size]} bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-blue-300 ${className}`}
+            className={`${sizeClasses[size]} bg-var(--button-bg-color) text-var(--button-text-color) rounded hover:bg-var(--button-hover-bg-color) disabled:bg-var(--button-disabled-bg-color) disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-var(--button-focus-ring-color) ${className}`}
             style={style}
         >
-            {label || children} {/* Use the label prop if provided, otherwise use children */}
+            {label || children}
         </button>
     );
 };

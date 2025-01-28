@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Header, { HeaderProps } from "@components/header/header";
-import Main from "@components/main/main";
+import Header, { HeaderProps } from "@components/header.tsx";
+import Main from "@components/main.tsx";
 import { useLayout } from '@layout/context/layout-context';
 
 interface HeaderLayoutProps {

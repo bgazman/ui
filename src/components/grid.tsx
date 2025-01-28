@@ -1,14 +1,14 @@
-import React from 'react';
-
 interface GridProps extends Record<string, unknown> {
     children: React.ReactNode;
-    columns?: number; // Number of columns in the grid
-    gap?: string; // Spacing between grid items
-    alignItems?: 'start' | 'center' | 'end' | 'stretch'; // Vertical alignment
-    justifyItems?: 'start' | 'center' | 'end' | 'stretch'; // Horizontal alignment
-    className?: string; // Additional classes
-    style?: React.CSSProperties; // Inline styles
+    columns?: number;
+    gap?: string;
+    alignItems?: 'start' | 'center' | 'end' | 'stretch';
+    justifyItems?: 'start' | 'center' | 'end' | 'stretch';
+    justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around'; // New Prop
+    className?: string;
+    style?: React.CSSProperties;
 }
+
 
 const Grid: React.FC<GridProps> = ({
                                        children,
@@ -16,6 +16,7 @@ const Grid: React.FC<GridProps> = ({
                                        gap = '1rem',
                                        alignItems = 'stretch',
                                        justifyItems = 'stretch',
+                                       justifyContent = 'start',
                                        className = '',
                                        style,
                                        ...rest
@@ -23,10 +24,13 @@ const Grid: React.FC<GridProps> = ({
     <div
         className={`grid ${className}`}
         style={{
+            display: 'grid',
             gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
             gap,
             alignItems,
             justifyItems,
+            justifyContent,
+            placeItems: justifyContent === 'center' ? 'center' : undefined, // New logic for centering rows
             ...style,
         }}
         {...rest}
@@ -34,5 +38,4 @@ const Grid: React.FC<GridProps> = ({
         {children}
     </div>
 );
-
 export default Grid;

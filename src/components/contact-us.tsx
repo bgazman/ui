@@ -1,6 +1,7 @@
 import React from 'react';
-import Section from '@components/section/section'; // Import the Section component
+import Section from '@components/section.tsx'; // Import the Section component
 import Form from '@components/form';
+import Box from '@components/box'; // Import the Box component
 
 interface ContactUsProps {
     id?: string;
@@ -36,11 +37,11 @@ const ContactUs: React.FC<ContactUsProps> = ({
             className={className}
             style={style}
         >
-            <div className="flex flex-col items-center space-y-6">
+            <Box className="flex flex-col items-center space-y-6">
                 {/* Contact Information */}
-                <div className="space-y-2 text-gray-600">
+                <Box className="space-y-2 text-gray-600">
                     {email && (
-                        <p>
+                        <Box as="p">
                             <span className="font-semibold">Email:</span>{' '}
                             <a
                                 href={`mailto:${email}`}
@@ -48,10 +49,10 @@ const ContactUs: React.FC<ContactUsProps> = ({
                             >
                                 {email}
                             </a>
-                        </p>
+                        </Box>
                     )}
                     {phone && (
-                        <p>
+                        <Box as="p">
                             <span className="font-semibold">Phone:</span>{' '}
                             <a
                                 href={`tel:${phone}`}
@@ -59,47 +60,21 @@ const ContactUs: React.FC<ContactUsProps> = ({
                             >
                                 {phone}
                             </a>
-                        </p>
+                        </Box>
                     )}
                     {address && (
-                        <p>
+                        <Box as="p">
                             <span className="font-semibold">Address:</span> {address}
-                        </p>
+                        </Box>
                     )}
-                </div>
+                </Box>
 
                 {/* Form with Custom Width */}
                 <Form
-                    className="w-full max-w-3xl" // Custom width for the form
-                    title="Send Us a Message"
-                    description="Fill out the form below, and we’ll get back to you as soon as possible."
-                    fields={[
-                        {
-                            name: 'name',
-                            label: 'Name',
-                            type: 'text',
-                            placeholder: 'Your Name',
-                            required: true,
-                        },
-                        {
-                            name: 'email',
-                            label: 'Email',
-                            type: 'email',
-                            placeholder: 'Your Email',
-                            required: true,
-                        },
-                        {
-                            name: 'message',
-                            label: 'Message',
-                            type: 'textarea',
-                            placeholder: 'Your Message',
-                            required: true,
-                        },
-                    ]}
-                    buttonLabel="Submit"
+                    className="w-full"
                     onSubmit={handleFormSubmit}
                 />
-            </div>
+            </Box>
         </Section>
     );
 };
