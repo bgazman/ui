@@ -1,46 +1,36 @@
-import React, { CSSProperties, ReactNode, MouseEventHandler } from 'react';
+import React from 'react';
 
 interface CardProps {
-    children?: ReactNode;
+    title: string;
+    description?: string;
+    children?: React.ReactNode;
+    actionLink?: string;
+    actionText?: string;
     className?: string;
-    elevation?: 'low' | 'high';
-    rounded?: boolean;
-    padding?: boolean;
-    onClick?: MouseEventHandler<HTMLDivElement>; // Updated to support MouseEvent
-    style?: CSSProperties;
+    style?: React.CSSProperties;
 }
-
 const Card: React.FC<CardProps> = ({
+                                       title,
+                                       description,
                                        children,
+                                       actionLink,
+                                       actionText,
                                        className = '',
-                                       elevation = 'low',
-                                       rounded = true,
-                                       padding = true,
-                                       onClick,
-                                       style = {},
-                                   }) => {
-    const cardClasses = [
-        'card',
-        elevation === 'high' && 'card--elevated',
-        rounded && 'card--rounded',
-        padding && 'card--padded',
-        className,
-    ]
-        .filter(Boolean)
-        .join(' ');
+                                       style,
+                                   }) => (
+    <div
+        className={`p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300 ${className}`}
+        style={style}
+    >
+        <h3 className="text-2xl font-semibold text-gray-900">{title}</h3>
+        {description && <p className="mt-2 text-gray-600">{description}</p>}
+        {children}
+        {actionLink && actionText && (
+            <a href={actionLink} className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                {actionText}
+            </a>
+        )}
+    </div>
+);
 
-    return (
-        <div
-            className={cardClasses}
-            onClick={onClick}
-            role={onClick ? 'button' : undefined}
-            tabIndex={onClick ? 0 : undefined}
-            style={style}
-        >
-            {children}
-        </div>
-    );
-};
-
-export { Card };
 export default Card;

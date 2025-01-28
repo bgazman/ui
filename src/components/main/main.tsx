@@ -28,16 +28,9 @@ export type MainProps = {
     className?: string;
 };
 
-const Main: React.FC<MainProps> = ({ children, heroItems, }) => {
+const Main: React.FC<MainProps> = ({ children, className }) => {
     return (
-        <main className="main">
-            {heroItems.map((item, index) => (
-                <section key={index} className="intro">
-                    <h1>{item.title}</h1>
-                    <p>{item.description}</p>
-                    <a href={item.actionLink}>{item.actionText}</a>
-                </section>
-            ))}
+        <main className={className}>
             {children}
         </main>
     );

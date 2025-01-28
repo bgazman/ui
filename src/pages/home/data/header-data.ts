@@ -2,7 +2,7 @@ export const mockHeaderData = {
     brandName: "Your Brand",
     logo: {
         alt: "Your Logo",
-        src: "/path/to/logo.png"
+        src: "src/assets/icons/logo.jpg"
     },
     menuItems: [
         { label: "Home", href: "/" },

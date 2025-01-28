@@ -1,10 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Add your custom styles or variables here */
+
+/* Custom root-level styles and variables */
 :root {
     --color-primary: #4299e1;
     --color-secondary: #f687b3;
     --color-bg: #ffffff;
     --color-text: #333333;
+
+    /* Root-level sizing */
+    font-size: 16px; /* Default root font size */
+    --spacing-container: 2rem; /* Custom container padding */
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+body {
+    @apply antialiased font-sans bg-gray-50 text-gray-800;
+}
+
+/* Utility styles for root containers */
+#root {
+    @apply flex flex-col min-h-screen;
+}
+
+header {
+    @apply sticky top-0 w-full bg-white shadow-lg z-50;
+}
+
+main {
+    @apply flex-grow;
+}
+
+footer {
+    @apply w-full bg-gray-100 text-center py-4;
 }

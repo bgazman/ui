@@ -28,12 +28,12 @@ const Header: React.FC<HeaderProps> = ({
                                            brandName,
                                            className,
                                            style,
-                                           position = 'sticky'
+                                           position = 'sticky',
                                        }) => {
     const getPositionClass = () => ({
         fixed: 'fixed top-0 left-0 right-0',
         sticky: 'sticky top-0',
-        relative: 'relative'
+        relative: 'relative',
     }[position]);
 
     const renderLogo = () => {
@@ -54,16 +54,13 @@ const Header: React.FC<HeaderProps> = ({
 
     return (
         <header
-            className={`
-                w-full bg-white shadow-sm z-50
-                ${getPositionClass()}
-                ${className || ''}
-            `}
+            className={`w-full bg-white shadow-sm z-50 ${getPositionClass()} ${className || ''}`}
             style={style}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    <div className="flex items-center gap-4">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+                <div className="flex justify-between items-center h-16">
+                    {/* Left: Logo and Brand */}
+                    <div className="flex items-center gap-2">
                         {renderLogo()}
                         {brandName && (
                             <span className="text-xl font-semibold text-gray-900">
@@ -71,14 +68,18 @@ const Header: React.FC<HeaderProps> = ({
                             </span>
                         )}
                     </div>
-                    <Navigation
-                        className="flex items-center space-x-4"
-                        navItems={menuItems.map(item => ({
-                            label: item.label,
-                            link: item.href
-                        }))}
-                        orientation="horizontal"
-                    />
+
+                    {/* Center: Navigation */}
+                    <nav className="flex-1">
+                        <Navigation
+                            className="flex justify-center items-center space-x-6"
+                            navItems={menuItems.map((item) => ({
+                                label: item.label,
+                                link: item.href,
+                            }))}
+                            orientation="horizontal"
+                        />
+                    </nav>
                 </div>
             </div>
         </header>

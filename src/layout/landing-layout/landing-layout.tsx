@@ -13,12 +13,14 @@ interface LayoutConfig {
     main: {
         maxWidth: string;
         padding: string;
+        isCentered?: boolean; // New property
     };
     footer: {
         height: string;
         position: 'sticky' | 'relative';
     };
 }
+
 
 interface LandingLayoutProps {
     mainData: Omit<MainProps, 'children'>;
@@ -35,17 +37,17 @@ const defaultHeaderItems = [
 ];
 
 const LandingLayout: React.FC<LandingLayoutProps> = ({
-    mainData,
-    headerData: {
-        logo = '/logo.png',
-        menuItems = defaultHeaderItems,
-        brandName = 'Your Brand',
-        ...headerRest
-    },
-    footerData,
-    children,
-    layoutConfig
-}) => {
+                                                         mainData,
+                                                         headerData: {
+                                                             logo = '/logo.png',
+                                                             menuItems = defaultHeaderItems,
+                                                             brandName = 'Your Brand',
+                                                             ...headerRest
+                                                         },
+                                                         footerData,
+                                                         children,
+                                                         layoutConfig,
+                                                     }) => {
     const { layout, setLayout } = useLayout();
 
     useEffect(() => {
@@ -53,12 +55,14 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
     }, [setLayout]);
 
     return (
-        <div className="grid w-full min-h-screen grid-cols-1"
-             style={{
-                 gridTemplateAreas: '"header" "main" "footer"',
-                 gridTemplateRows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`
-             }}
-             data-layout={layout}>
+        <div
+            className="grid w-full min-h-screen grid-cols-1"
+            style={{
+                gridTemplateAreas: '"header" "main" "footer"',
+                gridTemplateRows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
+            }}
+            data-layout={layout}
+        >
             <Header
                 className="[grid-area:header]"
                 logo={logo}
@@ -66,11 +70,24 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
                 brandName={brandName}
                 {...headerRest}
             />
-            <Main className="[grid-area:main]" {...mainData}>
+            <Main
+                className={`[grid-area:main] ${
+                    layoutConfig.main.isCentered
+                        ? 'flex items-center justify-center'
+                        : ''
+                }`}
+                {...mainData}
+            >
                 {children}
             </Main>
-            <Footer className="[grid-area:footer]" {...footerData} />
+            <Footer
+                className="[grid-area:footer]"
+                links={footerData.links}
+                copyright={footerData.copyright}
+                contactInfo={footerData.contactInfo}
+            />
         </div>
     );
 };
+
 export default LandingLayout;
