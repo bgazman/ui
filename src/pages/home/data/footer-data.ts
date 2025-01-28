@@ -1,8 +1,9 @@
 export const footerMockData = {
-    links: [
-        { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Terms of Service', href: '/terms' },
-        { label: 'Contact Us', href: '/contact' },
+    menuItems: [
+        { label: "Home", href: "/" },
+        { label: "Features", href: "#features" },
+        { label: "About Us", href: "#about-us" },
+        { label: "Contact", href: "#contact" }
     ],
     contactInfo: {
         email: 'contact@example.com',

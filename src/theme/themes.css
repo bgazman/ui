@@ -1,33 +1,34 @@
-
 .theme-container {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
-:root[data-theme="light"] {
+.theme-container[data-theme="light"] {
     --bg-primary: #ffffff;
     --bg-secondary: #f3f4f6;
     --text-primary: #111827;
     --text-secondary: #4b5563;
 }
 
-:root[data-theme="dark"] {
+.theme-container[data-theme="dark"] {
     --bg-primary: #111827;
     --bg-secondary: #1f2937;
     --text-primary: #ffffff;
     --text-secondary: #9ca3af;
 }
 
-:root[data-theme="forest"] {
+.theme-container[data-theme="forest"] {
     --bg-primary: #064e3b;
     --bg-secondary: #065f46;
     --text-primary: #ecfdf5;
     --text-secondary: #a7f3d0;
 }
 
-:root[data-theme="ocean"] {
+.theme-container[data-theme="ocean"] {
     --bg-primary: #0c4a6e;
     --bg-secondary: #0369a1;
     --text-primary: #f0f9ff;

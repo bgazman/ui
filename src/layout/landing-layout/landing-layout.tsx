@@ -2,8 +2,29 @@ import React, { useEffect } from 'react';
 import Header from '@components/header/header';
 import type { HeaderProps } from '@components/header/header';
 import Footer, { FooterProps } from '@components/footer/footer';
-import Main, { MainProps } from '@components/main/main';
+import Main from '@components/main/main';
 import { useLayout } from '@layout/context/layout-context';
+import Grid from '@components/grid'; // Import your Grid component
+
+export type HeroItem = {
+    title: string;
+    description: string;
+    actionText: string;
+    actionLink: string;
+};
+
+export type PricingItem = {
+    title: string;
+    price: string;
+    features: string[];
+    link: string;
+};
+
+export type FeatureItem = {
+    title: string;
+    description: string;
+    benefits: string[];
+};
 
 interface LayoutConfig {
     header: {
@@ -13,7 +34,7 @@ interface LayoutConfig {
     main: {
         maxWidth: string;
         padding: string;
-        isCentered?: boolean; // New property
+        isCentered?: boolean;
     };
     footer: {
         height: string;
@@ -21,9 +42,7 @@ interface LayoutConfig {
     };
 }
 
-
 interface LandingLayoutProps {
-    mainData: Omit<MainProps, 'children'>;
     headerData: HeaderProps;
     footerData: FooterProps;
     children: React.ReactNode;
@@ -37,31 +56,34 @@ const defaultHeaderItems = [
 ];
 
 const LandingLayout: React.FC<LandingLayoutProps> = ({
-                                                         mainData,
-                                                         headerData: {
-                                                             logo = '/logo.png',
-                                                             menuItems = defaultHeaderItems,
-                                                             brandName = 'Your Brand',
-                                                             ...headerRest
-                                                         },
-                                                         footerData,
-                                                         children,
-                                                         layoutConfig,
-                                                     }) => {
+    headerData: {
+        logo = '/logo.png',
+        menuItems = defaultHeaderItems,
+        brandName = 'Your Brand',
+        ...headerRest
+    },
+    footerData: {
+        menuItems: footerMenuItems = [], // Add default value here
+        ...footerRest
+    },
+    children,
+    layoutConfig,
+}) => {
     const { layout, setLayout } = useLayout();
 
     useEffect(() => {
-        setLayout('landing');
+        setLayout('landing'); // Dynamically set the layout value
     }, [setLayout]);
 
     return (
-        <div
-            className="grid w-full min-h-screen grid-cols-1"
+        <Grid
+            className="w-full min-h-screen"
             style={{
                 gridTemplateAreas: '"header" "main" "footer"',
                 gridTemplateRows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
             }}
-            data-layout={layout}
+            columns={1} // Single column layout
+            data-layout={layout} // Add semantic context
         >
             <Header
                 className="[grid-area:header]"
@@ -71,22 +93,19 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
                 {...headerRest}
             />
             <Main
-                className={`[grid-area:main] ${
-                    layoutConfig.main.isCentered
-                        ? 'flex items-center justify-center'
-                        : ''
+                className={`[grid-area:main] w-full ${
+                    layoutConfig.main.isCentered ? 'flex items-center justify-center' : ''
                 }`}
-                {...mainData}
             >
                 {children}
             </Main>
+
             <Footer
                 className="[grid-area:footer]"
-                links={footerData.links}
-                copyright={footerData.copyright}
-                contactInfo={footerData.contactInfo}
+                menuItems={footerMenuItems} // Use the default value here
+                {...footerRest}
             />
-        </div>
+        </Grid>
     );
 };
 

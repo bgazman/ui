@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 import Navigation from "../navigation/navigation";
+import Box from "@components/box"; // Utility component for layout and styling
+import ThemeSwitcher from "@components/theme-switcher";
 
 type MenuItemType = {
     label: string;
@@ -19,7 +21,7 @@ export interface HeaderProps {
     logo?: string | LogoType;
     menuItems: MenuItemType[];
     brandName?: string;
-    position?: 'fixed' | 'sticky' | 'relative';
+    position?: "fixed" | "sticky" | "relative";
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -28,17 +30,18 @@ const Header: React.FC<HeaderProps> = ({
                                            brandName,
                                            className,
                                            style,
-                                           position = 'sticky',
+                                           position = "sticky",
                                        }) => {
-    const getPositionClass = () => ({
-        fixed: 'fixed top-0 left-0 right-0',
-        sticky: 'sticky top-0',
-        relative: 'relative',
-    }[position]);
+    const getPositionClass = () =>
+        ({
+            fixed: "fixed top-0 left-0 right-0",
+            sticky: "sticky top-0",
+            relative: "relative",
+        }[position]);
 
     const renderLogo = () => {
         if (!logo) return null;
-        if (typeof logo === 'string') {
+        if (typeof logo === "string") {
             return <span className="text-xl font-bold">{logo}</span>;
         }
         return (
@@ -53,24 +56,25 @@ const Header: React.FC<HeaderProps> = ({
     };
 
     return (
-        <header
-            className={`w-full bg-white shadow-sm z-50 ${getPositionClass()} ${className || ''}`}
+        <Box
+            as="header"
+            className={`w-full bg-white shadow-sm z-50 ${getPositionClass()} ${className || ""}`}
             style={style}
         >
-            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-                <div className="flex justify-between items-center h-16">
+            <Box className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+                <Box className="flex justify-between items-center h-16">
                     {/* Left: Logo and Brand */}
-                    <div className="flex items-center gap-2">
+                    <Box className="flex items-center">
                         {renderLogo()}
                         {brandName && (
                             <span className="text-xl font-semibold text-gray-900">
                                 {brandName}
                             </span>
                         )}
-                    </div>
+                    </Box>
 
                     {/* Center: Navigation */}
-                    <nav className="flex-1">
+                    <Box className="flex-1">
                         <Navigation
                             className="flex justify-center items-center space-x-6"
                             navItems={menuItems.map((item) => ({
@@ -79,10 +83,32 @@ const Header: React.FC<HeaderProps> = ({
                             }))}
                             orientation="horizontal"
                         />
-                    </nav>
-                </div>
-            </div>
-        </header>
+                    </Box>
+
+                    {/* Right: Theme Switcher and Actions */}
+                    <Box>
+                        <Box className="flex items-center space-x-4">
+                            {/* Theme Switcher */}
+                            <ThemeSwitcher />
+
+                            {/* Sign In and Sign Up */}
+                            <a
+                                href="#"
+                                className="text-gray-800 hover:text-gray-900 font-medium"
+                            >
+                                Sign In
+                            </a>
+                            <a
+                                href="#"
+                                className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                            >
+                                Sign Up
+                            </a>
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     );
 };
 

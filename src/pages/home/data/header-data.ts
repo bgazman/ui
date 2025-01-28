@@ -6,7 +6,8 @@ export const mockHeaderData = {
     },
     menuItems: [
         { label: "Home", href: "/" },
-        { label: "Layout Demo", href: "/layout-demo" },
-        { label: "Dynamic Grid Demo", href: "/dynamic-grid-demo" }
+        { label: "Features", href: "#features" },
+        { label: "About Us", href: "#about-us" },
+        { label: "Contact", href: "#contact" }
     ]
 };
