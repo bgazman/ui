@@ -11,7 +11,9 @@ import SectionExample from '@pages/docs/examples/section-example';
 import GridExample from '@pages/docs/examples/grid-example';
 import ButtonExample from '@pages/docs/examples/button-example';
 import TextAreaExample from '@pages/docs/examples/text-area-example';
-
+import BoxExample from '@pages/docs/examples/box-example';
+import FormExample from '@pages/docs/examples/form-example';
+import InputFieldExample from '@pages/docs/examples/input-field-example';
 
 import { docsSectionList } from '@pages/docs/data/docs-section-data';
 
@@ -97,10 +99,40 @@ const DocsPage: React.FC = () => {
                                 <TextAreaExample />
                             </ComponentPreview>
                         )}
+                        {section.id === 'box-component' && (
+                            <ComponentPreview
+                                title="Box Component"
+                                description="This is a preview of the Box component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <BoxExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'form-component' && (
+                            <ComponentPreview
+                                title="Form Component"
+                                description="This is a preview of the Form component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <FormExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'input-field-component' && (
+                            <ComponentPreview
+                                title="Input Field Component"
+                                description="This is a preview of the Input Field component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <InputFieldExample />
+                            </ComponentPreview>
+                        )}
                     </Section>
-
                 ))}
-            </Box>        </DocsLayout>
+            </Box>
+        </DocsLayout>
     );
 };
 

@@ -13,13 +13,13 @@ interface NavigationProps {
 
 const FooterNavigation: React.FC<NavigationProps> = ({ menuItems }) => {
     return (
-        <Box className="flex justify-center">
+        <Box className="flex justify-center md:justify-start w-full md:w-auto">
             <Navigation
                 className="flex flex-wrap space-x-6"
                 orientation="horizontal"
                 navItems={menuItems.map((item) => ({
                     label: item.label,
-                    link: item.href,
+                    href: item.href, // Ensure the property name matches the expected type
                 }))}
             />
         </Box>

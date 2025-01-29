@@ -1,9 +1,11 @@
-import { generateDocsSection } from '@pages/docs/utils/genereate-doc-section';
-import CardExample from '@pages/docs/examples/card-example';
-import SectionExample from '@pages/docs/examples/section-example';
-import GridExample from '@pages/docs/examples/grid-example';
-import ButtonExample from '@pages/docs/examples/button-example';
-import TextAreaExample from '@pages/docs/examples/text-area-example';
+import CardExample from '@pages/docs/examples/card-example?raw';
+import SectionExample from '@pages/docs/examples/section-example?raw';
+import GridExample from '@pages/docs/examples/grid-example?raw';
+import ButtonExample from '@pages/docs/examples/button-example?raw';
+import TextAreaExample from '@pages/docs/examples/text-area-example?raw';
+import BoxExample from '@pages/docs/examples/box-example?raw';
+import FormExample from "@pages/docs/examples/form-example?raw";
+import InputFieldExample from "@pages/docs/examples/input-field-example?raw";
 
 export interface DocsSection {
     id: string;
@@ -11,75 +13,6 @@ export interface DocsSection {
     description: string;
     sourceCode: string;
 }
-
-const cardExampleCode = `
-import React from 'react';
-import Card from '@components/card/card';
-
-const CardExample: React.FC = () => (
-    <Card title="Card Title" description="This is a description.">
-        <div>Card Content</div>
-    </Card>
-);
-
-export default CardExample;
-`;
-
-const sectionExampleCode = `
-import React from 'react';
-import Section from '@components/section/section';
-
-const SectionExample: React.FC = () => (
-    <Section id="example-section" title="Example Section" description="This is an example section.">
-        <div>Section Content</div>
-    </Section>
-);
-
-export default SectionExample;
-`;
-
-const gridExampleCode = `
-import React from 'react';
-import Grid from '@components/grid/grid';
-
-const GridExample: React.FC = () => (
-    <Grid>
-        <div>Grid Item 1</div>
-        <div>Grid Item 2</div>
-        <div>Grid Item 3</div>
-    </Grid>
-);
-
-export default GridExample;
-`;
-
-const buttonExampleCode = `
-import React from 'react';
-import Button from '@components/button/button';
-
-const ButtonExample: React.FC = () => (
-    <div className="button-examples">
-        <Button onClick={() => alert('Primary Button clicked!')} variant="primary" size="md">Primary Button</Button>
-        <Button onClick={() => alert('Secondary Button clicked!')} variant="secondary" size="md">Secondary Button</Button>
-        <Button onClick={() => alert('Disabled Button clicked!')} variant="disabled" size="md" disabled>Disabled Button</Button>
-        <Button onClick={() => alert('Large Button clicked!')} variant="primary" size="lg">Large Button</Button>
-        <Button onClick={() => alert('Small Button clicked!')} variant="primary" size="sm">Small Button</Button>
-    </div>
-);
-
-export default ButtonExample;
-`;
-
-const textAreaExampleCode = `
-import React from 'react';
-import TextArea from '@components/text-area/text-area';
-
-const TextAreaExample: React.FC = () => (
-    <TextArea placeholder="Enter text here..." />
-);
-
-export default TextAreaExample;
-`;
 
 export const docsSectionList: DocsSection[] = [
     {
@@ -101,23 +34,58 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: '',
     },
     {
-        ...generateDocsSection(cardExampleCode),
-        id: 'card-component'
+        id: 'card-component',
+        title: 'Card Component',
+        description: 'This section provides an example of how to use the Card component.',
+        sourceCode: CardExample,  // ✅ Now contains raw source code as text
     },
     {
-        ...generateDocsSection(sectionExampleCode),
-        id: 'section-component'
+        id: 'section-component',
+        title: 'Section Component',
+        description: 'This section provides an example of how to use the Section component.',
+        sourceCode: SectionExample,
     },
     {
-        ...generateDocsSection(gridExampleCode),
-        id: 'grid-component'
+        id: 'grid-component',
+        title: 'Grid Component',
+        description: 'This section provides an example of how to use the Grid component.',
+        sourceCode: GridExample,
     },
     {
-        ...generateDocsSection(buttonExampleCode),
-        id: 'button-component'
+        id: 'button-component',
+        title: 'Button Component',
+        description: 'This section provides an example of how to use the Button component.',
+        sourceCode: ButtonExample,
     },
     {
-        ...generateDocsSection(textAreaExampleCode),
-        id: 'text-area-component'
+        id: 'text-area-component',
+        title: 'Text Area Component',
+        description: 'This section provides an example of how to use the Text Area component.',
+        sourceCode: TextAreaExample,
     },
+{
+    id: 'box-component',
+    title: 'Box Component',
+    description: 'This section provides an example of how to use the Box component.',
+    sourceCode: BoxExample,
+},
+{
+    id: 'form-component',
+    title: 'Form Component',
+    description: 'This section provides an example of how to use the Form component.',
+    sourceCode: FormExample,
+},
+{
+    id: 'input-field-component',
+    title: 'Input Field Component',
+    description: 'This section provides an example of how to use the Input Field component.',
+    sourceCode: InputFieldExample,
+},
+{
+    id: 'button-component',
+    title: 'Button Component',
+    description: 'This section provides an example of how to use the Button component.',
+    sourceCode: ButtonExample,
+},
+
 ];

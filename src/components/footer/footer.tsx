@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from '@components/box.tsx';
 import FooterNavigation from '@components/footer/footer-navigation';
-import ContactInfo from '@components/footer/contact-info';
-import SocialLinks from '@components/footer/social-links';
-import Copyright from '@components/footer/copyright';
+import FooterContactInfo from '@components/footer/footer-contact-info.tsx';
+import FooterSocialLinks from '@components/footer/footer-social-links.tsx';
+import FooterCopyright from '@components/footer/footer-copyright.tsx';
 
 type MenuItemType = {
     label: string;
@@ -37,12 +37,12 @@ const Footer: React.FC<FooterProps> = ({
                 ...style,
             }}
         >
-            <Box className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-                {menuItems.length > 0 && <FooterNavigation menuItems={menuItems} />}
-                {contactInfo && <ContactInfo {...contactInfo} />}
-                {socialLinks && <SocialLinks {...socialLinks} />}
-                <Copyright text={copyright} />
-            </Box>
+<Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
+    {menuItems.length > 0 && <FooterNavigation menuItems={menuItems} />}
+    {contactInfo && <FooterContactInfo {...contactInfo} />}
+    {socialLinks && <FooterSocialLinks {...socialLinks} />}
+    <FooterCopyright text={copyright} />
+</Box>
         </Box>
     );
 };

@@ -6,7 +6,7 @@ interface ContactInfoProps {
     phone?: string;
 }
 
-const ContactInfo: React.FC<ContactInfoProps> = ({ email, phone }) => {
+const FooterContactInfo: React.FC<ContactInfoProps> = ({ email, phone }) => {
     return (
         <Box className="flex space-x-4 items-center text-sm text-center md:text-right">
             {email && (
@@ -23,4 +23,4 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ email, phone }) => {
     );
 };
 
-export default ContactInfo;
+export default FooterContactInfo;

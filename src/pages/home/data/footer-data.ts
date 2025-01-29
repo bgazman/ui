@@ -7,13 +7,12 @@ export const footerMockData: FooterProps = {
         { label: "About Us", href: "#about-us" },
         { label: "Contact", href: "#contact" }
     ],
-    contactInfo: {
-        email: 'contact@example.com',
-        phone: '123-456-7890',
-        // address removed as it's not supported in the interface
-    },
+    // contactInfo: {
+    //     email: 'contact@example.com',
+    //     phone: '123-456-7890',
+    //     // address removed as it's not supported in the interface
+    // },
     copyright: '© 2023 YourBrandName. All rights reserved.',
-    // Optional: add social links if needed
     socialLinks: {
         twitter: 'https://twitter.com/yourbrand',
         linkedin: 'https://linkedin.com/company/yourbrand',

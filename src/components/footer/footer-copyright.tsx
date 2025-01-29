@@ -5,7 +5,7 @@ interface CopyrightProps {
     text: string;
 }
 
-const Copyright: React.FC<CopyrightProps> = ({ text }) => {
+const FooterCopyright: React.FC<CopyrightProps> = ({ text }) => {
     return (
         <Box as="p" className="text-sm text-center md:text-right">
             {text}
@@ -13,4 +13,4 @@ const Copyright: React.FC<CopyrightProps> = ({ text }) => {
     );
 };
 
-export default Copyright;
+export default FooterCopyright;

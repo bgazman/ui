@@ -8,7 +8,7 @@ interface SocialLinksProps {
     facebook?: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ twitter, linkedin, facebook }) => {
+const FooterSocialLinks: React.FC<SocialLinksProps> = ({ twitter, linkedin, facebook }) => {
     return (
         <Box className="flex space-x-4">
             {twitter && (
@@ -30,4 +30,4 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ twitter, linkedin, facebook }
     );
 };
 
-export default SocialLinks;
+export default FooterSocialLinks;
