@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@components/card/card.tsx';
-import Grid from '@components/grid';
+import Grid from '@components/grid/grid.tsx';
 
 export interface Stat {
     number: string;

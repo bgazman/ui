@@ -7,6 +7,12 @@ import Section from '@components/section/section';
 import ComponentPreview from '@components/preview/component-preview';
 import Box from '@components/box';
 import CardExample from '@pages/docs/examples/card-example';
+import SectionExample from '@pages/docs/examples/section-example';
+import GridExample from '@pages/docs/examples/grid-example';
+import ButtonExample from '@pages/docs/examples/button-example';
+import TextAreaExample from '@pages/docs/examples/text-area-example';
+
+
 import { docsSectionList } from '@pages/docs/data/docs-section-data';
 
 const DocsPage: React.FC = () => {
@@ -51,10 +57,50 @@ const DocsPage: React.FC = () => {
                                 <CardExample />
                             </ComponentPreview>
                         )}
+                        {section.id === 'section-component' && (
+                            <ComponentPreview
+                                title="Section Component"
+                                description="This is a preview of the Section component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <SectionExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'grid-component' && (
+                            <ComponentPreview
+                                title="Grid Component"
+                                description="This is a preview of the Grid component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <GridExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'button-component' && (
+                            <ComponentPreview
+                                title="Button Component"
+                                description="This is a preview of the Button component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <ButtonExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'text-area-component' && (
+                            <ComponentPreview
+                                title="Text Area Component"
+                                description="This is a preview of the Text Area component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <TextAreaExample />
+                            </ComponentPreview>
+                        )}
                     </Section>
+
                 ))}
-            </Box>
-        </DocsLayout>
+            </Box>        </DocsLayout>
     );
 };
 

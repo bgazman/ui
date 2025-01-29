@@ -1,6 +1,5 @@
 /* 🌎 Global Variables */
 
-
 /* 🖌️ Theme-Specific Styles */
 .theme-container {
     height: 100%;
@@ -44,6 +43,12 @@
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
     --font-family-sans: "Comic Sans MS", cursive, sans-serif;
     --font-family-serif: "Times New Roman", serif;
     --font-family-mono: "Courier New", monospace;
@@ -67,6 +72,12 @@
     --button-text-color: #ffffff;
     --button-hover-bg-color: #2b6cb0;
     --button-hover-text-color: #ffffff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
     --font-family-sans: "Poppins", "Arial", sans-serif;
     --font-family-serif: "Lora", serif;
     --font-family-mono: "JetBrains Mono", monospace;
@@ -90,6 +101,12 @@
     --button-text-color: #f0fdf4;
     --button-hover-bg-color: #047857;
     --button-hover-text-color: #f0fdf4;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
     --font-family-sans: "Nunito", sans-serif;
     --font-family-serif: "EB Garamond", serif;
     --font-family-mono: "Courier New", monospace;
@@ -113,7 +130,42 @@
     --button-text-color: #f0f9ff;
     --button-hover-bg-color: #0369a1;
     --button-hover-text-color: #f0f9ff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
     --font-family-sans: "Ubuntu", sans-serif;
     --font-family-serif: "Georgia", serif;
     --font-family-mono: "Consolas", monospace;
+}
+
+/* 🏜️ Desert Theme */
+.theme-container[data-theme="desert"] {
+    --bg-primary: #edc9af;
+    --bg-secondary: #d2b48c;
+    --bg-alt1: #c19a6b;
+    --bg-alt2: #8b4513;
+    --text-primary: #5a3e36;
+    --text-secondary: #8b4513;
+    --border-color: #a0522d;
+    --sidebar-border-color: #a0522d;
+    --footer-bg-color: #d2b48c;
+    --footer-text-color: #5a3e36;
+    --header-bg-color: #edc9af;
+    --header-text-color: #5a3e36;
+    --button-bg-color: #cd853f;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #a0522d;
+    --button-hover-text-color: #ffffff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
+    --font-family-sans: "Arial", sans-serif;
+    --font-family-serif: "Times New Roman", serif;
+    --font-family-mono: "Courier New", monospace;
 }

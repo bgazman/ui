@@ -1,9 +1,9 @@
 import React from 'react';
 import { Check, Copy } from 'lucide-react';
-import Button from '@components/button';
+import Button from '@components/button/button.tsx';
 import Card from '@components/card/card';
 import Box from '@components/box';
-import TextArea from '@components/text-area';
+import TextArea from '@components/input/text-area.tsx';
 
 interface CodeContentProps {
     sourceCode: string;

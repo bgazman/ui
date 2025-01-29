@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '@components/section/section.tsx';
 import Card from '@components/card/card.tsx';
-import FlexibleGrid from '@components/flexible-grid';
+import FlexibleGrid from '@components/grid/flexible-grid.tsx';
 import mockMainData from './data/main-data';
 
 const FeaturesSection: React.FC = () => {

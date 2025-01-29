@@ -14,7 +14,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --button-bg-color: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #0056b3;
+    --button-hover-text-color: #ffffff;
 
+
+}
 /* 🌎 Global Variables */
 :root {
     /* 🌞 Light Mode Default */
@@ -35,10 +42,7 @@
     --header-bg-color: #0056b3;
     --header-text-color: #ffffff;
 
-    --button-bg-color: #007bff;
-    --button-text-color: #ffffff;
-    --button-hover-bg-color: #0056b3;
-    --button-hover-text-color: #ffffff;
+
 
     /* 🏗 Layout Heights */
     --header-height: 64px;

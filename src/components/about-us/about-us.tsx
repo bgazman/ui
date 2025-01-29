@@ -4,7 +4,7 @@ import Stats, { Stat } from './stats';
 import Mission from './mission';
 import Vision from './vision';
 import Team, { TeamMember } from './team';
-import Grid from '@components/grid';
+import Grid from '@components/grid/grid.tsx';
 
 interface AboutUsProps {
     id?: string;

@@ -4,7 +4,7 @@ import type { HeaderProps } from '@components/header/header.tsx';
 import Footer, { FooterProps } from '@components/footer/footer.tsx';
 import Sidebar, { SidebarProps } from '@components/sidebar/sidebar.tsx';
 import Main from '@components/main/main.tsx';
-import Grid from '@components/grid';
+import Grid from '@components/grid/grid.tsx';
 import { useLayout } from '@layout/context/layout-context';
 
 export interface BaseLayoutConfig {

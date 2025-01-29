@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "@components/button.tsx";
+import Button from "@components/button/button.tsx";
 
 interface CardFooterProps {
     actionLink?: string;

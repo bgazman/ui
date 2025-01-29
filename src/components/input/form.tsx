@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import InputField from './input-field';
-import TextAreaField from './text-area';
-import SubmitButton from './submit-button';
+import InputField from './input-field.tsx';
+import TextAreaField from './text-area.tsx';
+import SubmitButton from '../button/submit-button.tsx';
 
 interface FormProps {
     onSubmit: (data: Record<string, string>) => void;

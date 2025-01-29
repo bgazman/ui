@@ -5,7 +5,7 @@ import { aboutUsData } from './data/about-us-data';
 import LandingLayout from '@layout/landing-layout.tsx';
 import FeaturesSection from './features-section';
 import AboutUs from '@components/about-us/about-us.tsx';
-import ContactUs from '@components/contact-us';
+import ContactUs from '@components/contact-us/contact-us.tsx';
 import Box from '@components/box';
 
 const HomePage: React.FC = () => {

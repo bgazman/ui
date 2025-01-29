@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavItem } from '@components/navigation/navigation';
-import LinkButton from '@components/link-button';
+import LinkButton from '@components/link/link-button.tsx';
 
 export type SidebarItemProps = {
     navItem: NavItem;

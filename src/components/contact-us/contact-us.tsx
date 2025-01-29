@@ -1,7 +1,7 @@
 import React from 'react';
     import Section from '@components/section/section.tsx';
-    import Form from '@components/form';
-    import Box from '@components/box';
+    import Form from '@components/input/form.tsx';
+    import Box from '@components/box.tsx';
 
     interface ContactUsProps {
         id?: string;
