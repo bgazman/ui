@@ -31,7 +31,7 @@ const HeaderContainer: React.FC<HeaderContainerProps> = ({
             className={`w-full h-16 shadow-sm z-50 ${position} top-0 bg-[var(--header-bg-color)] text-[var(--header-text-color)] ${className}`}
             style={style}
         >
-            <Box className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex justify-between items-center">
+            <Box className="w-full h-16 px-4 sm:px-6 lg:px-8 xl:px-12 flex justify-between items-center">
                 <HeaderLogo logo={logo} brandName={brandName} />
                 <button
                     className="lg:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[var(--button-focus-ring-color)]"

@@ -1,48 +1,60 @@
+/* 🎨 Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600&display=swap');
+
+/* Rest of your existing CSS... */
 @import '@theme/themes.css';
 
+/* 🔹 Tailwind Imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom root-level styles and variables */
+
+/* 🌎 Global Variables */
 :root {
+    /* 🌞 Light Mode Default */
     --bg-primary: #ffffff;
-    --text-primary: #333333;
+    --bg-secondary: #f8f9fa;
+    --bg-alt1: #e9ecef;
+    --bg-alt2: #dee2e6;
+
+    --text-primary: #212529;
+    --text-secondary: #495057;
+
+    --border-color: #ced4da;
+    --sidebar-border-color: #ced4da;
+
+    --footer-bg-color: #f8f9fa;
+    --footer-text-color: #212529;
+
+    --header-bg-color: #0056b3;
+    --header-text-color: #ffffff;
+
     --button-bg-color: #007bff;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
-    --border-color: #e5e7eb;
+
+    /* 🏗 Layout Heights */
     --header-height: 64px;
     --footer-height: 64px;
-    --header-bg-color: #ffffff; /* Add this line */
 
-    /* Default Font Settings */
-    --font-family-sans: "Inter", "Roboto", sans-serif;
+    /* 🏗 Sidebar Defaults */
+    --sidebar-width: 16rem;
+    --sidebar-bg-color: var(--bg-secondary);
+    --sidebar-text-color: var(--text-primary);
+
+    --font-family-sans: "Inter", sans-serif;
     --font-family-serif: "Merriweather", serif;
     --font-family-mono: "Fira Code", monospace;
 }
 
-/* Apply theme variables globally */
-html {
-    font-family: var(--font-family-sans);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    scroll-behavior: smooth;
-}
-
-/* Ensure body inherits theme fonts */
-body {
-    @apply antialiased;
-    font-family: var(--font-family-sans);
-}
-
-/* Root Container */
-#root {
-    @apply flex flex-col min-h-screen;
-}
-
-/* Header */
+/* 🔹 Header */
 header {
     @apply sticky top-0 w-full shadow-lg z-50;
     background-color: var(--header-bg-color);
@@ -50,14 +62,14 @@ header {
     height: var(--header-height);
 }
 
-/* Main Content Area */
+/* 🔹 Main Content */
 main {
     @apply flex-grow;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     padding-bottom: 1rem;
 }
 
-/* Footer */
+/* 🔹 Footer */
 footer {
     @apply w-full text-center py-4;
     background-color: var(--footer-bg-color);
@@ -65,17 +77,16 @@ footer {
     height: var(--footer-height);
 }
 
-/* Typography Fix: Prevent large gaps caused by .prose */
-.prose {
-    margin: 0 !important;
-}
-.prose p {
-    margin-bottom: 0.5rem !important;
+/* 🏗️ Sidebar (Aside) */
+aside {
+    @apply sticky top-0 overflow-y-auto border-r;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg-color);
+    color: var(--sidebar-text-color);
+    border-color: var(--sidebar-border-color);
+    height: calc(100vh - var(--header-height)); /* Adjust height to avoid footer overlap */
 }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-    }
-}
+
+
+

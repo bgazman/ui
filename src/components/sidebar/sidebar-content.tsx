@@ -21,7 +21,7 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
                             <SidebarItem
                                 key={subIndex}
                                 navItem={subItem}
-                                className="text-blue-500 hover:underline"
+                                className="text-blue-500"
                             />
                         ))}
                     </ul>

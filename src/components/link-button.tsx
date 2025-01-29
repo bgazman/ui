@@ -22,7 +22,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ href = '#', children, className
             }}
             target={isExternal ? '_blank' : '_self'}
             rel={isExternal ? 'noopener noreferrer' : undefined}
-            className={`block px-4 py-2 rounded transition-colors ${className}`}
+            className={`block px-4 py-2 rounded transition-colors text-decoration-none ${className}`}
             style={style}
         >
             {children}

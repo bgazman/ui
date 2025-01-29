@@ -1,8 +1,10 @@
+import { Home } from 'lucide-react';
+
 export const mockHeaderData = {
     brandName: "Your Brand",
     logo: {
         alt: "Your Logo",
-        src: "src/assets/icons/logo.jpg"
+        icon: Home
     },
     headerNavItems: [
         { label: "Home", href: "/" },

@@ -8,9 +8,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: "var(--font-family-sans)",
-        serif: "var(--font-family-serif)",
-        mono: "var(--font-family-mono)",
+        sans: ['var(--font-family-sans)', 'sans-serif'],
+        serif: ['var(--font-family-serif)', 'serif'],
+        mono: ['var(--font-family-mono)', 'monospace'],
+        // You can also add specific font families directly
+        poppins: ['Poppins', 'sans-serif'],
+        lora: ['Lora', 'serif'],
+        jetbrains: ['JetBrains Mono', 'monospace'],
+        nunito: ['Nunito', 'sans-serif'],
+        garamond: ['EB Garamond', 'serif'],
+        ubuntu: ['Ubuntu', 'sans-serif']
       },
       fontWeight: {
         normal: "var(--font-weight-normal)",
