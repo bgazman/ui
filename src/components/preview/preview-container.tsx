@@ -6,6 +6,7 @@ interface PreviewContainerProps {
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
+    activeTab: string;
 }
 
 const PreviewContainer: React.FC<PreviewContainerProps> = ({
@@ -14,6 +15,7 @@ const PreviewContainer: React.FC<PreviewContainerProps> = ({
     children,
     className = '',
     style,
+    activeTab,
 }) => (
     <div className={`space-y-4 ${className}`} style={style}>
         <div className="flex items-center justify-between mb-2">
@@ -24,7 +26,9 @@ const PreviewContainer: React.FC<PreviewContainerProps> = ({
                 </div>
             )}
         </div>
-        {children}
+        <div className={activeTab === 'preview' ? 'preview-content-styles' : 'code-content-styles'}>
+            {children}
+        </div>
     </div>
 );
 

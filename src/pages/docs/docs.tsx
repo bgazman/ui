@@ -5,8 +5,9 @@ import { footerMockData } from '@pages/home/data/footer-data';
 import { mockSidebarData } from '@pages/docs/data/sidebar-data';
 import Section from '@components/section/section';
 import ComponentPreview from '@components/preview/component-preview';
-import Card from '@components/card/card';
 import Box from '@components/box';
+import CardExample from '@pages/docs/examples/card-example';
+import { docsSectionList } from '@pages/docs/data/docs-section-data';
 
 const DocsPage: React.FC = () => {
     const layoutConfig = {
@@ -17,11 +18,11 @@ const DocsPage: React.FC = () => {
         main: {
             maxWidth: '90%',
             padding: 'px-6',
-            minHeight: 'calc(100vh - 8rem)', // Ensures content fills the screen
+            minHeight: 'calc(100vh - 8rem)',
         },
         footer: {
             height: '4rem',
-            position: 'relative' as const, // Changed to a valid value
+            position: 'relative' as const,
         },
         sidebar: {
             width: '16rem',
@@ -34,24 +35,24 @@ const DocsPage: React.FC = () => {
             headerData={mockHeaderData}
             footerData={footerMockData}
             layoutConfig={layoutConfig}
-            sidebarMenuItems={mockSidebarData.sideBarMenuItems} // Ensure type compatibility
+            sidebarMenuItems={mockSidebarData.sideBarMenuItems}
         >
             <Box className="space-y-16 sm:space-y-20">
-                <Section id="introduction" title="Introduction" className="text-left">
-                    <p>Introduction content goes here.</p>
-                </Section>
-                <Section id="card-component" title="Card Component" className="text-left">
-                    <ComponentPreview
-                        title="Card Component"
-                        description="This is a preview of the Card component."
-                        sourceCode={`<Card title="Card Title"><div className="p-6">Card Content</div></Card>`}
-                        className="custom-class"
-                    >
-                        <Card className="p-6" title="Card Title">
-                            <div>Card Content</div>
-                        </Card>
-                    </ComponentPreview>
-                </Section>
+                {docsSectionList.map((section) => (
+                    <Section key={section.id} id={section.id} title={section.title} className="text-left">
+                        <p>{section.description}</p>
+                        {section.id === 'card-component' && (
+                            <ComponentPreview
+                                title="Card Component"
+                                description="This is a preview of the Card component."
+                                sourceCode={section.sourceCode}
+                                className="custom-class"
+                            >
+                                <CardExample />
+                            </ComponentPreview>
+                        )}
+                    </Section>
+                ))}
             </Box>
         </DocsLayout>
     );

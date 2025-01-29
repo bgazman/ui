@@ -37,25 +37,28 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
             description={description}
             className={className}
             style={style}
+            activeTab={activeTab}
         >
-            <Box className={`overflow-hidden rounded-lg ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
-                <PreviewTabs
-                    activeTab={activeTab}
-                    onTabChange={setActiveTab}
-                />
+            <PreviewTabs
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+            />
 
-                {activeTab === 'preview' && (
+            {activeTab === 'preview' && (
+                <Box className={`overflow-hidden rounded-lg ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
                     <PreviewContent>{children}</PreviewContent>
-                )}
+                </Box>
+            )}
 
-                {activeTab === 'code' && (
+            {activeTab === 'code' && (
+                <Box className={`overflow-hidden rounded-lg p-4 justify-start ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
                     <CodeContent
                         sourceCode={sourceCode}
                         onCopy={handleCopyCode}
                         isCopied={isCopied}
                     />
-                )}
-            </Box>
+                </Box>
+            )}
         </PreviewContainer>
     );
 };

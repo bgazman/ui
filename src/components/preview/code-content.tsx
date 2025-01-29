@@ -3,6 +3,7 @@ import { Check, Copy } from 'lucide-react';
 import Button from '@components/button';
 import Card from '@components/card/card';
 import Box from '@components/box';
+import TextArea from '@components/text-area';
 
 interface CodeContentProps {
     sourceCode: string;
@@ -15,8 +16,8 @@ const CodeContent: React.FC<CodeContentProps> = ({
     onCopy,
     isCopied,
 }) => (
-    <Card title={'Source Code'} className="relative">
-        <Box className="flex justify-end p-2 border-b" style={{ backgroundColor: 'var(--bg-primary)' }}>
+    <Card className="relative max-w-md mx-auto p-4">
+        <Box className="flex justify-between items-center p-2 border-b" style={{ backgroundColor: 'var(--bg-primary)' }}>
             <Button
                 onClick={onCopy}
                 className="inline-flex items-center px-3 py-1 text-sm font-medium border rounded-md shadow-sm hover:bg-hover focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -34,9 +35,15 @@ const CodeContent: React.FC<CodeContentProps> = ({
                 )}
             </Button>
         </Box>
-        <pre className="p-4 text-sm overflow-x-auto" style={{ backgroundColor: 'var(--bg-primary)' }}>
-            <code className="font-mono whitespace-pre">{sourceCode}</code>
-        </pre>
+        <TextArea
+            id="sourceCode"
+            name="sourceCode"
+            placeholder="Source Code"
+            value={sourceCode}
+            onChange={() => {}}
+            className="w-full h-64 p-4 text-sm font-mono border-none resize-none"
+            theme="dark"
+        />
     </Card>
 );
 

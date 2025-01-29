@@ -10,7 +10,7 @@ const PreviewTabs: React.FC<PreviewTabsProps> = ({
     activeTab,
     onTabChange,
 }) => (
-    <Box className="flex border-b">
+    <Box className="flex border-b p-4">
         <button
             onClick={() => onTabChange('preview')}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
