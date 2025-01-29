@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '@components/section';
+import Section from '@components/section/section.tsx';
 import Stats, { Stat } from './stats';
 import Mission from './mission';
 import Vision from './vision';

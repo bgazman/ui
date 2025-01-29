@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export type Theme = 'light' | 'dark' | 'forest' | 'ocean';
 
@@ -10,7 +10,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>('light');
+    const [theme, setTheme] = useState<Theme>(() => {
+        const savedTheme = localStorage.getItem('theme') as Theme;
+        return savedTheme || 'light';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Main, { MainProps } from "@components/main.tsx";
-import Sidebar, { SidebarProps } from "@components/sidebar.tsx";
+import Sidebar, { SidebarProps } from "@components/sidebar/sidebar.tsx";
 import Footer, { FooterProps } from "@components/footer.tsx";
 import Header, { HeaderProps } from '@components/header.tsx';
 import { useLayout } from '../context/layout-context.tsx';

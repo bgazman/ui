@@ -6,7 +6,7 @@ import LandingLayout from '@layout/landing-layout.tsx';
 import FeaturesSection from './features-section';
 import AboutUs from '@components/about-us/about-us.tsx';
 import ContactUs from '@components/contact-us';
-import Section from '@components/section.tsx';
+import Box from '@components/box';
 
 const HomePage: React.FC = () => {
     const layoutConfig = {
@@ -30,17 +30,17 @@ const HomePage: React.FC = () => {
             footerData={footerMockData}
             layoutConfig={layoutConfig}
         >
-            <div
+            <Box
                 className="space-y-16 sm:space-y-20"
                 style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}
             >
-                <Section id="features" className="text-center">
+                <Box id="features" className="text-center">
                     <FeaturesSection />
-                </Section>
-                <Section id="about-us" className="text-center">
+                </Box>
+                <Box id="about-us" className="text-center">
                     <AboutUs {...aboutUsData} />
-                </Section>
-                <Section id="contact" className="text-center">
+                </Box>
+                <Box id="contact" className="text-center">
                     <ContactUs
                         title="Contact Us"
                         description="We’d love to hear from you. Reach out to us through the following channels."
@@ -48,8 +48,8 @@ const HomePage: React.FC = () => {
                         phone="+1-800-555-1234"
                         address="456 Elm Street, Example City, Country"
                     />
-                </Section>
-            </div>
+                </Box>
+            </Box>
         </LandingLayout>
     );
 };

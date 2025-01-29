@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '@components/header.tsx';
 import type { HeaderProps } from '@components/header.tsx';
-import Sidebar, { SidebarProps } from '@components/sidebar.tsx';
+import Sidebar, { SidebarProps } from '@components/sidebar/sidebar.tsx';
 import Main, { MainProps } from '@components/main.tsx';
 import { useLayout } from '@layout/context/layout-context';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@components/box';
+import Box from '@components/box.tsx';
 
 interface SectionContentProps {
     children?: React.ReactNode;

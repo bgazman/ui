@@ -2,7 +2,7 @@ import React from "react";
 
 import Header, { HeaderProps } from "@components/header.tsx";
 import Footer from "@components/footer.tsx";
-import Sidebar from "@components/sidebar.tsx";
+import Sidebar from "@components/sidebar/sidebar.tsx";
 
 interface SidebarLeftLayoutProps {
     children: React.ReactNode;

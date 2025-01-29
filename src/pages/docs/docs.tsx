@@ -1,10 +1,12 @@
 import React from 'react';
 import DocsLayout from '@layout/docs-layout';
-import { mockHeaderData } from '@pages/docs/data/header-data.ts';
-import { footerMockData } from '@pages/home/data/footer-data.ts';
-import { mockSidebarData } from '@pages/docs/data/sidebar-data.ts';
-import Section from '@components/section.tsx';
-import ComponentPreview from '@components/component-preview.tsx';
+import { mockHeaderData } from '@pages/docs/data/header-data';
+import { footerMockData } from '@pages/home/data/footer-data';
+import { mockSidebarData } from '@pages/docs/data/sidebar-data';
+import Section from '@components/section/section';
+import ComponentPreview from '@components/preview/component-preview';
+import Card from '@components/card/card';
+import Box from '@components/box';
 
 const DocsPage: React.FC = () => {
     const layoutConfig = {
@@ -15,10 +17,11 @@ const DocsPage: React.FC = () => {
         main: {
             maxWidth: '90%',
             padding: 'px-6',
+            minHeight: 'calc(100vh - 8rem)', // Ensures content fills the screen
         },
         footer: {
             height: '4rem',
-            position: 'relative' as const,
+            position: 'relative' as const, // Changed to a valid value
         },
         sidebar: {
             width: '16rem',
@@ -27,76 +30,30 @@ const DocsPage: React.FC = () => {
     };
 
     return (
-        <div data-theme="light"> {/* Set the desired theme here */}
-            <DocsLayout
-                headerData={mockHeaderData}
-                footerData={footerMockData}
-                layoutConfig={layoutConfig}
-                sidebarMenuItems={mockSidebarData.sideBarMenuItems}
-            >
-                <div className="prose max-w-none text-left">
-                    <h1>Welcome to the Documentation</h1>
-                    <p>Learn how to build amazing applications with our components and tools.</p>
-
-                    <Section id="introduction" title="Introduction" className="text-left">
-                        <p>Introduction content goes here.</p>
-                    </Section>
-
-                    <Section id="installation" title="Installation" className="text-left">
-                        <p>Installation instructions go here.</p>
-                    </Section>
-
-                    <Section id="quick-start" title="Quick Start" className="text-left">
-                        <p>Get up and running with our library in minutes.</p>
-                        <pre>
-                            <code>npm install @your-library/components</code>
-                        </pre>
-                    </Section>
-
-                    <Section id="layout" title="Layout" className="text-left">
-                        <ComponentPreview sourceCode={`<Layout />`}>
-                            <p>Layout component details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="navigation" title="Navigation" className="text-left">
-                        <ComponentPreview sourceCode={`<Navigation />`}>
-                            <p>Navigation component details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="forms" title="Forms" className="text-left">
-                        <ComponentPreview sourceCode={`<Forms />`}>
-                            <p>Forms component details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="data-display" title="Data Display" className="text-left">
-                        <ComponentPreview sourceCode={`<DataDisplay />`}>
-                            <p>Data Display component details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="hooks" title="Hooks" className="text-left">
-                        <ComponentPreview sourceCode={`<Hooks />`}>
-                            <p>Hooks API details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="utils" title="Utils" className="text-left">
-                        <ComponentPreview sourceCode={`<Utils />`}>
-                            <p>Utils API details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-
-                    <Section id="types" title="Types" className="text-left">
-                        <ComponentPreview sourceCode={`<Types />`}>
-                            <p>Types API details go here.</p>
-                        </ComponentPreview>
-                    </Section>
-                </div>
-            </DocsLayout>
-        </div>
+        <DocsLayout
+            headerData={mockHeaderData}
+            footerData={footerMockData}
+            layoutConfig={layoutConfig}
+            sidebarMenuItems={mockSidebarData.sideBarMenuItems as any} // Ensure type compatibility
+        >
+            <Box className="space-y-16 sm:space-y-20">
+                <Section id="introduction" title="Introduction" className="text-left">
+                    <p>Introduction content goes here.</p>
+                </Section>
+                <Section id="card-component" title="Card Component" className="text-left">
+                    <ComponentPreview
+                        title="Card Component"
+                        description="This is a preview of the Card component."
+                        sourceCode={`<Card title="Card Title"><div className="p-6">Card Content</div></Card>`}
+                        className="custom-class"
+                    >
+                        <Card className="p-6" title="Card Title">
+                            <div>Card Content</div>
+                        </Card>
+                    </ComponentPreview>
+                </Section>
+            </Box>
+        </DocsLayout>
     );
 };
 

@@ -7,8 +7,10 @@ export interface NavigationProps {
 }
 
 export type NavItem = {
+    href: string;
     label: string;
     link: string;
+    items?: NavItem[]; // Add this line to include the items property
 };
 
 const Navigation: React.FC<NavigationProps> = ({ navItems, orientation = 'horizontal', className }) => {

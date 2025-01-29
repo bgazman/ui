@@ -4,14 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Custom root-level styles and variables */
 :root {
-
     --color-bg: #ffffff;
     --color-text: #333333;
+    --button-bg-color: #007bff; /* Default button background color */
+    --button-text-color: #ffffff; /* Default button text color */
+    --button-hover-bg-color: #0056b3; /* Default button hover background color */
+    --button-hover-text-color: #ffffff; /* Default button hover text color */
+    --border-color: #e5e7eb; /* Default border color */
+    --header-height: 64px; /* Adjust header height */
+    --footer-height: 64px; /* Adjust footer height */
 }
 
+/* Global Reset */
 html, body {
     height: 100%;
     width: 100%;
@@ -19,39 +25,46 @@ html, body {
     padding: 0;
     background-color: var(--color-bg);
     color: var(--color-text);
+    scroll-behavior: smooth;
 }
-/* Add this to index.css or themes.css */
 
+/* Add Tailwind-based styles */
 body {
     @apply antialiased font-sans bg-gray-50 text-gray-800;
 }
 
-/* Utility styles for root containers */
+/* Root Container */
 #root {
     @apply flex flex-col min-h-screen;
 }
 
+/* Header */
 header {
     @apply sticky top-0 w-full bg-white shadow-lg z-50;
+    height: var(--header-height);
 }
 
+/* Main Content Area */
 main {
     @apply flex-grow;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    padding-bottom: 1rem; /* Adjust if needed */
 }
 
+/* Footer */
 footer {
     @apply w-full bg-gray-100 text-center py-4;
+    height: var(--footer-height);
 }
 
-/* Add this to index.css or themes.css */
+/* Typography Fix: Prevent large gaps caused by .prose */
 
-nav a {
-    margin: 0.5rem 0; /* Adjust the margin as needed */
-    padding: 0.5rem;  /* Optional: Add padding if needed */
-}
 
-.sidebar {
-    padding: 1rem; /* Adjust the padding as needed */
-    margin: 1rem;  /* Adjust the margin as needed */
-    border-radius: 0.5rem; /* Optional: Add border radius */
+
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
 }

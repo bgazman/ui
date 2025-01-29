@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@components/box';
+import Box from '@components/box.tsx';
 
 interface SectionContainerProps {
     id?: string;
@@ -12,7 +12,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({ id, className = '',
     <Box
         as="section"
         id={id}
-        className={`w-full px-4 sm:px-8 lg:px-16 py-24 ${className}`}
+        className={`w-full px-4 sm:px-8 lg:px-16 ${className}`}
         style={{ ...style, width: '100%', margin: '0 auto' }}
     >
         {children}

@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '@components/section.tsx';
-import Card from '@components/card.tsx';
+import Section from '@components/section/section.tsx';
+import Card from '@components/card/card.tsx';
 import FlexibleGrid from '@components/flexible-grid';
 import mockMainData from './data/main-data';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-    import Section from '@components/section.tsx';
+    import Section from '@components/section/section.tsx';
     import Form from '@components/form';
     import Box from '@components/box';
 

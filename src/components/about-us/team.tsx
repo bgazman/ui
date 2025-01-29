@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@components/card';
+import Card from '@components/card/card.tsx';
 import Grid from '@components/grid';
 
 export interface TeamMember {

@@ -1,7 +1,7 @@
 import React from 'react';
-import SectionContainer from './section-container';
-import SectionHeader from './section-header';
-import SectionContent from './section-content';
+import SectionContainer from './section-container.tsx';
+import SectionHeader from './section-header.tsx';
+import SectionContent from './section-content.tsx';
 
 interface SectionProps {
     id?: string;
