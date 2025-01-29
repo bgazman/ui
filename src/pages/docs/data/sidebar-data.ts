@@ -1,4 +1,6 @@
-export const mockSidebarData = {
+import { NavItem } from '@components/navigation/navigation.tsx';
+
+export const mockSidebarData: { sideBarMenuItems: NavItem[] } = {
     sideBarMenuItems: [
         {
             label: "Getting Started",
@@ -15,7 +17,6 @@ export const mockSidebarData = {
                 { label: "Theme", href: "#data-display" },
                 { label: "Navigation", href: "#navigation" },
                 { label: "Forms", href: "#forms" }
-
             ]
         },
         {
@@ -47,7 +48,6 @@ export const mockSidebarData = {
                 { label: "Main", href: "#main" },
                 { label: "Navigation Link", href: "#navigation-link" },
                 { label: "Navigation Menu", href: "#navigation-menu" },
-                { label: "Navigation", href: "#navigation" },
                 { label: "Section Container", href: "#section-container" },
                 { label: "Section Content", href: "#section-content" },
                 { label: "Section Header", href: "#section-header" },

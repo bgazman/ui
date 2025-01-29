@@ -15,7 +15,7 @@ const CodeContent: React.FC<CodeContentProps> = ({
     onCopy,
     isCopied,
 }) => (
-    <Card>
+    <Card title={'Source Code'} className="relative">
         <Box className="flex justify-end p-2 border-b" style={{ backgroundColor: 'var(--bg-primary)' }}>
             <Button
                 onClick={onCopy}

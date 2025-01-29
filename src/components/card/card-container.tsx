@@ -8,19 +8,14 @@ interface CardContainerProps {
 
 const CardContainer: React.FC<CardContainerProps> = ({ className = '', style, children }) => (
     <div
-        className={`p-6 shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300 ${className}`}
-        style={{
-            ...style,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            border: '2px solid var(--border-color)',
-            padding: '20px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-        }}
+        className={`
+            w-full h-auto p-6 rounded-lg shadow-md 
+            border-2 border-[var(--border-color)] 
+            bg-[var(--card-bg)] text-[var(--text-color)] 
+            hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] 
+            ${className}
+        `}
+        style={style}
     >
         {children}
     </div>

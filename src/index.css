@@ -6,31 +6,35 @@
 
 /* Custom root-level styles and variables */
 :root {
-    --color-bg: #ffffff;
-    --color-text: #333333;
-    --button-bg-color: #007bff; /* Default button background color */
-    --button-text-color: #ffffff; /* Default button text color */
-    --button-hover-bg-color: #0056b3; /* Default button hover background color */
-    --button-hover-text-color: #ffffff; /* Default button hover text color */
-    --border-color: #e5e7eb; /* Default border color */
-    --header-height: 64px; /* Adjust header height */
-    --footer-height: 64px; /* Adjust footer height */
+    --bg-primary: #ffffff;
+    --text-primary: #333333;
+    --button-bg-color: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #0056b3;
+    --button-hover-text-color: #ffffff;
+    --border-color: #e5e7eb;
+    --header-height: 64px;
+    --footer-height: 64px;
+    --header-bg-color: #ffffff; /* Add this line */
+
+    /* Default Font Settings */
+    --font-family-sans: "Inter", "Roboto", sans-serif;
+    --font-family-serif: "Merriweather", serif;
+    --font-family-mono: "Fira Code", monospace;
 }
 
-/* Global Reset */
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+/* Apply theme variables globally */
+html {
+    font-family: var(--font-family-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     scroll-behavior: smooth;
 }
 
-/* Add Tailwind-based styles */
+/* Ensure body inherits theme fonts */
 body {
-    @apply antialiased font-sans bg-gray-50 text-gray-800;
+    @apply antialiased;
+    font-family: var(--font-family-sans);
 }
 
 /* Root Container */
@@ -40,7 +44,9 @@ body {
 
 /* Header */
 header {
-    @apply sticky top-0 w-full bg-white shadow-lg z-50;
+    @apply sticky top-0 w-full shadow-lg z-50;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
     height: var(--header-height);
 }
 
@@ -48,19 +54,24 @@ header {
 main {
     @apply flex-grow;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    padding-bottom: 1rem; /* Adjust if needed */
+    padding-bottom: 1rem;
 }
 
 /* Footer */
 footer {
-    @apply w-full bg-gray-100 text-center py-4;
+    @apply w-full text-center py-4;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
     height: var(--footer-height);
 }
 
 /* Typography Fix: Prevent large gaps caused by .prose */
-
-
-
+.prose {
+    margin: 0 !important;
+}
+.prose p {
+    margin-bottom: 0.5rem !important;
+}
 
 /* Responsive Fixes */
 @media (max-width: 768px) {

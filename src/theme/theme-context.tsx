@@ -10,24 +10,35 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+    // Get saved theme from localStorage or default to 'light'
     const [theme, setTheme] = useState<Theme>(() => {
-        const savedTheme = localStorage.getItem('theme') as Theme;
-        return savedTheme || 'light';
+        return (localStorage.getItem('theme') as Theme) || 'light';
     });
 
+    // Apply theme on mount & when theme changes
     useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme); // Apply theme globally
         localStorage.setItem('theme', theme);
+
+        // 🔥 Force reflow to apply the new font dynamically
+        setTimeout(() => {
+            const newFont = getComputedStyle(document.documentElement)
+                .getPropertyValue('--font-family-sans')
+                .trim(); // Get the font from CSS variables
+            document.documentElement.style.fontFamily = newFont;
+        }, 10); // Small delay to allow CSS updates
     }, [theme]);
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
-            <div className='theme-container' data-theme={theme}>
+            <div className="theme-container" data-theme={theme}>
                 {children}
             </div>
         </ThemeContext.Provider>
     );
 };
 
+// Custom Hook for easier theme access
 export const useTheme = () => {
     const context = useContext(ThemeContext);
     if (!context) throw new Error('useTheme must be used within ThemeProvider');

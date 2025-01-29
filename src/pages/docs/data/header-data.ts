@@ -4,7 +4,7 @@ export const mockHeaderData = {
         alt: "Your Logo",
         src: "src/assets/icons/logo.jpg"
     },
-    menuItems: [
+    headerNavItems: [
         { label: "Home", href: "/" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },

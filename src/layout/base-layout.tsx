@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '@components/header';
-import type { HeaderProps } from '@components/header';
-import Footer, { FooterProps } from '@components/footer';
+import Header from '@components/header/header.tsx';
+import type { HeaderProps } from '@components/header/header.tsx';
+import Footer, { FooterProps } from '@components/footer/footer.tsx';
 import Sidebar, { SidebarProps } from '@components/sidebar/sidebar.tsx';
-import Main from '@components/main';
+import Main from '@components/main/main.tsx';
 import Grid from '@components/grid';
 import { useLayout } from '@layout/context/layout-context';
 
@@ -29,7 +29,7 @@ export interface BaseLayoutConfig {
 export interface BaseLayoutProps {
     headerData: HeaderProps;
     footerData: FooterProps;
-    sidebarMenuItems?: SidebarProps['sideBarMenuItems'];
+    sidebarMenuItems?: sidebarMenuItems;
     children: React.ReactNode;
     layoutConfig: BaseLayoutConfig;
     layoutType: string;
@@ -42,24 +42,33 @@ export interface BaseLayoutProps {
 }
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({
-                                                   headerData,
-                                                   footerData,
-                                                   sidebarMenuItems,
-                                                   children,
-                                                   layoutConfig,
-                                                   layoutType,
-                                                   gridTemplate = {
-                                                       areas: '"header" "main" "footer"',
-                                                       rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
-                                                       columns: '1fr'
-                                                   },
-                                                   sidebarClassName,
-                                               }) => {
+    headerData,
+    footerData,
+    children,
+    layoutConfig,
+    layoutType,
+    gridTemplate = {
+        areas: '"header" "main" "footer"',
+        rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
+        columns: '1fr'
+    },
+    sidebarMenuItems,
+    sidebarClassName
+}) => {
     const { layout, setLayout } = useLayout();
 
     React.useEffect(() => {
         setLayout(layoutType);
     }, [setLayout, layoutType]);
+
+    const enhancedFooterData: FooterProps = {
+        ...footerData,
+        className: `[grid-area:footer] ${footerData.className || ''}`.trim(),
+        style: {
+            position: layoutConfig.footer.position,
+            ...(footerData.style || {})
+        }
+    };
 
     return (
         <Grid
@@ -76,13 +85,15 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                 style={{ position: layoutConfig.header.position }}
                 {...headerData}
             />
-            {sidebarMenuItems && (
+
+            {layoutConfig.sidebar && (
                 <Sidebar
                     className={`[grid-area:sidebar] ${sidebarClassName || ''}`}
+                    style={{ position: layoutConfig.sidebar.position }}
                     sideBarMenuItems={sidebarMenuItems}
-                    position={layoutConfig.sidebar?.position || 'sticky'}
                 />
             )}
+
             <Main className="[grid-area:main] w-full">
                 <div
                     className={`w-full ${layoutConfig.main.padding || 'px-0'}`}
@@ -91,11 +102,8 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                     {children}
                 </div>
             </Main>
-            <Footer
-                className="[grid-area:footer]"
-                style={{ position: layoutConfig.footer.position }}
-                {...footerData}
-            />
+
+            <Footer {...enhancedFooterData} />
         </Grid>
     );
 };

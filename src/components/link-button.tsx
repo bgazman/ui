@@ -1,17 +1,28 @@
 import React from 'react';
 
 interface LinkButtonProps {
-    href: string;
+    href?: string;
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
+    onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ href, children, className = '', style }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ href = '#', children, className = '', style, onClick }) => {
+    const isExternal = href.startsWith('http') || href.startsWith('//');
+
     return (
         <a
             href={href}
-            className={`inline-block px-4 py-2 bg-[var(--button-bg-color)] text-[var(--button-text-color)] rounded hover:bg-[var(--button-hover-bg-color)] focus:outline-none focus:ring focus:ring-[var(--button-focus-ring-color)] ${className}`}
+            onClick={(event) => {
+                if (href === '#' && onClick) {
+                    event.preventDefault(); // Prevent navigation when used as a button
+                    onClick(event);
+                }
+            }}
+            target={isExternal ? '_blank' : '_self'}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+            className={`block px-4 py-2 rounded transition-colors ${className}`}
             style={style}
         >
             {children}

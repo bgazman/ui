@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { NavItem } from '@components/navigation';
+import { NavItem } from '@components/navigation/navigation.tsx';
 
 type SidebarContextType = {
     openSections: Set<string>;

@@ -1,11 +1,11 @@
 import React from 'react';
-import SidebarContainer from './sidebar-container.tsx';
-import sidebarItem from "@components/sidebar/sidebar-item.tsx";
+import SidebarContainer from './sidebar-container';
+import { NavItem } from '@components/navigation/navigation.tsx';
 
 export interface SidebarProps {
     className?: string;
     style?: React.CSSProperties;
-    sideBarMenuItems: Array<typeof sidebarItem>;
+    sideBarMenuItems: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
 }
 

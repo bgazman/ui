@@ -34,7 +34,7 @@ const DocsPage: React.FC = () => {
             headerData={mockHeaderData}
             footerData={footerMockData}
             layoutConfig={layoutConfig}
-            sidebarMenuItems={mockSidebarData.sideBarMenuItems as any} // Ensure type compatibility
+            sidebarMenuItems={mockSidebarData.sideBarMenuItems} // Ensure type compatibility
         >
             <Box className="space-y-16 sm:space-y-20">
                 <Section id="introduction" title="Introduction" className="text-left">

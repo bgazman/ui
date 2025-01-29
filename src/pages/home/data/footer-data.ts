@@ -1,4 +1,6 @@
-export const footerMockData = {
+import {FooterProps} from "@components/footer/footer.tsx";
+
+export const footerMockData: FooterProps = {
     menuItems: [
         { label: "Home", href: "/" },
         { label: "Features", href: "#features" },
@@ -8,7 +10,13 @@ export const footerMockData = {
     contactInfo: {
         email: 'contact@example.com',
         phone: '123-456-7890',
-        address: '123 Main St, Anytown, USA',
+        // address removed as it's not supported in the interface
     },
     copyright: '© 2023 YourBrandName. All rights reserved.',
+    // Optional: add social links if needed
+    socialLinks: {
+        twitter: 'https://twitter.com/yourbrand',
+        linkedin: 'https://linkedin.com/company/yourbrand',
+        facebook: 'https://facebook.com/yourbrand'
+    }
 };

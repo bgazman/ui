@@ -1,25 +1,21 @@
 import React from 'react';
-
 import Box from '@components/box';
-import { NavItem } from '@components/navigation';
-
-import SidebarContent from "@components/sidebar/sidebar-content.tsx";
-import {useSidebar} from "@components/sidebar/sidebar-context.tsx";
+import SidebarContent from '@components/sidebar/sidebar-content';
+import { NavItem } from '@components/navigation/navigation';
 
 export type SidebarContainerProps = {
     className?: string;
     style?: React.CSSProperties;
-    sideBarMenuItems: { label: string; items: NavItem[] }[];
+    sideBarMenuItems: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
 };
 
-export const SidebarContainer: React.FC<Omit<SidebarContainerProps, 'sideBarMenuItems'>> = ({
-                                                                                                className,
-                                                                                                style,
-                                                                                                position = 'sticky',
-                                                                                            }) => {
-    const { sideBarMenuItems } = useSidebar();
-
+const SidebarContainer: React.FC<SidebarContainerProps> = ({
+    className,
+    style,
+    sideBarMenuItems,
+    position = 'sticky',
+}) => {
     const getPositionClass = () =>
         ({
             fixed: 'fixed top-0 left-0',
@@ -39,12 +35,7 @@ export const SidebarContainer: React.FC<Omit<SidebarContainerProps, 'sideBarMenu
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >
             <Box className="p-4 space-y-2">
-                {sideBarMenuItems.map((section, sectionIndex) => (
-                    <SidebarContent
-                        key={sectionIndex}
-                        section={section}
-                    />
-                ))}
+                <SidebarContent sideBarMenuItems={sideBarMenuItems} />
             </Box>
         </Box>
     );

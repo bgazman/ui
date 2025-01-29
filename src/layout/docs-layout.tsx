@@ -2,8 +2,16 @@
 import React from 'react';
 import BaseLayout, { BaseLayoutProps } from './base-layout';
 import { SidebarProvider } from '@components/sidebar/sidebar-context';
+import { NavItem } from '@components/navigation/navigation.tsx';
 
-type DocsLayoutProps = Omit<BaseLayoutProps, 'layoutType' | 'gridTemplate'>;
+type SidebarMenuItem = {
+    label: string;
+    items: NavItem[];
+};
+
+type DocsLayoutProps = Omit<BaseLayoutProps, 'layoutType' | 'gridTemplate'> & {
+    sidebarMenuItems: SidebarMenuItem[];
+};
 
 const DocsLayout: React.FC<DocsLayoutProps> = (props) => {
     const gridTemplate = {
@@ -13,7 +21,7 @@ const DocsLayout: React.FC<DocsLayoutProps> = (props) => {
     };
 
     return (
-        <SidebarProvider sideBarMenuItems={props.sidebarMenuItems || []}>
+        <SidebarProvider sideBarMenuItems={props.sidebarMenuItems}>
             <BaseLayout
                 {...props}
                 layoutType="docs"

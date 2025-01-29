@@ -1,3 +1,11 @@
+class HeroItem {
+}
+
+class PricingItem {
+}
+
+class FeatureItem {
+}
 
 const mockMainData = {
     heroItems: [

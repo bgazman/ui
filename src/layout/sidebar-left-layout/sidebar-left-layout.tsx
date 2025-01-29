@@ -1,7 +1,7 @@
 import React from "react";
 
-import Header, { HeaderProps } from "@components/header.tsx";
-import Footer from "@components/footer.tsx";
+import Header, { HeaderProps } from "@components/header/header.tsx";
+import Footer from "@components/footer/footer.tsx";
 import Sidebar from "@components/sidebar/sidebar.tsx";
 
 interface SidebarLeftLayoutProps {
