@@ -17,7 +17,7 @@ const CodeContent: React.FC<CodeContentProps> = ({
     isCopied,
 }) => (
     <Card className="relative max-w-md mx-auto p-4">
-        <Box className="flex justify-between items-center p-2 border-b" style={{ backgroundColor: 'var(--bg-primary)' }}>
+        <Box className="flex justify-between items-center p-2 border-b" style={{ backgroundcolor: 'var(--bg-primary)' }}>
             <Button
                 onClick={onCopy}
                 className="inline-flex items-center px-3 py-1 text-sm font-medium border rounded-md shadow-sm hover:bg-hover focus:outline-none focus:ring-2 focus:ring-offset-2"

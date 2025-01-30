@@ -32,8 +32,12 @@ const TextArea: React.FC<TextAreaProps> = ({
             value={value}
             onChange={onChange}
             required={required}
-            className={`p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300 ${className}`}
-            style={{ backgroundColor: `var(--input-bg-color-${theme})` }} // Use theme variable
+            className={`p-2 border rounded focus:outline-none focus:ring ${className}`}
+            style={{
+                backgroundColor: `var(--input-bg-color-${theme})`,
+                borderColor: `var(--input-border-color-${theme})`,
+                boxShadow: `0 0 0 3px var(--input-focus-ring-color-${theme})`
+            }}
         />
     </div>
 );

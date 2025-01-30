@@ -8,7 +8,7 @@ const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
         ...props.headerData,
         style: {
             ...props.headerData.style,
-            backgroundColor: 'var(--header-bg-color)',
+            backgroundcolor: 'var(--header-bg-color)',
         },
     };
 

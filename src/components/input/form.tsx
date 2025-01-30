@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputField from './input-field.tsx';
 import TextAreaField from './text-area.tsx';
-import SubmitButton from '../button/submit-button.tsx';
+import Button from "@components/button/button";
 
 interface FormProps {
     onSubmit: (data: Record<string, string>) => void;
@@ -65,7 +65,7 @@ const Form: React.FC<FormProps> = ({ onSubmit, className = '', style, theme = 'l
                 className="bg-var(--input-bg-color)"
                 theme={theme}
             />
-            <SubmitButton label="Submit" />
+            <Button type="submit">Submit</Button>
         </form>
     );
 };

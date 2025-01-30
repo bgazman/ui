@@ -6,6 +6,8 @@ import TextAreaExample from '@pages/docs/examples/text-area-example?raw';
 import BoxExample from '@pages/docs/examples/box-example?raw';
 import FormExample from "@pages/docs/examples/form-example?raw";
 import InputFieldExample from "@pages/docs/examples/input-field-example?raw";
+import NavigationExample from "@pages/docs/examples/navigation-examples?raw";
+import TabMenuExample from "@pages/docs/examples/tab-menu-example?raw";
 
 export interface DocsSection {
     id: string;
@@ -37,7 +39,7 @@ export const docsSectionList: DocsSection[] = [
         id: 'card-component',
         title: 'Card Component',
         description: 'This section provides an example of how to use the Card component.',
-        sourceCode: CardExample,  // ✅ Now contains raw source code as text
+        sourceCode: CardExample,
     },
     {
         id: 'section-component',
@@ -52,7 +54,7 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: GridExample,
     },
     {
-        id: 'button-component',
+        id: 'button-component-1',
         title: 'Button Component',
         description: 'This section provides an example of how to use the Button component.',
         sourceCode: ButtonExample,
@@ -63,29 +65,40 @@ export const docsSectionList: DocsSection[] = [
         description: 'This section provides an example of how to use the Text Area component.',
         sourceCode: TextAreaExample,
     },
-{
-    id: 'box-component',
-    title: 'Box Component',
-    description: 'This section provides an example of how to use the Box component.',
-    sourceCode: BoxExample,
-},
-{
-    id: 'form-component',
-    title: 'Form Component',
-    description: 'This section provides an example of how to use the Form component.',
-    sourceCode: FormExample,
-},
-{
-    id: 'input-field-component',
-    title: 'Input Field Component',
-    description: 'This section provides an example of how to use the Input Field component.',
-    sourceCode: InputFieldExample,
-},
-{
-    id: 'button-component',
-    title: 'Button Component',
-    description: 'This section provides an example of how to use the Button component.',
-    sourceCode: ButtonExample,
-},
-
+    {
+        id: 'box-component',
+        title: 'Box Component',
+        description: 'This section provides an example of how to use the Box component.',
+        sourceCode: BoxExample,
+    },
+    {
+        id: 'form-component',
+        title: 'Form Component',
+        description: 'This section provides an example of how to use the Form component.',
+        sourceCode: FormExample,
+    },
+    {
+        id: 'input-field-component',
+        title: 'Input Field Component',
+        description: 'This section provides an example of how to use the Input Field component.',
+        sourceCode: InputFieldExample,
+    },
+    {
+        id: 'button-component-2',
+        title: 'Button Component',
+        description: 'This section provides an example of how to use the Button component.',
+        sourceCode: ButtonExample,
+    },
+    {
+        id: 'tab-menu-component',
+        title: 'Tab Menu Component',
+        description: 'This section provides an example of how to use the Tab Menu component.',
+        sourceCode: TabMenuExample,
+    },
+    {
+        id: 'navigation-component',
+        title: 'Navigation Component',
+        description: 'This section provides an example of how to use the Navigation component.',
+        sourceCode: NavigationExample,
+    },
 ];

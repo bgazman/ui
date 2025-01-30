@@ -1,8 +1,10 @@
 import React from 'react';
+import Button from '@components/button/button.tsx';
 
-type Position = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
-interface FloatingButtonProps {
+export type Position = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+
+export interface FloatingButtonProps {
     children: React.ReactNode;
     onClick?: () => void;
     ariaLabel?: string;
@@ -10,7 +12,6 @@ interface FloatingButtonProps {
     position?: Position;
     className?: string;
 }
-
 const FloatingButton: React.FC<FloatingButtonProps> = ({
     children,
     onClick,
@@ -24,13 +25,13 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
             className={`floating-button-container ${position}`}
             title={tooltip}
         >
-            <button
+            <Button
                 onClick={onClick}
                 aria-label={ariaLabel}
                 className={`floating-button ${className}`}
             >
                 {children}
-            </button>
+            </Button>
         </div>
     );
 };

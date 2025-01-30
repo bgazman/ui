@@ -8,6 +8,9 @@ export type SidebarContainerProps = {
     style?: React.CSSProperties;
     sideBarMenuItems: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
+    header?: React.ReactNode;
+    footer?: React.ReactNode;
+    renderItem?: (item: NavItem, isActive: boolean) => React.ReactNode;
 };
 
 const SidebarContainer: React.FC<SidebarContainerProps> = ({
@@ -15,6 +18,9 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
     style,
     sideBarMenuItems,
     position = 'sticky',
+    header,
+    footer,
+    renderItem,
 }) => {
     const getPositionClass = () =>
         ({
@@ -34,9 +40,11 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >
+            {header && <div className="sidebar-header">{header}</div>}
             <Box className="p-4 space-y-2">
-                <SidebarContent sideBarMenuItems={sideBarMenuItems} />
+                <SidebarContent sideBarMenuItems={sideBarMenuItems} renderItem={renderItem} />
             </Box>
+            {footer && <div className="sidebar-footer">{footer}</div>}
         </Box>
     );
 };

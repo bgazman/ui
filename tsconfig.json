@@ -7,7 +7,9 @@
       "@assets/*": ["src/assets/*"],
       "@pages/*": ["src/pages/*"],
       "@theme/*": ["src/theme/*"],
-      "@layout/*": ["src/layout/*"]
+      "@layout/*": ["src/layout/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"]
     },
 
     /* Compilation Settings */

@@ -1,6 +1,6 @@
 import React, { useState, ReactNode, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import FloatingButton from "./floating-button.tsx";
+import FloatingButton from "./button/floating-button.tsx";
 
 interface FloatingMenuProps {
     title?: string;

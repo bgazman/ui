@@ -5,11 +5,13 @@ import SidebarItem from "@components/sidebar/sidebar-item";
 interface SidebarContentProps {
     sideBarMenuItems: { label: string; items: NavItem[] }[];
     className?: string;
+    renderItem?: (item: NavItem, isActive: boolean) => React.ReactNode;
 }
 
 const SidebarContent: React.FC<SidebarContentProps> = ({
     sideBarMenuItems,
     className = "",
+    renderItem,
 }) => {
     return (
         <div className={`flex flex-col space-y-4 ${className}`}>
@@ -18,11 +20,12 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
                     <h3 className="font-semibold">{item.label}</h3>
                     <ul className="space-y-2">
                         {item.items.map((subItem, subIndex) => (
-                            <SidebarItem
-                                key={subIndex}
-                                navItem={subItem}
-                                className="text-blue-500"
-                            />
+                            renderItem ? renderItem(subItem, false) : (
+                                <SidebarItem
+                                    key={subIndex}
+                                    navItem={subItem}
+                                />
+                            )
                         ))}
                     </ul>
                 </div>

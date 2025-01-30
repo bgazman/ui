@@ -3,7 +3,7 @@ import Box from '@components/box';
 
 const BoxExample: React.FC = () => (
     <div>
-        <Box padding="2rem" margin="2rem" backgroundColor="#f0f0f0" border="2px solid #000">
+        <Box padding="2rem" margin="2rem" backgroundcolor="#f0f0f0" border="2px solid #000">
             <p>This is a box with custom styles.</p>
         </Box>
         <Box>

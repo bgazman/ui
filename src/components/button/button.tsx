@@ -1,55 +1,45 @@
-import React from "react";
+// src/components/button/button.tsx
 
-interface ButtonProps {
+import React from "react";
+export type ButtonVariant = "primary" | "secondary" | "disabled" | "large" | "small";
+
+export interface ButtonProps {
     type?: "button" | "submit" | "reset";
     children: React.ReactNode;
     onClick?: () => void;
     className?: string;
+    style?: React.CSSProperties;
     disabled?: boolean;
-    size?: "sm" | "md" | "lg";
-    variant?: "primary" | "secondary" | "disabled" | "large" | "small";
+    variant?: ButtonVariant;
 }
 
 const Button: React.FC<ButtonProps> = ({
-                                           type = "button",
-                                           children,
-                                           onClick,
-                                           className = "",
-                                           disabled = false,
-                                           size = "md",
-                                           variant = "primary",
-                                       }) => {
-    // Generate dynamic size classes
-    const sizeClass =
-        size === "sm"
-            ? "p-1 text-sm"
-            : size === "lg"
-                ? "px-6 py-3 text-lg"
-                : "px-4 py-2 text-base";
+    type = "button",
+    children,
+    onClick,
+    className = "",
+    style,
+    disabled = false,
+    variant = "primary",
+}) => {
+    const baseClasses = "px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    const variantClasses: Record<ButtonVariant, string> = {
+        primary: "bg-[var(--button-bg-color)] text-[var(--button-text-color)]",
+        secondary: "bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)]",
+        disabled: "bg-[var(--button-disabled-bg-color)] text-[var(--button-disabled-text-color)]",
+        large: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-6 py-3",
+        small: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-2 py-1",
+    };
 
-    // Generate variant classes
-    const variantClass = variant === "secondary"
-        ? "bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)] hover:bg-[var(--button-secondary-hover-bg-color)] hover:text-[var(--button-secondary-hover-text-color)]"
-        : variant === "disabled"
-            ? "bg-[var(--button-disabled-bg-color)] text-[var(--button-disabled-text-color)] cursor-not-allowed"
-            : variant === "large"
-                ? "px-6 py-3 text-lg"
-                : variant === "small"
-                    ? "px-2 py-1 text-sm"
-                    : "bg-[var(--button-bg-color)] text-[var(--button-text-color)] hover:bg-[var(--button-hover-bg-color)] hover:text-[var(--button-hover-text-color)]";
+    const selectedVariantClasses = variantClasses[variant] || variantClasses.primary;
 
     return (
         <button
             type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`
-                ${sizeClass}
-                ${variantClass}
-                border rounded transition-colors duration-300
-                focus:outline-none focus:ring
-                ${className}
-            `}
+            className={`${baseClasses} ${selectedVariantClasses} ${className}`}
+            style={style}
         >
             {children}
         </button>

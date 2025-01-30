@@ -1,14 +1,21 @@
 import React from 'react';
+import { Properties } from 'csstype';
 
-interface LinkButtonProps {
+export interface LinkButtonProps {
     href?: string;
     children: React.ReactNode;
     className?: string;
-    style?: React.CSSProperties;
+    style?: Properties<string | number>;
     onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ href = '#', children, className = '', style, onClick }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({
+    href = '#',
+    children,
+    className = '',
+    style,
+    onClick,
+}) => {
     const isExternal = href.startsWith('http') || href.startsWith('//');
 
     return (
@@ -23,7 +30,13 @@ const LinkButton: React.FC<LinkButtonProps> = ({ href = '#', children, className
             target={isExternal ? '_blank' : '_self'}
             rel={isExternal ? 'noopener noreferrer' : undefined}
             className={`block px-4 py-2 rounded transition-colors text-decoration-none ${className}`}
-            style={style}
+            style={{
+                ...style,
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-primary)',
+                '--hover-bg-color': 'var(--button-hover-bg-color)',
+                '--hover-text-color': 'var(--button-hover-text-color)',
+            } as Properties<string | number>}
         >
             {children}
         </a>

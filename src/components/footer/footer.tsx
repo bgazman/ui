@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({
             as="footer"
             className={`w-full py-6 px-6 sm:px-8 text-[var(--text-primary)] ${className}`}
             style={{
-                backgroundColor: `var(--footer-bg-color)`,
+                backgroundcolor: `var(--footer-bg-color)`,
                 color: `var(--footer-text-color)`,
                 ...style,
             }}

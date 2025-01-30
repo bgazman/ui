@@ -11,7 +11,7 @@ const CardFooter: React.FC<CardFooterProps> = ({ actionLink, actionText }) => {
 
     return (
         <div className="mt-4 flex justify-center">
-            <Button onClick={() => window.location.href = actionLink} className="px-4 py-2">
+            <Button onClick={() => window.location.href = actionLink} >
                 {actionText}
             </Button>
         </div>

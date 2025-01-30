@@ -7,6 +7,9 @@ export interface SidebarProps {
     style?: React.CSSProperties;
     sideBarMenuItems: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
+    header?: React.ReactNode;
+    footer?: React.ReactNode;
+    renderItem?: (item: NavItem, isActive: boolean) => React.ReactNode;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -14,6 +17,9 @@ const Sidebar: React.FC<SidebarProps> = ({
     style,
     sideBarMenuItems,
     position = 'sticky',
+    header,
+    footer,
+    renderItem,
 }) => {
     return (
         <SidebarContainer
@@ -21,6 +27,9 @@ const Sidebar: React.FC<SidebarProps> = ({
             style={style}
             sideBarMenuItems={sideBarMenuItems}
             position={position}
+            header={header}
+            footer={footer}
+            renderItem={renderItem}
         />
     );
 };

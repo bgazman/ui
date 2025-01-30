@@ -13,16 +13,16 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({
-    id,
-    name,
-    type,
-    placeholder,
-    value,
-    onChange,
-    required = false,
-    className = '',
-    theme = 'light', // Default theme
-}) => (
+                                                   id,
+                                                   name,
+                                                   type,
+                                                   placeholder,
+                                                   value,
+                                                   onChange,
+                                                   required = false,
+                                                   className = '',
+                                                   theme = 'light', // Default theme
+                                               }) => (
     <div className="flex flex-col">
         <label htmlFor={id} className="mb-2 font-semibold text-gray-700">
             {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -35,8 +35,12 @@ const InputField: React.FC<InputFieldProps> = ({
             value={value}
             onChange={onChange}
             required={required}
-            className={`p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300 ${className}`}
-            style={{ backgroundColor: `var(--input-bg-color-${theme})` }} // Use theme variable
+            className={`p-2 border rounded focus:outline-none focus:ring ${className}`}
+            style={{
+                backgroundColor: `var(--input-bg-color-${theme})`,
+                borderColor: `var(--input-border-color-${theme})`,
+                boxShadow: `0 0 0 3px var(--input-focus-ring-color-${theme})`
+            }}
         />
     </div>
 );

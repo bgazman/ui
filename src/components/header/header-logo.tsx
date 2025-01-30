@@ -29,7 +29,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ logo, brandName }) => {
                             alt={logo.alt}
                             width={logo.width || 48}
                             height={logo.height || 48}
-                            style={{ backgroundColor: 'transparent' }}
+                            style={{ backgroundcolor: 'transparent' }}
                             className="h-12 w-auto object-contain"
                         />
                     )
