@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Box from "@components/box";
 import { Menu, X } from "lucide-react";
 import HeaderLogo from "@components/header/header-logo";
-import HeaderNav from "@components/header/header-nav";
 import HeaderActions from "@components/header/header-actions";
+import HorizontalNavigation from "@components/navigation/horizontal-navigation";
 import { NavItem } from "@components/navigation/navigation";
 
 export interface HeaderContainerProps {
@@ -41,7 +41,7 @@ const HeaderContainer: React.FC<HeaderContainerProps> = ({
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
                 <div className="hidden lg:flex">
-                    <HeaderNav headerNavItems={headerNavItems} />
+                    <HorizontalNavigation navItems={headerNavItems} bgColor="var(--header-bg-color)" textColor="var(--header-text-color)" />
                 </div>
                 <div className="hidden lg:flex items-center space-x-4">
                     <HeaderActions />
@@ -49,7 +49,7 @@ const HeaderContainer: React.FC<HeaderContainerProps> = ({
             </Box>
             {mobileMenuOpen && (
                 <Box className="lg:hidden absolute top-16 left-0 w-full bg-[var(--header-bg-color)] shadow-lg p-4">
-                    <HeaderNav headerNavItems={headerNavItems} orientation="vertical" />
+                    <HorizontalNavigation navItems={headerNavItems} bgColor="var(--header-bg-color)" textColor="var(--header-text-color)" />
                     <HeaderActions mobile />
                 </Box>
             )}

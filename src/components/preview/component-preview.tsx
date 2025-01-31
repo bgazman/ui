@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import PreviewContainer from './preview-container';
-import TabMenu, { TabItem } from '@components/tab-menu/tab-menu';
-import PreviewContent from './preview-content';
-import CodeContent from './code-content';
+import ComponentPreviewContainer from './component-preview-container.tsx';
+import ComponentPreviewExample from './component-preview-example.tsx';
+import ComponentPreviewCode from './component-preview-code.tsx';
 import Box from '@components/box.tsx';
+import TabMenu from '@components/tab-menu/tab-menu.tsx';
 
 interface ComponentPreviewProps {
     title?: string;
@@ -13,11 +13,6 @@ interface ComponentPreviewProps {
     className?: string;
     style?: React.CSSProperties;
 }
-
-const tabMenuItems: TabItem[] = [
-    { label: 'Preview', value: 'preview' },
-    { label: 'Code', value: 'code' },
-];
 
 const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     title,
@@ -36,36 +31,39 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
         setTimeout(() => setIsCopied(false), 2000);
     };
 
+    const tabItems = [
+        { label: 'Preview', value: 'preview' },
+        { label: 'Code', value: 'code' },
+    ];
+
     return (
-        <PreviewContainer
+        <ComponentPreviewContainer
             title={title}
             description={description}
-            className={className}
+            className={`flex flex-col ${className}`}
             style={style}
             activeTab={activeTab}
+            setActiveTab={setActiveTab}
         >
-            <TabMenu
-                items={tabMenuItems}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-            />
+            <TabMenu items={tabItems} activeTab={activeTab} setActiveTab={setActiveTab} />
+            <div className="flex flex-row">
+                {activeTab === 'code' && (
+                    <Box className={`overflow-hidden rounded-lg p-[var(--spacing-lg)] justify-start ${className}`} style={{ ...style, border: '2px solid var(--border-color)', flex: '1 1 50%' }}>
+                        <ComponentPreviewCode
+                            sourceCode={sourceCode}
+                            onCopy={handleCopyCode}
+                            isCopied={isCopied}
+                        />
+                    </Box>
+                )}
 
-            {activeTab === 'preview' && (
-                <Box className={`overflow-hidden rounded-lg ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
-                    <PreviewContent activeTab={activeTab}>{children}</PreviewContent>
-                </Box>
-            )}
-
-            {activeTab === 'code' && (
-                <Box className={`overflow-hidden rounded-lg p-[var(--spacing-lg)] justify-start ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
-                    <CodeContent
-                        sourceCode={sourceCode}
-                        onCopy={handleCopyCode}
-                        isCopied={isCopied}
-                    />
-                </Box>
-            )}
-        </PreviewContainer>
+                {activeTab === 'preview' && (
+                    <Box className={`overflow-hidden rounded-lg ${className}`} style={{ ...style, border: '2px solid var(--border-color)', flex: '1 1 50%' }}>
+                        <ComponentPreviewExample activeTab={activeTab}>{children}</ComponentPreviewExample>
+                    </Box>
+                )}
+            </div>
+        </ComponentPreviewContainer>
     );
 };
 

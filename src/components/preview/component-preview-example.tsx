@@ -7,7 +7,7 @@ interface PreviewContentProps {
     activeTab: string;
 }
 
-const PreviewContent: React.FC<PreviewContentProps> = ({
+const ComponentPreviewExample: React.FC<PreviewContentProps> = ({
     children,
     className = '',
     style,
@@ -20,4 +20,4 @@ const PreviewContent: React.FC<PreviewContentProps> = ({
     </div>
 );
 
-export default PreviewContent;
+export default ComponentPreviewExample;

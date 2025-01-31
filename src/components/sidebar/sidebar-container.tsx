@@ -1,6 +1,8 @@
 import React from 'react';
 import Box from '@components/box';
-import SidebarContent from '@components/sidebar/sidebar-content';
+import SidebarHeader from './sidebar-header';
+import SidebarFooter from './sidebar-footer';
+import SidebarBody from './sidebar-body';
 import { NavItem } from '@components/navigation/navigation';
 
 export type SidebarContainerProps = {
@@ -10,18 +12,16 @@ export type SidebarContainerProps = {
     position?: 'fixed' | 'sticky' | 'relative';
     header?: React.ReactNode;
     footer?: React.ReactNode;
-    renderItem?: (item: NavItem, isActive: boolean) => React.ReactNode;
 };
 
 const SidebarContainer: React.FC<SidebarContainerProps> = ({
-                                                               className,
-                                                               style,
-                                                               sideBarMenuItems,
-                                                               position = 'sticky',
-                                                               header,
-                                                               footer,
-                                                               renderItem,
-                                                           }) => {
+    className,
+    style,
+    sideBarMenuItems,
+    position = 'sticky',
+    header,
+    footer,
+}) => {
     const getPositionClass = () =>
         ({
             fixed: 'fixed top-0 left-0',
@@ -42,14 +42,13 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                 '--scrollbar-thumb': 'var(--text-tertiary)',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
+                padding: 'var(--spacing-md)',
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >
-            {header && <div className="sidebar-header">{header}</div>}
-            <Box className="p-[var(--spacing-md)] space-y-[var(--spacing-sm)]">
-                <SidebarContent sideBarMenuItems={sideBarMenuItems} renderItem={renderItem} />
-            </Box>
-            {footer && <div className="sidebar-footer">{footer}</div>}
+            {header && <SidebarHeader>{header}</SidebarHeader>}
+            <SidebarBody sideBarMenuItems={sideBarMenuItems} />
+            {footer && <SidebarFooter>{footer}</SidebarFooter>}
         </Box>
     );
 };

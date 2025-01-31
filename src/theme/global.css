@@ -180,3 +180,21 @@ aside {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
+.section {
+    opacity: 0;
+    transform: translateY(4rem);
+    transition: opacity var(--animation-duration-normal) var(--animation-ease), transform var(--animation-duration-normal) var(--animation-ease);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    transition: transform var(--transition-duration) var(--transition-timing-function);
+}
+
+header.-translate-y-full {
+    transform: translateY(-200%);
+}

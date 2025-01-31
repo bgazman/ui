@@ -11,7 +11,7 @@ interface CodeContentProps {
     isCopied: boolean;
 }
 
-const CodeContent: React.FC<CodeContentProps> = ({
+const ComponentPreviewCode: React.FC<CodeContentProps> = ({
     sourceCode,
     onCopy,
     isCopied,
@@ -47,4 +47,4 @@ const CodeContent: React.FC<CodeContentProps> = ({
     </Card>
 );
 
-export default CodeContent;
+export default ComponentPreviewCode;

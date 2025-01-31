@@ -1,17 +1,13 @@
 import React from 'react';
 import Box from '@components/box.tsx';
-import FooterNavigation from '@components/footer/footer-navigation';
 import FooterContactInfo from '@components/footer/footer-contact-info.tsx';
 import FooterSocialLinks from '@components/footer/footer-social-links.tsx';
 import FooterCopyright from '@components/footer/footer-copyright.tsx';
-
-type MenuItemType = {
-    label: string;
-    href: string;
-};
+import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
+import { NavItem } from "@components/navigation/navigation.tsx";
 
 export interface FooterProps {
-    menuItems: MenuItemType[];
+    menuItems: NavItem[];
     copyright?: string;
     contactInfo?: { email?: string; phone?: string };
     socialLinks?: { twitter?: string; linkedin?: string; facebook?: string };
@@ -32,17 +28,17 @@ const Footer: React.FC<FooterProps> = ({
             as="footer"
             className={`w-full py-6 px-6 sm:px-8 text-[var(--text-primary)] ${className}`}
             style={{
-                backgroundcolor: `var(--footer-bg-color)`,
+                backgroundColor: `var(--footer-bg-color)`,
                 color: `var(--footer-text-color)`,
                 ...style,
             }}
         >
-<Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
-    {menuItems.length > 0 && <FooterNavigation menuItems={menuItems} />}
-    {contactInfo && <FooterContactInfo {...contactInfo} />}
-    {socialLinks && <FooterSocialLinks {...socialLinks} />}
-    <FooterCopyright text={copyright} />
-</Box>
+            <Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
+                {menuItems.length > 0 && <HorizontalNavigation navItems={menuItems} bgColor="var(--footer-bg-color)" textColor="var(--footer-text-color)" />}
+                {contactInfo && <FooterContactInfo {...contactInfo} />}
+                {socialLinks && <FooterSocialLinks {...socialLinks} />}
+                <FooterCopyright text={copyright} />
+            </Box>
         </Box>
     );
 };

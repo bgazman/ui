@@ -23,7 +23,6 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, title, description
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         section.classList.add('visible');
-                        console.log(`Section ${id} is visible`);
                     } else {
                         section.classList.remove('visible');
                     }

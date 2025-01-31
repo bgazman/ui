@@ -1,6 +1,6 @@
 import React from 'react';
 import SidebarContainer from './sidebar-container';
-import { NavItem } from '@components/navigation/navigation.tsx';
+import { NavItem } from '@components/navigation/navigation';
 
 export interface SidebarProps {
     className?: string;

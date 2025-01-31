@@ -54,7 +54,7 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: GridExample,
     },
     {
-        id: 'button-component-1',
+        id: 'button-component',
         title: 'Button Component',
         description: 'This section provides an example of how to use the Button component.',
         sourceCode: ButtonExample,
@@ -82,12 +82,6 @@ export const docsSectionList: DocsSection[] = [
         title: 'Input Field Component',
         description: 'This section provides an example of how to use the Input Field component.',
         sourceCode: InputFieldExample,
-    },
-    {
-        id: 'button-component-2',
-        title: 'Button Component',
-        description: 'This section provides an example of how to use the Button component.',
-        sourceCode: ButtonExample,
     },
     {
         id: 'tab-menu-component',

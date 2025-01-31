@@ -1,5 +1,4 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
 
 type LinkComponentProps = {
     href: string;
@@ -18,14 +17,7 @@ const LinkComponent: React.FC<LinkComponentProps> = ({
 }) => (
     <a
         href={href}
-        className={classNames(
-            'block px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-[var(--bg-alt1)]',
-            {
-                'bg-[var(--bg-alt1)] text-[var(--text-primary)]': isActive,
-                'text-[var(--text-secondary)]': !isActive,
-            },
-            className
-        )}
+        className={`block px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-[var(--bg-alt1)] ${isActive ? 'bg-[var(--bg-alt1)] text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'} ${className}`}
         style={style}
     >
         {label}
