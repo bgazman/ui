@@ -8,7 +8,7 @@ const FormExample: React.FC = () => {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit} theme="light" />
+            <Form onSubmit={handleSubmit} theme="light" variant="default" />
         </div>
     );
 };

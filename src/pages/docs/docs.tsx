@@ -19,25 +19,25 @@ import NavigationExample from "@pages/docs/examples/navigation-examples.tsx";
 import TabMenuExample from "@pages/docs/examples/tab-menu-example.tsx";
 
 const DocsPage: React.FC = () => {
-    const layoutConfig = {
-        header: {
-            height: '4rem',
-            position: 'sticky' as const,
-        },
-        main: {
-            maxWidth: '90%',
-            padding: 'px-6',
-            minHeight: 'calc(100vh - 8rem)',
-        },
-        footer: {
-            height: '4rem',
-            position: 'relative' as const,
-        },
-        sidebar: {
-            width: '16rem',
-            position: 'sticky' as const,
-        },
-    };
+const layoutConfig = {
+    header: {
+        height: '4rem',
+        position: 'sticky' as const,
+    },
+    main: {
+        maxWidth: '90%',
+        padding: 'px-6',
+        minHeight: 'calc(100vh - 8rem)',
+    },
+    footer: {
+        height: '4rem',
+        position: 'relative' as const,
+    },
+    sidebar: {
+        width: '16rem',
+        position: 'sticky' as const,
+    },
+};
 
     return (
 <DocsLayout

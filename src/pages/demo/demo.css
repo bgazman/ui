@@ -1,0 +1,12 @@
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    transition: transform 0.3s ease-in-out;
+}
+
+header.-translate-y-full {
+    transform: translateY(-100%);
+}

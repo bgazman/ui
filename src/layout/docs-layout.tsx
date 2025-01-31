@@ -1,4 +1,3 @@
-// layouts/docs-layout.tsx
 import React from 'react';
 import BaseLayout, { BaseLayoutProps } from './base-layout';
 import { SidebarProvider } from '@components/sidebar/sidebar-context';
@@ -17,7 +16,7 @@ const DocsLayout: React.FC<DocsLayoutProps> = (props) => {
     const gridTemplate = {
         areas: '"header header" "sidebar main" "footer footer"',
         rows: `${props.layoutConfig.header.height} 1fr ${props.layoutConfig.footer.height}`,
-        columns: `${props.layoutConfig.sidebar?.width || '16rem'} 1fr`
+        columns: `${props.layoutConfig.sidebar?.width || 'var(--sidebar-width)'} 1fr`
     };
 
     return (
@@ -27,7 +26,7 @@ const DocsLayout: React.FC<DocsLayoutProps> = (props) => {
                 layoutType="docs"
                 gridTemplate={gridTemplate}
                 sidebarMenuItems={props.sidebarMenuItems}
-                sidebarClassName="border-theme"
+                sidebarClassName="border-[var(--border-color)]"
             />
         </SidebarProvider>
     );

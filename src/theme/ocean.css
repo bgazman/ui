@@ -1,0 +1,27 @@
+.theme-container[data-theme="ocean"] {
+    --bg-primary: #0f3860;
+    --bg-secondary: #075985;
+    --bg-alt1: #0369a1;
+    --bg-alt2: #38bdf8;
+    --text-primary: #f0f9ff;
+    --text-secondary: #bae6fd;
+    --border-color: #60a5fa;
+    --sidebar-border-color: #60a5fa;
+    --footer-bg-color: #075985;
+    --footer-text-color: #bae6fd;
+    --header-bg-color: #0f3860;
+    --header-text-color: #f0f9ff;
+    --button-bg-color: #0284c7;
+    --button-text-color: #f0f9ff;
+    --button-hover-bg-color: #0369a1;
+    --button-hover-text-color: #f0f9ff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
+    --font-family-sans: "Ubuntu", sans-serif;
+    --font-family-serif: "Georgia", serif;
+    --font-family-mono: "Consolas", monospace;
+}

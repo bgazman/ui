@@ -1,5 +1,3 @@
-// src/components/button/button.tsx
-
 import React from "react";
 export type ButtonVariant = "primary" | "secondary" | "disabled" | "large" | "small";
 
@@ -22,13 +20,13 @@ const Button: React.FC<ButtonProps> = ({
     disabled = false,
     variant = "primary",
 }) => {
-    const baseClasses = "px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    const baseClasses = "px-[var(--spacing-md)] py-[var(--spacing-sm)] rounded-[var(--border-radius-md)] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
     const variantClasses: Record<ButtonVariant, string> = {
-        primary: "bg-[var(--button-bg-color)] text-[var(--button-text-color)]",
-        secondary: "bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)]",
+        primary: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] focus:ring-[var(--button-hover-bg-color)]",
+        secondary: "bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)] focus:ring-[var(--button-secondary-hover-bg-color)]",
         disabled: "bg-[var(--button-disabled-bg-color)] text-[var(--button-disabled-text-color)]",
-        large: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-6 py-3",
-        small: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-2 py-1",
+        large: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-[var(--spacing-lg)] py-[var(--spacing-md)] focus:ring-[var(--button-hover-bg-color)]",
+        small: "bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-[var(--spacing-sm)] py-[var(--spacing-xs)] focus:ring-[var(--button-hover-bg-color)]",
     };
 
     const selectedVariantClasses = variantClasses[variant] || variantClasses.primary;

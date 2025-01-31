@@ -1,0 +1,27 @@
+.theme-container[data-theme="dark"] {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-alt1: #4a5568;
+    --bg-alt2: #718096;
+    --text-primary: #f7fafc;
+    --text-secondary: #cbd5e0;
+    --border-color: #4a5568;
+    --sidebar-border-color: #4a5568;
+    --footer-bg-color: #2d3748;
+    --footer-text-color: #cbd5e0;
+    --header-bg-color: #1b418c;
+    --header-text-color: #f7fafc;
+    --button-bg-color: #4299e1;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #2b6cb0;
+    --button-hover-text-color: #ffffff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
+    --font-family-sans: "Poppins", "Arial", sans-serif;
+    --font-family-serif: "Lora", serif;
+    --font-family-mono: "JetBrains Mono", monospace;
+}

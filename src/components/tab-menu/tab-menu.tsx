@@ -16,17 +16,18 @@ export interface TabMenuProps {
 }
 
 const TabMenu: React.FC<TabMenuProps> = ({ items, activeTab, setActiveTab, className = '', style }) => {
-    const getButtonVariant = (isActive: boolean) =>
-        isActive ? "primary" : "secondary";
+    const getButtonClass = (isActive: boolean) =>
+        isActive
+            ? "border-active-tab text-active-tab py-4" // Adjusted padding for active tab to make it taller
+            : "border-transparent text-inactive-tab hover:text-hover-tab hover:border-hover-tab py-1"; // Decreased padding for inactive tabs
 
     return (
-        <Box className={`flex border-b p-4 ${className}`} style={style}>
+        <Box className={`flex border-b border-transparent p-4 ${className}`} style={style}>
             {items.map((item) => (
                 <Button
                     key={item.value}
                     onClick={() => setActiveTab(item.value)}
-                    variant={getButtonVariant(activeTab === item.value)}
-                    className="px-4 py-2 text-sm font-medium border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    className={`px-4 text-sm font-medium border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${getButtonClass(activeTab === item.value)}`}
                     style={{ outline: 'none' }}
                 >
                     {item.label}

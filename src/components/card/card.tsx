@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({
     className = '',
     style,
 }) => (
-    <CardContainer className={`max-w-md mx-auto ${className}`} style={style}>
+    <CardContainer className={`max-w-md mx-auto rounded-[var(--border-radius-md)] ${className}`} style={style}>
         <CardHeader title={title} />
         <CardBody description={description}>{children}</CardBody>
         <CardFooter actionLink={actionLink} actionText={actionText} />

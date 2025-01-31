@@ -1,0 +1,27 @@
+.theme-container[data-theme="desert"] {
+    --bg-primary: #edc9af;
+    --bg-secondary: #d2b48c;
+    --bg-alt1: #c19a6b;
+    --bg-alt2: #8b4513;
+    --text-primary: #5a3e36;
+    --text-secondary: #8b4513;
+    --border-color: #a0522d;
+    --sidebar-border-color: #a0522d;
+    --footer-bg-color: #d2b48c;
+    --footer-text-color: #5a3e36;
+    --header-bg-color: #edc9af;
+    --header-text-color: #5a3e36;
+    --button-bg-color: #cd853f;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #a0522d;
+    --button-hover-text-color: #ffffff;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
+    --font-family-sans: "Arial", sans-serif;
+    --font-family-serif: "Times New Roman", serif;
+    --font-family-mono: "Courier New", monospace;
+}

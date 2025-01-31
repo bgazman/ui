@@ -4,7 +4,7 @@ import { LayoutProvider } from "@layout/context/layout-context";
 
 import Home from "@pages/home/home";
 import DocsPage from "@pages/docs/docs"; // Import the DocsPage component
-
+import DemoPage from "@pages/demo/demo";
 const App = () => {
     return (
         <ThemeProvider>
@@ -13,6 +13,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/docs" element={<DocsPage />} /> {/* Add the DocsPage route */}
+                        <Route path="/test" element={<DemoPage />} />
                     </Routes>
                 </Router>
             </LayoutProvider>

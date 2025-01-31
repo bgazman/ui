@@ -14,14 +14,14 @@ export type SidebarContainerProps = {
 };
 
 const SidebarContainer: React.FC<SidebarContainerProps> = ({
-    className,
-    style,
-    sideBarMenuItems,
-    position = 'sticky',
-    header,
-    footer,
-    renderItem,
-}) => {
+                                                               className,
+                                                               style,
+                                                               sideBarMenuItems,
+                                                               position = 'sticky',
+                                                               header,
+                                                               footer,
+                                                               renderItem,
+                                                           }) => {
     const getPositionClass = () =>
         ({
             fixed: 'fixed top-0 left-0',
@@ -37,11 +37,26 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                 backgroundColor: 'var(--bg-primary)',
                 borderColor: 'var(--sidebar-border-color)',
                 overflowY: style?.overflowY || 'auto',
+                '--scrollbar-width': '8px',
+                '--scrollbar-track': 'var(--bg-primary)',
+                '--scrollbar-thumb': 'var(--text-tertiary)',
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
+                '&::-webkit-scrollbar': {
+                    width: 'var(--scrollbar-width)',
+                },
+                '&::-webkit-scrollbar-track': {
+                    background: 'var(--scrollbar-track)',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    background: 'var(--scrollbar-thumb)',
+                    borderRadius: '4px',
+                },
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >
             {header && <div className="sidebar-header">{header}</div>}
-            <Box className="p-4 space-y-2">
+            <Box className="p-[var(--spacing-md)] space-y-[var(--spacing-sm)]">
                 <SidebarContent sideBarMenuItems={sideBarMenuItems} renderItem={renderItem} />
             </Box>
             {footer && <div className="sidebar-footer">{footer}</div>}

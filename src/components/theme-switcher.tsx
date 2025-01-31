@@ -1,13 +1,13 @@
 import React from "react";
 import { useTheme, Theme } from "@theme/theme-context";
-import { Sun, Moon, TreePine, Waves } from "lucide-react";
+import { Sun, Moon, TreePine, Waves, Sunset } from "lucide-react";
 
 const ThemeSwitcher: React.FC = () => {
     const { theme, setTheme } = useTheme();
 
     // Cycles through the themes in order
     const handleThemeChange = () => {
-        const themes: Theme[] = ["light", "dark", "forest", "ocean"];
+        const themes: Theme[] = ["light", "dark", "forest", "ocean", "desert"];
         const nextTheme = themes[(themes.indexOf(theme) + 1) % themes.length];
         setTheme(nextTheme);
 
@@ -23,7 +23,8 @@ const ThemeSwitcher: React.FC = () => {
         light: <Sun size={20} />,
         dark: <Moon size={20} />,
         forest: <TreePine size={20} />,
-        ocean: <Waves size={20} />
+        ocean: <Waves size={20} />,
+        desert: <Sunset size={20} /> // Add icon for desert theme
     };
 
     return (
@@ -31,7 +32,7 @@ const ThemeSwitcher: React.FC = () => {
             onClick={handleThemeChange}
             className="hover:opacity-80 transition-opacity"
             aria-label={`Switch to ${
-                theme === "light" ? "Dark" : theme === "dark" ? "Forest" : theme === "forest" ? "Ocean" : "Light"
+                theme === "light" ? "Dark" : theme === "dark" ? "Forest" : theme === "forest" ? "Ocean" : theme === "ocean" ? "Desert" : "Light"
             } theme`}
         >
             {themeIcons[theme]}

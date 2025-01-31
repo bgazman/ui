@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description }) => (
-    <Box className="mb-8">
+    <Box className="mb-[var(--spacing-lg)]">
         {title && (
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>
                 {title}

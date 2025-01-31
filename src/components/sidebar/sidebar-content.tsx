@@ -1,6 +1,7 @@
 import React from "react";
 import { NavItem } from "@components/navigation/navigation.tsx";
 import SidebarItem from "@components/sidebar/sidebar-item";
+import Box from "@components/box";
 
 interface SidebarContentProps {
     sideBarMenuItems: { label: string; items: NavItem[] }[];
@@ -14,11 +15,11 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
     renderItem,
 }) => {
     return (
-        <div className={`flex flex-col space-y-4 ${className}`}>
+        <Box className={`flex flex-col space-y-[var(--spacing-md)] ${className}`}>
             {sideBarMenuItems.map((item, index) => (
-                <div key={index}>
-                    <h3 className="font-semibold">{item.label}</h3>
-                    <ul className="space-y-2">
+                <Box key={index}>
+                    <h3 className="font-semibold text-[var(--text-primary)]">{item.label}</h3>
+                    <Box as="ul" className="space-y-[var(--spacing-sm)]">
                         {item.items.map((subItem, subIndex) => (
                             renderItem ? renderItem(subItem, false) : (
                                 <SidebarItem
@@ -27,10 +28,10 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
                                 />
                             )
                         ))}
-                    </ul>
-                </div>
+                    </Box>
+                </Box>
             ))}
-        </div>
+        </Box>
     );
 };
 

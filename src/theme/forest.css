@@ -1,0 +1,27 @@
+.theme-container[data-theme="forest"] {
+    --bg-primary: #1a4332;
+    --bg-secondary: #2d6a4f;
+    --bg-alt1: #3b8267;
+    --bg-alt2: #4ade80;
+    --text-primary: #f0fdf4;
+    --text-secondary: #bbf7d0;
+    --border-color: #34d399;
+    --sidebar-border-color: #34d399;
+    --footer-bg-color: #2d6a4f;
+    --footer-text-color: #bbf7d0;
+    --header-bg-color: #1a4332;
+    --header-text-color: #f0fdf4;
+    --button-bg-color: #059669;
+    --button-text-color: #f0fdf4;
+    --button-hover-bg-color: #047857;
+    --button-hover-text-color: #f0fdf4;
+    --button-secondary-bg-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-hover-bg-color: #5a6268;
+    --button-secondary-hover-text-color: #ffffff;
+    --button-disabled-bg-color: #d6d6d6;
+    --button-disabled-text-color: #a1a1a1;
+    --font-family-sans: "Nunito", sans-serif;
+    --font-family-serif: "EB Garamond", serif;
+    --font-family-mono: "Courier New", monospace;
+}

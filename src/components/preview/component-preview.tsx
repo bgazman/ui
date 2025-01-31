@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PreviewContainer from './preview-container';
-import PreviewTabs from './preview-tabs';
+import TabMenu, { TabItem } from '@components/tab-menu/tab-menu';
 import PreviewContent from './preview-content';
 import CodeContent from './code-content';
 import Box from '@components/box.tsx';
@@ -13,6 +13,11 @@ interface ComponentPreviewProps {
     className?: string;
     style?: React.CSSProperties;
 }
+
+const tabMenuItems: TabItem[] = [
+    { label: 'Preview', value: 'preview' },
+    { label: 'Code', value: 'code' },
+];
 
 const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     title,
@@ -39,19 +44,20 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
             style={style}
             activeTab={activeTab}
         >
-            <PreviewTabs
+            <TabMenu
+                items={tabMenuItems}
                 activeTab={activeTab}
-                onTabChange={setActiveTab}
+                setActiveTab={setActiveTab}
             />
 
             {activeTab === 'preview' && (
                 <Box className={`overflow-hidden rounded-lg ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
-                    <PreviewContent>{children}</PreviewContent>
+                    <PreviewContent activeTab={activeTab}>{children}</PreviewContent>
                 </Box>
             )}
 
             {activeTab === 'code' && (
-                <Box className={`overflow-hidden rounded-lg p-4 justify-start ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
+                <Box className={`overflow-hidden rounded-lg p-[var(--spacing-lg)] justify-start ${className}`} style={{ ...style, border: '2px solid var(--border-color)' }}>
                     <CodeContent
                         sourceCode={sourceCode}
                         onCopy={handleCopyCode}
