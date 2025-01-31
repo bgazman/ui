@@ -46,6 +46,25 @@ const verticalNavItems: NavItem[] = [
             { label: "Main", href: "#main" },
             { label: "Footer", href: "#footer" }
         ]
+    },
+    {
+        label: "Advanced",
+        items: [
+            {
+                label: "Deep Dive",
+                items: [
+                    { label: "Performance", href: "#performance" },
+                    { label: "Security", href: "#security" },
+                    {
+                        label: "More Topics",
+                        items: [
+                            { label: "Accessibility", href: "#accessibility" },
+                            { label: "Internationalization", href: "#internationalization" }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ];
 
@@ -54,7 +73,7 @@ const VerticalNavigationExample: React.FC = () => {
         <Box className="vertical-navigation-example" style={{ display: 'flex', flexDirection: 'row', gap: 'var(--spacing-lg)' }}>
             <VerticalNavigation navItems={verticalNavItems} variant="default" />
             <VerticalNavigation navItems={verticalNavItems} variant="compact" />
-            <VerticalNavigation navItems={verticalNavItems} variant="accordion" />
+            <VerticalNavigation navItems={verticalNavItems} variant="expanded" />
         </Box>
     );
 };

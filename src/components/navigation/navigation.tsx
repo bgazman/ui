@@ -7,13 +7,18 @@ export interface NavItem {
     items?: NavItem[];
 }
 
+// navigation.ts
+export type NavigationVariant = 'default' | 'compact' | 'accordion' | 'hoverExpandable' | 'clickExpandable' | 'expanded';
+
+// navigation.tsx
 export interface NavigationProps {
     navItems: NavItem[];
     className?: string;
-    variant?: 'default' | 'compact' | 'accordion';
+    variant?: NavigationVariant;
     renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode;
-    orientation?: 'horizontal' | 'vertical';
+    orientation?: 'horizontal' | 'vertical'; // Add this line
 }
+
 const Navigation: React.FC<NavigationProps> = (props) => {
     const { orientation = 'horizontal' } = props;
 

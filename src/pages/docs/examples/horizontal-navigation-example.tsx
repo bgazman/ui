@@ -46,6 +46,25 @@ const horizontalNavItems: NavItem[] = [
             { label: "Main", href: "#main" },
             { label: "Footer", href: "#footer" }
         ]
+    },
+    {
+        label: "Advanced",
+        items: [
+            {
+                label: "Deep Dive",
+                items: [
+                    { label: "Performance", href: "#performance" },
+                    { label: "Security", href: "#security" },
+                    {
+                        label: "More Topics",
+                        items: [
+                            { label: "Accessibility", href: "#accessibility" },
+                            { label: "Internationalization", href: "#internationalization" }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ];
 
@@ -53,6 +72,7 @@ const HorizontalNavigationExample: React.FC = () => {
     return (
         <Box className="horizontal-navigation-example" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
             <HorizontalNavigation navItems={horizontalNavItems} variant="default" />
+            <HorizontalNavigation navItems={horizontalNavItems} variant="clickExpandable" />
         </Box>
     );
 };

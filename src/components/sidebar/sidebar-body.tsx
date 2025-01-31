@@ -14,7 +14,7 @@ const SidebarBody: React.FC<SidebarBodyProps> = ({
 }) => {
     return (
         <Box className={`flex flex-col space-y-[var(--spacing-md)] ${className}`}>
-            <VerticalNavigation navItems={sideBarMenuItems} variant="accordion" />
+            <VerticalNavigation navItems={sideBarMenuItems} variant="expanded" />
         </Box>
     );
 };
