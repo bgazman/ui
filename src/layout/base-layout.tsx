@@ -98,7 +98,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
             <Main className="[grid-area:main] w-full">
                 <div
                     className={`w-full ${layoutConfig.main.padding || 'px-0'}`}
-                    style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0' }}
+                    style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0', padding: 'var(--global-padding)' }} // Apply global padding here
                 >
                     {children}
                 </div>

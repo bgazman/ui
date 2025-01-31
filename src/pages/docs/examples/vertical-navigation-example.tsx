@@ -4,68 +4,62 @@ import { NavItem } from '@components/navigation/navigation';
 import Box from '@components/box';
 
 const verticalNavItems: NavItem[] = [
+    { label: "Dashboard", href: "/" },
     {
-        label: "Getting Started",
-        items: [
-            { label: "Introduction", href: "#introduction" },
-            { label: "Installation", href: "#installation" },
-            { label: "Quick Start", href: "#quick-start" }
-        ]
-    },
-    {
-        label: "Components",
-        items: [
-            { label: "Layout", href: "#layout" },
-            { label: "Theme", href: "#data-display" },
-            { label: "Navigation", href: "#navigation" },
-            { label: "Forms", href: "#forms" }
-        ]
-    },
-    {
-        label: "API Reference",
-        items: [
-            { label: "Hooks", href: "#hooks" },
-            { label: "Utils", href: "#utils" },
-            { label: "Types", href: "#types" }
-        ]
-    },
-    {
-        label: "UI Components",
-        items: [
-            { label: "Box", href: "#box-component" },
-            { label: "Grid", href: "#grid-component" },
-            { label: "Button", href: "#button-component" },
-            { label: "Tab Menu", href: "#tab-menu-component" },
-            { label: "Card", href: "#card-component" },
-            { label: "Text Area", href: "#text-area-component" },
-            { label: "Input Field", href: "#input-field-component" },
-            { label: "Form", href: "#form-component" },
-            { label: "Section", href: "#section-component" },
-            { label: "Navigation", href: "#navigation-component" },
-            { label: "Header", href: "#header" },
-            { label: "Main", href: "#main" },
-            { label: "Footer", href: "#footer" }
-        ]
-    },
-    {
-        label: "Advanced",
+        label: "Products",
         items: [
             {
-                label: "Deep Dive",
+                label: "Electronics",
                 items: [
-                    { label: "Performance", href: "#performance" },
-                    { label: "Security", href: "#security" },
                     {
-                        label: "More Topics",
+                        label: "Computers",
                         items: [
-                            { label: "Accessibility", href: "#accessibility" },
-                            { label: "Internationalization", href: "#internationalization" }
+                            { label: "Laptops", href: "#laptops" },
+                            { label: "Desktops", href: "#desktops" },
+                            {
+                                label: "Components",
+                                items: [
+                                    { label: "CPUs", href: "#cpus" },
+                                    { label: "GPUs", href: "#gpus" },
+                                    { label: "Memory", href: "#memory" }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: "Mobile Devices",
+                        items: [
+                            { label: "Smartphones", href: "#smartphones" },
+                            { label: "Tablets", href: "#tablets" },
+                            { label: "Accessories", href: "#accessories" }
                         ]
                     }
                 ]
             }
         ]
-    }
+    },
+    {
+        label: "Services",
+        items: [
+            {
+                label: "Support",
+                items: [
+                    { label: "Hardware", href: "#hardware-support" },
+                    { label: "Software", href: "#software-support" },
+                    { label: "Network", href: "#network-support" }
+                ]
+            },
+            {
+                label: "Professional",
+                items: [
+                    { label: "Consulting", href: "#consulting" },
+                    { label: "Training", href: "#training" },
+                    { label: "Enterprise", href: "#enterprise" }
+                ]
+            }
+        ]
+    },
+    { label: "Contact", href: "#contact" }
 ];
 
 const VerticalNavigationExample: React.FC = () => {

@@ -5,45 +5,44 @@ export const mockSidebarData: { sideBarMenuItems: NavItem[] } = {
         {
             label: "Getting Started",
             items: [
-                { label: "Introduction", href: "#introduction" },
-                { label: "Installation", href: "#installation" },
-                { label: "Quick Start", href: "#quick-start" }
+                { label: "Introduction", href: "#introduction", items: [] },
+                { label: "Installation", href: "#installation", items: [] },
+                { label: "Quick Start", href: "#quick-start", items: [] }
             ]
         },
         {
             label: "Components",
             items: [
-                { label: "Layout", href: "#layout" },
-                { label: "Theme", href: "#data-display" },
-                { label: "Navigation", href: "#navigation" },
-                { label: "Forms", href: "#forms" }
+                { label: "Layout", href: "#layout", items: [] },
+                { label: "Theme", href: "#data-display", items: [] },
+                { label: "Navigation", href: "#navigation", items: [] },
+                { label: "Forms", href: "#forms", items: [] }
             ]
         },
         {
             label: "API Reference",
             items: [
-                { label: "Hooks", href: "#hooks" },
-                { label: "Utils", href: "#utils" },
-                { label: "Types", href: "#types" }
+                { label: "Hooks", href: "#hooks", items: [] },
+                { label: "Utils", href: "#utils", items: [] },
+                { label: "Types", href: "#types", items: [] }
             ]
         },
         {
             label: "UI Components",
             items: [
-                { label: "Box", href: "#box-component" },
-                { label: "Grid", href: "#grid-component" },
-                { label: "Button", href: "#button-component" },
-                { label: "Tab Menu", href: "#tab-menu-component" },
-                { label: "Card", href: "#card-component" },
-                { label: "Text Area", href: "#text-area-component" },
-                { label: "Input Field", href: "#input-field-component" },
-                { label: "Form", href: "#form-component" },
-                { label: "Section", href: "#section-component" },
-                { label: "Navigation", href: "#navigation-component" },
-                { label: "Header", href: "#header" },
-                { label: "Main", href: "#main" },
-                { label: "Footer", href: "#footer" },
-
+                { label: "Box", href: "#box-component", items: [] },
+                { label: "Grid", href: "#grid-component", items: [] },
+                { label: "Button", href: "#button-component", items: [] },
+                { label: "Tab Menu", href: "#tab-menu-component", items: [] },
+                { label: "Card", href: "#card-component", items: [] },
+                { label: "Text Area", href: "#text-area-component", items: [] },
+                { label: "Input Field", href: "#input-field-component", items: [] },
+                { label: "Form", href: "#form-component", items: [] },
+                { label: "Section", href: "#section-component", items: [] },
+                { label: "Navigation", href: "#navigation-component", items: [] },
+                { label: "Header", href: "#header", items: [] },
+                { label: "Main", href: "#main", items: [] },
+                { label: "Footer", href: "#footer", items: [] }
             ]
         }
     ]

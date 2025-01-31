@@ -37,12 +37,11 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                 backgroundColor: 'var(--bg-primary)',
                 borderColor: 'var(--sidebar-border-color)',
                 overflowY: style?.overflowY || 'auto',
-                '--scrollbar-width': '8px',
                 '--scrollbar-track': 'var(--bg-primary)',
                 '--scrollbar-thumb': 'var(--text-tertiary)',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
-                padding: 'var(--spacing-lg)',
+                padding: '0', // Remove or adjust padding here
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >

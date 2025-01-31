@@ -1,81 +1,65 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LinkComponent from "@components/link/link";
-import { NavItem } from "./navigation";
+import { NavigationVariant, NavItem } from "./navigation";
 
-const HorizontalNavItem: React.FC<{ item: NavItem, variant: 'default' | 'compact' | 'expanded', renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode }> = ({ item, variant, renderItem }) => {
+interface HorizontalNavItemProps {
+    item: NavItem;
+    variant: NavigationVariant;
+    renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode;
+}
+
+const HorizontalNavItem: React.FC<HorizontalNavItemProps> = ({ item, variant, renderItem }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const isLink = !!item.href;
+    const hasItems = (item.items?.length ?? 0) > 0;
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-    if (variant === 'default') {
-        return (
-            <div className="flex flex-col space-y-4">
-                {isLink ? (
-                    <LinkComponent href={item.href || "#"} label={item.label} isActive={false} />
-                ) : (
-                    <span className="font-semibold text-[var(--text-primary)]">{item.label}</span>
-                )}
-                {item.items && (
-                    <ul className="space-y-2">
-                        {item.items.map((subItem, subIndex) => (
-                            renderItem ? renderItem(subItem, false) : (
-                                <li key={subIndex}>
-                                    <HorizontalNavItem item={subItem} variant={variant} renderItem={renderItem} />
-                                </li>
-                            )
-                        ))}
-                    </ul>
-                )}
-            </div>
-        );
-    }
+    // Handle outside click to close dropdown
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
 
-    if (variant === 'compact') {
-        return (
-            <div className="compact-item group">
-                {isLink ? (
-                    <LinkComponent href={item.href || "#"} label={item.label} isActive={false} className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors px-2 py-1 text-sm" />
-                ) : (
-                    <span className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors px-2 py-1 text-sm">{item.label}</span>
-                )}
-                {item.items && (
-                    <div className="compact-subitems hidden group-hover:block">
-                        {item.items.map((subItem, subIndex) => (
-                            renderItem ? renderItem(subItem, false) : (
-                                <HorizontalNavItem key={subIndex} item={subItem} variant={variant} renderItem={renderItem} />
-                            )
-                        ))}
-                    </div>
-                )}
-            </div>
-        );
-    }
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen]);
 
-    if (variant === 'expanded') {
-        return (
-            <div className="expanded-item">
-                {isLink ? (
-                    <LinkComponent href={item.href || "#"} label={item.label} isActive={false} />
-                ) : (
-                    <span className="text-[var(--text-primary)]">{item.label}</span>
-                )}
-                {item.items && (
-                    <ul className="expanded-subitems">
-                        {item.items.map((subItem, subIndex) => (
-                            renderItem ? renderItem(subItem, false) : (
-                                <li key={subIndex}>
-                                    <HorizontalNavItem item={subItem} variant={variant} renderItem={renderItem} />
-                                </li>
-                            )
-                        ))}
-                    </ul>
-                )}
-            </div>
-        );
-    }
+    const toggleDropdown = () => {
+        setIsOpen((prev) => !prev);
+    };
 
-    return isLink ? (
-        <LinkComponent href={item.href || "#"} label={item.label} isActive={false} />
-    ) : (
-        <span className="text-[var(--text-primary)]">{item.label}</span>
+    return (
+        <div className="relative group">
+            {isLink ? (
+                <LinkComponent href={item.href || "#"} label={item.label} isActive={false} className="px-4 py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--bg-alt1)] rounded-md transition-colors" />
+            ) : (
+                <button
+                    onClick={toggleDropdown}
+                    className="px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-alt1)] rounded-md transition-colors flex items-center"
+                    aria-haspopup="true"
+                    aria-expanded={isOpen}
+                >
+                    {item.label}
+                    {hasItems && <span className="ml-2">▼</span>}
+                </button>
+            )}
+
+            {hasItems && isOpen && (
+                <div ref={dropdownRef} className="absolute left-0 mt-2 w-48 bg-[var(--bg-primary)] shadow-lg rounded-lg z-10">
+                    {item.items?.map((subItem, subIndex) => (
+                        renderItem ? renderItem(subItem, false) : (
+                            <HorizontalNavItem key={subIndex} item={subItem} variant={variant} renderItem={renderItem} />
+                        )
+                    ))}
+                </div>
+            )}
+        </div>
     );
 };
 

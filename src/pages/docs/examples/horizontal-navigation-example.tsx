@@ -4,69 +4,18 @@ import { NavItem } from '@components/navigation/navigation';
 import Box from '@components/box';
 
 const horizontalNavItems: NavItem[] = [
+    { label: "Home", href: "/" },
+    { label: "Docs", href: "#docs" },
     {
-        label: "Getting Started",
+        label: "Products",
         items: [
-            { label: "Introduction", href: "#introduction" },
-            { label: "Installation", href: "#installation" },
-            { label: "Quick Start", href: "#quick-start" }
-        ]
-    },
-    {
-        label: "Components",
-        items: [
-            { label: "Layout", href: "#layout" },
-            { label: "Theme", href: "#data-display" },
-            { label: "Navigation", href: "#navigation" },
-            { label: "Forms", href: "#forms" }
-        ]
-    },
-    {
-        label: "API Reference",
-        items: [
-            { label: "Hooks", href: "#hooks" },
-            { label: "Utils", href: "#utils" },
-            { label: "Types", href: "#types" }
-        ]
-    },
-    {
-        label: "UI Components",
-        items: [
-            { label: "Box", href: "#box-component" },
-            { label: "Grid", href: "#grid-component" },
-            { label: "Button", href: "#button-component" },
-            { label: "Tab Menu", href: "#tab-menu-component" },
-            { label: "Card", href: "#card-component" },
-            { label: "Text Area", href: "#text-area-component" },
-            { label: "Input Field", href: "#input-field-component" },
-            { label: "Form", href: "#form-component" },
-            { label: "Section", href: "#section-component" },
-            { label: "Navigation", href: "#navigation-component" },
-            { label: "Header", href: "#header" },
-            { label: "Main", href: "#main" },
-            { label: "Footer", href: "#footer" }
-        ]
-    },
-    {
-        label: "Advanced",
-        items: [
-            {
-                label: "Deep Dive",
-                items: [
-                    { label: "Performance", href: "#performance" },
-                    { label: "Security", href: "#security" },
-                    {
-                        label: "More Topics",
-                        items: [
-                            { label: "Accessibility", href: "#accessibility" },
-                            { label: "Internationalization", href: "#internationalization" }
-                        ]
-                    }
-                ]
-            }
+            { label: "Product 1", href: "#product-1" },
+            { label: "Product 2", href: "#product-2" },
+            { label: "Product 3", href: "#product-3" }
         ]
     }
 ];
+
 
 const HorizontalNavigationExample: React.FC = () => {
     return (
