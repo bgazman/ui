@@ -1,10 +1,17 @@
-import { Box } from "lucide-react";
-import {useEffect, useRef } from "react";
+import Box from '@components/box';
+import Section from '@components/section/section';
+import React, { useEffect, useRef } from "react";
+
 interface AnimateSectionProps {
     id: string;
+    title?: string;
+    description?: string;
     children: React.ReactNode;
+    className?: string;
+    variant?: 'center' | 'left';
 }
-const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, children }) => {
+
+const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, title, description, children, className = '', variant = 'center' }) => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -16,6 +23,9 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, children }) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         section.classList.add('visible');
+                        console.log(`Section ${id} is visible`);
+                    } else {
+                        section.classList.remove('visible');
                     }
                 });
             },
@@ -30,13 +40,15 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, children }) => {
         return () => {
             observer.unobserve(section);
         };
-    }, []);
+    }, [id]);
+
+    const variantClass = variant === 'left' ? 'text-left' : 'text-center';
 
     return (
-        <div ref={sectionRef} id={id} className="section text-center transform transition-all duration-700 opacity-0 translate-y-4">
-            <Box className="w-full">
+        <div ref={sectionRef} id={id} className={`section ${variantClass} transform transition-all duration-700 opacity-0 translate-y-4 ${className}`}>
+            <Section id={id} title={title} description={description}>
                 {children}
-            </Box>
+            </Section>
         </div>
     );
 };

@@ -1,12 +1,18 @@
+.section {
+    opacity: 0;
+    transform: translateY(4rem);
+    transition: opacity var(--animation-duration-normal) var(--animation-ease), transform var(--animation-duration-normal) var(--animation-ease);
+}
+
 .section.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 header {
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 
 header.-translate-y-full {
-    transform: translateY(-100%);
+    transform: translateY(-200%);
 }

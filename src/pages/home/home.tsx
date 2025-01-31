@@ -7,6 +7,8 @@ import FeaturesSection from './features-section';
 import AboutUs from '@components/about-us/about-us.tsx';
 import ContactUs from '@components/contact-us/contact-us.tsx';
 import Box from '@components/box';
+import AnimatedSection from '@components/animated-section/animated-section';
+import mockMainData from "@pages/home/data/main-data.ts";
 
 const HomePage: React.FC = () => {
     const layoutConfig = {
@@ -34,13 +36,13 @@ const HomePage: React.FC = () => {
                 className="space-y-16 sm:space-y-20"
                 style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}
             >
-                <Box id="features" className="section text-center">
+                <AnimatedSection id="features" title={"Features"} description={"Have a look at our features"}>
                     <FeaturesSection />
-                </Box>
-                <Box id="about-us" className="section text-center">
+                </AnimatedSection>
+                <AnimatedSection id="about-us">
                     <AboutUs {...aboutUsData} />
-                </Box>
-                <Box id="contact" className="section text-center">
+                </AnimatedSection>
+                <AnimatedSection id="contact">
                     <ContactUs
                         title="Contact Us"
                         description="We’d love to hear from you. Reach out to us through the following channels."
@@ -48,7 +50,7 @@ const HomePage: React.FC = () => {
                         phone="+1-800-555-1234"
                         address="456 Elm Street, Example City, Country"
                     />
-                </Box>
+                </AnimatedSection>
             </Box>
         </LandingLayout>
     );

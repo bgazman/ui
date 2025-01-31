@@ -42,16 +42,6 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                 '--scrollbar-thumb': 'var(--text-tertiary)',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
-                '&::-webkit-scrollbar': {
-                    width: 'var(--scrollbar-width)',
-                },
-                '&::-webkit-scrollbar-track': {
-                    background: 'var(--scrollbar-track)',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                    background: 'var(--scrollbar-thumb)',
-                    borderRadius: '4px',
-                },
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >

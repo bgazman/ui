@@ -1,4 +1,4 @@
-import {CircleArrowDownIcon} from 'lucide-react';
+import { CircleArrowDownIcon } from 'lucide-react';
 
 export const mockHeaderData = {
     brandName: "Your Brand",
@@ -11,6 +11,9 @@ export const mockHeaderData = {
         { label: "Docs", href: "/docs" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },
-        { label: "Contact", href: "#contact" }
+        { label: "Contact", href: "#contact" },
+        { label: "Services", href: "#services" },
+        { label: "Portfolio", href: "#portfolio" },
+        { label: "Testimonials", href: "#testimonials" }
     ]
 };
