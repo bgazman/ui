@@ -42,7 +42,7 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                 '--scrollbar-thumb': 'var(--text-tertiary)',
                 scrollbarWidth: 'thin',
                 scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
-                padding: 'var(--spacing-md)',
+                padding: 'var(--spacing-lg)',
             }}
             className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
         >

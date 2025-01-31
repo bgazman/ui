@@ -14,9 +14,12 @@ import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
 import InputFieldExample from '@pages/docs/examples/input-field-example';
 import { docsSectionList } from '@pages/docs/data/docs-section-data';
-import NavigationExample from "@pages/docs/examples/navigation-examples.tsx";
 import TabMenuExample from "@pages/docs/examples/tab-menu-example.tsx";
 import AnimatedSection from '@components/animated-section/animated-section';
+import HorizontalNavigationExample from "@pages/docs/examples/horizontal-navigation-example.tsx";
+import VerticalNavigationExample from "@pages/docs/examples/vertical-navigation-example.tsx";
+import LandingLayoutExample from "@pages/docs/examples/landing-layout-example.tsx";
+import DocsLayoutExample from "@pages/docs/examples/docs-layout-example.tsx";
 
 const DocsPage: React.FC = () => {
     const layoutConfig = {
@@ -47,6 +50,7 @@ const DocsPage: React.FC = () => {
             sidebarMenuItems={mockSidebarData.sideBarMenuItems}
         >
             <Box className="space-y-16 sm:space-y-20">
+
                 {docsSectionList.map((section) => (
                     <AnimatedSection key={section.id} id={section.id} title={section.title} description={section.description} variant="left">
                         {section.id === 'card-component' && (
@@ -94,9 +98,24 @@ const DocsPage: React.FC = () => {
                                 <InputFieldExample />
                             </ComponentPreview>
                         )}
-                        {section.id === 'navigation-component' && (
+                        {section.id === 'horizontal-navigation-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <NavigationExample />
+                                <HorizontalNavigationExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'vertical-navigation-component' && (
+                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
+                                <VerticalNavigationExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'landing-layout-component' && (
+                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
+                                <LandingLayoutExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'docs-layout-component' && (
+                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
+                                <DocsLayoutExample />
                             </ComponentPreview>
                         )}
                     </AnimatedSection>

@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseLayout, { BaseLayoutProps } from './base-layout';
 import { SidebarProvider } from '@components/sidebar/sidebar-context';
+import { NavigationProvider } from '@components/navigation/navigation-context';
 import { NavItem } from '@components/navigation/navigation.tsx';
 
 type SidebarMenuItem = {
@@ -21,13 +22,15 @@ const DocsLayout: React.FC<DocsLayoutProps> = (props) => {
 
     return (
         <SidebarProvider sideBarMenuItems={props.sidebarMenuItems}>
-            <BaseLayout
-                {...props}
-                layoutType="docs"
-                gridTemplate={gridTemplate}
-                sidebarMenuItems={props.sidebarMenuItems}
-                sidebarClassName="border-[var(--border-color)]"
-            />
+            <NavigationProvider>
+                <BaseLayout
+                    {...props}
+                    layoutType="docs"
+                    gridTemplate={gridTemplate}
+                    sidebarMenuItems={props.sidebarMenuItems}
+                    sidebarClassName="border-[var(--border-color)]"
+                />
+            </NavigationProvider>
         </SidebarProvider>
     );
 };

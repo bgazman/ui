@@ -1,10 +1,11 @@
 import React from 'react';
-import Header from '@components/header/header.tsx';
-import type { HeaderProps } from '@components/header/header.tsx';
-import Footer, { FooterProps } from '@components/footer/footer.tsx';
-import Sidebar, { SidebarProps } from '@components/sidebar/sidebar.tsx';
-import Main from '@components/main/main.tsx';
-import Grid from '@components/grid/grid.tsx';
+import Header from '@components/header/header';
+import type { HeaderProps } from '@components/header/header';
+import Footer, { FooterProps } from '@components/footer/footer';
+import Sidebar from '@components/sidebar/sidebar';
+import type { SidebarProps } from '@components/sidebar/sidebar';
+import Main from '@components/main/main';
+import Grid from '@components/grid/grid';
 import { useLayout } from '@layout/context/layout-context';
 
 export interface BaseLayoutConfig {
@@ -29,7 +30,7 @@ export interface BaseLayoutConfig {
 export interface BaseLayoutProps {
     headerData: HeaderProps;
     footerData: FooterProps;
-    sidebarMenuItems?: sidebarMenuItems;
+    sidebarMenuItems?: SidebarProps['sideBarMenuItems'];
     children: React.ReactNode;
     layoutConfig: BaseLayoutConfig;
     layoutType: string;
@@ -52,7 +53,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
         rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
         columns: '1fr'
     },
-    sidebarMenuItems,
+    sidebarMenuItems = [], // Ensure sidebarMenuItems is always defined
     sidebarClassName
 }) => {
     const { layout, setLayout } = useLayout();

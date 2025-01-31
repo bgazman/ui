@@ -6,8 +6,11 @@ import TextAreaExample from '@pages/docs/examples/text-area-example?raw';
 import BoxExample from '@pages/docs/examples/box-example?raw';
 import FormExample from "@pages/docs/examples/form-example?raw";
 import InputFieldExample from "@pages/docs/examples/input-field-example?raw";
-import NavigationExample from "@pages/docs/examples/navigation-examples?raw";
 import TabMenuExample from "@pages/docs/examples/tab-menu-example?raw";
+import HorizontalNavigationExample from "@pages/docs/examples/horizontal-navigation-example?raw";
+import VerticalNavigationExample from '../examples/vertical-navigation-example?raw';
+import LandingLayoutExample from '../examples/landing-layout-example?raw';
+import DocsLayoutExample from '../examples/docs-layout-example?raw';
 
 export interface DocsSection {
     id: string;
@@ -90,9 +93,27 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: TabMenuExample,
     },
     {
-        id: 'navigation-component',
-        title: 'Navigation Component',
-        description: 'This section provides an example of how to use the Navigation component.',
-        sourceCode: NavigationExample,
+        id: 'horizontal-navigation-component',
+        title: 'Horizontal Navigation Component',
+        description: 'This section provides an example of how to use Horizontal Navigation component.',
+        sourceCode: HorizontalNavigationExample,
+    },
+    {
+        id: 'vertical-navigation-component',
+        title: 'Vertical Navigation Component',
+        description: 'This section provides an example of how to use Vertical Navigation component.',
+        sourceCode: VerticalNavigationExample,
+    },
+    {
+        id: 'landing-layout-component',
+        title: 'Landing Page Layout Component',
+        description: 'This section provides an example of how to use Landing Page Layout component.',
+        sourceCode: LandingLayoutExample,
+    },
+    {
+        id: 'docs-layout-component',
+        title: 'Docs Page Layout Component',
+        description: 'This section provides an example of how to use Docs Page Layout component.',
+        sourceCode: DocsLayoutExample,
     },
 ];

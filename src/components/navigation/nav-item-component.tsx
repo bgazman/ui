@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import LinkComponent from "@components/link/link";
 import { NavItem } from "./navigation";
 
 const NavItemComponent: React.FC<{ item: NavItem, variant: 'default' | 'compact' | 'accordion', renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode, orientation: 'horizontal' | 'vertical' }> = ({ item, variant, renderItem, orientation }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const isLink = !!item.href;
+
+    const toggleAccordion = () => {
+        setIsOpen(!isOpen);
+    };
 
     if (variant === 'default') {
         return (
@@ -35,13 +40,13 @@ const NavItemComponent: React.FC<{ item: NavItem, variant: 'default' | 'compact'
                     <LinkComponent href={item.href || "#"} label={item.label} isActive={false} />
                 ) : (
                     <>
-                        <button className="accordion-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: 'var(--spacing-sm)', color: 'var(--text-primary)', transition: 'color var(--transition-duration) var(--transition-timing-function)' }}>
+                        <button className="accordion-header" onClick={toggleAccordion} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: 'var(--spacing-sm)', color: 'var(--text-primary)', transition: 'color var(--transition-duration) var(--transition-timing-function)' }}>
                             {item.label}
-                            <span style={{ marginLeft: 'var(--spacing-xs)', transition: 'transform var(--transition-duration) var(--transition-timing-function)', transform: 'rotate(0deg)' }}>
+                            <span style={{ marginLeft: 'var(--spacing-xs)', transition: 'transform var(--transition-duration) var(--transition-timing-function)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                                 ▼
                             </span>
                         </button>
-                        {item.items && (
+                        {isOpen && item.items && (
                             <div className="accordion-content">
                                 {item.items.map((subItem, subIndex) => (
                                     renderItem ? renderItem(subItem, false) : (
