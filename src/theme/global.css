@@ -28,7 +28,7 @@
 
     /* 🏗 Sidebar Defaults */
     --sidebar-width: 16rem;
-    --sidebar-bg-color: var(--bg-secondary);
+    --sidebar-bg-color: var(--bg-primary);
     --sidebar-text-color: var(--text-primary);
 
     --font-family-sans: "Inter", sans-serif;

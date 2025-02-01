@@ -1,12 +1,13 @@
 .theme-container[data-theme="light"] {
     --bg-primary: #e4dede;
-    --bg-secondary: #c2c7cc;
+    --bg-secondary: #e4dede;
     --bg-alt1: #e9ecef;
     --bg-alt2: #dee2e6;
     --text-primary: #212529;
     --text-secondary: #495057;
     --border-color: #ced4da;
     --sidebar-border-color: #ced4da;
+    --sidebar-bg-color: #e4dede;
     --footer-bg-color: #f8f9fa;
     --footer-text-color: #212529;
     --header-bg-color: #0056b3;
