@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface InputFieldProps {
     id: string;
@@ -9,7 +9,7 @@ interface InputFieldProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     required?: boolean;
     className?: string;
-    theme?: string; // Add theme prop
+    theme?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -20,8 +20,8 @@ const InputField: React.FC<InputFieldProps> = ({
                                                    value,
                                                    onChange,
                                                    required = false,
-                                                   className = '',
-                                                   theme = 'light', // Default theme
+                                                   className = "",
+                                                   theme = "light",
                                                }) => (
     <div className="flex flex-col">
         <label htmlFor={id} className="mb-2 font-semibold text-gray-700">
@@ -39,7 +39,7 @@ const InputField: React.FC<InputFieldProps> = ({
             style={{
                 backgroundColor: `var(--input-bg-color-${theme})`,
                 borderColor: `var(--input-border-color-${theme})`,
-                boxShadow: `0 0 0 3px var(--input-focus-ring-color-${theme})`
+                boxShadow: `0 0 0 3px var(--input-focus-ring-color-${theme})`,
             }}
         />
     </div>

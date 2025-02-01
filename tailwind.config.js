@@ -1,12 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
+  darkMode: "class", // Uses "class" based dark mode
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      colors: {
+        // Define colors using CSS variables for theming support
+        header: "var(--header-bg-color)",
+        textHeader: "var(--header-text-color)",
+        borderHeader: "var(--header-border-color)",
+        bgPrimary: "var(--bg-primary)",
+        bgSecondary: "var(--bg-secondary)",
+        button: {
+          DEFAULT: "var(--button-bg-color)",
+          text: "var(--button-text-color)",
+          hover: "var(--button-hover-bg-color)",
+        },
+        footer: {
+          DEFAULT: "var(--footer-bg-color)",
+          text: "var(--footer-text-color)",
+        },
+        sidebar: {
+          DEFAULT: "var(--sidebar-bg-color)",
+          text: "var(--sidebar-text-color)",
+          border: "var(--sidebar-border-color)",
+        },
+      },
       // Enhanced transition properties
       transitionProperty: {
         'height': 'height',

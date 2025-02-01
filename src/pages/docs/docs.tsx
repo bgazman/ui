@@ -14,12 +14,12 @@ import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
 import InputFieldExample from '@pages/docs/examples/input-field-example';
 import { docsSectionList } from '@pages/docs/data/docs-section-data';
-import TabMenuExample from "@pages/docs/examples/tab-menu-example.tsx";
+import TabMenuExample from '@pages/docs/examples/tab-menu-example.tsx';
 import AnimatedSection from '@components/animated-section/animated-section';
-import HorizontalNavigationExample from "@pages/docs/examples/horizontal-navigation-example.tsx";
-import VerticalNavigationExample from "@pages/docs/examples/vertical-navigation-example.tsx";
-import LandingLayoutExample from "@pages/docs/examples/landing-layout-example.tsx";
-import DocsLayoutExample from "@pages/docs/examples/docs-layout-example.tsx";
+import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example.tsx';
+import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example.tsx';
+import LandingLayoutExample from '@pages/docs/examples/landing-layout-example.tsx';
+import DocsLayoutExample from '@pages/docs/examples/docs-layout-example.tsx';
 
 const DocsPage: React.FC = () => {
     const layoutConfig = {
@@ -49,8 +49,7 @@ const DocsPage: React.FC = () => {
             layoutConfig={layoutConfig}
             sidebarMenuItems={mockSidebarData.sideBarMenuItems}
         >
-            <Box className="space-y-16 sm:space-y-20">
-
+            <Box className="space-y-16 sm:space-y-20 flex-grow">
                 {docsSectionList.map((section) => (
                     <AnimatedSection key={section.id} id={section.id} title={section.title} description={section.description} variant="left">
                         {section.id === 'card-component' && (

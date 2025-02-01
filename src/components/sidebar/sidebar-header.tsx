@@ -1,3 +1,4 @@
+// SidebarHeader.tsx
 import React from 'react';
 
 interface SidebarHeaderProps {

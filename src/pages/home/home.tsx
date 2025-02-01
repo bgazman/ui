@@ -1,3 +1,4 @@
+// HomePage.tsx
 import React from 'react';
 import { footerMockData } from './data/footer-data';
 import { mockHeaderData } from './data/header-data';
@@ -8,7 +9,7 @@ import AboutUs from '@components/about-us/about-us.tsx';
 import ContactUs from '@components/contact-us/contact-us.tsx';
 import Box from '@components/box';
 import AnimatedSection from '@components/animated-section/animated-section';
-import mockMainData from "@pages/home/data/main-data.ts";
+import mockMainData from '@pages/home/data/main-data.ts';
 
 const HomePage: React.FC = () => {
     const layoutConfig = {
@@ -32,11 +33,8 @@ const HomePage: React.FC = () => {
             footerData={footerMockData}
             layoutConfig={layoutConfig}
         >
-            <Box
-                className="space-y-16 sm:space-y-20"
-                style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}
-            >
-                <AnimatedSection id="features" title={"Features"} description={"Have a look at our features"}>
+            <Box className="space-y-16 sm:space-y-20" style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}>
+                <AnimatedSection id="features" title="Features" description="Have a look at our features">
                     <FeaturesSection />
                 </AnimatedSection>
                 <AnimatedSection id="about-us">

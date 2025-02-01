@@ -15,6 +15,7 @@ const Box = <T extends ElementType = 'div'>({
                                                 ...rest
                                             }: BoxProps<T> & React.ComponentPropsWithoutRef<T>) => {
     const Component = as || 'div'; // Default to 'div'
+
     return (
         <Component className={className} style={style} {...rest}>
             {children}

@@ -1,24 +1,67 @@
-// horizontal-navigation.tsx
-import React from "react";
-import Box from "@components/box";
-import HorizontalNavItem from "./horizontal-nav-item";
-import { NavigationProps, NavigationVariant } from "./navigation";
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import LinkComponent from "@components/link/link";
+import {HorizontalNavigationVariant, NavItem } from "@components/navigation/navigation";
+import NavigationTreeComponent from "@components/tree/tree";
 
-interface HorizontalNavigationProps extends NavigationProps {
+export interface HorizontalNavigationProps {
+    navItems: NavItem[];
+    variant?: HorizontalNavigationVariant;
     bgColor?: string;
     textColor?: string;
-    variant?: NavigationVariant;
 }
 
-const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({ navItems, className, variant = 'default', renderItem, bgColor, textColor }) => {
-    const containerClass = `${className || ''} ${variant === 'default' ? 'default-class' : ''}`;
+
+const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({ navItems }) => {
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     return (
-        <Box as="nav" className={containerClass} style={{ display: 'flex', flexDirection: 'row', gap: 'var(--spacing-lg)', backgroundColor: bgColor, color: textColor }}>
-            {navItems.map((item, index) => (
-                <HorizontalNavItem key={index} item={item} variant={variant} renderItem={renderItem} />
+        <nav
+            className="flex flex-wrap gap-[var(--spacing-md)] bg-[var(--header-bg-color)]
+                 text-[var(--header-text-color)] p-[var(--spacing-md)]
+                 rounded-[var(--border-radius-md)] shadow-md"
+        >
+            {navItems.map((item) => (
+                <div
+                    key={item.label}
+                    className="relative group"
+                    onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                >
+                    {/* Top-Level Navigation Item */}
+                    <LinkComponent
+                        href={item.href || "#"}
+                        className="flex items-center gap-[var(--spacing-xs)]
+                       px-[var(--spacing-md)] py-[var(--spacing-sm)]
+                       hover:text-[var(--button-hover-text-color)]
+                       transition-[var(--transition-duration)]"
+                        onKeyDown={(e) => {
+                            if ((e.key === "Enter" || e.key === " ") && item.children) {
+                                setOpenDropdown(openDropdown === item.label ? null : item.label);
+                            }
+                        }}
+                        role="menuitem"
+                        aria-haspopup={!!item.children}
+                        aria-expanded={openDropdown === item.label}
+                    >
+                        {item.label} {item.children && <ChevronDown size={16} />}
+                    </LinkComponent>
+
+                    {/* Dropdown Menu using the Tree */}
+                    {item.children && openDropdown === item.label && (
+                        <div
+                            className="absolute left-0 top-full mt-[var(--spacing-xs)] w-48
+                         bg-[var(--bg-primary)] shadow-lg rounded-[var(--border-radius-md)]
+                         border border-[var(--border-color)]
+                         animate-[fadeIn_var(--animation-duration-normal)_var(--animation-ease)_forwards]"
+                            role="menu"
+                        >
+                            <NavigationTreeComponent data={item.children} />
+                        </div>
+                    )}
+                </div>
             ))}
-        </Box>
+        </nav>
     );
 };
 

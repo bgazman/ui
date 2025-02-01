@@ -6,10 +6,6 @@ type LandingLayoutProps = Omit<BaseLayoutProps, 'layoutType' | 'gridTemplate'>;
 const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
     const updatedHeaderData = {
         ...props.headerData,
-        style: {
-            ...props.headerData.style,
-            backgroundcolor: 'var(--header-bg-color)',
-        },
     };
 
     return <BaseLayout {...props} headerData={updatedHeaderData} layoutType="landing" />;

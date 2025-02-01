@@ -1,3 +1,4 @@
+// SidebarProvider.tsx and useSidebar.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavItem } from '@components/navigation/navigation.tsx';
@@ -25,10 +26,7 @@ type SidebarProviderProps = {
     sideBarMenuItems: { label: string; items: NavItem[] }[];
 };
 
-export const SidebarProvider: React.FC<SidebarProviderProps> = ({
-                                                                    children,
-                                                                    sideBarMenuItems,
-                                                                }) => {
+export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children, sideBarMenuItems }) => {
     const location = useLocation();
     const [openSections, setOpenSections] = useState<Set<string>>(new Set([]));
     const [activeItem, setActiveItem] = useState<string>('');

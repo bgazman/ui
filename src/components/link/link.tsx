@@ -2,25 +2,30 @@ import React from "react";
 
 type LinkComponentProps = {
     href: string;
-    label: string;
-    isActive: boolean;
+    isActive?: boolean; // Default to false
     className?: string;
-    style?: React.CSSProperties;
+    onKeyDown?: (e: React.KeyboardEvent<HTMLAnchorElement>) => void;
+    role?: string;
+    "aria-haspopup"?: boolean;
+    "aria-expanded"?: boolean;
+    children: React.ReactNode;
 };
 
 const LinkComponent: React.FC<LinkComponentProps> = ({
-    href,
-    label,
-    isActive,
-    className,
-    style
-}) => (
+                                                         href,
+                                                         isActive = false, // Default value
+                                                         className = "", // Default to empty string
+                                                         children
+                                                     }) => (
     <a
         href={href}
-        className={`block px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-[var(--bg-alt1)] ${isActive ? 'bg-[var(--bg-alt1)] text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'} ${className}`}
-        style={style}
+        className={`block px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-[var(--bg-alt1)] 
+            ${isActive ? 'bg-[var(--bg-alt1)] text-[var(--text-primary)] font-semibold' : 'text-[var(--text-secondary)]'}
+            ${!href ? 'pointer-events-none opacity-50' : ''} ${className}`}
+        role="link"
+        aria-current={isActive ? "page" : undefined} // Accessibility improvement
     >
-        {label}
+        {children}
     </a>
 );
 

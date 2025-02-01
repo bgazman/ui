@@ -1,3 +1,4 @@
+// ContactUs.tsx
 import React from 'react';
 import Section from '@components/section/section.tsx';
 import Form from '@components/input/form.tsx';
@@ -15,15 +16,15 @@ interface ContactUsProps {
 }
 
 const ContactUs: React.FC<ContactUsProps> = ({
-    id,
-    title = 'Contact Us',
-    description = 'We’d love to hear from you. Please fill out the form below or reach us directly.',
-    email = 'contact@example.com',
-    phone = '123-456-7890',
-    address = '123 Main Street, City, Country',
-    className = '',
-    style,
-}) => {
+                                                 id,
+                                                 title = 'Contact Us',
+                                                 description = 'We’d love to hear from you. Please fill out the form below or reach us directly.',
+                                                 email = 'contact@example.com',
+                                                 phone = '123-456-7890',
+                                                 address = '123 Main Street, City, Country',
+                                                 className = '',
+                                                 style,
+                                             }) => {
     const handleFormSubmit = (data: Record<string, string>) => {
         console.log('Form Data Submitted:', data);
     };
@@ -37,14 +38,11 @@ const ContactUs: React.FC<ContactUsProps> = ({
             style={style}
         >
             <Box className="flex flex-col items-center space-y-[var(--spacing-lg)]">
-                <Box className="space-y-[var(--spacing-sm)] text-gray-600">
+                <Box className="space-y-[var(--spacing-sm)] text-[var(--text-secondary)]">
                     {email && (
                         <Box as="p">
                             <span className="font-semibold">Email:</span>{' '}
-                            <a
-                                href={`mailto:${email}`}
-                                className="text-blue-600 hover:underline"
-                            >
+                            <a href={`mailto:${email}`} className="text-blue-600 hover:underline">
                                 {email}
                             </a>
                         </Box>
@@ -52,10 +50,7 @@ const ContactUs: React.FC<ContactUsProps> = ({
                     {phone && (
                         <Box as="p">
                             <span className="font-semibold">Phone:</span>{' '}
-                            <a
-                                href={`tel:${phone}`}
-                                className="text-blue-600 hover:underline"
-                            >
+                            <a href={`tel:${phone}`} className="text-blue-600 hover:underline">
                                 {phone}
                             </a>
                         </Box>
@@ -66,11 +61,7 @@ const ContactUs: React.FC<ContactUsProps> = ({
                         </Box>
                     )}
                 </Box>
-                <Form
-                    className="w-full"
-                    onSubmit={handleFormSubmit}
-                    variant="centered" // Use the centered variant
-                />
+                <Form className="w-full" onSubmit={handleFormSubmit} variant="centered" />
             </Box>
         </Section>
     );

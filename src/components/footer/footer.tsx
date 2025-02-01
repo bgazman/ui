@@ -3,8 +3,8 @@ import Box from '@components/box.tsx';
 import FooterContactInfo from '@components/footer/footer-contact-info.tsx';
 import FooterSocialLinks from '@components/footer/footer-social-links.tsx';
 import FooterCopyright from '@components/footer/footer-copyright.tsx';
-import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
-import { NavItem } from "@components/navigation/navigation.tsx";
+import HorizontalNavigation from '@components/navigation/horizontal-navigation.tsx';
+import { NavItem } from '@components/navigation/navigation.tsx';
 
 export interface FooterProps {
     menuItems: NavItem[];
@@ -16,25 +16,27 @@ export interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-    menuItems,
-    copyright = '© 2023 Your Brand. All rights reserved.',
-    contactInfo,
-    socialLinks,
-    className = '',
-    style,
-}) => {
+                                           menuItems,
+                                           copyright = '© 2023 Your Brand. All rights reserved.',
+                                           contactInfo,
+                                           socialLinks,
+                                           className = '',
+                                           style,
+                                       }) => {
     return (
         <Box
             as="footer"
-            className={`w-full py-6 px-6 sm:px-8 text-[var(--text-primary)] ${className}`}
-            style={{
-                backgroundColor: `var(--footer-bg-color)`,
-                color: `var(--footer-text-color)`,
-                ...style,
-            }}
+            className={`w-full py-6 px-6 sm:px-8 bg-footer text-footer-text ${className}`}
+            style={style}
         >
             <Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
-                {menuItems.length > 0 && <HorizontalNavigation navItems={menuItems} bgColor="var(--footer-bg-color)" textColor="var(--footer-text-color)" />}
+                {menuItems.length > 0 && (
+                    <HorizontalNavigation
+                        navItems={menuItems}
+                        bgColor="var(--footer-bg-color)"
+                        textColor="var(--footer-text-color)"
+                    />
+                )}
                 {contactInfo && <FooterContactInfo {...contactInfo} />}
                 {socialLinks && <FooterSocialLinks {...socialLinks} />}
                 <FooterCopyright text={copyright} />

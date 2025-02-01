@@ -1,14 +1,9 @@
-
 :root {
     --button-bg-color: #007bff;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
 
-
-}
-/* 🌎 Global Variables */
-:root {
     /* 🌞 Light Mode Default */
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
@@ -17,7 +12,7 @@
 
     --text-primary: #212529;
     --text-secondary: #495057;
-
+    --text-tertiary: #6c757d;
     --border-color: #ced4da;
     --sidebar-border-color: #ced4da;
 
@@ -26,8 +21,6 @@
 
     --header-bg-color: #0056b3;
     --header-text-color: #ffffff;
-
-
 
     /* 🏗 Layout Heights */
     --header-height: 64px;
@@ -42,19 +35,16 @@
     --font-family-serif: "Merriweather", serif;
     --font-family-mono: "Fira Code", monospace;
 
-
-        --spacing-xs: 0.25rem;
-        --spacing-sm: 0.5rem;
-        --spacing-md: 1rem;
-        --spacing-lg: 1.5rem;
-        --spacing-xl: 2rem;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
 
     --border-radius-sm: 0.125rem;
     --border-radius-md: 0.25rem;
     --border-radius-lg: 0.5rem;
     --border-radius-xl: 1rem;
-
-
 
     --transition-duration: 300ms;
     --transition-timing-function: ease-in-out;
@@ -68,7 +58,19 @@
     --animation-fade-in: fadeIn var(--animation-duration-normal) var(--animation-ease) forwards;
     --animation-slide-up: slideUp var(--animation-duration-normal) var(--animation-ease) forwards;
 
-
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem; /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem; /* 20px */
+    --font-size-2xl: 1.5rem; /* 24px */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-4xl: 2.25rem; /* 36px */
+    --font-size-5xl: 3rem; /* 48px */
+    --font-size-6xl: 3.75rem; /* 60px */
+    --font-size-7xl: 4.5rem; /* 72px */
+    --font-size-8xl: 6rem; /* 96px */
+    --font-size-9xl: 8rem; /* 128px */
 }
 
 /* 🔹 Header */
@@ -77,9 +79,9 @@ header {
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
     height: var(--header-height);
+    font-size: var(--font-size-xl);
 }
 
-/* 🔹 Main Content */
 main {
     @apply flex-grow;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -95,14 +97,15 @@ footer {
 }
 
 /* 🏗️ Sidebar (Aside) */
-aside {
-    @apply sticky top-0 overflow-y-auto border-r;
-    width: var(--sidebar-width);
-    background-color: var(--sidebar-bg-color);
-    color: var(--sidebar-text-color);
-    border-color: var(--sidebar-border-color);
-    height: calc(100vh - var(--header-height)); /* Adjust height to avoid footer overlap */
-}
+/*aside {*/
+/*    @apply sticky top-0 overflow-y-auto border-r;*/
+/*    width: var(--sidebar-width);*/
+/*    background-color: var(--sidebar-bg-color);*/
+/*    color: var(--sidebar-text-color);*/
+/*    border-color: var(--sidebar-border-color);*/
+/*    height: calc(100vh - var(--header-height)); !* Adjust height to avoid footer overlap *!*/
+/*}*/
+
 /* 🖌️ Theme-Specific Styles */
 .theme-container {
     height: 100%;
@@ -118,6 +121,7 @@ aside {
     --sidebar-icon-color: var(--text-secondary);
     --transition-duration: 200ms;
 }
+
 /* 🌎 Global Theme Typography */
 .theme-container * {
     @apply antialiased;
@@ -128,6 +132,7 @@ aside {
 .theme-container :where(code, pre) {
     font-family: var(--font-family-mono, monospace);
 }
+
 /* 🔥 Fade In Animation */
 @keyframes fadeIn {
     from {
@@ -180,6 +185,7 @@ aside {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
+
 .section {
     opacity: 0;
     transform: translateY(4rem);
@@ -191,10 +197,30 @@ aside {
     transform: translateY(0);
 }
 
-header {
-    transition: transform var(--transition-duration) var(--transition-timing-function);
-}
+/*header {*/
+/*    transition: transform var(--transition-duration) var(--transition-timing-function);*/
+/*}*/
 
-header.-translate-y-full {
-    transform: translateY(-200%);
-}
+/*header.-translate-y-full {*/
+/*    transform: translateY(-200%);*/
+/*}*/
+
+/*!* Example scrollbar styling using CSS variables for theming *!*/
+/*.scrollbar-custom {*/
+/*    scrollbar-width: thin; !* Firefox *!*/
+/*    scrollbar-color: var(--text-tertiary) var(--bg-primary);*/
+/*}*/
+
+/*!* For WebKit browsers *!*/
+/*.scrollbar-custom::-webkit-scrollbar {*/
+/*    width: 8px;*/
+/*}*/
+
+/*.scrollbar-custom::-webkit-scrollbar-track {*/
+/*    background-color: var(--bg-primary);*/
+/*}*/
+
+/*.scrollbar-custom::-webkit-scrollbar-thumb {*/
+/*    background-color: var(--text-tertiary);*/
+/*    border-radius: 9999px;*/
+/*}*/

@@ -1,3 +1,4 @@
+// FooterNavigation.tsx
 import React from 'react';
 import Box from '@components/box.tsx';
 import Navigation from '@components/navigation/navigation.tsx';
@@ -19,7 +20,7 @@ const FooterNavigation: React.FC<NavigationProps> = ({ menuItems }) => {
                 orientation="horizontal"
                 navItems={menuItems.map((item) => ({
                     label: item.label,
-                    href: item.href, // Ensure the property name matches the expected type
+                    href: item.href,
                 }))}
             />
         </Box>

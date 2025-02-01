@@ -1,3 +1,4 @@
+// CardFooter.tsx
 import React from 'react';
 import Button from "@components/button/button.tsx";
 
@@ -11,7 +12,7 @@ const CardFooter: React.FC<CardFooterProps> = ({ actionLink, actionText }) => {
 
     return (
         <div className="mt-4 flex justify-center">
-            <Button onClick={() => window.location.href = actionLink} >
+            <Button onClick={() => (window.location.href = actionLink)}>
                 {actionText}
             </Button>
         </div>

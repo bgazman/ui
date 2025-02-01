@@ -13,11 +13,11 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({
-    onSubmit,
-    className = '',
-    style,
-    variant = 'default',
-}) => {
+                                       onSubmit,
+                                       className = '',
+                                       style,
+                                       variant = 'default',
+                                   }) => {
     const [formData, setFormData] = useState<Record<string, string>>({
         name: '',
         email: '',
@@ -42,7 +42,14 @@ const Form: React.FC<FormProps> = ({
         });
     };
 
-    const baseClasses = 'space-y-[var(--spacing-lg)] max-w-lg mx-auto border border-[var(--border-color)] p-[var(--spacing-lg)] rounded-[var(--border-radius-lg)]';
+    const baseClasses = `
+    space-y-[var(--spacing-lg)]
+    max-w-lg mx-auto
+    border border-[var(--border-color)]
+    p-[var(--spacing-lg)]
+    rounded-[var(--border-radius-lg)]
+  `;
+
     const variantClasses: Record<FormVariant, string> = {
         default: '',
         centered: 'justify-center',
@@ -88,7 +95,9 @@ const Form: React.FC<FormProps> = ({
             />
             <div className={`flex space-x-[var(--spacing-lg)] ${selectedVariantClasses}`}>
                 <Button type="submit">Submit</Button>
-                <Button type="button" onClick={handleClear} variant="secondary">Clear</Button>
+                <Button type="button" onClick={handleClear} variant="secondary">
+                    Clear
+                </Button>
             </div>
         </form>
     );

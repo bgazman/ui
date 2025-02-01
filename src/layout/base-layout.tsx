@@ -43,19 +43,19 @@ export interface BaseLayoutProps {
 }
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({
-    headerData,
-    footerData,
-    children,
-    layoutConfig,
-    layoutType,
-    gridTemplate = {
-        areas: '"header" "main" "footer"',
-        rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
-        columns: '1fr'
-    },
-    sidebarMenuItems = [], // Ensure sidebarMenuItems is always defined
-    sidebarClassName
-}) => {
+                                                   headerData,
+                                                   footerData,
+                                                   children,
+                                                   layoutConfig,
+                                                   layoutType,
+                                                   gridTemplate = {
+                                                       areas: '"header" "main" "footer"',
+                                                       rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
+                                                       columns: '1fr'
+                                                   },
+                                                   sidebarMenuItems = [], // Ensure sidebarMenuItems is always defined
+                                                   sidebarClassName
+                                               }) => {
     const { layout, setLayout } = useLayout();
 
     React.useEffect(() => {
@@ -98,7 +98,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
             <Main className="[grid-area:main] w-full">
                 <div
                     className={`w-full ${layoutConfig.main.padding || 'px-0'}`}
-                    style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0', padding: 'var(--global-padding)' }} // Apply global padding here
+                    style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0' }}
                 >
                     {children}
                 </div>

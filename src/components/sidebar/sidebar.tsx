@@ -13,14 +13,14 @@ export interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
-    className,
-    style,
-    sideBarMenuItems,
-    position = 'sticky',
-    header,
-    footer,
-    renderItem,
-}) => {
+                                             className,
+                                             style,
+                                             sideBarMenuItems,
+                                             position = 'sticky',
+                                             header,
+                                             footer,
+                                             renderItem,
+                                         }) => {
     return (
         <SidebarContainer
             className={className}

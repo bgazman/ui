@@ -15,13 +15,13 @@ export type SidebarContainerProps = {
 };
 
 const SidebarContainer: React.FC<SidebarContainerProps> = ({
-    className,
-    style,
-    sideBarMenuItems,
-    position = 'sticky',
-    header,
-    footer,
-}) => {
+                                                               className,
+                                                               style,
+                                                               sideBarMenuItems,
+                                                               position = 'sticky',
+                                                               header,
+                                                               footer,
+                                                           }) => {
     const getPositionClass = () =>
         ({
             fixed: 'fixed top-0 left-0',
@@ -33,17 +33,21 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
         <Box
             as="aside"
             style={{
+                // Keep any user-supplied style
                 ...style,
-                backgroundColor: 'var(--bg-primary)',
-                borderColor: 'var(--sidebar-border-color)',
-                overflowY: style?.overflowY || 'auto',
-                '--scrollbar-track': 'var(--bg-primary)',
-                '--scrollbar-thumb': 'var(--text-tertiary)',
-                scrollbarWidth: 'thin',
-                scrollbarColor: 'var(--text-tertiary) var(--bg-primary)',
-                padding: '0', // Remove or adjust padding here
             }}
-            className={`w-64 h-screen border-r ${getPositionClass()} ${className || ''}`}
+            className={`
+        ${getPositionClass()}
+        w-64 
+        h-screen
+        border-r 
+        border-sidebar-border
+        bg-sidebar
+        overflow-y-auto
+        p-0
+        scrollbar-custom
+        ${className || ''}
+      `}
         >
             {header && <SidebarHeader>{header}</SidebarHeader>}
             <SidebarBody sideBarMenuItems={sideBarMenuItems} />

@@ -1,3 +1,4 @@
+// SectionContainer.tsx
 import React from 'react';
 import Box from '@components/box.tsx';
 
@@ -21,7 +22,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({ id, className = '',
             backgroundColor: 'var(--bg-primary)',
             color: 'var(--text-primary)',
             borderColor: 'var(--border-color)',
-            transition: 'all var(--transition-duration) var(--transition-timing-function)'
+            transition: 'all var(--transition-duration) var(--transition-timing-function)',
         }}
     >
         {children}

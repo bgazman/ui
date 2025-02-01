@@ -19,16 +19,18 @@ interface AboutUsProps {
 }
 
 const AboutUs: React.FC<AboutUsProps> = ({
-    id,
-    title,
-    description,
-    mission,
-    vision,
-    team,
-    stats,
-    className = '',
-    style,
-}) => {
+                                             id,
+                                             title,
+                                             description,
+                                             mission,
+                                             vision,
+                                             team,
+                                             stats,
+                                             className = '',
+                                             style,
+                                         }) => {
+    // Instead of inline border, consider a utility class for theming:
+    // e.g., "border border-[var(--border-color)]"
     const cardStyle = { border: '1px solid var(--border-color)' };
 
     return (
@@ -36,8 +38,9 @@ const AboutUs: React.FC<AboutUsProps> = ({
             id={id}
             title={title}
             description={description}
-            className={`py-12 px-4 ${className}`}
-            style={{ ...style, maxWidth: '1200px', margin: '0 auto' }}
+            // Added `max-w-[1200px] mx-auto` for centered layout
+            className={`py-12 px-4 max-w-[1200px] mx-auto ${className}`}
+            style={style}
         >
             <Stats stats={stats} cardStyle={cardStyle} />
             <Grid columns={2} gap="2rem" className="mb-16">

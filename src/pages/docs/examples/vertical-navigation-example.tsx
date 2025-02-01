@@ -7,18 +7,18 @@ const verticalNavItems: NavItem[] = [
     { label: "Dashboard", href: "/" },
     {
         label: "Products",
-        items: [
+        children: [
             {
                 label: "Electronics",
-                items: [
+                children: [
                     {
                         label: "Computers",
-                        items: [
+                        children: [
                             { label: "Laptops", href: "#laptops" },
                             { label: "Desktops", href: "#desktops" },
                             {
                                 label: "Components",
-                                items: [
+                                children: [
                                     { label: "CPUs", href: "#cpus" },
                                     { label: "GPUs", href: "#gpus" },
                                     { label: "Memory", href: "#memory" }
@@ -28,7 +28,7 @@ const verticalNavItems: NavItem[] = [
                     },
                     {
                         label: "Mobile Devices",
-                        items: [
+                        children: [
                             { label: "Smartphones", href: "#smartphones" },
                             { label: "Tablets", href: "#tablets" },
                             { label: "Accessories", href: "#accessories" }
@@ -40,10 +40,10 @@ const verticalNavItems: NavItem[] = [
     },
     {
         label: "Services",
-        items: [
+        children: [
             {
                 label: "Support",
-                items: [
+                children: [
                     { label: "Hardware", href: "#hardware-support" },
                     { label: "Software", href: "#software-support" },
                     { label: "Network", href: "#network-support" }
@@ -51,7 +51,7 @@ const verticalNavItems: NavItem[] = [
             },
             {
                 label: "Professional",
-                items: [
+                children: [
                     { label: "Consulting", href: "#consulting" },
                     { label: "Training", href: "#training" },
                     { label: "Enterprise", href: "#enterprise" }
@@ -62,13 +62,14 @@ const verticalNavItems: NavItem[] = [
     { label: "Contact", href: "#contact" }
 ];
 
+
 const VerticalNavigationExample: React.FC = () => {
     return (
-        <Box className="vertical-navigation-example" style={{ display: 'flex', flexDirection: 'row', gap: 'var(--spacing-lg)' }}>
-            <VerticalNavigation navItems={verticalNavItems} variant="default" />
-            <VerticalNavigation navItems={verticalNavItems} variant="compact" />
-            <VerticalNavigation navItems={verticalNavItems} variant="expanded" />
-        </Box>
+<Box className="vertical-navigation-example bg-primary" style={{ display: 'flex', flexDirection: 'row', gap: 'var(--spacing-lg)' }}>
+    <VerticalNavigation navItems={verticalNavItems} variant="default" />
+    <VerticalNavigation navItems={verticalNavItems} variant="compact" />
+    <VerticalNavigation navItems={verticalNavItems} variant="expanded" />
+</Box>
     );
 };
 

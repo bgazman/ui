@@ -1,3 +1,4 @@
+// Section.tsx
 import React from 'react';
 import SectionContainer from './section-container.tsx';
 import SectionHeader from './section-header.tsx';
@@ -15,9 +16,7 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ id, title, description, children, className = '', style }) => (
     <SectionContainer id={id} className={className} style={style}>
         <SectionHeader title={title} description={description} />
-        <SectionContent>
-            {children}
-        </SectionContent>
+        <SectionContent>{children}</SectionContent>
     </SectionContainer>
 );
 

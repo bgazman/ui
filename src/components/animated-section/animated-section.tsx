@@ -1,6 +1,6 @@
-import Box from '@components/box';
+// AnimatedSection.tsx
+import React, { useRef, useEffect } from 'react';
 import Section from '@components/section/section';
-import React, { useEffect, useRef } from "react";
 
 interface AnimateSectionProps {
     id: string;
@@ -11,7 +11,14 @@ interface AnimateSectionProps {
     variant?: 'center' | 'left';
 }
 
-const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, title, description, children, className = '', variant = 'center' }) => {
+const AnimatedSection: React.FC<AnimateSectionProps> = ({
+                                                            id,
+                                                            title,
+                                                            description,
+                                                            children,
+                                                            className = '',
+                                                            variant = 'center',
+                                                        }) => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -28,10 +35,7 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({ id, title, description
                     }
                 });
             },
-            {
-                threshold: 0.1,
-                rootMargin: '0px'
-            }
+            { threshold: 0.1, rootMargin: '0px' }
         );
 
         observer.observe(section);

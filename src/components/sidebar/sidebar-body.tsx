@@ -1,3 +1,4 @@
+// SidebarBody.tsx
 import React from "react";
 import { NavItem } from "@components/navigation/navigation";
 import Box from "@components/box";
@@ -8,10 +9,7 @@ export interface SidebarBodyProps {
     className?: string;
 }
 
-const SidebarBody: React.FC<SidebarBodyProps> = ({
-    sideBarMenuItems,
-    className = "",
-}) => {
+const SidebarBody: React.FC<SidebarBodyProps> = ({ sideBarMenuItems, className = "" }) => {
     return (
         <Box className={`flex flex-col space-y-[var(--spacing-md)] ${className}`}>
             <VerticalNavigation navItems={sideBarMenuItems} variant="expanded" />

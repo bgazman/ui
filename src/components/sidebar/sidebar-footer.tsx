@@ -1,3 +1,4 @@
+// SidebarFooter.tsx
 import React from 'react';
 
 interface SidebarFooterProps {
