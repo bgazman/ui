@@ -1,10 +1,12 @@
-import React from 'react';
-import DocsLayout from '@layout/docs-layout';
+import React, { useEffect } from 'react';
+import BaseLayout from '@layout/base-layout';
 import { mockHeaderData } from '@pages/docs/data/header-data';
-import { footerMockData } from '@pages/home/data/footer-data';
+import { mockFooterData } from '@pages/docs/data/footer-data';
 import { mockSidebarData } from '@pages/docs/data/sidebar-data';
-import ComponentPreview from '@components/preview/component-preview';
+import { docsSectionList } from '@pages/docs/data/docs-section-data';
 import Box from '@components/box';
+import AnimatedSection from '@components/animated-section/animated-section';
+import ComponentPreview from '@components/preview/component-preview';
 import CardExample from '@pages/docs/examples/card-example';
 import SectionExample from '@pages/docs/examples/section-example';
 import GridExample from '@pages/docs/examples/grid-example';
@@ -13,14 +15,10 @@ import TextAreaExample from '@pages/docs/examples/text-area-example';
 import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
 import InputFieldExample from '@pages/docs/examples/input-field-example';
-import { docsSectionList } from '@pages/docs/data/docs-section-data';
 import TabMenuExample from '@pages/docs/examples/tab-menu-example.tsx';
-import AnimatedSection from '@components/animated-section/animated-section';
+import { NavItem } from '@components/navigation/navigation.tsx';
 import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example.tsx';
 import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example.tsx';
-import LandingLayoutExample from '@pages/docs/examples/landing-layout-example.tsx';
-import DocsLayoutExample from '@pages/docs/examples/docs-layout-example.tsx';
-
 const DocsPage: React.FC = () => {
     const layoutConfig = {
         header: {
@@ -42,12 +40,33 @@ const DocsPage: React.FC = () => {
         },
     };
 
+useEffect(() => {
+    console.log('Sidebar items:', mockSidebarData);
+    console.log('Footer data:', mockFooterData); // Add this line to log mockFooterData
+}, []);
+
+    const gridTemplate = {
+        areas: '"header header" "sidebar main" "footer footer"',
+        rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
+        columns: `${layoutConfig.sidebar?.width || 'var(--sidebar-width)'} 1fr`
+    };
+
+    const ensureChildrenArray = (items: NavItem[]): { label: string; children: NavItem[]; }[] => {
+        return items.map(item => ({
+            ...item,
+            children: item.children || []
+        }));
+    };
+
     return (
-        <DocsLayout
+        <BaseLayout
             headerData={mockHeaderData}
-            footerData={footerMockData}
-            layoutConfig={layoutConfig}
-            sidebarMenuItems={mockSidebarData.sideBarMenuItems}
+            footerData={mockFooterData} // Ensure this line passes mockFooterData
+            layoutType="docs"
+            gridTemplate={gridTemplate}
+            sidebarMenuItems={ensureChildrenArray(mockSidebarData)}
+            sidebarClassName="border-[var(--border-color)]"
+            layoutConfig={layoutConfig} // Pass layoutConfig here
         >
             <Box className="space-y-16 sm:space-y-20 flex-grow">
                 {docsSectionList.map((section) => (
@@ -107,20 +126,10 @@ const DocsPage: React.FC = () => {
                                 <VerticalNavigationExample />
                             </ComponentPreview>
                         )}
-                        {section.id === 'landing-layout-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <LandingLayoutExample />
-                            </ComponentPreview>
-                        )}
-                        {section.id === 'docs-layout-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <DocsLayoutExample />
-                            </ComponentPreview>
-                        )}
                     </AnimatedSection>
                 ))}
             </Box>
-        </DocsLayout>
+        </BaseLayout>
     );
 };
 

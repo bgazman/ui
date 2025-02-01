@@ -1,12 +1,11 @@
 import { NavItem } from '@components/navigation/navigation.tsx';
+import {CircleArrowDownIcon} from "lucide-react";
 
 export const mockHeaderData: { headerNavItems: NavItem[]; brandName: string; logo: { src: string; alt: string; width?: number; height?: number } } = {
-    brandName: 'Your Brand',
+    brandName: "Your Brand",
     logo: {
-        src: 'path/to/logo.svg',
-        alt: 'Your Brand Logo',
-        width: 100,
-        height: 50,
+        alt: "Your Logo",
+        icon: CircleArrowDownIcon
     },
     headerNavItems: [
         { label: "Home", href: "/" },

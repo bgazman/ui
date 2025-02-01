@@ -1,4 +1,3 @@
-// SidebarProvider.tsx and useSidebar.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavItem } from '@components/navigation/navigation.tsx';
@@ -8,7 +7,7 @@ type SidebarContextType = {
     toggleSection: (label: string) => void;
     activeItem: string;
     setActiveItem: (label: string) => void;
-    sideBarMenuItems: { label: string; items: NavItem[] }[];
+    sidebarData: { label: string; children: NavItem[] }[];
 };
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -23,24 +22,24 @@ export const useSidebar = () => {
 
 type SidebarProviderProps = {
     children: React.ReactNode;
-    sideBarMenuItems: { label: string; items: NavItem[] }[];
+    sidebarData: { label: string; children: NavItem[] }[];
 };
 
-export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children, sideBarMenuItems }) => {
+export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children, sidebarData }) => {
     const location = useLocation();
     const [openSections, setOpenSections] = useState<Set<string>>(new Set([]));
     const [activeItem, setActiveItem] = useState<string>('');
 
     useEffect(() => {
         const currentPath = location.pathname + location.hash;
-        sideBarMenuItems.forEach(section => {
-            section.items.forEach(item => {
+        sidebarData.forEach(section => {
+            section.children.forEach(item => {
                 if (item.href === currentPath) {
                     setActiveItem(item.label);
                 }
             });
         });
-    }, [location, sideBarMenuItems]);
+    }, [location, sidebarData]);
 
     const toggleSection = (label: string) => {
         const newOpenSections = new Set(openSections);
@@ -59,7 +58,7 @@ export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children, side
                 toggleSection,
                 activeItem,
                 setActiveItem,
-                sideBarMenuItems,
+                sidebarData,
             }}
         >
             {children}

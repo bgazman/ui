@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@components/box';
 import SidebarHeader from './sidebar-header';
 import SidebarFooter from './sidebar-footer';
@@ -8,7 +8,7 @@ import { NavItem } from '@components/navigation/navigation';
 export type SidebarContainerProps = {
     className?: string;
     style?: React.CSSProperties;
-    sideBarMenuItems: NavItem[];
+    sidebarData: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
     header?: React.ReactNode;
     footer?: React.ReactNode;
@@ -17,11 +17,15 @@ export type SidebarContainerProps = {
 const SidebarContainer: React.FC<SidebarContainerProps> = ({
                                                                className,
                                                                style,
-                                                               sideBarMenuItems,
+                                                               sidebarData,
                                                                position = 'sticky',
                                                                header,
                                                                footer,
                                                            }) => {
+    useEffect(() => {
+        console.log('SidebarContainer sidebarData:', sidebarData);
+    }, [sidebarData]);
+
     const getPositionClass = () =>
         ({
             fixed: 'fixed top-0 left-0',
@@ -50,7 +54,7 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
       `}
         >
             {header && <SidebarHeader>{header}</SidebarHeader>}
-            <SidebarBody sideBarMenuItems={sideBarMenuItems} />
+            <SidebarBody sidebarData={sidebarData} />
             {footer && <SidebarFooter>{footer}</SidebarFooter>}
         </Box>
     );

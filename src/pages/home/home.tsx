@@ -1,6 +1,6 @@
 // HomePage.tsx
 import React from 'react';
-import { footerMockData } from './data/footer-data';
+import { mockFooterData } from './data/footer-data';
 import { mockHeaderData } from './data/header-data';
 import { aboutUsData } from './data/about-us-data';
 import LandingLayout from '@layout/landing-layout.tsx';
@@ -9,7 +9,6 @@ import AboutUs from '@components/about-us/about-us.tsx';
 import ContactUs from '@components/contact-us/contact-us.tsx';
 import Box from '@components/box';
 import AnimatedSection from '@components/animated-section/animated-section';
-import mockMainData from '@pages/home/data/main-data.ts';
 
 const HomePage: React.FC = () => {
     const layoutConfig = {
@@ -30,7 +29,7 @@ const HomePage: React.FC = () => {
     return (
         <LandingLayout
             headerData={mockHeaderData}
-            footerData={footerMockData}
+            footerData={mockFooterData}
             layoutConfig={layoutConfig}
         >
             <Box className="space-y-16 sm:space-y-20" style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}>

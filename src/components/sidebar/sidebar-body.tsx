@@ -1,18 +1,21 @@
-// SidebarBody.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { NavItem } from "@components/navigation/navigation";
 import Box from "@components/box";
 import VerticalNavigation from "@components/navigation/vertical-navigation";
 
 export interface SidebarBodyProps {
-    sideBarMenuItems: NavItem[];
+    sidebarData: NavItem[];
     className?: string;
 }
 
-const SidebarBody: React.FC<SidebarBodyProps> = ({ sideBarMenuItems, className = "" }) => {
+const SidebarBody: React.FC<SidebarBodyProps> = ({ sidebarData, className }) => {
+    useEffect(() => {
+        console.log('SidebarBody sidebarData:', sidebarData);
+    }, [sidebarData]);
+
     return (
         <Box className={`flex flex-col space-y-[var(--spacing-md)] ${className}`}>
-            <VerticalNavigation navItems={sideBarMenuItems} variant="expanded" />
+            <VerticalNavigation navItems={sidebarData} variant="expanded" />
         </Box>
     );
 };

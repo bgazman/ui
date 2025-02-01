@@ -5,7 +5,7 @@ import { NavItem } from '@components/navigation/navigation';
 export interface SidebarProps {
     className?: string;
     style?: React.CSSProperties;
-    sideBarMenuItems: NavItem[];
+    sidebarData: NavItem[];
     position?: 'fixed' | 'sticky' | 'relative';
     header?: React.ReactNode;
     footer?: React.ReactNode;
@@ -15,7 +15,7 @@ export interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({
                                              className,
                                              style,
-                                             sideBarMenuItems,
+                                             sidebarData,
                                              position = 'sticky',
                                              header,
                                              footer,
@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SidebarContainer
             className={className}
             style={style}
-            sideBarMenuItems={sideBarMenuItems}
+            sidebarData={sidebarData}
             position={position}
             header={header}
             footer={footer}

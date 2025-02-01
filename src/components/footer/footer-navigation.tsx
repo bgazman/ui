@@ -1,7 +1,8 @@
 // FooterNavigation.tsx
 import React from 'react';
 import Box from '@components/box.tsx';
-import Navigation from '@components/navigation/navigation.tsx';
+
+import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
 
 type MenuItemType = {
     label: string;
@@ -15,9 +16,7 @@ interface NavigationProps {
 const FooterNavigation: React.FC<NavigationProps> = ({ menuItems }) => {
     return (
         <Box className="flex justify-center md:justify-start w-full md:w-auto">
-            <Navigation
-                className="flex flex-wrap space-x-6"
-                orientation="horizontal"
+            <HorizontalNavigation
                 navItems={menuItems.map((item) => ({
                     label: item.label,
                     href: item.href,

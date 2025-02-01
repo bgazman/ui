@@ -30,7 +30,7 @@ export interface BaseLayoutConfig {
 export interface BaseLayoutProps {
     headerData: HeaderProps;
     footerData: FooterProps;
-    sidebarMenuItems?: SidebarProps['sideBarMenuItems'];
+    sidebarMenuItems?: SidebarProps['sidebarData'];
     children: React.ReactNode;
     layoutConfig: BaseLayoutConfig;
     layoutType: string;
@@ -56,6 +56,8 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                                                    sidebarMenuItems = [], // Ensure sidebarMenuItems is always defined
                                                    sidebarClassName
                                                }) => {
+    console.log('Footer data in BaseLayout:', footerData); // Add this line to log footerData
+
     const { layout, setLayout } = useLayout();
 
     React.useEffect(() => {
@@ -91,7 +93,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                 <Sidebar
                     className={`[grid-area:sidebar] ${sidebarClassName || ''}`}
                     style={{ position: layoutConfig.sidebar.position }}
-                    sideBarMenuItems={sidebarMenuItems}
+                    sidebarData={sidebarMenuItems}
                 />
             )}
 

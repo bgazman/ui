@@ -1,17 +1,22 @@
-import {FooterProps} from "@components/footer/footer.tsx";
+import { NavItem } from "@components/navigation/navigation.tsx";
 
-export const footerMockData: FooterProps = {
-    menuItems: [
+
+// Footer Data
+export const mockFooterData: {
+    footerNavItems: NavItem[];
+    copyright: string;
+    socialLinks: {
+        twitter?: string;
+        linkedin?: string;
+        facebook?: string;
+    };
+} = {
+    footerNavItems: [
         { label: "Home", href: "/" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },
         { label: "Contact", href: "#contact" }
     ],
-    // contactInfo: {
-    //     email: 'contact@example.com',
-    //     phone: '123-456-7890',
-    //     // address removed as it's not supported in the interface
-    // },
     copyright: '© 2023 YourBrandName. All rights reserved.',
     socialLinks: {
         twitter: 'https://twitter.com/yourbrand',

@@ -7,7 +7,7 @@ import HorizontalNavigation from '@components/navigation/horizontal-navigation.t
 import { NavItem } from '@components/navigation/navigation.tsx';
 
 export interface FooterProps {
-    menuItems: NavItem[];
+    footerNavItems: NavItem[];
     copyright?: string;
     contactInfo?: { email?: string; phone?: string };
     socialLinks?: { twitter?: string; linkedin?: string; facebook?: string };
@@ -16,13 +16,15 @@ export interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-                                           menuItems,
-                                           copyright = '© 2023 Your Brand. All rights reserved.',
-                                           contactInfo,
-                                           socialLinks,
-                                           className = '',
-                                           style,
-                                       }) => {
+                                           footerNavItems,
+    copyright = '© 2023 Your Brand. All rights reserved.',
+    contactInfo,
+    socialLinks,
+    className = '',
+    style,
+}) => {
+    console.log('Footer menuItems:', footerNavItems); // Add this line to log menuItems
+
     return (
         <Box
             as="footer"
@@ -30,13 +32,12 @@ const Footer: React.FC<FooterProps> = ({
             style={style}
         >
             <Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
-                {menuItems.length > 0 && (
-                    <HorizontalNavigation
-                        navItems={menuItems}
-                        bgColor="var(--footer-bg-color)"
-                        textColor="var(--footer-text-color)"
-                    />
-                )}
+                <HorizontalNavigation
+                    navItems={footerNavItems.map((item) => ({
+                        label: item.label,
+                        href: item.href,
+                    }))}
+                />
                 {contactInfo && <FooterContactInfo {...contactInfo} />}
                 {socialLinks && <FooterSocialLinks {...socialLinks} />}
                 <FooterCopyright text={copyright} />

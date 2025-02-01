@@ -3,7 +3,7 @@ import React from 'react';
 import Box from '@components/box';
 import { Facebook as FacebookIcon, Linkedin as LinkedinIcon, X as TwitterIcon } from 'lucide-react';
 
-interface SocialLinksProps {
+export interface SocialLinksProps {
     twitter?: string;
     linkedin?: string;
     facebook?: string;
