@@ -22,17 +22,14 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
     const [isOpen, setIsOpen] = useState(false);
     const hasChildren = item.children && item.children.length > 0;
 
-    // Calculate left indentation based on nesting level
+    // Calculate left indentation based on nesting level using your CSS var for spacing
     const paddingLeft = `calc(${level + 1} * var(--spacing-md))`;
 
     return (
         <div>
             {hasChildren ? (
                 <div
-                    className="flex items-center gap-[var(--spacing-xs)] cursor-pointer
-                     px-[var(--spacing-md)] py-[var(--spacing-sm)]
-                     transition-all hover:bg-[var(--bg-alt1)]
-                     rounded-[var(--border-radius-md)]"
+                    className="flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all hover:bg-[var(--bg-alt1)] rounded-[var(--border-radius-md)]"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <span>{item.label}</span>
@@ -41,10 +38,7 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
             ) : (
                 <LinkComponent
                     href={item.href || "#"}
-                    className="block px-[var(--spacing-md)] py-[var(--spacing-sm)]
-                     transition-all hover:bg-[var(--button-hover-bg-color)]
-                     text-[var(--button-hover-text-color)]
-                     rounded-[var(--border-radius-md)]"
+                    className="block px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all hover:bg-[var(--button-hover-bg-color)] text-[var(--button-hover-text-color)] rounded-[var(--border-radius-md)]"
                 >
                     {item.label}
                 </LinkComponent>

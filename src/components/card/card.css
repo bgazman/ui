@@ -1,0 +1,20 @@
+/* Overall card wrapper styles */
+.card {
+    @apply max-w-md mx-auto rounded-[var(--border-radius-md)];
+}
+.card-container {
+    @apply w-full h-auto p-6 rounded-lg shadow-md border-2 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02];
+}
+.card-header {
+    @apply text-2xl font-semibold;
+}
+.card-body {
+    @apply mt-2 text-[var(--text-color)];
+}
+
+.card-body__description {
+    @apply mb-2;
+}
+.card-footer {
+    @apply mt-4 flex justify-center;
+}

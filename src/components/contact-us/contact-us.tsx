@@ -1,7 +1,7 @@
 // ContactUs.tsx
 import React from 'react';
 import Section from '@components/section/section.tsx';
-import Form from '@components/input/form.tsx';
+import Form from '@components/form/form.tsx';
 import Box from '@components/box.tsx';
 
 interface ContactUsProps {
@@ -26,7 +26,6 @@ const ContactUs: React.FC<ContactUsProps> = ({
                                                  style,
                                              }) => {
     const handleFormSubmit = (data: Record<string, string>) => {
-        console.log('Form Data Submitted:', data);
     };
 
     return (

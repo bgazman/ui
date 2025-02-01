@@ -1,14 +1,13 @@
-// Vision.tsx
 import React from 'react';
-import Card from '@components/card/card.tsx';
+import Card from '@components/card/card';
 
 interface VisionProps {
     vision: string;
-    cardStyle: React.CSSProperties;
+    cardClassName?: string;
 }
 
-const Vision: React.FC<VisionProps> = ({ vision, cardStyle }) => (
-    <Card title="Vision" description={vision} style={cardStyle} />
+const Vision: React.FC<VisionProps> = ({ vision, cardClassName }) => (
+    <Card title="Vision" description={vision} className={cardClassName} />
 );
 
 export default Vision;

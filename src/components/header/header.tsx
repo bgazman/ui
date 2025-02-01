@@ -30,42 +30,29 @@ const Header: React.FC<HeaderProps> = ({
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <Box
-            as="header"
-            className={`w-full h-[var(--header-height)] shadow-sm z-50 ${position} top-0 bg-[var(--header-bg-color)] text-[var(--header-text-color)] ${className}`}
-        >
-            {/* Main Header Container */}
-            <Box className="w-full h-[var(--header-height)] px-[var(--spacing-md)] sm:px-[var(--spacing-lg)] lg:px-[var(--spacing-xl)] flex justify-between items-center">
-                {/* Logo Section */}
+        <Box as="header" className={`header-container ${position} ${className}`}>
+            <Box className="header-inner">
                 <HeaderLogo logo={logo} brandName={brandName} />
-
-                {/* Mobile Menu Toggle */}
                 <button
-                    className="lg:hidden p-[var(--spacing-sm)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--button-focus-ring-color)]"
+                    className="header-mobile-menu-button"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle Navigation Menu"
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
-
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex">
+                <div className="header-desktop-nav">
                     <HorizontalNavigation
                         navItems={headerNavItems}
                         bgColor="var(--header-bg-color)"
                         textColor="var(--header-text-color)"
                     />
                 </div>
-
-                {/* Header Actions (Buttons, Icons, etc.) */}
-                <div className="hidden lg:flex items-center space-x-[var(--spacing-md)]">
+                <div className="header-actions">
                     <HeaderActions />
                 </div>
             </Box>
-
-            {/* Mobile Navigation Menu (Dropdown) */}
             {mobileMenuOpen && (
-                <Box className="lg:hidden absolute top-[var(--header-height)] left-0 w-full bg-[var(--header-bg-color)] shadow-lg p-[var(--spacing-md)]">
+                <Box className="header-mobile-menu">
                     <HorizontalNavigation
                         navItems={headerNavItems}
                         bgColor="var(--header-bg-color)"

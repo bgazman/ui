@@ -1,7 +1,6 @@
-// Stats.tsx
 import React from 'react';
-import Card from '@components/card/card.tsx';
-import Grid from '@components/grid/grid.tsx';
+import Card from '@components/card/card';
+import Grid from '@components/grid/grid';
 
 export interface Stat {
     number: string;
@@ -10,13 +9,13 @@ export interface Stat {
 
 interface StatsProps {
     stats: Stat[];
-    cardStyle: React.CSSProperties;
+    cardClassName?: string;
 }
 
-const Stats: React.FC<StatsProps> = ({ stats, cardStyle }) => (
+const Stats: React.FC<StatsProps> = ({ stats, cardClassName }) => (
     <Grid columns={4} gap="2rem" className="mb-16">
         {stats.map((stat, index) => (
-            <Card key={index} title={stat.label} className="text-center p-6" style={cardStyle}>
+            <Card key={index} title={stat.label} className={`text-center p-6 ${cardClassName || ''}`}>
                 <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
                 <div className="text-gray-600">{stat.label}</div>
             </Card>

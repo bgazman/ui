@@ -1,8 +1,6 @@
-// FooterNavigation.tsx
 import React from 'react';
-import Box from '@components/box.tsx';
-
-import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
+import Box from '@components/box';
+import HorizontalNavigation from "@components/navigation/horizontal-navigation";
 
 type MenuItemType = {
     label: string;

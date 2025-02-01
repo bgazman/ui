@@ -1,8 +1,7 @@
-// AnimatedSection.tsx
 import React, { useRef, useEffect } from 'react';
 import Section from '@components/section/section';
 
-interface AnimateSectionProps {
+export interface AnimateSectionProps {
     id: string;
     title?: string;
     description?: string;
@@ -45,10 +44,12 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
         };
     }, [id]);
 
-    const variantClass = variant === 'left' ? 'text-left' : 'text-center';
+    const variantClass = variant === 'left'
+        ? 'animated-section--left'
+        : 'animated-section--center';
 
     return (
-        <div ref={sectionRef} id={id} className={`section ${variantClass} transform transition-all duration-700 opacity-0 translate-y-4 ${className}`}>
+        <div ref={sectionRef} id={id} className={`animated-section ${variantClass} ${className}`}>
             <Section id={id} title={title} description={description}>
                 {children}
             </Section>

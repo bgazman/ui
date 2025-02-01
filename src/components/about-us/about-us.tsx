@@ -1,12 +1,12 @@
 import React from 'react';
-import Section from '@components/section/section.tsx';
+import Section from '@components/section/section';
 import Stats, { Stat } from './stats';
 import Mission from './mission';
 import Vision from './vision';
 import Team, { TeamMember } from './team';
-import Grid from '@components/grid/grid.tsx';
+import Grid from '@components/grid/grid';
 
-interface AboutUsProps {
+export interface AboutUsProps {
     id?: string;
     title: string;
     description: string;
@@ -29,25 +29,22 @@ const AboutUs: React.FC<AboutUsProps> = ({
                                              className = '',
                                              style,
                                          }) => {
-    // Instead of inline border, consider a utility class for theming:
-    // e.g., "border border-[var(--border-color)]"
-    const cardStyle = { border: '1px solid var(--border-color)' };
+    const cardClassName = 'card-border'; // Defined in your global CSS as: border: 1px solid var(--border-color)
 
     return (
         <Section
             id={id}
             title={title}
             description={description}
-            // Added `max-w-[1200px] mx-auto` for centered layout
             className={`py-12 px-4 max-w-[1200px] mx-auto ${className}`}
             style={style}
         >
-            <Stats stats={stats} cardStyle={cardStyle} />
+            <Stats stats={stats} cardClassName={cardClassName} />
             <Grid columns={2} gap="2rem" className="mb-16">
-                {mission && <Mission mission={mission} cardStyle={cardStyle} />}
-                {vision && <Vision vision={vision} cardStyle={cardStyle} />}
+                {mission && <Mission mission={mission} cardClassName={cardClassName} />}
+                {vision && <Vision vision={vision} cardClassName={cardClassName} />}
             </Grid>
-            <Team team={team} cardStyle={cardStyle} />
+            <Team team={team} cardClassName={cardClassName} />
         </Section>
     );
 };

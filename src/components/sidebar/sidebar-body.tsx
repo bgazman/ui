@@ -10,7 +10,6 @@ export interface SidebarBodyProps {
 
 const SidebarBody: React.FC<SidebarBodyProps> = ({ sidebarData, className }) => {
     useEffect(() => {
-        console.log('SidebarBody sidebarData:', sidebarData);
     }, [sidebarData]);
 
     return (

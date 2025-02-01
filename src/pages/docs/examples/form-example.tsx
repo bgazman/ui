@@ -1,9 +1,8 @@
 import React from 'react';
-import Form from '@components/input/form';
+import Form from '@components/form/form';
 
 const FormExample: React.FC = () => {
     const handleSubmit = (data: Record<string, string>) => {
-        console.log('Form submitted with data:', data);
     };
 
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import BaseLayout from '@layout/base-layout';
+import BaseLayout from '@layout/base-layout/base-layout';
 import { mockHeaderData } from '@pages/docs/data/header-data';
 import { mockFooterData } from '@pages/docs/data/footer-data';
 import { mockSidebarData } from '@pages/docs/data/sidebar-data';
@@ -15,10 +15,11 @@ import TextAreaExample from '@pages/docs/examples/text-area-example';
 import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
 import InputFieldExample from '@pages/docs/examples/input-field-example';
-import TabMenuExample from '@pages/docs/examples/tab-menu-example.tsx';
-import { NavItem } from '@components/navigation/navigation.tsx';
-import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example.tsx';
-import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example.tsx';
+import TabMenuExample from '@pages/docs/examples/tab-menu-example';
+import { NavItem } from '@components/navigation/navigation';
+import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example';
+import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example';
+
 const DocsPage: React.FC = () => {
     const layoutConfig = {
         header: {
@@ -40,37 +41,43 @@ const DocsPage: React.FC = () => {
         },
     };
 
-useEffect(() => {
-    console.log('Sidebar items:', mockSidebarData);
-    console.log('Footer data:', mockFooterData); // Add this line to log mockFooterData
-}, []);
+    useEffect(() => {
+    }, []);
 
     const gridTemplate = {
         areas: '"header header" "sidebar main" "footer footer"',
         rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
-        columns: `${layoutConfig.sidebar?.width || 'var(--sidebar-width)'} 1fr`
+        columns: `${layoutConfig.sidebar?.width || 'var(--sidebar-width)'} 1fr`,
     };
 
-    const ensureChildrenArray = (items: NavItem[]): { label: string; children: NavItem[]; }[] => {
-        return items.map(item => ({
+    // Ensure that each nav item has a children array (even if empty)
+    const ensureChildrenArray = (items: NavItem[]): { label: string; children: NavItem[] }[] => {
+        return items.map((item) => ({
             ...item,
-            children: item.children || []
+            children: item.children || [],
         }));
     };
 
     return (
         <BaseLayout
             headerData={mockHeaderData}
-            footerData={mockFooterData} // Ensure this line passes mockFooterData
+            footerData={mockFooterData}
             layoutType="docs"
             gridTemplate={gridTemplate}
             sidebarMenuItems={ensureChildrenArray(mockSidebarData)}
             sidebarClassName="border-[var(--border-color)]"
-            layoutConfig={layoutConfig} // Pass layoutConfig here
+            layoutConfig={layoutConfig}
         >
-            <Box className="space-y-16 sm:space-y-20 flex-grow">
+            {/* Remove centering and force left alignment */}
+            <Box className="space-y-16 sm:space-y-20 flex-grow text-left">
                 {docsSectionList.map((section) => (
-                    <AnimatedSection key={section.id} id={section.id} title={section.title} description={section.description} variant="left">
+                    <AnimatedSection
+                        key={section.id}
+                        id={section.id}
+                        title={section.title}
+                        description={section.description}
+                        variant="left"
+                    >
                         {section.id === 'card-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
                                 <CardExample />
@@ -111,7 +118,7 @@ useEffect(() => {
                                 <FormExample />
                             </ComponentPreview>
                         )}
-                        {section.id === 'input-field-component' && (
+                        {section.id === 'form-field-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
                                 <InputFieldExample />
                             </ComponentPreview>

@@ -1,0 +1,35 @@
+/* header.css */
+
+/* Container for the header */
+.header-container {
+    @apply w-full shadow-sm z-50 sticky top-0 bg-[var(--header-bg-color)] text-[var(--header-text-color)];
+    height: var(--header-height);
+}
+
+/* Inner header wrapper for horizontal spacing and alignment */
+.header-inner {
+    @apply w-full h-full px-[var(--spacing-md)] sm:px-[var(--spacing-lg)] lg:px-[var(--spacing-xl)] flex justify-between items-center;
+}
+
+/* Mobile menu button (visible on small screens) */
+.header-mobile-menu-button {
+    @apply lg:hidden p-[var(--spacing-sm)] rounded focus:outline-none focus:ring-2;
+    /* The focus ring color is defined by your CSS var in your global theme */
+    /* You can add: focus:ring-[var(--button-focus-ring-color)] if you wish */
+}
+
+/* Desktop navigation container */
+.header-desktop-nav {
+    @apply hidden lg:flex;
+}
+
+/* Actions container for buttons/icons on desktop */
+.header-actions {
+    @apply hidden lg:flex items-center space-x-[var(--spacing-md)];
+}
+
+/* Mobile menu container – dropdown below the header */
+.header-mobile-menu {
+    @apply lg:hidden absolute left-0 w-full bg-[var(--header-bg-color)] shadow-lg p-[var(--spacing-md)];
+    top: var(--header-height);
+}

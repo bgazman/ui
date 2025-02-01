@@ -1,4 +1,3 @@
-// ComponentPreviewExample.tsx
 import React from 'react';
 
 interface PreviewContentProps {
@@ -10,7 +9,9 @@ interface PreviewContentProps {
 
 const ComponentPreviewExample: React.FC<PreviewContentProps> = ({ children, className = '', style, activeTab }) => (
     <div className={`p-4 ${className}`} style={style}>
-        <div className={activeTab === 'preview' ? 'preview-content-styles' : 'code-content-styles'}>{children}</div>
+        <div className={activeTab === 'preview' ? 'preview-content-styles' : 'code-content-styles'}>
+            {children}
+        </div>
     </div>
 );
 

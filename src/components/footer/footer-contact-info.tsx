@@ -1,6 +1,5 @@
-// FooterContactInfo.tsx
 import React from 'react';
-import Box from '@components/box.tsx';
+import Box from '@components/box';
 
 interface ContactInfoProps {
     email?: string;
@@ -13,7 +12,7 @@ const FooterContactInfo: React.FC<ContactInfoProps> = ({ email, phone }) => {
             {email && (
                 <p>
                     Email:{' '}
-                    <a href={`mailto:${email}`} className="text-blue-600 hover:underline">
+                    <a href={`mailto:${email}`} className="text-[var(--button-hover-bg-color)] hover:underline">
                         {email}
                     </a>
                 </p>
@@ -21,7 +20,7 @@ const FooterContactInfo: React.FC<ContactInfoProps> = ({ email, phone }) => {
             {phone && (
                 <p>
                     Phone:{' '}
-                    <a href={`tel:${phone}`} className="text-blue-600 hover:underline">
+                    <a href={`tel:${phone}`} className="text-[var(--button-hover-bg-color)] hover:underline">
                         {phone}
                     </a>
                 </p>

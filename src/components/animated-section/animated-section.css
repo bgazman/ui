@@ -1,0 +1,17 @@
+/* Animated Section Base */
+.animated-section {
+    @apply transition-all duration-700 opacity-0 translate-y-4;
+}
+
+.animated-section.visible {
+    @apply opacity-100 translate-y-0;
+}
+
+/* Variant adjustments */
+.animated-section--center {
+    @apply text-center;
+}
+
+.animated-section--left {
+    @apply text-left;
+}

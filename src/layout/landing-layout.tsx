@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout, { BaseLayoutProps } from '@layout/base-layout.tsx';
+import BaseLayout, { BaseLayoutProps } from '@layout/base-layout/base-layout.tsx';
 
 type LandingLayoutProps = Omit<BaseLayoutProps, 'layoutType' | 'gridTemplate'>;
 

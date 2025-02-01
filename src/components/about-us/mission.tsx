@@ -1,14 +1,13 @@
-// Mission.tsx
 import React from 'react';
-import Card from '@components/card/card.tsx';
+import Card from '@components/card/card';
 
 interface MissionProps {
     mission: string;
-    cardStyle: React.CSSProperties;
+    cardClassName?: string;
 }
 
-const Mission: React.FC<MissionProps> = ({ mission, cardStyle }) => (
-    <Card title="Mission" description={mission} style={cardStyle} />
+const Mission: React.FC<MissionProps> = ({ mission, cardClassName }) => (
+    <Card title="Mission" description={mission} className={cardClassName} />
 );
 
 export default Mission;

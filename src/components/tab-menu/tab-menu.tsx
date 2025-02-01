@@ -24,8 +24,8 @@ const TabMenu: React.FC<TabMenuProps> = ({
                                          }) => {
     const getButtonClass = (isActive: boolean) =>
         isActive
-            ? 'border-active-tab text-active-tab py-4'
-            : 'border-transparent text-inactive-tab hover:text-hover-tab hover:border-hover-tab py-1';
+            ? 'py-4 border-b-2 border-[var(--button-hover-bg-color)] text-[var(--button-hover-text-color)]'
+            : 'py-1 border-b-2 border-transparent text-[var(--text-secondary)] hover:text-[var(--button-hover-text-color)] hover:border-[var(--button-hover-bg-color)]';
 
     return (
         <Box className={`flex border-b border-transparent p-4 ${className}`} style={style}>
@@ -33,11 +33,7 @@ const TabMenu: React.FC<TabMenuProps> = ({
                 <Button
                     key={item.value}
                     onClick={() => setActiveTab(item.value)}
-                    className={`
-            px-4 text-sm font-medium border-b-2
-            transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2
-            ${getButtonClass(activeTab === item.value)}
-          `}
+                    className={`px-4 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${getButtonClass(activeTab === item.value)}`}
                 >
                     {item.label}
                 </Button>

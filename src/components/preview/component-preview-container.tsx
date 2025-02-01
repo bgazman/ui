@@ -1,4 +1,3 @@
-// ComponentPreviewContainer.tsx
 import React from 'react';
 
 interface PreviewContainerProps {

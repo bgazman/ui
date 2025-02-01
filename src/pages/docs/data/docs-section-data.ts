@@ -81,7 +81,7 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: FormExample,
     },
     {
-        id: 'input-field-component',
+        id: 'form-field-component',
         title: 'Input Field Component',
         description: 'This section provides an example of how to use the Input Field component.',
         sourceCode: InputFieldExample,

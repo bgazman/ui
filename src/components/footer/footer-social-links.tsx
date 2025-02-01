@@ -1,4 +1,3 @@
-// FooterSocialLinks.tsx
 import React from 'react';
 import Box from '@components/box';
 import { Facebook as FacebookIcon, Linkedin as LinkedinIcon, X as TwitterIcon } from 'lucide-react';
@@ -17,19 +16,19 @@ const FooterSocialLinks: React.FC<SocialLinksProps> = ({ twitter, linkedin, face
                     href={twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="X (formerly Twitter)"
+                    aria-label="Twitter"
                 >
-                    <TwitterIcon size={20} className="hover:text-blue-500 transition-colors" />
+                    <TwitterIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}
             {linkedin && (
                 <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <LinkedinIcon size={20} className="hover:text-blue-700 transition-colors" />
+                    <LinkedinIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}
             {facebook && (
                 <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <FacebookIcon size={20} className="hover:text-blue-600 transition-colors" />
+                    <FacebookIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}
         </Box>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import LinkComponent from "@components/link/link";
-import {NavItem, VerticalNavigationVariant} from "@components/navigation/navigation";
+import { NavItem, VerticalNavigationVariant } from "@components/navigation/navigation";
 
 interface VerticalNavigationProps {
     navItems: NavItem[];
@@ -42,9 +42,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
     };
 
     const childrenContainerStyle =
-        variant !== "compact"
-            ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` }
-            : {};
+        variant !== "compact" ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` } : {};
 
     return (
         <div
@@ -63,14 +61,12 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
                 ) : (
                     <span className="text-[var(--sidebar-text-color)]">{item.label}</span>
                 )}
-
                 {hasChildren && variant !== "compact" && (
                     <span className="transition-transform">
             {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
           </span>
                 )}
             </div>
-
             {hasChildren && (variant === "expanded" || isOpen) && (
                 <div
                     className={

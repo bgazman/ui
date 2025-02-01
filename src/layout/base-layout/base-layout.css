@@ -1,0 +1,19 @@
+/* layout/base-layout.css */
+.base-layout {
+    display: grid;
+    grid-template-areas: var(--grid-template-areas, "header main footer");
+    grid-template-rows: var(--grid-template-rows, auto);
+    grid-template-columns: var(--grid-template-columns, 1fr);
+}
+.base-layout__header {
+    grid-area: header;
+}
+.base-layout__sidebar {
+    grid-area: sidebar;
+}
+.base-layout__main {
+    grid-area: main;
+}
+.base-layout__footer {
+    grid-area: footer;
+}

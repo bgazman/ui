@@ -1,10 +1,9 @@
-// Section.tsx
 import React from 'react';
-import SectionContainer from './section-container.tsx';
-import SectionHeader from './section-header.tsx';
-import SectionContent from './section-content.tsx';
+import SectionContainer from './section-container';
+import SectionHeader from './section-header';
+import SectionContent from './section-content';
 
-interface SectionProps {
+export interface SectionProps {
     id?: string;
     title?: string;
     description?: string;
@@ -13,7 +12,14 @@ interface SectionProps {
     style?: React.CSSProperties;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, description, children, className = '', style }) => (
+const Section: React.FC<SectionProps> = ({
+                                             id,
+                                             title,
+                                             description,
+                                             children,
+                                             className = '',
+                                             style,
+                                         }) => (
     <SectionContainer id={id} className={className} style={style}>
         <SectionHeader title={title} description={description} />
         <SectionContent>{children}</SectionContent>

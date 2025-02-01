@@ -19,7 +19,6 @@ const Sidebar: React.FC<SidebarProps> = ({
                                              position = 'sticky',
                                              header,
                                              footer,
-                                             renderItem,
                                          }) => {
     return (
         <SidebarContainer
@@ -29,7 +28,6 @@ const Sidebar: React.FC<SidebarProps> = ({
             position={position}
             header={header}
             footer={footer}
-            renderItem={renderItem}
         />
     );
 };

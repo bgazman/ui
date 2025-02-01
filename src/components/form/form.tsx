@@ -5,7 +5,7 @@ import Button from '@components/button/button';
 
 export type FormVariant = 'default' | 'centered' | 'compact';
 
-interface FormProps {
+export interface FormProps {
     onSubmit: (data: Record<string, string>) => void;
     className?: string;
     style?: React.CSSProperties;
@@ -24,7 +24,9 @@ const Form: React.FC<FormProps> = ({
         message: '',
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
@@ -42,25 +44,9 @@ const Form: React.FC<FormProps> = ({
         });
     };
 
-    const baseClasses = `
-    space-y-[var(--spacing-lg)]
-    max-w-lg mx-auto
-    border border-[var(--border-color)]
-    p-[var(--spacing-lg)]
-    rounded-[var(--border-radius-lg)]
-  `;
-
-    const variantClasses: Record<FormVariant, string> = {
-        default: '',
-        centered: 'justify-center',
-        compact: 'space-y-[var(--spacing-md)] max-w-md',
-    };
-
-    const selectedVariantClasses = variantClasses[variant] || variantClasses.default;
-
     return (
         <form
-            className={`${baseClasses} ${className}`}
+            className={`form ${variant !== 'default' ? `form--${variant}` : ''} ${className}`}
             style={style}
             onSubmit={handleSubmit}
         >
@@ -72,7 +58,6 @@ const Form: React.FC<FormProps> = ({
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-[var(--input-bg-color)] rounded-[var(--border-radius-md)]"
             />
             <InputField
                 id="email"
@@ -82,7 +67,6 @@ const Form: React.FC<FormProps> = ({
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-[var(--input-bg-color)] rounded-[var(--border-radius-md)]"
             />
             <TextAreaField
                 id="message"
@@ -91,9 +75,8 @@ const Form: React.FC<FormProps> = ({
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="bg-[var(--input-bg-color)] rounded-[var(--border-radius-md)]"
             />
-            <div className={`flex space-x-[var(--spacing-lg)] ${selectedVariantClasses}`}>
+            <div className="form__actions">
                 <Button type="submit">Submit</Button>
                 <Button type="button" onClick={handleClear} variant="secondary">
                     Clear

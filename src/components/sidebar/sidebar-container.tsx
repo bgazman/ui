@@ -23,7 +23,6 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                                                                footer,
                                                            }) => {
     useEffect(() => {
-        console.log('SidebarContainer sidebarData:', sidebarData);
     }, [sidebarData]);
 
     const getPositionClass = () =>

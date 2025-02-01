@@ -1,0 +1,51 @@
+/* Form base styling */
+.form {
+    @apply space-y-[var(--spacing-lg)] max-w-lg mx-auto border p-[var(--spacing-lg)] rounded-[var(--border-radius-lg)];
+    border-color: var(--border-color);
+}
+
+.form--centered {
+    @apply justify-center;
+}
+
+.form--compact {
+    @apply space-y-[var(--spacing-md)] max-w-md;
+}
+
+.form__actions {
+    @apply flex space-x-[var(--spacing-lg)];
+}
+
+/* InputField Styles */
+.input-field-wrapper {
+    @apply flex flex-col;
+}
+
+.input-field__label {
+    @apply mb-2 font-semibold text-gray-700;
+}
+
+.input-field {
+    @apply p-2 border rounded focus:outline-none focus:ring;
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+
+
+/* TextArea Styles */
+.textarea-wrapper {
+    @apply flex flex-col;
+}
+
+.textarea__label {
+    @apply mb-2 font-semibold text-gray-700;
+}
+
+.textarea {
+    @apply p-2 border rounded focus:outline-none focus:ring;
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+

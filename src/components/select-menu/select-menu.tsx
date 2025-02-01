@@ -6,11 +6,7 @@ interface SelectMenuProps {
     style?: React.CSSProperties;
 }
 
-const SelectMenu: React.FC<SelectMenuProps> = ({
-                                                   options,
-                                                   className = '',
-                                                   style,
-                                               }) => {
+const SelectMenu: React.FC<SelectMenuProps> = ({ options, className = '', style }) => {
     const [selectedOption, setSelectedOption] = useState<string>('');
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -41,9 +37,7 @@ const SelectMenu: React.FC<SelectMenuProps> = ({
                     </option>
                 ))}
             </select>
-            <p className="text-[var(--text-secondary)]">
-                Selected option: {selectedOption}
-            </p>
+            <p className="text-[var(--text-secondary)]">Selected option: {selectedOption}</p>
         </div>
     );
 };

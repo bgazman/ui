@@ -53,29 +53,45 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                                                        rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
                                                        columns: '1fr'
                                                    },
-                                                   sidebarMenuItems = [], // Ensure sidebarMenuItems is always defined
+                                                   sidebarMenuItems = [],
                                                    sidebarClassName
                                                }) => {
-    console.log('Footer data in BaseLayout:', footerData); // Add this line to log footerData
-
     const { layout, setLayout } = useLayout();
 
     React.useEffect(() => {
         setLayout(layoutType);
     }, [setLayout, layoutType]);
 
+    const headerPositionClass =
+        layoutConfig.header.position === 'sticky' ? 'header--sticky' : 'header--relative';
+    const footerPositionClass =
+        layoutConfig.footer.position === 'sticky' ? 'footer--sticky' : 'footer--relative';
+    const sidebarPositionClass =
+        layoutConfig.sidebar?.position === 'sticky' ? 'sidebar--sticky' : 'sidebar--relative';
+
     const enhancedFooterData: FooterProps = {
         ...footerData,
-        className: `[grid-area:footer] ${footerData.className || ''}`.trim(),
-        style: {
-            position: layoutConfig.footer.position,
-            ...(footerData.style || {})
-        }
+        className: `base-layout__footer ${footerPositionClass} ${footerData.className || ''}`.trim()
     };
+
+    // Calculate the number of columns by splitting the gridTemplate.columns string.
+    const numColumns = gridTemplate.columns.split(' ').length;
+
+    // Set CSS variables for grid layout on the grid element
+    const gridRef = React.useRef<HTMLDivElement>(null);
+    React.useEffect(() => {
+        if (gridRef.current) {
+            gridRef.current.style.setProperty('--grid-template-areas', gridTemplate.areas);
+            gridRef.current.style.setProperty('--grid-template-rows', gridTemplate.rows);
+            gridRef.current.style.setProperty('--grid-template-columns', gridTemplate.columns);
+        }
+    }, [gridTemplate]);
 
     return (
         <Grid
-            className="w-full min-h-screen theme-container"
+            ref={gridRef}
+            columns={numColumns}
+            className={`base-layout theme-container w-full min-h-screen`}
             style={{
                 gridTemplateAreas: gridTemplate.areas,
                 gridTemplateRows: gridTemplate.rows,
@@ -84,23 +100,22 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
             data-layout={layout}
         >
             <Header
-                className="[grid-area:header]"
-                style={{ position: layoutConfig.header.position }}
+                className={`base-layout__header ${headerPositionClass}`}
                 {...headerData}
             />
 
             {layoutConfig.sidebar && (
                 <Sidebar
-                    className={`[grid-area:sidebar] ${sidebarClassName || ''}`}
-                    style={{ position: layoutConfig.sidebar.position }}
+                    className={`base-layout__sidebar ${sidebarPositionClass} ${sidebarClassName || ''}`}
                     sidebarData={sidebarMenuItems}
                 />
             )}
 
-            <Main className="[grid-area:main] w-full">
+            <Main className="base-layout__main w-full">
                 <div
-                    className={`w-full ${layoutConfig.main.padding || 'px-0'}`}
-                    style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0' }}
+                    className={`main-container ${layoutConfig.main.padding || 'px-0'} ${
+                        layoutConfig.main.maxWidth ? `max-w-[${layoutConfig.main.maxWidth}]` : ''
+                    }`}
                 >
                     {children}
                 </div>
