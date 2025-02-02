@@ -8,7 +8,6 @@ export interface TextAreaProps {
     onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     required?: boolean;
     className?: string;
-    theme?: string;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
@@ -19,9 +18,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                                                onChange,
                                                required = false,
                                                className = '',
-                                               theme = 'light',
                                            }) => {
-    const themeClass = theme === 'dark' ? 'textarea--dark' : 'textarea--light';
     return (
         <div className="textarea-wrapper">
             <label htmlFor={id} className="textarea__label">
@@ -34,7 +31,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                 value={value}
                 onChange={onChange}
                 required={required}
-                className={`textarea ${themeClass} ${className}`}
+                className={`textarea ${className}`}
             />
         </div>
     );

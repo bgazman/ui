@@ -31,6 +31,7 @@ const Footer: React.FC<FooterProps> = ({
         >
             <Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
                 <HorizontalNavigation
+                    className="footer-navigation"
                     navItems={footerNavItems.map((item) => ({
                         label: item.label,
                         href: item.href,

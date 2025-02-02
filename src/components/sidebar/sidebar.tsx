@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                              className,
                                              style,
                                              sidebarData,
-                                             position = 'sticky',
+                                             position ,
                                              header,
                                              footer,
                                          }) => {

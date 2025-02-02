@@ -39,7 +39,6 @@ export interface BaseLayoutProps {
         rows: string;
         columns: string;
     };
-    sidebarClassName?: string;
 }
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({
@@ -54,7 +53,6 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
                                                        columns: '1fr'
                                                    },
                                                    sidebarMenuItems = [],
-                                                   sidebarClassName
                                                }) => {
     const { layout, setLayout } = useLayout();
 
@@ -106,7 +104,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
 
             {layoutConfig.sidebar && (
                 <Sidebar
-                    className={`base-layout__sidebar ${sidebarPositionClass} ${sidebarClassName || ''}`}
+                    className={`h-full base-layout__sidebar ${sidebarPositionClass} || ''}`}
                     sidebarData={sidebarMenuItems}
                 />
             )}

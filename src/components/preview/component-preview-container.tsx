@@ -18,7 +18,7 @@ const ComponentPreviewContainer: React.FC<PreviewContainerProps> = ({
                                                                         style,
                                                                         activeTab,
                                                                     }) => (
-    <div className={`space-y-4 ${className}`} style={style}>
+    <div className={`component-preview space-y-4 ${className}`} style={style}>
         <div className="flex items-center justify-between mb-2">
             {(title || description) && (
                 <div>

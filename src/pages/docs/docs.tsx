@@ -44,11 +44,11 @@ const DocsPage: React.FC = () => {
     useEffect(() => {
     }, []);
 
-    const gridTemplate = {
-        areas: '"header header" "sidebar main" "footer footer"',
-        rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
-        columns: `${layoutConfig.sidebar?.width || 'var(--sidebar-width)'} 1fr`,
-    };
+const gridTemplate = {
+    areas: '"header header" "sidebar main" "footer footer"',
+    rows: `${layoutConfig.header.height} 1fr ${layoutConfig.footer.height}`,
+    columns: `${layoutConfig.sidebar?.width || '16rem'} 1fr`,
+};
 
     // Ensure that each nav item has a children array (even if empty)
     const ensureChildrenArray = (items: NavItem[]): { label: string; children: NavItem[] }[] => {
@@ -65,11 +65,9 @@ const DocsPage: React.FC = () => {
             layoutType="docs"
             gridTemplate={gridTemplate}
             sidebarMenuItems={ensureChildrenArray(mockSidebarData)}
-            sidebarClassName="border-[var(--border-color)]"
-            layoutConfig={layoutConfig}
-        >
+            layoutConfig={layoutConfig}>
             {/* Remove centering and force left alignment */}
-            <Box className="space-y-16 sm:space-y-20 flex-grow text-left">
+            <Box className="space-y-16 sm:space-y-20">
                 {docsSectionList.map((section) => (
                     <AnimatedSection
                         key={section.id}
@@ -77,6 +75,7 @@ const DocsPage: React.FC = () => {
                         title={section.title}
                         description={section.description}
                         variant="left"
+                        className="animated-section-border" // Apply the CSS class
                     >
                         {section.id === 'card-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">

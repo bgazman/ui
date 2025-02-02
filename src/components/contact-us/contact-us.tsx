@@ -1,8 +1,8 @@
-// ContactUs.tsx
 import React from 'react';
-import Section from '@components/section/section.tsx';
-import Form from '@components/form/form.tsx';
-import Box from '@components/box.tsx';
+import Section from '@components/section/section';
+import Form from '@components/form/form';
+import Box from '@components/box';
+import AnimatedSection from "@components/animated-section/animated-section.tsx";
 
 interface ContactUsProps {
     id?: string;
@@ -26,22 +26,22 @@ const ContactUs: React.FC<ContactUsProps> = ({
                                                  style,
                                              }) => {
     const handleFormSubmit = (data: Record<string, string>) => {
+        // Handle form submission logic here
     };
 
     return (
-        <Section
+        <AnimatedSection
             id={id}
             title={title}
             description={description}
             className={className}
-            style={style}
         >
             <Box className="flex flex-col items-center space-y-[var(--spacing-lg)]">
                 <Box className="space-y-[var(--spacing-sm)] text-[var(--text-secondary)]">
                     {email && (
                         <Box as="p">
                             <span className="font-semibold">Email:</span>{' '}
-                            <a href={`mailto:${email}`} className="text-blue-600 hover:underline">
+                            <a href={`mailto:${email}`} className="text-[var(--text-tertiary)] hover:underline">
                                 {email}
                             </a>
                         </Box>
@@ -49,7 +49,7 @@ const ContactUs: React.FC<ContactUsProps> = ({
                     {phone && (
                         <Box as="p">
                             <span className="font-semibold">Phone:</span>{' '}
-                            <a href={`tel:${phone}`} className="text-blue-600 hover:underline">
+                            <a href={`tel:${phone}`} className="text-[var(--text-tertiary)] hover:underline">
                                 {phone}
                             </a>
                         </Box>
@@ -60,9 +60,10 @@ const ContactUs: React.FC<ContactUsProps> = ({
                         </Box>
                     )}
                 </Box>
-                <Form className="w-full" onSubmit={handleFormSubmit} variant="centered" />
+                {/* Note: We no longer pass "w-full" so that the centered variant can control the width */}
+                <Form onSubmit={handleFormSubmit} variant="centered" />
             </Box>
-        </Section>
+        </AnimatedSection>
     );
 };
 

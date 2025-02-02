@@ -18,19 +18,22 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
                                                                className,
                                                                style,
                                                                sidebarData,
-                                                               position = 'sticky',
+                                                               position ,
                                                                header,
                                                                footer,
                                                            }) => {
     useEffect(() => {
     }, [sidebarData]);
 
-    const getPositionClass = () =>
-        ({
-            fixed: 'fixed top-0 left-0',
-            sticky: 'sticky top-0',
-            relative: 'relative',
-        }[position]);
+const getPositionClass = () => {
+    const positionClassMap = {
+        fixed: 'fixed top-0 left-0',
+        sticky: 'sticky top-0',
+        relative: 'relative',
+    };
+
+    return positionClassMap[position || 'relative'];
+};
 
     return (
         <Box
@@ -42,13 +45,14 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
             className={`
         ${getPositionClass()}
         w-64 
-        h-screen
+        h-full
         border-r 
         border-sidebar-border
         bg-sidebar
         overflow-y-auto
         p-0
         scrollbar-custom
+        
         ${className || ''}
       `}
         >

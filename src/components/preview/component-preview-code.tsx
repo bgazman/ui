@@ -12,7 +12,7 @@ interface CodeContentProps {
 }
 
 const ComponentPreviewCode: React.FC<CodeContentProps> = ({ sourceCode, onCopy, isCopied }) => (
-    <Card className="relative max-w-md mx-auto p-4">
+    <Card className="relative max-w-md mx-auto p-4" title="Component Preview">
         <Box className="flex justify-between items-center p-2 border-b component-preview-code-header">
             <Button
                 onClick={onCopy}
@@ -38,7 +38,6 @@ const ComponentPreviewCode: React.FC<CodeContentProps> = ({ sourceCode, onCopy, 
             value={sourceCode}
             onChange={() => {}}
             className="w-full h-64 p-4 text-sm font-mono border-none resize-none"
-            theme="dark"
         />
     </Card>
 );

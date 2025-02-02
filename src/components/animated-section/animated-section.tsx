@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Section from '@components/section/section';
 
 export interface AnimateSectionProps {
-    id: string;
+    id?: string;
     title?: string;
     description?: string;
     children: React.ReactNode;

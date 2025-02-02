@@ -5,6 +5,14 @@
 @import '@components/animated-section/animated-section.css';
 @import "@components/button/button.css";
 @import "@components/header/header.css";
+@import "@components/preview/component-preview.css";
+@import "@components/tab-menu/tab-menu.css";
+@import "@components/footer/footer.css";
+:root {
+    --grid-template-areas: "header header" "sidebar main" "footer footer";
+    --grid-template-rows: auto 1fr auto;
+    --grid-template-columns: 16rem 1fr;
+}
 
 :root {
     --button-bg-color: #007bff;
@@ -20,7 +28,7 @@
 
     --text-primary: #212529;
     --text-secondary: #495057;
-    --text-tertiary: #6c757d;
+    --text-tertiary: #007bff;
     --border-color: #ced4da;
     --sidebar-border-color: #ced4da;
 

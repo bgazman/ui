@@ -7,7 +7,6 @@ import FeaturesSection from './features-section';
 import AboutUs from '@components/about-us/about-us';
 import ContactUs from '@components/contact-us/contact-us';
 import Box from '@components/box';
-import AnimatedSection from '@components/animated-section/animated-section';
 
 const HomePage: React.FC = () => {
     const layoutConfig = {
@@ -38,21 +37,16 @@ const HomePage: React.FC = () => {
             }}
         >
             <Box className="space-y-16 sm:space-y-20" style={{ maxWidth: layoutConfig.main.maxWidth, margin: '0 auto' }}>
-                <AnimatedSection id="features" title="Features" description="Have a look at our features">
                     <FeaturesSection />
-                </AnimatedSection>
-                <AnimatedSection id="about-us">
                     <AboutUs {...aboutUsData} />
-                </AnimatedSection>
-                <AnimatedSection id="contact">
                     <ContactUs
+                        id="contact"
                         title="Contact Us"
                         description="We’d love to hear from you. Reach out to us through the following channels."
                         email="support@example.com"
                         phone="+1-800-555-1234"
                         address="456 Elm Street, Example City, Country"
                     />
-                </AnimatedSection>
             </Box>
         </BaseLayout>
     );

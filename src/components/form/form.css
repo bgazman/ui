@@ -1,19 +1,23 @@
-/* Form base styling */
 .form {
-    @apply space-y-[var(--spacing-lg)] max-w-lg mx-auto border p-[var(--spacing-lg)] rounded-[var(--border-radius-lg)];
+    @apply space-y-[var(--spacing-xl)] mx-auto border p-[var(--spacing-xl)] rounded-[var(--border-radius-xl)];
     border-color: var(--border-color);
+    width: 70%;
 }
+
 
 .form--centered {
     @apply justify-center;
+    @apply space-y-[var(--spacing-lg)] max-w-screen-lg
+
+
 }
 
 .form--compact {
-    @apply space-y-[var(--spacing-md)] max-w-md;
+    @apply space-y-[var(--spacing-lg)] max-w-md;
 }
 
 .form__actions {
-    @apply flex space-x-[var(--spacing-lg)];
+    @apply  space-x-[var(--spacing-xl)];
 }
 
 /* InputField Styles */
@@ -22,7 +26,7 @@
 }
 
 .input-field__label {
-    @apply mb-2 font-semibold text-gray-700;
+    @apply mb-2 font-semibold ;
 }
 
 .input-field {
@@ -39,7 +43,7 @@
 }
 
 .textarea__label {
-    @apply mb-2 font-semibold text-gray-700;
+    @apply mb-2 font-semibold;
 }
 
 .textarea {

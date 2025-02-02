@@ -3,36 +3,37 @@ import { NavItem } from '@components/navigation/navigation.tsx';
 export const mockSidebarData: NavItem[] = [
     { label: "Dashboard", href: "/" },
     {
-        label: "Products",
+        label: "Components",
         children: [
+            { label: "Button", href: "/components/button/button.tsx" },
+            { label: "Card", href: "/components/card/card.tsx" },
+            { label: "Footer", href: "/components/footer/footer.tsx" },
+            { label: "Form", href: "/components/form/form.tsx" },
             {
-                label: "Electronics",
+                label: "Grid",
                 children: [
-                    {
-                        label: "Computers",
-                        children: [
-                            { label: "Laptops", href: "#laptops" },
-                            { label: "Desktops", href: "#desktops" },
-                            {
-                                label: "Components",
-                                children: [
-                                    { label: "CPUs", href: "#cpus" },
-                                    { label: "GPUs", href: "#gpus" },
-                                    { label: "Memory", href: "#memory" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        label: "Mobile Devices",
-                        children: [
-                            { label: "Smartphones", href: "#smartphones" },
-                            { label: "Tablets", href: "#tablets" },
-                            { label: "Accessories", href: "#accessories" }
-                        ]
-                    }
+                    { label: "Dynamic Grid", href: "/components/grid/dynamic-grid" },
+                    { label: "Flexible Grid", href: "/components/grid/flexible-grid" },
+                    { label: "Grid", href: "/components/grid/grid" }
                 ]
-            }
+            },
+            { label: "Header", href: "/components/header/header" },
+            { label: "Link", href: "/components/link/link" },
+            { label: "Main", href: "/components/main/main" },
+            {
+                label: "Navigation",
+                children: [
+                    { label: "Horizontal Navigation", href: "/components/navigation/horizontal-navigation.tsx" },
+                    { label: "Vertical Navigation", href: "/components/navigation/vertical-navigation.tsx" }
+                ]
+            },
+            { label: "Section", href: "/components/section/section.tsx" },
+            { label: "Animated Section", href: "/components/animated-section/animated-section" },
+            { label: "Select Menu", href: "/components/select-menu/select-menu" },
+            { label: "Sidebar", href: "/components/sidebar" },
+            { label: "Tab Menu", href: "/components/tab-menu/tab-menu.tsx" },
+            { label: "Theme Switcher", href: "/components/theme-switcher" },
+            { label: "Tree", href: "/components/tree/tree" }
         ]
     },
     {

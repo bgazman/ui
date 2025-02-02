@@ -1,10 +1,10 @@
 import React from 'react';
-import Section from '@components/section/section';
 import Stats, { Stat } from './stats';
 import Mission from './mission';
 import Vision from './vision';
 import Team, { TeamMember } from './team';
 import Grid from '@components/grid/grid';
+import AnimatedSection from "@components/animated-section/animated-section.tsx";
 
 export interface AboutUsProps {
     id?: string;
@@ -27,25 +27,22 @@ const AboutUs: React.FC<AboutUsProps> = ({
                                              team,
                                              stats,
                                              className = '',
-                                             style,
                                          }) => {
-    const cardClassName = 'card-border'; // Defined in your global CSS as: border: 1px solid var(--border-color)
 
     return (
-        <Section
+        <AnimatedSection
             id={id}
             title={title}
             description={description}
             className={`py-12 px-4 max-w-[1200px] mx-auto ${className}`}
-            style={style}
         >
-            <Stats stats={stats} cardClassName={cardClassName} />
+            <Stats stats={stats}  />
             <Grid columns={2} gap="2rem" className="mb-16">
-                {mission && <Mission mission={mission} cardClassName={cardClassName} />}
-                {vision && <Vision vision={vision} cardClassName={cardClassName} />}
+                {mission && <Mission mission={mission}  />}
+                {vision && <Vision vision={vision}  />}
             </Grid>
-            <Team team={team} cardClassName={cardClassName} />
-        </Section>
+            <Team team={team} />
+        </AnimatedSection>
     );
 };
 

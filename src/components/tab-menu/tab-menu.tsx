@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@components/box';
 import Button from '@components/button/button';
-
 export type TabItem = {
     label: React.ReactNode;
     value: string;
@@ -19,16 +18,14 @@ const TabMenu: React.FC<TabMenuProps> = ({
                                              items,
                                              activeTab,
                                              setActiveTab,
-                                             className = '',
-                                             style,
                                          }) => {
     const getButtonClass = (isActive: boolean) =>
         isActive
             ? 'py-4 border-b-2 border-[var(--button-hover-bg-color)] text-[var(--button-hover-text-color)]'
-            : 'py-1 border-b-2 border-transparent text-[var(--text-secondary)] hover:text-[var(--button-hover-text-color)] hover:border-[var(--button-hover-bg-color)]';
+            : 'py-1 border-b-3 border-transparent  hover:text-[var(--button-hover-text-color)] hover:border-[var(--button-hover-bg-color)]';
 
     return (
-        <Box className={`flex border-b border-transparent p-4 ${className}`} style={style}>
+        <Box className={`flex p-4`}>
             {items.map((item) => (
                 <Button
                     key={item.value}

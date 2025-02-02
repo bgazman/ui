@@ -1,0 +1,5 @@
+.footer{
+    @apply m-[var(--spacing-md)];
+
+
+}
