@@ -1,5 +1,38 @@
-.footer{
-    @apply m-[var(--spacing-md)];
+/* footer.css */
 
+/* Base footer container styling */
+.footer {
+    @apply w-full py-6 px-6 sm:px-8;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+}
 
+/* Inner container for layout */
+.footer__inner {
+    @apply w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0;
+}
+
+/* Navigation within footer */
+.footer-navigation {
+    @apply flex justify-center md:justify-start w-full md:w-auto;
+}
+
+/* Footer Copyright text styling */
+.footer__copyright {
+    @apply text-sm text-center md:text-right;
+}
+
+/* Social links container */
+.footer__social-links {
+    @apply flex space-x-4;
+}
+
+/* Contact info container */
+.footer__contact-info {
+    @apply flex space-x-4 items-center text-sm text-center md:text-right;
+}
+
+/* Footer link styling (e.g. in contact info) */
+.footer__link {
+    @apply text-[var(--button-hover-bg-color)] hover:underline;
 }

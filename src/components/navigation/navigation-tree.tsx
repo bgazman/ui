@@ -10,7 +10,7 @@ interface NavigationTreeProps {
 
 const NavigationTreeComponent: React.FC<NavigationTreeProps> = ({ data, level = 0 }) => {
     return (
-        <div className="flex flex-col">
+        <div className="nav-tree">
             {data.map((item, index) => (
                 <NavigationTreeNode key={index} item={item} level={level} />
             ))}
@@ -29,7 +29,7 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
         <div>
             {hasChildren ? (
                 <div
-                    className="flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all hover:bg-[var(--bg-alt1)] rounded-[var(--border-radius-md)]"
+                    className="nav-tree__node"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <span>{item.label}</span>
@@ -38,7 +38,7 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
             ) : (
                 <LinkComponent
                     href={item.href || "#"}
-                    className="block px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all hover:bg-[var(--button-hover-bg-color)] text-[var(--button-hover-text-color)] rounded-[var(--border-radius-md)]"
+                    className="nav-tree__link"
                 >
                     {item.label}
                 </LinkComponent>

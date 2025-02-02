@@ -29,7 +29,7 @@ export const mockSidebarData: NavItem[] = [
             },
             { label: "Section", href: "/components/section/section.tsx" },
             { label: "Animated Section", href: "/components/animated-section/animated-section" },
-            { label: "Select Menu", href: "/components/select-menu/select-menu" },
+            { label: "Select Menu", href: "/components/select/select" },
             { label: "Sidebar", href: "/components/sidebar" },
             { label: "Tab Menu", href: "/components/tab-menu/tab-menu.tsx" },
             { label: "Theme Switcher", href: "/components/theme-switcher" },

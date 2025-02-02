@@ -9,7 +9,6 @@ export interface InputFieldProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     required?: boolean;
     className?: string;
-    theme?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -20,10 +19,9 @@ const InputField: React.FC<InputFieldProps> = ({
                                                    value,
                                                    onChange,
                                                    required = false,
-                                                   className = '',
-                                                   theme = 'light',
+                                                   className = "",
                                                }) => {
-    const themeClass = theme === 'dark' ? 'form-field--dark' : 'form-field--light';
+
     return (
         <div className="input-field-wrapper">
             <label htmlFor={id} className="input-field__label">
@@ -37,7 +35,7 @@ const InputField: React.FC<InputFieldProps> = ({
                 value={value}
                 onChange={onChange}
                 required={required}
-                className={`input-field ${themeClass} ${className}`}
+                className={`input-field ${className}`}
             />
         </div>
     );

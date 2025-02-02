@@ -1,55 +1,22 @@
+/* Base form styling */
 .form {
-    @apply space-y-[var(--spacing-xl)] mx-auto border p-[var(--spacing-xl)] rounded-[var(--border-radius-xl)];
-    border-color: var(--border-color);
-    width: 70%;
+    @apply flex flex-col gap-[var(--spacing-md)] w-full max-w-lg p-[var(--spacing-md)] bg-[var(--bg-secondary)] rounded-[var(--border-radius-md)] shadow-md;
 }
 
-
+/* Form Variants */
 .form--centered {
-    @apply justify-center;
-    @apply space-y-[var(--spacing-lg)] max-w-screen-lg
-
-
+    @apply mx-auto text-center;
 }
 
 .form--compact {
-    @apply space-y-[var(--spacing-lg)] max-w-md;
+    @apply max-w-sm p-[var(--spacing-sm)];
 }
 
+/* Form Actions */
 .form__actions {
-    @apply  space-x-[var(--spacing-xl)];
-}
-
-/* InputField Styles */
-.input-field-wrapper {
-    @apply flex flex-col;
-}
-
-.input-field__label {
-    @apply mb-2 font-semibold ;
-}
-
-.input-field {
-    @apply p-2 border rounded focus:outline-none focus:ring;
-    background-color: var(--bg-secondary);
-    border-color: var(--border-color);
+    @apply flex justify-between mt-[var(--spacing-md)];
 }
 
 
-
-/* TextArea Styles */
-.textarea-wrapper {
-    @apply flex flex-col;
-}
-
-.textarea__label {
-    @apply mb-2 font-semibold;
-}
-
-.textarea {
-    @apply p-2 border rounded focus:outline-none focus:ring;
-    background-color: var(--bg-secondary);
-    border-color: var(--border-color);
-}
 
 

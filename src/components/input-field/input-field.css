@@ -1,0 +1,12 @@
+
+/* Input Field Base */
+.input-field {
+    @apply w-full p-[var(--spacing-md)] border-[var(--border-color)] rounded-[var(--border-radius-md)] shadow-sm transition-colors;
+}
+
+/* Light Theme */
+.textarea,
+.input-field {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)];
+}
+

@@ -10,24 +10,25 @@ export interface SocialLinksProps {
 
 const FooterSocialLinks: React.FC<SocialLinksProps> = ({ twitter, linkedin, facebook }) => {
     return (
-        <Box className="flex space-x-4">
+        <Box className="footer__social-links">
             {twitter && (
                 <a
                     href={twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Twitter"
+                    className="footer__link"
                 >
                     <TwitterIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}
             {linkedin && (
-                <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="footer__link">
                     <LinkedinIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}
             {facebook && (
-                <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="footer__link">
                     <FacebookIcon size={20} className="hover:text-[var(--button-hover-bg-color)] transition-colors" />
                 </a>
             )}

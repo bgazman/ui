@@ -1,25 +1,50 @@
-/* Base button style */
+/* Base Button Style */
 .btn {
+    /* Use the global spacing and border radius tokens from :root */
     @apply px-[var(--spacing-md)] py-[var(--spacing-sm)] rounded-[var(--border-radius-md)] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
 }
 
-/* Variant styles */
+/* Primary Variant – uses mapped Tailwind keys */
 .btn--primary {
-    @apply bg-[var(--button-bg-color)] text-[var(--button-text-color)] hover:bg-[var(--button-hover-bg-color)] focus:ring-[var(--button-hover-bg-color)];
+    @apply bg-button text-button hover:bg-button-hover focus:ring-button-hover;
 }
 
+/* Secondary Variant – if you have secondary tokens defined in :root */
 .btn--secondary {
     @apply bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)] hover:bg-[var(--button-secondary-hover-bg-color)] focus:ring-[var(--button-secondary-hover-bg-color)];
 }
 
+/* Disabled Variant */
 .btn--disabled {
     @apply bg-[var(--button-disabled-bg-color)] text-[var(--button-disabled-text-color)];
 }
 
+/* Large Variant – adjust spacing for larger buttons */
 .btn--large {
-    @apply bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-[var(--spacing-lg)] py-[var(--spacing-md)] hover:bg-[var(--button-hover-bg-color)] focus:ring-[var(--button-hover-bg-color)];
+    @apply bg-button text-button px-[var(--spacing-lg)] py-[var(--spacing-md)] hover:bg-button-hover focus:ring-button-hover;
 }
 
+/* Small Variant – adjust spacing for smaller buttons */
 .btn--small {
-    @apply bg-[var(--button-bg-color)] text-[var(--button-text-color)] px-[var(--spacing-sm)] py-[var(--spacing-xs)] hover:bg-[var(--button-hover-bg-color)] focus:ring-[var(--button-hover-bg-color)];
+    @apply bg-button text-button px-[var(--spacing-sm)] py-[var(--spacing-xs)] hover:bg-button-hover focus:ring-button-hover;
+}
+
+/* Tab Style – uses a different background and layout for tab-like buttons */
+.btn--tab {
+    @apply bg-[var(--bg-secondary)] px-[var(--spacing-md)] text-sm font-medium border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+/* Active Tab Modifier */
+.btn--tab-active {
+    @apply text-[var(--button-hover-text-color)] border-[var(--button-hover-bg-color)] py-[var(--spacing-xs)];
+}
+
+/* Inactive Tab Modifier */
+.btn--tab-inactive {
+    @apply text-[var(--text-secondary)] border-transparent py-[var(--spacing-md)];
+}
+
+/* Active Button Modifier */
+.btn--active {
+    @apply bg-[var(--button-active-bg-color)] text-[var(--button-active-text-color)];
 }

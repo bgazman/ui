@@ -17,8 +17,9 @@ const TextArea: React.FC<TextAreaProps> = ({
                                                value,
                                                onChange,
                                                required = false,
-                                               className = '',
+                                               className = "",
                                            }) => {
+
     return (
         <div className="textarea-wrapper">
             <label htmlFor={id} className="textarea__label">

@@ -1,0 +1,104 @@
+/* horizontal-navigation.css */
+
+/* Container for the horizontal navigation */
+.horizontal-nav {
+    @apply flex flex-wrap gap-[var(--spacing-md)] p-[var(--spacing-md)] rounded-[var(--border-radius-md)] shadow-md;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+}
+
+
+
+/* Top-level navigation link styling */
+.horizontal-nav__link {
+    @apply flex items-center gap-[var(--spacing-xs)] px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-colors;
+}
+
+.horizontal-nav__link:hover {
+    color: var(--button-hover-text-color);
+}
+
+/* Dropdown menu container */
+.horizontal-nav__dropdown {
+    @apply absolute left-0 top-full mt-[var(--spacing-xs)] w-48 shadow-lg rounded-[var(--border-radius-md)] border;
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+    animation: fadeIn var(--animation-duration-normal) var(--animation-ease) forwards;
+}
+
+/* Navigation tree container */
+.nav-tree {
+    @apply flex flex-col;
+}
+
+/* A navigation tree node (when it’s clickable and has children) */
+.nav-tree__node {
+    @apply flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)];
+}
+
+.nav-tree__node:hover {
+    background-color: var(--bg-alt1);
+}
+
+/* A navigation tree link (leaf node) */
+.nav-tree__link {
+    @apply block px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)];
+}
+
+.nav-tree__link:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+}
+
+/* vertical-navigation.css */
+
+/* Container for the vertical navigation */
+.vertical-nav {
+    @apply shadow-lg p-[var(--spacing-md)] rounded-[var(--border-radius-md)];
+    width: var(--sidebar-width);
+    background-color: var(--bg-primary);
+}
+
+/* Each navigation node container */
+.vertical-nav__node {
+    @apply flex flex-col relative;
+}
+
+/* Clickable node content */
+.vertical-nav__node-content {
+    @apply flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)];
+}
+
+.vertical-nav__node-content:hover {
+    background-color: var(--sidebar-hover-bg-color);
+}
+
+/* Node link styling */
+.vertical-nav__node-link {
+    @apply text-[var(--sidebar-text-color)];
+}
+
+/* Node label styling (for non-links) */
+.vertical-nav__node-label {
+    @apply text-[var(--sidebar-text-color)];
+}
+
+/* Toggle icon */
+.vertical-nav__toggle-icon {
+    @apply transition-transform;
+}
+
+/* Dropdown container for child nodes */
+.vertical-nav__dropdown {
+    @apply bg-[var(--bg-primary)];
+}
+
+/* For compact variant, display dropdown absolutely */
+.vertical-nav__dropdown--compact {
+    @apply absolute left-full top-0 shadow-md rounded-[var(--border-radius-md)] w-48 z-50;
+    display: none;
+}
+
+.vertical-nav__node.group:hover .vertical-nav__dropdown--compact {
+    display: block;
+}

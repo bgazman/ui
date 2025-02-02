@@ -1,29 +1,33 @@
-import React from 'react';
-import SectionContainer from './section-container';
-import SectionHeader from './section-header';
-import SectionContent from './section-content';
+import React from "react";
+import Box from "@components/box";
+import "@components/section/section.css";
 
 export interface SectionProps {
-    id?: string;
     title?: string;
-    description?: string;
-    children?: React.ReactNode;
+    subtitle?: string;
+    children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
 }
 
 const Section: React.FC<SectionProps> = ({
-                                             id,
                                              title,
-                                             description,
+                                             subtitle,
                                              children,
-                                             className = '',
+                                             className = "",
                                              style,
-                                         }) => (
-    <SectionContainer id={id} className={className} style={style}>
-        <SectionHeader title={title} description={description} />
-        <SectionContent>{children}</SectionContent>
-    </SectionContainer>
-);
+                                         }) => {
+    return (
+        <Box as="section" className={`section ${className}`} style={style}>
+            {(title || subtitle) && (
+                <div className="section__header">
+                    {title && <h2 className="section__title">{title}</h2>}
+                    {subtitle && <p className="section__subtitle">{subtitle}</p>}
+                </div>
+            )}
+            <div className="section__content">{children}</div>
+        </Box>
+    );
+};
 
 export default Section;

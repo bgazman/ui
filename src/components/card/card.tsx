@@ -1,8 +1,6 @@
 import React from 'react';
-import CardHeader from '@components/card/card-header';
-import CardBody from '@components/card/card-body';
-import CardFooter from '@components/card/card-footer';
-import CardContainer from '@components/card/card-container';
+import Button from '@components/button/button';
+import '@components/card/card.css';
 
 export interface CardProps {
     title: string;
@@ -22,12 +20,30 @@ const Card: React.FC<CardProps> = ({
                                        actionText,
                                        className = '',
                                        style,
-                                   }) => (
-    <CardContainer className={`card ${className}`} style={style}>
-        <CardHeader title={title} />
-        <CardBody description={description}>{children}</CardBody>
-        <CardFooter actionLink={actionLink} actionText={actionText} />
-    </CardContainer>
-);
+                                   }) => {
+    return (
+        <div className={`card ${className}`} style={style}>
+            {/* Header */}
+            <div className="card__header">
+                {title}
+            </div>
+
+            {/* Body */}
+            <div className="card__body">
+                {description && <p className="card__body-description">{description}</p>}
+                {children}
+            </div>
+
+            {/* Footer */}
+            {actionLink && actionText && (
+                <div className="card__footer">
+                    <Button onClick={() => (window.location.href = actionLink)}>
+                        {actionText}
+                    </Button>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default Card;

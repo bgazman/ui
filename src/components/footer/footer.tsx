@@ -5,6 +5,7 @@ import FooterSocialLinks from '@components/footer/footer-social-links';
 import FooterCopyright from '@components/footer/footer-copyright';
 import HorizontalNavigation from '@components/navigation/horizontal-navigation';
 import { NavItem } from '@components/navigation/navigation';
+import '@components/footer/footer.css'; // ensure the footer CSS is imported
 
 export interface FooterProps {
     footerNavItems: NavItem[];
@@ -24,12 +25,8 @@ const Footer: React.FC<FooterProps> = ({
                                            style,
                                        }) => {
     return (
-        <Box
-            as="footer"
-            className={`w-full py-6 px-6 sm:px-8 bg-[var(--footer-bg-color)] text-[var(--footer-text-color)] ${className}`}
-            style={style}
-        >
-            <Box className="w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-x-6 md:space-y-0">
+        <Box as="footer" className={`footer ${className}`} style={style}>
+            <Box className="footer__inner">
                 <HorizontalNavigation
                     className="footer-navigation"
                     navItems={footerNavItems.map((item) => ({

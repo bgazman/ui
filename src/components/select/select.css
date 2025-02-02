@@ -1,0 +1,10 @@
+/* select.css */
+.select {
+    @apply block w-full p-[var(--spacing-sm)] text-sm rounded-[var(--border-radius-md)] bg-[var(--bg-primary)] text-[var(--text-primary)];
+    border: 1px solid var(--border-color);
+}
+
+/* Outlined variant */
+.select--outlined {
+    @apply border-2;
+}

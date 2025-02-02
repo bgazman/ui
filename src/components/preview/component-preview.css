@@ -1,4 +1,45 @@
+/* component-preview.css */
+
+/* Base container for the component preview */
 .component-preview {
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
+    @apply space-y-[var(--spacing-md)];
+}
+
+/* Header section (title and description) */
+.component-preview__header {
+    @apply flex flex-col mb-[var(--spacing-sm)];
+}
+.component-preview__title {
+    @apply text-sm font-medium;
+}
+.component-preview__description {
+    @apply text-sm;
+}
+
+/* Content container for tab content */
+.component-preview__content {
+    @apply flex flex-col md:flex-row gap-[var(--spacing-md)];
+}
+
+/* Code preview styling */
+.component-preview__code {
+    @apply relative overflow-hidden rounded-lg p-[var(--spacing-lg)] border ;
+}
+.component-preview__code-header {
+    @apply flex justify-between items-center p-2 border-b;
+    border-color: var(--border-color);
+}
+.component-preview__copy-button {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium border rounded-md shadow-sm hover:bg-[var(--button-hover-bg-color)] focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+.component-preview__icon {
+    @apply mr-2 h-4 w-4;
+}
+.component-preview__textarea {
+    @apply w-full h-64 p-4 text-sm font-mono border-none resize-none;
+}
+
+/* Example (preview) styling */
+.component-preview__example {
+    @apply overflow-hidden rounded-lg border  flex-1;
 }

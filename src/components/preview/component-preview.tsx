@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import ComponentPreviewContainer from './component-preview-container';
-import ComponentPreviewExample from './component-preview-example';
-import ComponentPreviewCode from './component-preview-code';
-import Box from '@components/box';
-import TabMenu from '@components/tab-menu/tab-menu';
+import React, { useState } from "react";
+import Box from "@components/box";
+import TabMenu from "@components/tab-menu/tab-menu";
+import Card from "@components/card/card";
+import Button from "@components/button/button";
+import TextArea from "@components/text-area/text-area";
+import { Check, Copy } from "lucide-react";
+import "@components/preview/component-preview.css";
 
-interface ComponentPreviewProps {
+export interface ComponentPreviewProps {
     title?: string;
     description?: string;
     sourceCode: string;
@@ -19,10 +21,10 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
                                                                description,
                                                                sourceCode,
                                                                children,
-                                                               className = '',
+                                                               className = "",
                                                                style,
                                                            }) => {
-    const [activeTab, setActiveTab] = useState('preview');
+    const [activeTab, setActiveTab] = useState("preview");
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopyCode = async () => {
@@ -32,39 +34,51 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     };
 
     const tabItems = [
-        { label: 'Preview', value: 'preview' },
-        { label: 'Code', value: 'code' },
+        { label: "Preview", value: "preview" },
+        { label: "Code", value: "code" },
     ];
 
     return (
-        <ComponentPreviewContainer
-            title={title}
-            description={description}
-            className={`flex flex-col ${className}`}
-            style={style}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-        >
+        <div className={`component-preview ${className}`} style={style}>
+            {(title || description) && (
+                <div className="component-preview__header">
+                    {title && <h3 className="component-preview__title">{title}</h3>}
+                    {description && <p className="component-preview__description">{description}</p>}
+                </div>
+            )}
             <TabMenu items={tabItems} activeTab={activeTab} setActiveTab={setActiveTab} />
-            <div className="flex flex-row">
-                {activeTab === 'code' && (
-                    <Box
-                        className={`overflow-hidden rounded-lg p-[var(--spacing-lg)] justify-start component-preview-border ${className}`}
-                        style={{ ...style, flex: '1 1 50%' }}
-                    >
-                        <ComponentPreviewCode sourceCode={sourceCode} onCopy={handleCopyCode} isCopied={isCopied} />
-                    </Box>
-                )}
-                {activeTab === 'preview' && (
-                    <Box
-                        className={`overflow-hidden rounded-lg component-preview-border ${className}`}
-                        style={{ ...style, flex: '1 1 50%' }}
-                    >
-                        <ComponentPreviewExample activeTab={activeTab}>{children}</ComponentPreviewExample>
-                    </Box>
+            <div className="component-preview__content">
+                {activeTab === "code" ? (
+                    <Card className="component-preview__code" title="Source Code">
+                        <div className="component-preview__code-header">
+                            <Button onClick={handleCopyCode} className="component-preview__copy-button">
+                                {isCopied ? (
+                                    <>
+                                        <Check className="component-preview__icon" />
+                                        Copied
+                                    </>
+                                ) : (
+                                    <>
+                                        <Copy className="component-preview__icon" />
+                                        Copy
+                                    </>
+                                )}
+                            </Button>
+                        </div>
+                        <TextArea
+                            id="sourceCode"
+                            name="sourceCode"
+                            placeholder="Source Code"
+                            value={sourceCode}
+                            onChange={() => {}}
+                            className="component-preview__textarea"
+                        />
+                    </Card>
+                ) : (
+                    <Box className="component-preview__example">{children}</Box>
                 )}
             </div>
-        </ComponentPreviewContainer>
+        </div>
     );
 };
 

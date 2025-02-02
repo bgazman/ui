@@ -1,0 +1,36 @@
+/* tooltip.css */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip__content {
+    @apply absolute z-50 p-[var(--spacing-xs)] text-xs rounded-[var(--border-radius-sm)] opacity-0 transition-opacity;
+    background-color: var(--bg-alt2);
+    color: var(--text-primary);
+    white-space: nowrap;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: var(--spacing-xs);
+    pointer-events: none;
+}
+
+.tooltip:hover .tooltip__content {
+    opacity: 1;
+}
+
+/* Variants */
+.tooltip__content--default {
+    background-color: var(--bg-alt2);
+}
+
+.tooltip__content--info {
+    background-color: blue;
+    color: white;
+}
+
+.tooltip__content--error {
+    background-color: red;
+    color: white;
+}

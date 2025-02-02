@@ -1,20 +1,30 @@
-/* Overall card wrapper styles */
+/* card.css */
+
+/* Card Container */
 .card {
-    @apply max-w-md mx-auto rounded-[var(--border-radius-md)];
-}
-.card-container {
-    @apply w-full h-auto p-6 rounded-lg shadow-md border-2 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02];
-}
-.card-header {
-    @apply text-2xl font-semibold;
-}
-.card-body {
-    @apply mt-2 text-[var(--text-color)];
+    @apply rounded-lg shadow-md overflow-hidden;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
 }
 
-.card-body__description {
-    @apply mb-2;
+/* Card Header */
+.card__header {
+    @apply p-[var(--spacing-md)] text-lg font-bold border-b;
+    border-color: var(--border-color);
 }
-.card-footer {
-    @apply mt-4 flex justify-center;
+
+/* Card Body */
+.card__body {
+    @apply p-[var(--spacing-md)];
+}
+
+/* Optional description inside the card body */
+.card__body-description {
+    @apply text-sm mb-[var(--spacing-md)];
+}
+
+/* Card Footer */
+.card__footer {
+    @apply p-[var(--spacing-md)] border-t text-right;
+    border-color: var(--border-color);
 }

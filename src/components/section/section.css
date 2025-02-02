@@ -1,35 +1,26 @@
-/* Section Container */
-.section-container {
-    @apply w-full px-4 sm:px-8 lg:px-16;
-    width: 100%;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    border-color: var(--border-color);
-    transition: all var(--transition-duration) var(--transition-timing-function);
+/* section.css */
+
+/* Base container for the section */
+.section {
+    @apply p-[var(--spacing-lg)] bg-[var(--bg-alt1)] rounded-[var(--border-radius-md)];
 }
 
-/* Section Header */
-.section-header {
-    @apply mb-[var(--spacing-lg)];
+/* Header container for title/subtitle */
+.section__header {
+    @apply mb-[var(--spacing-md)];
 }
 
-.section-header__title {
-    @apply text-3xl sm:text-4xl font-bold;
-    color: var(--text-primary);
+/* Section title styling */
+.section__title {
+    @apply text-2xl font-bold text-[var(--text-primary)] mb-[var(--spacing-xs)];
 }
 
-.section-header__description {
-    @apply text-lg sm:text-xl;
-    color: var(--text-secondary);
+/* Section subtitle styling */
+.section__subtitle {
+    @apply text-sm text-[var(--text-secondary)];
 }
 
-/* Section Content */
-.section-content {
-    @apply w-full h-full bg-cover bg-center bg-no-repeat;
-}
-
-.section-content-inner {
-    @apply mx-auto w-full mb-[var(--spacing-lg)];
+/* Content container */
+.section__content {
+    @apply space-y-[var(--spacing-md)];
 }

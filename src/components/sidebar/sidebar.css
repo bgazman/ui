@@ -1,0 +1,40 @@
+/* Base Sidebar container */
+.sidebar {
+    @apply w-64 h-full border-r overflow-y-auto p-0;
+    border-color: var(--sidebar-border-color);
+    background-color: var(--sidebar-bg-color);
+}
+
+/* Position variants */
+.sidebar--fixed {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar--sticky {
+    position: sticky;
+    top: 0;
+}
+
+.sidebar--relative {
+    position: relative;
+}
+
+/* Header styling */
+.sidebar__header {
+    @apply p-[var(--spacing-md)] border-b;
+    border-color: var(--sidebar-border-color);
+}
+
+/* Body styling */
+.sidebar__body {
+    @apply p-[var(--spacing-md)];
+}
+
+/* Footer styling */
+.sidebar__footer {
+    @apply p-[var(--spacing-md)] border-t;
+    border-color: var(--sidebar-border-color);
+}

@@ -1,0 +1,16 @@
+/* Common Styles */
+.textarea-wrapper,
+.input-field-wrapper {
+    @apply flex flex-col gap-[var(--spacing-xs)];
+}
+
+/* Labels */
+.textarea__label,
+.input-field__label {
+    @apply text-[var(--text-primary)] font-medium;
+}
+
+/* Textarea Base */
+.textarea {
+    @apply w-full p-[var(--spacing-md)] border-[var(--border-color)] rounded-[var(--border-radius-md)] shadow-sm transition-colors;
+}

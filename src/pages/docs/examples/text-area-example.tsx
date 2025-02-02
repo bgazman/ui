@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextArea from '@components/form/text-area';
+import TextArea from '@components/text-area/text-area.tsx';
 
 const TextAreaExample: React.FC = () => {
     const [value, setValue] = useState('');

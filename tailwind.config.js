@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 export default {
-  darkMode: "class", // Uses "class" based dark mode
+  darkMode: "class", // using class-based dark mode
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,135 +8,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Define colors using CSS variables for theming support
-        header: "var(--header-bg-color)",
-        textHeader: "var(--header-text-color)",
-        borderHeader: "var(--header-border-color)",
-        bgPrimary: "var(--bg-primary)",
-        bgSecondary: "var(--bg-secondary)",
+        // These keys let you use semantic names like "bg-button" in your markup.
         button: {
           DEFAULT: "var(--button-bg-color)",
           text: "var(--button-text-color)",
           hover: "var(--button-hover-bg-color)",
         },
-        footer: {
-          DEFAULT: "var(--footer-bg-color)",
-          text: "var(--footer-text-color)",
-        },
-        sidebar: {
-          DEFAULT: "var(--sidebar-bg-color)",
-          text: "var(--sidebar-text-color)",
-          border: "var(--sidebar-border-color)",
-        },
-      },
-      // Enhanced transition properties
-      transitionProperty: {
-        'height': 'height',
-        'spacing': 'margin, padding',
-        'width': 'width',
-        'all': 'all',
-        'colors': 'background-color, border-color, color, fill, stroke',
-        'opacity': 'opacity',
-        'shadow': 'box-shadow',
-        'transform': 'transform',
-      },
-      transitionDuration: {
-        DEFAULT: 'var(--transition-duration)',
-        '0': '0ms',
-        '75': '75ms',
-        '100': '100ms',
-        '150': '150ms',
-        '200': '200ms',
-        '300': '300ms',
-        '500': '500ms',
-        '700': '700ms',
-        '1000': '1000ms',
-      },
-      transitionTimingFunction: {
-        DEFAULT: 'var(--transition-timing-function)',
-        'linear': 'linear',
-        'in': 'cubic-bezier(0.4, 0, 1, 1)',
-        'out': 'cubic-bezier(0, 0, 0.2, 1)',
-        'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
-      },
-      transitionDelay: {
-        '75': '75ms',
-        '100': '100ms',
-        '150': '150ms',
-        '200': '200ms',
-        '300': '300ms',
-        '500': '500ms',
-        '700': '700ms',
-        '1000': '1000ms',
-      },
-      // Enhanced keyframes and animations
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideIn: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' }
-        },
-        slideOut: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(100%)' }
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' }
-        },
-      },
-      animation: {
-        fadeIn: "fadeIn var(--animation-duration-normal) var(--animation-ease) forwards",
-        slideUp: "slideUp var(--animation-duration-normal) var(--animation-ease) forwards",
-        bounce: "bounce 0.3s var(--animation-bounce)",
-        slideIn: 'slideIn 0.3s ease-in-out',
-        slideOut: 'slideOut 0.3s ease-in-out',
-        scaleIn: 'scaleIn 0.3s ease-in-out',
-      },
-      // Your existing configurations
-      borderRadius: {
-        sm: 'var(--border-radius-sm)',
-        md: 'var(--border-radius-md)',
-        lg: 'var(--border-radius-lg)',
-        xl: 'var(--border-radius-xl)',
+        // For components like tabs, you can still refer to your CSS variables directly…
+        bgSecondary: "var(--bg-secondary)",
+        textSecondary: "var(--text-secondary)",
       },
       spacing: {
-        xs: 'var(--spacing-xs)',
-        sm: 'var(--spacing-sm)',
-        md: 'var(--spacing-md)',
-        lg: 'var(--spacing-lg)',
-        xl: 'var(--spacing-xl)',
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
+        xl: "var(--spacing-xl)",
       },
-      fontFamily: {
-        sans: ['var(--font-family-sans)', 'sans-serif'],
-        serif: ['var(--font-family-serif)', 'serif'],
-        mono: ['var(--font-family-mono)', 'monospace'],
-        poppins: ['Poppins', 'sans-serif'],
-        lora: ['Lora', 'serif'],
-        jetbrains: ['JetBrains Mono', 'monospace'],
-        nunito: ['Nunito', 'sans-serif'],
-        garamond: ['EB Garamond', 'serif'],
-        ubuntu: ['Ubuntu', 'sans-serif']
+      borderRadius: {
+        sm: "var(--border-radius-sm)",
+        md: "var(--border-radius-md)",
+        lg: "var(--border-radius-lg)",
+        xl: "var(--border-radius-xl)",
       },
-      fontWeight: {
-        normal: "var(--font-weight-normal)",
-        bold: "var(--font-weight-bold)",
+      transitionDuration: {
+        DEFAULT: "var(--transition-duration)",
       },
-      fontSize: {
-        xs: "var(--font-size-xs)",
-        sm: "var(--font-size-sm)",
-        base: "var(--font-size-base)",
-        lg: "var(--font-size-lg)",
-        xl: "var(--font-size-xl)",
-        "2xl": "var(--font-size-2xl)",
+      transitionTimingFunction: {
+        DEFAULT: "var(--transition-timing-function)",
       },
+      // Optionally add your animations and other tokens here.
     },
   },
   plugins: [],

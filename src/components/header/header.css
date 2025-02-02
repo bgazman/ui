@@ -1,35 +1,63 @@
-/* header.css */
-
-/* Container for the header */
-.header-container {
-    @apply w-full shadow-sm z-50 sticky top-0 bg-[var(--header-bg-color)] text-[var(--header-text-color)];
-    height: var(--header-height);
+/* Positioning variants */
+.header-container.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
-/* Inner header wrapper for horizontal spacing and alignment */
+.header-container.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.header-container.relative {
+    position: relative;
+}
+
+/* Inner container: horizontal alignment, spacing, and themed background */
 .header-inner {
-    @apply w-full h-full px-[var(--spacing-md)] sm:px-[var(--spacing-lg)] lg:px-[var(--spacing-xl)] flex justify-between items-center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
 }
 
-/* Mobile menu button (visible on small screens) */
+/* Mobile menu button: visible on mobile only */
 .header-mobile-menu-button {
-    @apply lg:hidden p-[var(--spacing-sm)] rounded focus:outline-none focus:ring-2;
-    /* The focus ring color is defined by your CSS var in your global theme */
-    /* You can add: focus:ring-[var(--button-focus-ring-color)] if you wish */
+    display: block;
+    @media (min-width: 768px) {
+        display: none;
+    }
+    outline: none;
 }
 
-/* Desktop navigation container */
+/* Desktop navigation container: hidden on mobile */
 .header-desktop-nav {
-    @apply hidden lg:flex;
+    display: none;
+    @media (min-width: 768px) {
+        display: block;
+    }
 }
 
-/* Actions container for buttons/icons on desktop */
+/* Header actions container: hidden on mobile */
 .header-actions {
-    @apply hidden lg:flex items-center space-x-[var(--spacing-md)];
+    display: none;
+    @media (min-width: 768px) {
+        display: block;
+    }
 }
 
-/* Mobile menu container – dropdown below the header */
+/* Mobile menu container: visible on mobile only */
 .header-mobile-menu {
-    @apply lg:hidden absolute left-0 w-full bg-[var(--header-bg-color)] shadow-lg p-[var(--spacing-md)];
-    top: var(--header-height);
+    display: block;
+    padding: var(--spacing-md);
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    @media (min-width: 768px) {
+        display: none;
+    }
 }
