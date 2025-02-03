@@ -1,0 +1,66 @@
+/***************************************************************
+ * LANDING LAYOUT
+ * Uses CSS variables for header/footer heights, e.g.:
+ *   --landing-header-height (default: 60px)
+ *   --landing-footer-height (default: 50px)
+ **************************************************************/
+
+:root {
+    --landing-header-height: 60px;
+    --landing-footer-height: 50px;
+}
+
+/* The layout container fills the screen. */
+.landing-layout {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* main content can scroll, see .landing-layout__main */
+    display: flex;
+    flex-direction: column;
+}
+
+/* FIXED HEADER */
+.landing-layout__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--landing-header-height);
+    z-index: 50; /* Ensure it's above the main content & below if needed for modals */
+}
+
+/* MAIN area is "sandwiched" between fixed header & footer. */
+.landing-layout__main {
+    /* We'll make it scrollable. */
+    flex: 1;
+    /* Add top margin so content isn't hidden behind the fixed header */
+    padding: var(--landing-header-height);
+    /* Add bottom margin so content isn't hidden behind the fixed footer */
+    margin-bottom: var(--landing-footer-height);
+    overflow-y: auto;
+
+}
+
+/* Initially hide the footer */
+.landing-layout__footer {
+    @apply w-full py-6 px-6 sm:px-8;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--landing-footer-height);
+    color: var(--footer-text-color);
+    background-color: var(--footer-bg-color);
+
+    z-index: 40;
+    transform: translateY(100%); /* Move it off-screen */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* When user scrolls to bottom, show footer */
+.landing-layout__footer.show {
+    transform: translateY(0);
+}
+

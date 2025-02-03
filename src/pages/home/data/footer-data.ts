@@ -11,6 +11,8 @@ export const mockFooterData: {
 } = {
     footerNavItems: [
         { label: "Home", href: "/" },
+        { label: "Docs", href: "/docs" },
+        { label: "Dashboard", href: "/dashboard" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },
         { label: "Contact", href: "#contact" }

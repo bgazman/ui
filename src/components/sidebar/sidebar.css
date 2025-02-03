@@ -1,40 +1,71 @@
-/* Base Sidebar container */
-.sidebar {
-    @apply w-64 h-full border-r overflow-y-auto p-0;
-    border-color: var(--sidebar-border-color);
-    background-color: var(--sidebar-bg-color);
+/***************************************************************
+ * SIDEBAR CSS
+ *
+ * Uses CSS variables for colors and spacing:
+ *   --sidebar-bg-color
+ *   --sidebar-border-color
+ *   --spacing-md
+ **************************************************************/
+
+/* Default :root or wrap in a global vars file if you prefer */
+:root {
+    --sidebar-bg-color: #f9fafb;
+    --sidebar-border-color: #e5e7eb;
+    --spacing-md: 1rem;
 }
 
-/* Position variants */
+/* Base .sidebar styling */
+.sidebar {
+    /* By default, let it adapt to the grid area or container. */
+    background-color: var(--sidebar-bg-color);
+    border-right: 1px solid var(--sidebar-border-color);
+    overflow-y: auto;
+
+    /* Smooth transition if you're toggling .sidebar-closed, etc. */
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+/* If you want a default width for the sidebar when displayed: */
+.sidebar {
+    width: 250px; /* Adjust as needed */
+}
+
+/* Position variants (matching the record in TS) */
 .sidebar--fixed {
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    height: 100vh; /* Full viewport height */
+    z-index: 10; /* Adjust to ensure it stays below the header if header has z-index > 10 */
 }
 
 .sidebar--sticky {
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 .sidebar--relative {
     position: relative;
 }
 
-/* Header styling */
+/* If isOpen=false -> .sidebar-closed (slide out, for example) */
+.sidebar-closed {
+    transform: translateX(-100%);
+}
+
+/* Sub-sections */
 .sidebar__header {
-    @apply p-[var(--spacing-md)] border-b;
-    border-color: var(--sidebar-border-color);
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--sidebar-border-color);
 }
 
-/* Body styling */
 .sidebar__body {
-    @apply p-[var(--spacing-md)];
+    padding: var(--spacing-md);
 }
 
-/* Footer styling */
 .sidebar__footer {
-    @apply p-[var(--spacing-md)] border-t;
-    border-color: var(--sidebar-border-color);
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--sidebar-border-color);
 }

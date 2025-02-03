@@ -5,7 +5,6 @@ import FooterSocialLinks from '@components/footer/footer-social-links';
 import FooterCopyright from '@components/footer/footer-copyright';
 import HorizontalNavigation from '@components/navigation/horizontal-navigation';
 import { NavItem } from '@components/navigation/navigation';
-import '@components/footer/footer.css'; // ensure the footer CSS is imported
 
 export interface FooterProps {
     footerNavItems: NavItem[];

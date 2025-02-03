@@ -1,5 +1,5 @@
 import React from 'react';
-import LandingLayout from '@layout/landing-layout';
+import LandingLayout from '@layout/landing-layout/landing-layout.tsx';
 import Box from '@components/box';
 
 const layoutConfig = {

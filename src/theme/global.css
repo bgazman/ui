@@ -1,5 +1,7 @@
 @import '@components/card/card.css';
-@import '@layout/base-layout/base-layout.css';
+@import '@layout/landing-layout/landing-layout.css';
+@import '@layout/docs-layout/docs-layout.css';
+@import '@layout/dashboard-layout/dashboard-layout.css';
 @import '@components/section/section.css';
 @import '@components/animated-section/animated-section.css';
 
@@ -14,6 +16,7 @@
 @import "@components/preview/component-preview.css";
 @import "@components/footer/footer.css";
 @import "@components/sidebar/sidebar.css";
+@import "@components/main/main.css";
 
 @import "@components/badge/badge.css";
 @import "@components/radio-button/radio-button.css";
@@ -23,6 +26,8 @@
 @import "@components/multi-select/multi-select.css";
 @import "@components/drop-down/drop-down.css";
 @import "@components/drawer/drawer.css";
+
+
 
 :root {
     --grid-template-areas: "header header" "sidebar main" "footer footer";
@@ -110,15 +115,10 @@
 .theme-container {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     border-color: var(--border-color);
-    --sidebar-hover-bg-color: var(--bg-alt1);
-    --sidebar-active-bg-color: var(--bg-alt1);
-    --sidebar-active-text-color: var(--text-primary);
-    --sidebar-icon-color: var(--text-secondary);
+
     --transition-duration: 200ms;
 }
 

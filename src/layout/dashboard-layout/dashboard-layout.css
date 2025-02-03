@@ -1,0 +1,74 @@
+/***************************************************************
+ * DASHBOARD LAYOUT
+ * Variables:
+ *   --dashboard-header-height  (default: 60px)
+ *   --dashboard-sidebar-width  (default: 240px)
+ **************************************************************/
+
+:root {
+    --dashboard-header-height: 60px;
+    --dashboard-sidebar-width: 240px;
+}
+
+.dashboard-layout {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* We'll let .dashboard-layout__main scroll if needed. */
+}
+
+/* STICKY HEADER */
+.dashboard-layout__header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--dashboard-header-height);
+}
+
+/* OVERLAY SIDEBAR - hidden by default, slides in with .open */
+.dashboard-layout__sidebar {
+    position: fixed;
+    top: var(--dashboard-header-height); /* below the header */
+    left: 0;
+    width: var(--dashboard-sidebar-width);
+    height: calc(100vh - var(--dashboard-header-height));
+    background-color: var(--sidebar-bg-color, #f9fafb);
+    border-right: 1px solid var(--sidebar-border-color, #e5e7eb);
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.dashboard-layout__sidebar.open {
+    transform: translateX(0);
+}
+
+/* MAIN content area.
+   If you want the main to shift over when sidebar is open,
+   you could do e.g. margin-left: var(--dashboard-sidebar-width) in .open state.
+   Or keep it as normal.
+*/
+.dashboard-layout__main {
+    position: absolute;
+    top: var(--dashboard-header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* FOOTER - Fixed at the bottom */
+.dashboard-layout__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;  /* Ensure it spans the full width */
+    z-index: 10;
+    padding: 1rem;
+}
+

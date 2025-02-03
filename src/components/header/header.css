@@ -1,63 +1,111 @@
-/* Positioning variants */
+/***************************************************************
+ * HEADER CSS
+ *
+ * Uses CSS variables:
+ *   --header-bg-color
+ *   --header-text-color
+ *   --header-height
+ *   --spacing-md
+ **************************************************************/
+
+:root {
+    --header-bg-color: #4f46e5;
+    --header-text-color: #ffffff;
+    --header-height: 60px;
+    --spacing-md: 1rem;
+}
+
+/* The outer container of the header */
+.header-container {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    width: 100%;
+    /* Default: relative position, but can be changed by .fixed or .sticky */
+}
+
+/* If position="sticky" */
 .header-container.sticky {
     position: sticky;
     top: 0;
     z-index: 50;
+    height: var(--header-height);
 }
 
+/* If position="fixed" */
 .header-container.fixed {
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 50;
+    z-index: 60; /* higher if needed to be above the footer or sidebar */
+    height: var(--header-height);
 }
 
+/* If position="relative" */
 .header-container.relative {
     position: relative;
 }
 
-/* Inner container: horizontal alignment, spacing, and themed background */
+/* Inner content: flex layout spacing, etc. */
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-md);
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+    height: 100%;
 }
 
-/* Mobile menu button: visible on mobile only */
+/* Basic styling for the hamburger button */
+.header-hamburger-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    /* Adjust padding or color as needed. */
+}
+
+/*
+   Additional responsive classes from your snippet (Tailwind-like).
+   They won't do anything unless you have Tailwind, but here for completeness.
+*/
 .header-mobile-menu-button {
     display: block;
-    @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .header-mobile-menu-button {
         display: none;
     }
-    outline: none;
 }
 
-/* Desktop navigation container: hidden on mobile */
 .header-desktop-nav {
     display: none;
-    @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .header-desktop-nav {
         display: block;
     }
 }
 
-/* Header actions container: hidden on mobile */
 .header-actions {
     display: none;
-    @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .header-actions {
         display: block;
     }
 }
 
-/* Mobile menu container: visible on mobile only */
 .header-mobile-menu {
     display: block;
     padding: var(--spacing-md);
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
-    @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .header-mobile-menu {
         display: none;
     }
 }

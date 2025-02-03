@@ -10,6 +10,7 @@ export const mockHeaderData: { headerNavItems: NavItem[]; brandName: string; log
     headerNavItems: [
         { label: "Home", href: "/" },
         { label: "Docs", href: "/docs" },
+        { label: "Dashboard", href: "/dashboard" },
         { label: "Features", href: "#features" },
         { label: "About Us", href: "#about-us" },
         { label: "Contact", href: "#contact" }
