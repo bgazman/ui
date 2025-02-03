@@ -1,9 +1,9 @@
 import React from 'react';
-import Stats, { Stat } from './stats';
-import Mission from './mission';
-import Vision from './vision';
-import Team, { TeamMember } from './team';
-import Grid from '@components/grid/grid';
+import Stats, { Stat } from './stats.tsx';
+import Mission from './mission.tsx';
+import Vision from './vision.tsx';
+import Team, { TeamMember } from './team.tsx';
+import Grid from '@components/grid/grid.tsx';
 import AnimatedSection from "@components/animated-section/animated-section.tsx";
 
 export interface AboutUsProps {

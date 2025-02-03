@@ -1,16 +1,16 @@
-// FeaturesSection.tsx
+// Features.tsx
 import React from 'react';
 import Card from '@components/card/card.tsx';
-import FlexibleGrid from '@components/grid/flexible-grid.tsx';
-import mockMainData from './data/main-data';
+import mockMainData from '../data/main-data.ts';
 import AnimatedSection from "@components/animated-section/animated-section.tsx";
+import Grid from "@components/grid/grid.tsx";
 
-const FeaturesSection: React.FC = () => {
+const Features: React.FC = () => {
 
 
     return (
         <AnimatedSection id='features' >
-        <FlexibleGrid minWidth={500} gap="3rem" className="mb-16">
+        <Grid columns={3} >
             {mockMainData.heroItems.map((item, index) => (
                 <Card
                     key={index}
@@ -21,9 +21,9 @@ const FeaturesSection: React.FC = () => {
                     className={`flex flex-col items-center`}
                 />
             ))}
-        </FlexibleGrid>
+        </Grid>
         </AnimatedSection>
     );
 };
 
-export default FeaturesSection;
+export default Features;

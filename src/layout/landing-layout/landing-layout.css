@@ -15,14 +15,14 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden; /* main content can scroll, see .landing-layout__main */
+    /*overflow: hidden; !* main content can scroll, see .landing-layout__main *!*/
     display: flex;
     flex-direction: column;
 }
 
 /* FIXED HEADER */
 .landing-layout__header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -34,11 +34,7 @@
 .landing-layout__main {
     /* We'll make it scrollable. */
     flex: 1;
-    /* Add top margin so content isn't hidden behind the fixed header */
-    padding: var(--landing-header-height);
-    /* Add bottom margin so content isn't hidden behind the fixed footer */
     margin-bottom: var(--landing-footer-height);
-    overflow-y: auto;
 
 }
 

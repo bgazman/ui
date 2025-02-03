@@ -2,30 +2,36 @@
 
 /* Card Container */
 .card {
-    @apply rounded-lg shadow-md overflow-hidden;
-    background-color: var(--bg-primary);
-    outline: 3px solid var(--border-color); /* Makes the border appear further away */
-    outline-offset: 10px;
-
+    @apply rounded-lg shadow-md overflow-hidden border;
+    border-color: var(--border-color);    /* Use your custom var for border color */
+    background-color: var(--bg-primary);  /* Use your custom var for background */
+    /* Example: pad the entire card using your spacing variable */
+    /* If you prefer smaller internal spacing, keep it on header/body/footer. */
 }
 
 /* Card Header */
-.card__header {
-    @apply p-[var(--spacing-md)] text-lg font-bold border-b;
+.card-header {
+    @apply border-b font-bold text-lg;
+    border-color: var(--border-color);
+    padding: var(--spacing-md);
+    color: var(--text-primary);
 }
 
 /* Card Body */
-.card__body {
-    @apply p-[var(--spacing-md)];
+.card-body {
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
 }
 
 /* Optional description inside the card body */
-.card__body-description {
-    @apply text-sm mb-[var(--spacing-md)];
+.card-body-description {
+    @apply text-sm mb-2; /* `mb-2` or replace with your spacing variable */
+    margin-bottom: var(--spacing-md);
 }
 
 /* Card Footer */
-.card__footer {
-    @apply p-[var(--spacing-md)] border-t text-right;
+.card-footer {
+    @apply border-t text-right;
     border-color: var(--border-color);
+    padding: var(--spacing-md);
 }

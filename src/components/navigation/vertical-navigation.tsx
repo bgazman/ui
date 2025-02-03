@@ -14,8 +14,10 @@ const VerticalNavigation: React.FC<VerticalNavigationProps> = ({
                                                                    variant = "default",
                                                                    className,
                                                                }) => {
+    const combinedClassName = `vertical-nav ${className || ""}`.trim();
+
     return (
-        <nav className={`vertical-nav ${className || ""}`}>
+        <nav className={combinedClassName}>
             {navItems.map((item) => (
                 <TreeNode key={item.label} item={item} level={0} variant={variant} />
             ))}
@@ -26,12 +28,12 @@ const VerticalNavigation: React.FC<VerticalNavigationProps> = ({
 interface TreeNodeProps {
     item: NavItem;
     level: number;
-    variant: "expanded" | "compact" | "default";
+    variant: VerticalNavigationVariant; // "expanded" | "compact" | "default"
 }
 
 const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
     const [isOpen, setIsOpen] = useState(variant === "expanded");
-    const hasChildren = item.children && item.children.length > 0;
+    const hasChildren = !!(item.children && item.children.length > 0);
 
     const handleClick = () => {
         if (variant === "default") {
@@ -39,13 +41,9 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
         }
     };
 
-    // For non-compact variants, indent children using a CSS variable multiplier
-    const childrenContainerStyle =
-        variant !== "compact" ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` } : {};
-
     return (
         <div
-            className="vertical-nav__node group"
+            className="vertical-nav__node"
             onMouseEnter={() => variant === "compact" && setIsOpen(true)}
             onMouseLeave={() => variant === "compact" && setIsOpen(false)}
         >
@@ -68,10 +66,19 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
                     className={`vertical-nav__dropdown ${
                         variant === "compact" ? "vertical-nav__dropdown--compact" : ""
                     }`}
-                    style={variant !== "compact" ? childrenContainerStyle : {}}
+                    style={
+                        variant !== "compact"
+                            ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` }
+                            : {}
+                    }
                 >
                     {item.children?.map((child, index) => (
-                        <TreeNode key={`${child.label}-${index}`} item={child} level={level + 1} variant={variant} />
+                        <TreeNode
+                            key={`${child.label}-${index}`}
+                            item={child}
+                            level={level + 1}
+                            variant={variant}
+                        />
                     ))}
                 </div>
             )}

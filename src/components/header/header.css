@@ -1,17 +1,24 @@
-/***************************************************************
- * HEADER CSS
- ***************************************************************/
+/* header.css */
 
+/* Base Header */
 .header {
-    @apply   top-0 z-[60] h-[60px] bg-[var(--bg-secondary)] text-[var(--header-text-color)];
+    @apply top-0 z-[60];
+    height: var(--header-height, 60px); /* fallback 60px if not set */
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    position: sticky;
+
 }
 
 /* Outer container of the header */
 .header-container {
-    @apply text-[var(--text-secondary)] bg-[var(--header-bg-color)] z-50 h-[var(--header-height)];
+    @apply z-50;
+    height: var(--header-height);
+    background-color: var(--header-bg-color); /* you can reuse same var here */
+    color: var(--header-text-color);
 }
 
-/* Sticky Header (DO NOT @apply sticky) */
+/* Sticky Header (DO NOT use @apply sticky) */
 .header-container.sticky {
     position: sticky;
     top: 0;
@@ -31,7 +38,9 @@
 
 /* Inner content: flex layout spacing */
 .header-inner {
-    @apply flex items-center justify-between p-[var(--spacing-md)] h-full;
+    @apply flex items-center justify-between;
+    padding: var(--spacing-md);
+    height: 100%; /* fill container */
 }
 
 /* Hamburger Button */
@@ -74,7 +83,10 @@
 
 /* Mobile Menu */
 .header-mobile-menu {
-    @apply block p-[var(--spacing-md)] bg-[var(--header-bg-color)] text-[var(--header-text-color)];
+    @apply block;
+    padding: var(--spacing-md);
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
 }
 
 @media (min-width: 768px) {

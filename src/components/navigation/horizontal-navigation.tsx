@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import LinkComponent from "@components/link/link";
-import { HorizontalNavigationVariant, NavItem } from "@components/navigation/navigation";
+import {
+    HorizontalNavigationVariant,
+    NavItem,
+} from "@components/navigation/navigation";
 import NavigationTreeComponent from "@components/navigation/navigation-tree";
 
 export interface HorizontalNavigationProps {
@@ -17,22 +20,23 @@ const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({
                                                                    }) => {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-    // Map each variant to a specific class or set of classes
     const variantClassMap: Record<HorizontalNavigationVariant, string> = {
         default: "horizontal-nav--default",
-        underline: "horizontal-nav--underline",
-        minimal: "horizontal-nav--minimal",
+        onClick: "horizontal-nav--on-click",
+        onHover: "horizontal-nav--on-hover",
+        expanded: "horizontal-nav--expanded",
     };
 
+    const combinedClassName = `horizontal-nav ${
+        variantClassMap[variant]
+    } ${className}`.trim();
+
     return (
-        <nav
-            className={`horizontal-nav ${variantClassMap[variant]} ${className}`}
-            role="menubar"
-        >
+        <nav className={combinedClassName} role="menubar">
             {navItems.map((item) => (
                 <div
                     key={item.label}
-                    className="relative group"
+                    className="horizontal-nav__item"
                     onMouseEnter={() => item.children && setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                 >

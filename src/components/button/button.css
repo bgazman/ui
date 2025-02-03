@@ -5,10 +5,10 @@
 }
 
 /* Primary Variant – uses mapped Tailwind keys */
+/* Primary Variant – uses mapped Tailwind keys */
 .btn--primary {
-    @apply bg-button text-button hover:bg-button-hover focus:ring-button-hover;
+    @apply bg-button text-[var(--button-text-color)] hover:bg-button-hover focus:ring-button-hover;
 }
-
 /* Secondary Variant – if you have secondary tokens defined in :root */
 .btn--secondary {
     @apply bg-[var(--button-secondary-bg-color)] text-[var(--button-secondary-text-color)] hover:bg-[var(--button-secondary-hover-bg-color)] focus:ring-[var(--button-secondary-hover-bg-color)];

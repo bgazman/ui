@@ -1,27 +1,37 @@
 .theme-container[data-theme="light"] {
+    /* Override or tweak whichever variables differ from the defaults: */
+
     --bg-primary: #e4dede;
     --bg-secondary: #0056b3;
-    --bg-alt1: #e9ecef;
-    --bg-alt2: #dee2e6;
+    --bg-alt1: #e9ecef;  /* same as root, but can override if needed */
+    --bg-alt2: #dee2e6;  /* same as root, but can override if needed */
     --text-primary: #212529;
     --text-secondary: #495057;
+
     --border-color: #8a98a5;
     --sidebar-border-color: #ced4da;
     --sidebar-bg-color: #e4dede;
+
     --footer-bg-color: #f8f9fa;
     --footer-text-color: #212529;
+
     --header-bg-color: #0056b3;
     --header-text-color: #ffffff;
+
     --button-bg-color: #007bff;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
+
     --button-secondary-bg-color: #6c757d;
     --button-secondary-text-color: #ffffff;
     --button-secondary-hover-bg-color: #5a6268;
     --button-secondary-hover-text-color: #ffffff;
+
     --button-disabled-bg-color: #d6d6d6;
     --button-disabled-text-color: #a1a1a1;
+
+    /* Font overrides for the light theme, if you truly want them different: */
     --font-family-sans: "Comic Sans MS", cursive, sans-serif;
     --font-family-serif: "Times New Roman", serif;
     --font-family-mono: "Courier New", monospace;

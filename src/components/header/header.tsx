@@ -4,7 +4,7 @@ import ThemeSwitcher from '@components/theme-switcher';
 import Button from '@components/button/button';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '@components/navigation/navigation';
-import HeaderNavigation from "@components/navigation/header-navigation";
+import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
 
 export interface HeaderProps {
     position?: 'fixed' | 'sticky' | 'relative';
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({
                     <span className="font-bold text-xl">MyBrand</span>
                 </div>
 
-                <HeaderNavigation navItems={headerNavItems} />
+                <HorizontalNavigation navItems={headerNavItems} />
 
                 <div className="flex items-center space-x-4">
                     <ThemeSwitcher />
