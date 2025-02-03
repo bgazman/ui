@@ -3,8 +3,8 @@ import Box from '@components/box';
 import FooterContactInfo from '@components/footer/footer-contact-info';
 import FooterSocialLinks from '@components/footer/footer-social-links';
 import FooterCopyright from '@components/footer/footer-copyright';
-import HorizontalNavigation from '@components/navigation/horizontal-navigation';
 import { NavItem } from '@components/navigation/navigation';
+import FooterNavigation from './footer-navigation';
 
 export interface FooterProps {
     footerNavItems: NavItem[];
@@ -20,19 +20,13 @@ const Footer: React.FC<FooterProps> = ({
                                            copyright = '© 2023 Your Brand. All rights reserved.',
                                            contactInfo,
                                            socialLinks,
-                                           className = '',
+                                           className = 'footer',
                                            style,
                                        }) => {
     return (
-        <Box as="footer" className={`footer ${className}`} style={style}>
+        <Box as="footer" className={className} style={style}>
             <Box className="footer__inner">
-                <HorizontalNavigation
-                    className="footer-navigation"
-                    navItems={footerNavItems.map((item) => ({
-                        label: item.label,
-                        href: item.href,
-                    }))}
-                />
+                <FooterNavigation footerNavItems={footerNavItems}/>
                 {contactInfo && <FooterContactInfo {...contactInfo} />}
                 {socialLinks && <FooterSocialLinks {...socialLinks} />}
                 <FooterCopyright text={copyright} />

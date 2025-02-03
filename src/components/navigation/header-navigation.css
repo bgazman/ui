@@ -1,0 +1,39 @@
+.header-nav {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+}
+
+.header-nav__container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.header-nav__item {
+    position: relative;
+}
+
+.header-nav__link {
+    text-decoration: none;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.header-nav__link:hover,
+.header-nav__link:focus {
+    color: #0070f3;
+}
+
+.header-nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    min-width: 200px;
+    z-index: 10;
+    padding: 0.5rem 0;
+}

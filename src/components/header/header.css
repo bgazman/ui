@@ -1,111 +1,84 @@
 /***************************************************************
  * HEADER CSS
- *
- * Uses CSS variables:
- *   --header-bg-color
- *   --header-text-color
- *   --header-height
- *   --spacing-md
- **************************************************************/
+ ***************************************************************/
 
-:root {
-    --header-bg-color: #4f46e5;
-    --header-text-color: #ffffff;
-    --header-height: 60px;
-    --spacing-md: 1rem;
+.header {
+    @apply   top-0 z-[60] h-[60px] bg-[var(--bg-secondary)] text-[var(--header-text-color)];
 }
 
-/* The outer container of the header */
+/* Outer container of the header */
 .header-container {
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
-    width: 100%;
-    /* Default: relative position, but can be changed by .fixed or .sticky */
+    @apply text-[var(--text-secondary)] bg-[var(--header-bg-color)] z-50 h-[var(--header-height)];
 }
 
-/* If position="sticky" */
+/* Sticky Header (DO NOT @apply sticky) */
 .header-container.sticky {
     position: sticky;
     top: 0;
-    z-index: 50;
-    height: var(--header-height);
 }
 
-/* If position="fixed" */
+/* Fixed Header */
 .header-container.fixed {
     position: fixed;
     top: 0;
-    z-index: 60; /* higher if needed to be above the footer or sidebar */
-    height: var(--header-height);
+    z-index: 60;
 }
 
-/* If position="relative" */
+/* Relative Header */
 .header-container.relative {
     position: relative;
 }
 
-/* Inner content: flex layout spacing, etc. */
+/* Inner content: flex layout spacing */
 .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-md);
-    height: 100%;
+    @apply flex items-center justify-between p-[var(--spacing-md)] h-full;
 }
 
-/* Basic styling for the hamburger button */
+/* Hamburger Button */
 .header-hamburger-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    /* Adjust padding or color as needed. */
+    @apply inline-flex items-center bg-none border-none cursor-pointer;
 }
 
-/*
-   Additional responsive classes from your snippet (Tailwind-like).
-   They won't do anything unless you have Tailwind, but here for completeness.
-*/
+/* Mobile Menu Button */
 .header-mobile-menu-button {
-    display: block;
+    @apply block;
 }
 
 @media (min-width: 768px) {
     .header-mobile-menu-button {
-        display: none;
+        @apply hidden;
     }
 }
 
+/* Desktop Navigation */
 .header-desktop-nav {
-    display: none;
+    @apply hidden;
 }
 
 @media (min-width: 768px) {
     .header-desktop-nav {
-        display: block;
+        @apply block;
     }
 }
 
+/* Header Actions */
 .header-actions {
-    display: none;
+    @apply hidden;
 }
 
 @media (min-width: 768px) {
     .header-actions {
-        display: block;
+        @apply block;
     }
 }
 
+/* Mobile Menu */
 .header-mobile-menu {
-    display: block;
-    padding: var(--spacing-md);
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+    @apply block p-[var(--spacing-md)] bg-[var(--header-bg-color)] text-[var(--header-text-color)];
 }
 
 @media (min-width: 768px) {
     .header-mobile-menu {
-        display: none;
+        @apply hidden;
     }
 }

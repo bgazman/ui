@@ -1,7 +1,15 @@
-/* Base form styling */
 .form {
-    @apply flex flex-col gap-[var(--spacing-md)] w-full max-w-lg p-[var(--spacing-md)] bg-[var(--bg-secondary)] rounded-[var(--border-radius-md)] shadow-md;
+    @apply flex flex-col gap-[var(--spacing-md)] w-full max-w-lg
+    p-[var(--spacing-md)] bg-[var(--bg-primary)]
+    rounded-[var(--border-radius-lg)];
+
+    /* These properties cannot be applied via @apply */
+    background-color: var(--bg-primary);
+    outline: 3px solid var(--border-color); /* Adds an outline */
+    outline-offset: 10px; /* Pushes the outline outward */
 }
+
+
 
 /* Form Variants */
 .form--centered {
@@ -14,7 +22,7 @@
 
 /* Form Actions */
 .form__actions {
-    @apply flex justify-between mt-[var(--spacing-md)];
+    @apply  mt-[var(--spacing-md)] flex flex-col gap-[var(--spacing-xs)];
 }
 
 

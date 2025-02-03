@@ -10,11 +10,25 @@ export interface HorizontalNavigationProps {
     className?: string;
 }
 
-const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({ navItems }) => {
+const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({
+                                                                       navItems,
+                                                                       variant = "default",
+                                                                       className = "",
+                                                                   }) => {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+    // Map each variant to a specific class or set of classes
+    const variantClassMap: Record<HorizontalNavigationVariant, string> = {
+        default: "horizontal-nav--default",
+        underline: "horizontal-nav--underline",
+        minimal: "horizontal-nav--minimal",
+    };
+
     return (
-        <nav className="horizontal-nav">
+        <nav
+            className={`horizontal-nav ${variantClassMap[variant]} ${className}`}
+            role="menubar"
+        >
             {navItems.map((item) => (
                 <div
                     key={item.label}
@@ -22,8 +36,6 @@ const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({ navItems })
                     onMouseEnter={() => item.children && setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                 >
-
-
                     {/* Top-Level Navigation Item */}
                     <LinkComponent
                         href={item.href || "#"}

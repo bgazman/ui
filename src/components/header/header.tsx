@@ -1,10 +1,10 @@
 import React from 'react';
 import Box from '@components/box';
-import HorizontalNavigation from '@components/navigation/horizontal-navigation';
 import ThemeSwitcher from '@components/theme-switcher';
 import Button from '@components/button/button';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '@components/navigation/navigation';
+import HeaderNavigation from "@components/navigation/header-navigation";
 
 export interface HeaderProps {
     position?: 'fixed' | 'sticky' | 'relative';
@@ -17,16 +17,14 @@ export interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-    position = 'sticky',
-    className = '',
+    className = 'header',
     headerNavItems,
     showSidebarToggle = false,
     isSidebarOpen = false,
     onToggleSidebar,
-    style
 }) => {
     return (
-        <Box as="header" className={`${position} ${className}`} style={style}>
+        <Box as="header" className={className}>
             <Box className="header-inner">
                 <div className="flex items-center space-x-3">
                     {showSidebarToggle && (
@@ -37,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({
                     <span className="font-bold text-xl">MyBrand</span>
                 </div>
 
-                <HorizontalNavigation navItems={headerNavItems} />
+                <HeaderNavigation navItems={headerNavItems} />
 
                 <div className="flex items-center space-x-4">
                     <ThemeSwitcher />

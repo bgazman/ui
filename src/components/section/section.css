@@ -2,7 +2,7 @@
 
 /* Base container for the section */
 .section {
-    @apply p-[var(--spacing-lg)] bg-[var(--bg-alt1)] rounded-[var(--border-radius-md)];
+    @apply p-[var(--spacing-lg)] rounded-[var(--border-radius-md)];
 }
 
 /* Header container for title/subtitle */

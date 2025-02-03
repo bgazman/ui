@@ -13,7 +13,7 @@ export type VerticalNavigationVariant = 'default' | 'expanded' | 'compact';
 
 export interface HorizontalNavigationProps {
     navItems: NavItem[];
-    className?: string;
+    className?: 'horizontal-nav';
     variant?: HorizontalNavigationVariant;
     renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode;
     orientation: 'horizontal';
@@ -21,7 +21,7 @@ export interface HorizontalNavigationProps {
 
 export interface VerticalNavigationProps {
     navItems: NavItem[];
-    className?: string;
+    className?: 'vertical-nav';
     variant?: VerticalNavigationVariant;
     renderItem?: (item: NavItem, isParent: boolean) => React.ReactNode;
     orientation: 'vertical';
@@ -29,7 +29,7 @@ export interface VerticalNavigationProps {
 
 type NavigationProps = HorizontalNavigationProps | VerticalNavigationProps;
 
-const Navigation: React.FC<NavigationProps> = (props) => {
+const Navigation: React.FC<NavigationProps> = ( props   ) => {
     if (props.orientation === 'vertical') {
         return <VerticalNavigation {...props} />;
     }

@@ -11,7 +11,6 @@
 @import "@components/button/button.css";
 @import "@components/tab-menu/tab-menu.css";
 @import "@components/link/link.css";
-@import "@components/navigation/navigation.css";
 @import "@components/header/header.css";
 @import "@components/preview/component-preview.css";
 @import "@components/footer/footer.css";
@@ -26,7 +25,8 @@
 @import "@components/multi-select/multi-select.css";
 @import "@components/drop-down/drop-down.css";
 @import "@components/drawer/drawer.css";
-
+@import "@components/navigation/header-navigation.css";
+@import "@components/navigation/footer-navigation.css";
 
 
 :root {
@@ -36,26 +36,33 @@
 }
 
 :root {
+    /* 🌐 Layout Grid Settings */
+    --grid-template-areas: "header header" "sidebar main" "footer footer";
+    --grid-template-rows: auto 1fr auto;
+    --grid-template-columns: 16rem 1fr;
+
+    /* 🖱 Button */
     --button-bg-color: #007bff;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
     --button-hover-text-color: #ffffff;
 
-    /* 🌞 Light Mode Default */
+    /* 🌞 Light Mode / Default Theme Colors */
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
     --bg-alt1: #e9ecef;
     --bg-alt2: #dee2e6;
-
     --text-primary: #212529;
     --text-secondary: #495057;
     --text-tertiary: #007bff;
     --border-color: #ced4da;
     --sidebar-border-color: #ced4da;
 
+    /* 🦶 Footer */
     --footer-bg-color: #f8f9fa;
     --footer-text-color: #212529;
 
+    /* 🏷 Header */
     --header-bg-color: #0056b3;
     --header-text-color: #ffffff;
 
@@ -68,46 +75,49 @@
     --sidebar-bg-color: var(--bg-primary);
     --sidebar-text-color: var(--text-primary);
 
+    /* 🖋 Fonts */
     --font-family-sans: "Inter", sans-serif;
     --font-family-serif: "Merriweather", serif;
     --font-family-mono: "Fira Code", monospace;
 
+    /* 📏 Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;
 
+    /* 🎨 Border Radius */
     --border-radius-sm: 0.125rem;
     --border-radius-md: 0.25rem;
     --border-radius-lg: 0.5rem;
     --border-radius-xl: 1rem;
 
+    /* ⏱ Transitions & Animations */
     --transition-duration: 300ms;
     --transition-timing-function: ease-in-out;
-
     --animation-duration-fast: 200ms;
     --animation-duration-normal: 500ms;
     --animation-duration-slow: 1s;
-
     --animation-ease: ease-in-out;
     --animation-bounce: cubic-bezier(0.17, 0.67, 0.83, 0.67);
     --animation-fade-in: fadeIn var(--animation-duration-normal) var(--animation-ease) forwards;
     --animation-slide-up: slideUp var(--animation-duration-normal) var(--animation-ease) forwards;
 
-    --font-size-xs: 0.75rem; /* 12px */
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-md: 1rem; /* 16px */
-    --font-size-lg: 1.125rem; /* 18px */
-    --font-size-xl: 1.25rem; /* 20px */
-    --font-size-2xl: 1.5rem; /* 24px */
+    /* 🔠 Font Sizes */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-md: 1rem;      /* 16px */
+    --font-size-lg: 1.125rem;  /* 18px */
+    --font-size-xl: 1.25rem;   /* 20px */
+    --font-size-2xl: 1.5rem;   /* 24px */
     --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem; /* 36px */
-    --font-size-5xl: 3rem; /* 48px */
-    --font-size-6xl: 3.75rem; /* 60px */
-    --font-size-7xl: 4.5rem; /* 72px */
-    --font-size-8xl: 6rem; /* 96px */
-    --font-size-9xl: 8rem; /* 128px */
+    --font-size-4xl: 2.25rem;  /* 36px */
+    --font-size-5xl: 3rem;     /* 48px */
+    --font-size-6xl: 3.75rem;  /* 60px */
+    --font-size-7xl: 4.5rem;   /* 72px */
+    --font-size-8xl: 6rem;     /* 96px */
+    --font-size-9xl: 8rem;     /* 128px */
 }
 
 

@@ -33,13 +33,7 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
         <div className="theme-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Header
                 {...headerData}
-                className="fixed top-0 left-0 right-0"
-                style={{
-                    height: 'var(--header-height)',
-                    backgroundColor: 'var(--header-bg-color)',
-                    color: 'var(--header-text-color)',
-                    zIndex: 50
-                }}
+                className="header"
             />
 
             <Main
@@ -51,15 +45,7 @@ const LandingLayout: React.FC<LandingLayoutProps> = ({
 
             <Footer
                 {...footerData}
-                className="fixed bottom-0 left-0 right-0"
-                style={{
-                    height: 'var(--footer-height)',
-                    backgroundColor: 'var(--footer-bg-color)',
-                    color: 'var(--footer-text-color)',
-                    transition: `all var(--transition-duration) var(--transition-timing-function)`,
-                    opacity: showFooter ? 1 : 0,
-                    transform: showFooter ? 'translateY(0)' : 'translateY(100%)',
-                }}
+                className="landing-layout__footer"
             />
         </div>
     );

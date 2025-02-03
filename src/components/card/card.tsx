@@ -1,6 +1,5 @@
-import React from 'react';
-import Button from '@components/button/button';
-import '@components/card/card.css';
+import React from "react";
+import Button from "@components/button/button";
 
 export interface CardProps {
     title: string;
@@ -18,25 +17,26 @@ const Card: React.FC<CardProps> = ({
                                        children,
                                        actionLink,
                                        actionText,
-                                       className = '',
+                                       className = "",
                                        style,
                                    }) => {
+    // Combine your .card base class with any passed-in class
+    const combinedClassName = `card ${className}`.trim();
+
     return (
-        <div className={`card ${className}`} style={style}>
+        <div className={combinedClassName} style={style}>
             {/* Header */}
-            <div className="card__header">
-                {title}
-            </div>
+            <div className="card-header">{title}</div>
 
             {/* Body */}
-            <div className="card__body">
-                {description && <p className="card__body-description">{description}</p>}
+            <div className="card-body">
+                {description && <p className="card-body-description">{description}</p>}
                 {children}
             </div>
 
             {/* Footer */}
             {actionLink && actionText && (
-                <div className="card__footer">
+                <div className="card-footer">
                     <Button onClick={() => (window.location.href = actionLink)}>
                         {actionText}
                     </Button>

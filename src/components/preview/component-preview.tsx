@@ -21,8 +21,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
                                                                description,
                                                                sourceCode,
                                                                children,
-                                                               className = "",
-                                                               style,
+
                                                            }) => {
     const [activeTab, setActiveTab] = useState("preview");
     const [isCopied, setIsCopied] = useState(false);
@@ -39,7 +38,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     ];
 
     return (
-        <div className={`component-preview ${className}`} style={style}>
+        <div className='component-preview'>
             {(title || description) && (
                 <div className="component-preview__header">
                     {title && <h3 className="component-preview__title">{title}</h3>}

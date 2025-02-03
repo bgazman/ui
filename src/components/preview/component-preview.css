@@ -2,7 +2,13 @@
 
 /* Base container for the component preview */
 .component-preview {
-    @apply space-y-[var(--spacing-md)];
+    @apply flex flex-col gap-[var(--spacing-md)] w-full
+    p-[var(--spacing-md)] bg-[var(--bg-primary)]
+    rounded-[var(--border-radius-lg)];
+
+    background-color: var(--bg-primary);
+    outline: 3px solid var(--border-color); /* Makes the border appear further away */
+    outline-offset: 10px; /* Push the border outward */
 }
 
 /* Header section (title and description) */
@@ -18,7 +24,7 @@
 
 /* Content container for tab content */
 .component-preview__content {
-    @apply flex flex-col md:flex-row gap-[var(--spacing-md)];
+    @apply flex flex-col md:flex-row gap-[var(--spacing-md)] justify-center;
 }
 
 /* Code preview styling */

@@ -1,29 +1,63 @@
-/* horizontal-navigation.css */
-
-/* Container for the horizontal navigation */
+/* Base horizontal nav styles */
 .horizontal-nav {
-    @apply flex flex-wrap gap-[var(--spacing-md)] p-[var(--spacing-md)] rounded-[var(--border-radius-md)] shadow-md;
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    /* Common styles for the nav wrapper */
 }
 
-
-
-/* Top-level navigation link styling */
+/* Common link styles */
 .horizontal-nav__link {
-    @apply flex items-center gap-[var(--spacing-xs)] px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-colors;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.horizontal-nav__link:hover {
-    color: var(--button-hover-text-color);
-}
-
-/* Dropdown menu container */
+/* Dropdown styles */
 .horizontal-nav__dropdown {
-    @apply absolute left-0 top-full mt-[var(--spacing-xs)] w-48 shadow-lg rounded-[var(--border-radius-md)] border;
-    background-color: var(--bg-primary);
-    border-color: var(--border-color);
-    animation: fadeIn var(--animation-duration-normal) var(--animation-ease) forwards;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    display: block; /* For a simple dropdown */
+    z-index: 10; /* Ensures it appears on top */
+}
+
+/* -------- Variant: Default -------- */
+.horizontal-nav--default {
+    /* Optional adjustments for default variant */
+}
+
+/* -------- Variant: Underline -------- */
+.horizontal-nav--underline .horizontal-nav__link {
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.horizontal-nav--underline .horizontal-nav__link:hover,
+.horizontal-nav--underline .horizontal-nav__link:focus {
+    border-color: #0070f3; /* Example highlight color */
+}
+
+/* -------- Variant: Minimal -------- */
+.horizontal-nav--minimal .horizontal-nav__link {
+    padding: 0.25rem 0.5rem;
+    color: #666;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.horizontal-nav--minimal .horizontal-nav__link:hover,
+.horizontal-nav--minimal .horizontal-nav__link:focus {
+    background-color: #f2f2f2;
+    color: #333;
 }
 
 /* Navigation tree container */
@@ -70,7 +104,7 @@
 }
 
 .vertical-nav__node-content:hover {
-    background-color: var(--sidebar-hover-bg-color);
+    background-color: var(--bg-alt1);
 }
 
 /* Node link styling */
