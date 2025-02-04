@@ -7,27 +7,41 @@ export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElem
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
-                                                label,
-                                                error,
-                                                className,
-                                                ...rest
-                                            }) => {
+                                                          label,
+                                                          error,
+                                                          className,
+                                                          id,
+                                                          ...rest
+                                                      }) => {
     return (
-        <label className="block w-full mb-md">
-            {label && <span className="block mb-xs font-medium text-text-primary">{label}</span>}
+        <div className="flex flex-col w-full">
+            {label && (
+                <label
+                    htmlFor={id}
+                    className="mb-1 text-text-primary font-medium"
+                >
+                    {label}
+                </label>
+            )}
             <input
+                id={id}
                 className={clsx(
                     "w-full",
                     "border border-border",
                     "bg-bg-primary text-text-primary",
-                    "rounded-md px-sm py-xs",
-                    "focus:outline-none focus:ring-2 focus:ring-text-tertiary",
-                    error && "border-red-500",
+                    "rounded-md p-md",
+                    "outline-none transition-all duration-fast ease-in-out",
+                    "focus:ring-2 focus:ring-button-hover",
+                    error && "border-[var(--border-color-error)]",
                     className
                 )}
                 {...rest}
             />
-            {error && <span className="text-red-500 text-sm mt-xs">{error}</span>}
-        </label>
+            {error && (
+                <div className="mt-2 text-sm text-[var(--text-error)]">
+                    {error}
+                </div>
+            )}
+        </div>
     );
 };

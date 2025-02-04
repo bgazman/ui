@@ -6,9 +6,9 @@ const FormExample: React.FC = () => {
     };
 
     return (
-        <div>
-            <Form onSubmit={handleSubmit} theme="light" variant="default" />
-        </div>
+
+            <Form onSubmit={handleSubmit}  />
+
     );
 };
 

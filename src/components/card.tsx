@@ -7,7 +7,9 @@ interface CardProps {
     image?: string;
     footer?: React.ReactNode;
     children?: React.ReactNode;
+
     variant?: "default" | "outlined" | "shadowed" | "elevated" | "bordered"; // Variants
+    className?: string;
 }
 
 const Card: React.FC<CardProps> = ({ title, description, footer, children, variant = "default" }) => {

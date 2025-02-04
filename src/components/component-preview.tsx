@@ -16,13 +16,13 @@ export interface ComponentPreviewProps {
 }
 
 const ComponentPreview: React.FC<ComponentPreviewProps> = ({
-                                                               title,
-                                                               description,
-                                                               sourceCode,
-                                                               children,
-                                                               className = "",
-                                                               style,
-                                                           }) => {
+    title,
+    description,
+    sourceCode,
+    children,
+    className = "",
+    style,
+}) => {
     const [activeTab, setActiveTab] = useState("preview");
     const [isCopied, setIsCopied] = useState(false);
 
@@ -59,44 +59,55 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
             {/* Preview and Code Sections */}
             <div className="flex flex-col md:flex-row gap-md justify-center">
                 {activeTab === "code" ? (
-                    <Card
-                        title="Source Code"
-                        variant="outlined"
-                        className="relative overflow-hidden rounded-lg p-lg border border-border"
-                    >
-                        {/* Button for Copying Code */}
-                        <div className="flex justify-between items-center p-2 border-b border-border">
-                            <Button
-                                onClick={handleCopyCode}
-                                variant="secondary"
-                                className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md shadow-sm"
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-button rounded-lg opacity-10 blur-2xl"></div>
+                        <div className="relative bg-bg-secondary p-lg rounded-lg border border-border">
+                            <Card
+                                title="Source Code"
+                                variant="outlined"
+                                className="relative overflow-hidden rounded-lg p-lg border border-border flex-1"
                             >
-                                {isCopied ? (
-                                    <>
-                                        <Check className="mr-2 h-4 w-4" />
-                                        Copied
-                                    </>
-                                ) : (
-                                    <>
-                                        <Copy className="mr-2 h-4 w-4" />
-                                        Copy
-                                    </>
-                                )}
-                            </Button>
-                        </div>
+                                {/* Button for Copying Code */}
+                                <div className="flex justify-between items-center p-2 border-b border-border">
+                                    <Button
+                                        onClick={handleCopyCode}
+                                        variant="secondary"
+                                        className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md shadow-sm"
+                                    >
+                                        {isCopied ? (
+                                            <>
+                                                <Check className="mr-2 h-4 w-4" />
+                                                Copied
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="mr-2 h-4 w-4" />
+                                                Copy
+                                            </>
+                                        )}
+                                    </Button>
+                                </div>
 
-                        {/* Code Display */}
-                        <TextArea
-                            id="sourceCode"
-                            name="sourceCode"
-                            placeholder="Source Code"
-                            value={sourceCode}
-                            onChange={() => {}}
-                            className="w-full h-64 p-4 text-sm font-mono border-none resize-none"
-                        />
-                    </Card>
+                                {/* Code Display */}
+                                <TextArea
+                                    name="sourceCode"
+                                    placeholder="Source Code"
+                                    value={sourceCode}
+                                    onChange={() => {}}
+                                    className="w-full h-64 p-4 text-sm font-mono border-none resize-none"
+                                />
+                            </Card>
+                        </div>
+                    </div>
                 ) : (
-                    <Box className="overflow-hidden rounded-lg border flex-1">{children}</Box>
+                    <Box className="overflow-hidden rounded-lg flex-1 p-lg border-none">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-button rounded-lg opacity-10 blur-2xl"></div>
+                            <div className="relative bg-bg-secondary p-lg rounded-lg border border-border">
+                                {children}
+                            </div>
+                        </div>
+                    </Box>
                 )}
             </div>
         </div>

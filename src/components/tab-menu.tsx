@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@components/box.tsx";
-import Button  from "@components/button.tsx";
+import Button from "@components/button.tsx";
 
 export type TabItem = {
     label: React.ReactNode;
@@ -26,7 +26,7 @@ const TabMenu: React.FC<TabMenuProps> = ({
         <Box
             as="div"
             style={style}
-            className={`flex   border-[var(--border-color)] ${className}`}
+            className={`flex border-[var(--border-color)] ${className}`}
         >
             {items.map((item) => (
                 <Button
@@ -34,11 +34,7 @@ const TabMenu: React.FC<TabMenuProps> = ({
                     onClick={() => setActiveTab(item.value)}
                     variant="tab"
                     isActive={activeTab === item.value}
-                    className={`py-[var(--spacing-sm)]  ${
-                        activeTab === item.value
-                            ? "border-b-4 border-bg-primary"
-                            : ""
-                    }`}
+                    className="py-[var(--spacing-md)] "
                 >
                     {item.label}
                 </Button>

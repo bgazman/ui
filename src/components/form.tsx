@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputField } from "@components/input-field.tsx";
-import TextAreaField from "@components/text-area.tsx";
-import  Button from "@components/button.tsx";
+import TextArea from "@components/text-area.tsx";
+import Button from "@components/button.tsx";
 
 export type FormVariant = "default" | "centered" | "compact";
 
@@ -24,7 +24,12 @@ const Form: React.FC<FormProps> = ({
         message: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
@@ -42,13 +47,10 @@ const Form: React.FC<FormProps> = ({
         });
     };
 
-    // Base form styles
     const baseClasses =
         "flex flex-col gap-[var(--spacing-md)] w-full max-w-lg p-[var(--spacing-md)] bg-[var(--bg-primary)] rounded-[var(--border-radius-lg)]";
-    // Additional inline style for outline that Tailwind doesn't apply via @apply
     const outlineStyle = { outline: "3px solid var(--border-color)", outlineOffset: "10px" };
 
-    // Variant overrides
     const variantClasses = {
         default: "",
         centered: "mx-auto text-center",
@@ -61,30 +63,36 @@ const Form: React.FC<FormProps> = ({
             style={{ ...outlineStyle, ...style }}
             onSubmit={handleSubmit}
         >
-            {Object.entries(formData).map(([key, value]) =>
-                key === "message" ? (
-                    <TextAreaField
-                        key={key}
-                        id={key}
-                        name={key}
-                        placeholder={`Your ${key.charAt(0).toUpperCase() + key.slice(1)}`}
-                        value={value}
-                        onChange={handleChange}
-                        required
-                    />
-                ) : (
-                    <InputField
-                        key={key}
-                        id={key}
-                        name={key}
-                        type={key === "email" ? "email" : "text"}
-                        placeholder={`Your ${key.charAt(0).toUpperCase() + key.slice(1)}`}
-                        value={value}
-                        onChange={handleChange}
-                        required
-                    />
-                )
-            )}
+            <InputField
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+            />
+
+            <InputField
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+            />
+
+            <TextArea
+                name="message"
+                label="Your Message"
+                placeholder="Enter your message"
+                value={formData.message}
+                onChange={handleTextAreaChange}
+                className="custom-text-area"
+                variant="default"
+                required
+            />
 
             <div className="mt-[var(--spacing-md)] flex flex-col gap-[var(--spacing-xs)]">
                 <Button type="submit" variant="primary">

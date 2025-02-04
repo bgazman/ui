@@ -4,7 +4,8 @@ import AnimatedSection from '@components/animated-section';
 import Button from '@components/button.tsx';
 import ComponentPreview from '@components/component-preview.tsx';
 import { ChevronRight, Code, Workflow, Lock } from "lucide-react";
-import GridExample from '@pages/docs/examples/grid-example?raw';
+import GridExample from '@pages/docs/examples/grid-example';
+import gridExampleSource from '@pages/docs/examples/grid-example?raw';
 
 const Hero: React.FC = () => {
     const features = [
@@ -12,18 +13,6 @@ const Hero: React.FC = () => {
         { icon: Workflow, label: 'Agile Process' },
         { icon: Lock, label: 'Enterprise Security' }
     ];
-
-    const sourceCode = `
-function optimizePerformance(code) {
-  const analysis = performStaticAnalysis(code);
-  const optimized = applyOptimizations(analysis);
-  return deployToProduction(optimized);
-}
-
-// Implementing next-gen solutions
-const result = optimizePerformance(
-  customerCode
-);`;
 
     return (
         <AnimatedSection
@@ -66,15 +55,8 @@ const result = optimizePerformance(
                         </div>
                     </Box>
 
-                    <ComponentPreview title="Code Example" description="Example of performance optimization code" sourceCode={sourceCode}>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-button rounded-lg opacity-10 blur-2xl"></div>
-                            <div className="relative bg-bg-secondary p-lg rounded-lg border border-border">
-                                <pre className="text-left font-mono text-sm text-text-secondary overflow-x-auto">
-                                    <code>{GridExample}</code>
-                                </pre>
-                            </div>
-                        </div>
+                    <ComponentPreview title="Code Example" description="Example of performance optimization code" sourceCode={gridExampleSource}>
+                        <GridExample />
                     </ComponentPreview>
                 </div>
             </div>

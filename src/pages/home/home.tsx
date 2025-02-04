@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mainNavItems, footerNavItems } from './data/nav-items.ts';
 import LandingLayout from '@layout/landing-layout/landing-layout';
 import Box from '@components/box';
@@ -7,27 +7,7 @@ import Grid from '@components/grid';
 import Hero from './hero.tsx';
 import Statistic from "@components/statistic.tsx";
 import CTASection from "@pages/home/cta-section.tsx";
-
-// const ComponentExamples: React.FC = () => {
-//     const cards = Array.from({ length: 9 }, (_, index) => (
-//         <Card key={index}>
-//             <h3 className="text-lg font-bold">Card Example {index + 1}</h3>
-//             <p className="text-md">This is an example of a default card.</p>
-//         </Card>
-//     ));
-//
-//     return (
-//         <AnimatedSection id='component-examples' title='Component Examples' description='Explore our various components in action.'
-//                          className="bg-bg-alt2 text-text-primary p-4">
-//             <div className="flex justify-center">
-//                 <Grid columns={3} gap="1.5rem" className="mt-8">
-//                     {cards}
-//                 </Grid>
-//             </div>
-//         </AnimatedSection>
-//     );
-// };
-
+import TabMenu, { TabItem } from "@components/tab-menu.tsx";
 
 const Features: React.FC = () => {
     return (
@@ -48,8 +28,6 @@ const Features: React.FC = () => {
     );
 };
 
-
-// Add this new section to the HomePage component
 const StatisticsSection: React.FC = () => {
     return (
         <AnimatedSection id='statistics' title='Our Statistics' description='Key metrics that define our success.' className="bg-bg-alt text-text-primary p-4">
@@ -65,6 +43,7 @@ const StatisticsSection: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
+
     return (
         <LandingLayout
             headerNavItems={mainNavItems}
@@ -74,7 +53,7 @@ const HomePage: React.FC = () => {
             <Box className="space-y-16 sm:space-y-20">
                 <Hero />
                 <Features />
-                <StatisticsSection /> {/* Add the new section here */}
+                <StatisticsSection />
                 <CTASection />
             </Box>
         </LandingLayout>

@@ -52,7 +52,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
                 onClick={handleClick}
             >
                 {item.href ? (
-                    <LinkComponent href={item.href} className="text-[var(--sidebar-text-color)]">
+                    <LinkComponent href={item.href} className="text-text-primary">
                         {item.label}
                     </LinkComponent>
                 ) : (

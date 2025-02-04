@@ -51,6 +51,7 @@
     --font-family-mono: "Fira Code", monospace;
 
     /* 📏 Spacing */
+    --spacing-xs2: 0.125rem;
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;

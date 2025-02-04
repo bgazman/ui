@@ -1,29 +1,32 @@
 .theme-container[data-theme="light"] {
-    /* Override or tweak whichever variables differ from the defaults: */
+    /* Background Colors */
+    --bg-primary: #f8f9fa; /* Light neutral background */
+    --bg-secondary: #e9ecef; /* Slightly darker than primary for sections */
+    --bg-alt1: #dee2e6; /* Alternative light gray */
+    --bg-alt2: #ced4da; /* Muted gray */
 
-    --bg-primary: #e4dede;
-    --bg-secondary: #0056b3;
-    --bg-alt1: #8a98a5;  /* same as root, but can override if needed */
-    --bg-alt2: #dee2e6;  /* same as root, but can override if needed */
-    --text-primary: #212529;
-    --text-secondary: #ffffff;
+    /* Text Colors */
+    --text-primary: #212529; /* Standard dark text */
+    --text-secondary: #495057; /* Muted text */
 
-    --border-color: #8a98a5;
-    --sidebar-border-color: #ced4da;
-    --sidebar-bg-color: #e4dede;
+    /* Borders */
+    --border-color: #ced4da;
+    --sidebar-border-color: #adb5bd;
+    --sidebar-bg-color: #ffffff; /* White sidebar for clarity */
 
+    /* Header & Footer */
+    --header-bg-color: #ffffff; /* Standard white header */
+    --header-text-color: #212529;
     --footer-bg-color: #f8f9fa;
-    --footer-text-color: #212529;
+    --footer-text-color: #6c757d;
 
-    --header-bg-color: #0056b3;
-    --header-text-color: #ffffff;
-
-    --button-bg-color: #007bff;
+    /* Buttons */
+    --button-bg-color: #0d6efd; /* Bootstrap standard primary blue */
     --button-text-color: #ffffff;
-    --button-hover-bg-color: #0056b3;
+    --button-hover-bg-color: #0b5ed7; /* Darker blue on hover */
     --button-hover-text-color: #ffffff;
 
-    --button-secondary-bg-color: #6c757d;
+    --button-secondary-bg-color: #6c757d; /* Standard gray secondary */
     --button-secondary-text-color: #ffffff;
     --button-secondary-hover-bg-color: #5a6268;
     --button-secondary-hover-text-color: #ffffff;
@@ -31,8 +34,8 @@
     --button-disabled-bg-color: #d6d6d6;
     --button-disabled-text-color: #a1a1a1;
 
-    /* Font overrides for the light theme, if you truly want them different: */
---font-family-sans: "Roboto", sans-serif;
-    --font-family-serif: "Times New Roman", serif;
-    --font-family-mono: "Courier New", monospace;
+    /* Fonts */
+    --font-family-sans: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    --font-family-serif: "Merriweather", "Times New Roman", serif;
+    --font-family-mono: "Fira Code", "Courier New", monospace;
 }

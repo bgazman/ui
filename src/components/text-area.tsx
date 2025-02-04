@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 
 interface TextAreaProps {
     label?: string;
@@ -8,37 +7,58 @@ interface TextAreaProps {
     variant?: "default" | "error" | "success" | "disabled";
     className?: string;
     value?: string;
+    rows?: number;
+    name: string;  // Added this as required
+    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    required?: boolean;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
-    label,
-    placeholder = "Enter text...",
-    footer,
-    variant = "default",
-    className,
-    value
-}) => {
+                                               label,
+                                               placeholder = "Enter text...",
+                                               footer,
+                                               variant = "default",
+                                               className = "",
+                                               value,
+                                               rows = 3,
+                                               name,
+                                               onChange,
+                                               required
+                                           }) => {
+    const baseClasses = "w-full rounded-md border outline-none transition-all duration-fast ease-in-out resize-none p-md";
+
+    const variantClasses = {
+        default: "border-border bg-bg-primary text-text-primary focus:ring-2 focus:ring-button-hover",
+        error: "border-[var(--border-color-error)] text-[var(--text-error)] bg-[var(--bg-error)] focus:ring-2 focus:ring-[var(--border-color-error)]",
+        success: "border-[var(--border-color-success)] text-[var(--text-success)] bg-[var(--bg-success)] focus:ring-2 focus:ring-[var(--border-color-success)]",
+        disabled: "bg-button-disabled text-button-disabled-text cursor-not-allowed opacity-50"
+    };
+
     return (
         <div className="flex flex-col w-full">
-            {label && <label className="text-text-primary mb-1 font-medium">{label}</label>}
+            {label && (
+                <label htmlFor={name} className="mb-1 text-text-primary font-medium">
+                    {label}
+                </label>
+            )}
 
             <textarea
-                className={clsx(
-                    "w-full p-md rounded-md border text-text-primary bg-bg-primary outline-none transition-all duration-fast ease-in-out",
-                    {
-                        "border-border focus:ring-2 focus:ring-button-hover": variant === "default",
-                        "border-[var(--border-color-error)] text-[var(--text-error)] bg-[var(--bg-error)] focus:ring-[var(--border-color-error)]": variant === "error",
-                        "border-[var(--border-color-success)] text-[var(--text-success)] bg-[var(--bg-success)] focus:ring-[var(--border-color-success)]": variant === "success",
-                        "bg-button-disabled text-button-disabled-text cursor-not-allowed opacity-50": variant === "disabled",
-                    },
-                    className
-                )}
+                id={name}
+                name={name}
+                className={`${baseClasses} ${variantClasses[variant]} ${className}`}
                 placeholder={placeholder}
                 disabled={variant === "disabled"}
                 value={value}
+                rows={rows}
+                onChange={onChange}
+                required={required}
             />
 
-            {footer && <div className="mt-2 text-sm text-text-secondary">{footer}</div>}
+            {footer && (
+                <div className="mt-2 text-sm text-text-secondary">
+                    {footer}
+                </div>
+            )}
         </div>
     );
 };
