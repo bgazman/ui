@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '@components/card/card.tsx';
-import Grid from '@components/grid/grid.tsx';
+import {Card} from '@components/card.tsx';
+import Grid from '@components/grid.tsx';
 
 export interface TeamMember {
     name: string;

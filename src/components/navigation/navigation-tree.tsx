@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import LinkComponent from "@components/link/link";
+import LinkComponent from "@components/link.tsx";
 import { NavItem } from "@components/navigation/navigation";
 
-interface NavigationTreeProps {
+export interface NavigationTreeProps {
     data: NavItem[];
     level?: number;
 }
 
 const NavigationTreeComponent: React.FC<NavigationTreeProps> = ({ data, level = 0 }) => {
     return (
-        <div className="nav-tree">
+        <div className="flex flex-col">
             {data.map((item, index) => (
                 <NavigationTreeNode key={index} item={item} level={level} />
             ))}
@@ -21,15 +21,13 @@ const NavigationTreeComponent: React.FC<NavigationTreeProps> = ({ data, level = 
 const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, level }) => {
     const [isOpen, setIsOpen] = useState(false);
     const hasChildren = item.children && item.children.length > 0;
-
-    // Calculate left indentation based on nesting level using your CSS var for spacing
     const paddingLeft = `calc(${level + 1} * var(--spacing-md))`;
 
     return (
         <div>
             {hasChildren ? (
                 <div
-                    className="nav-tree__node"
+                    className="flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)] hover:bg-[var(--bg-alt1)]"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <span>{item.label}</span>
@@ -38,7 +36,7 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
             ) : (
                 <LinkComponent
                     href={item.href || "#"}
-                    className="nav-tree__link"
+                    className="block px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)] hover:bg-[var(--button-hover-bg-color)] hover:text-[var(--button-hover-text-color)]"
                 >
                     {item.label}
                 </LinkComponent>

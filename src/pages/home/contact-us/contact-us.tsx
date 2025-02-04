@@ -1,8 +1,8 @@
 import React from 'react';
-import Section from '@components/section/section.tsx';
-import Form from '@components/form/form.tsx';
+import Section from '@components/section.tsx';
+import Form from '@components/form.tsx';
 import Box from '@components/box.tsx';
-import AnimatedSection from "@components/animated-section/animated-section.tsx";
+import AnimatedSection from "@components/animated-section.tsx";
 
 interface ContactUsProps {
     id?: string;

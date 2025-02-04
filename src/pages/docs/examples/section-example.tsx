@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '@components/section/section';
+import Section from '@components/section.tsx';
 
 const SectionExample: React.FC = () => (
     <Section id="example-section" title="Example Section" description="This is an example section.">

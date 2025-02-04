@@ -1,18 +1,18 @@
 import React from 'react';
-import { mockFooterData } from './data/footer-data';
-import { mockHeaderData } from './data/header-data';
+import { mainNavItems,footerNavItems } from './data/nav-items.ts';
 import { aboutUsData } from './data/about-us-data';
-import LandingLayout from '@layout/landing-layout/landing-layout';
-import Features from './features/features.tsx';
+import  LandingLayout  from '@layout/landing-layout/landing-layout';
+import Features from './features/features';
 import AboutUs from '@pages/home/about-us/about-us';
 import ContactUs from '@pages/home/contact-us/contact-us';
 import Box from '@components/box';
 import { Github, ChevronRight } from 'lucide-react';
-import Button from "@components/button/button.tsx";
+import { Button } from "@components/button";
+import AnimatedSection from "@components/animated-section";
 
 const Hero: React.FC = () => {
     return (
-        <div className="hero">
+        <AnimatedSection id='hero'>
             <div className="hero-container">
                 <div className="hero-text">
                     <h1 className="hero-title">
@@ -28,13 +28,12 @@ const Hero: React.FC = () => {
                             Get Started
                             <ChevronRight className="hero-button-icon" />
                         </Button>
-                        <button className="hero-button hero-button-secondary">
+                        <Button variant="secondary" className="hero-button">
                             <Github className="hero-button-icon" />
                             GitHub
-                        </button>
+                        </Button>
                     </div>
 
-                    {/* Stats Section */}
                     <div className="stats">
                         <div className="stats-item">
                             <div className="stats-value">50+</div>
@@ -51,18 +50,18 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </AnimatedSection>
     );
 };
 
 const HomePage: React.FC = () => {
     return (
         <LandingLayout
-            headerData={mockHeaderData}
-            footerData={mockFooterData}
+            headerNavItems={mainNavItems}
+            footerNavItems={footerNavItems}
         >
-            <Hero />
-            <Box className="space-y-16 sm:space-y-20" style={{ maxWidth: '90%', margin: '0 auto' }}>
+            <Box className="space-y-16 sm:space-y-20">
+                <Hero />
                 <Features />
                 <AboutUs {...aboutUsData} />
                 <ContactUs

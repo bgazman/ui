@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import LinkComponent from "@components/link/link";
+import LinkComponent from "@components/link.tsx";
 import { NavItem, VerticalNavigationVariant } from "@components/navigation/navigation";
 
 export interface VerticalNavigationProps {
@@ -12,12 +12,12 @@ export interface VerticalNavigationProps {
 const VerticalNavigation: React.FC<VerticalNavigationProps> = ({
                                                                    navItems,
                                                                    variant = "default",
-                                                                   className,
+                                                                   className = "",
                                                                }) => {
-    const combinedClassName = `vertical-nav ${className || ""}`.trim();
-
     return (
-        <nav className={combinedClassName}>
+        <nav
+            className={`shadow-lg p-[var(--spacing-md)] rounded-[var(--border-radius-md)] w-[var(--sidebar-width)] bg-[var(--bg-primary)] ${className}`}
+        >
             {navItems.map((item) => (
                 <TreeNode key={item.label} item={item} level={0} variant={variant} />
             ))}
@@ -43,34 +43,35 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
 
     return (
         <div
-            className="vertical-nav__node"
+            className="flex flex-col relative"
             onMouseEnter={() => variant === "compact" && setIsOpen(true)}
             onMouseLeave={() => variant === "compact" && setIsOpen(false)}
         >
-            <div className="vertical-nav__node-content" onClick={handleClick}>
+            <div
+                className="flex items-center gap-[var(--spacing-xs)] cursor-pointer px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)] hover:bg-[var(--bg-alt1)]"
+                onClick={handleClick}
+            >
                 {item.href ? (
-                    <LinkComponent href={item.href} className="vertical-nav__node-link">
+                    <LinkComponent href={item.href} className="text-[var(--sidebar-text-color)]">
                         {item.label}
                     </LinkComponent>
                 ) : (
-                    <span className="vertical-nav__node-label">{item.label}</span>
+                    <span className="text-[var(--sidebar-text-color)]">{item.label}</span>
                 )}
                 {hasChildren && variant !== "compact" && (
-                    <span className="vertical-nav__toggle-icon">
+                    <span className="transition-transform">
             {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
           </span>
                 )}
             </div>
             {hasChildren && (variant === "expanded" || isOpen) && (
                 <div
-                    className={`vertical-nav__dropdown ${
-                        variant === "compact" ? "vertical-nav__dropdown--compact" : ""
+                    className={`bg-[var(--bg-primary)] ${
+                        variant === "compact"
+                            ? "absolute left-full top-0 shadow-md rounded-[var(--border-radius-md)] w-48 z-50"
+                            : ""
                     }`}
-                    style={
-                        variant !== "compact"
-                            ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` }
-                            : {}
-                    }
+                    style={variant !== "compact" ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` } : {}}
                 >
                     {item.children?.map((child, index) => (
                         <TreeNode

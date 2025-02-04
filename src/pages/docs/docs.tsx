@@ -1,14 +1,12 @@
 import React from 'react';
 import DocsLayout from '@layout/docs-layout/docs-layout';
-import { mockHeaderData } from './data/header-data';
-import { mockFooterData } from './data/footer-data';
-import { mockSidebarData } from './data/sidebar-data';
+import {docsFooterItems, docsHeaderItems, docsSidebarItems,} from './data/nav-items';
 
 import { docsSectionList } from './data/docs-section-data';
 
 import Box from '@components/box';
-import AnimatedSection from '@components/animated-section/animated-section';
-import ComponentPreview from '@components/preview/component-preview';
+import AnimatedSection from '@components/animated-section.tsx';
+import ComponentPreview from '@components/component-preview.tsx';
 import CardExample from '@pages/docs/examples/card-example';
 import SectionExample from '@pages/docs/examples/section-example';
 import GridExample from '@pages/docs/examples/grid-example';
@@ -21,13 +19,12 @@ import TabMenuExample from '@pages/docs/examples/tab-menu-example';
 import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example';
 import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example';
 
-
 const DocsPage: React.FC = () => {
     return (
         <DocsLayout
-            headerData={mockHeaderData}
-            footerData={mockFooterData}
-            sidebarData={mockSidebarData}
+            headerNavItems={docsHeaderItems}
+            footerNavItems={docsFooterItems}
+            sidebarItems={docsSidebarItems}
         >
             <Box className="space-y-16 sm:space-y-20">
                 {docsSectionList.map((section) => (
@@ -37,7 +34,7 @@ const DocsPage: React.FC = () => {
                         title={section.title}
                         description={section.description}
                         variant="left"
-                        className="animated-section-border" // Apply the CSS class
+                        className="animated-section-border"
                     >
                         {section.id === 'card-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">

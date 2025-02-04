@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@components/card/card.tsx';
+import {Card} from '@components/card.tsx';
 
 interface MissionProps {
     mission: string;

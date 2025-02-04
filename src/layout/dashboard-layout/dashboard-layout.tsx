@@ -1,55 +1,52 @@
 import React, { useState } from 'react';
-import Header, { HeaderProps } from '@components/header/header';
-import Sidebar, { SidebarProps } from '@components/sidebar/sidebar';
-import Footer, { FooterProps } from '@components/footer/footer';
-import Main from '@components/main/main';
-import './dashboard-layout.css';
+import Header from '@components/header';
+import Sidebar from '@components/sidebar';
+import Footer from '@components/footer';
+import { NavItem } from '@components/navigation/navigation';
+import Main from "@components/main.tsx";
 
 interface DashboardLayoutProps {
-    headerData: HeaderProps;
-    sidebarData: SidebarProps['sidebarData'];
-    footerData?: FooterProps;
     children: React.ReactNode;
+    headerNavItems: NavItem[];
+    sidebarItems: NavItem[];
+    footerNavItems: NavItem[];
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({
-                                                             headerData,
-                                                             sidebarData,
-                                                             footerData,
-                                                             children,
+                                                             headerNavItems,
+                                                             footerNavItems,
+                                                             sidebarItems,
+                                                             children
                                                          }) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const handleToggleSidebar = () => {
-        setIsSidebarOpen((prev) => !prev);
-    };
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     return (
-        <div className="dashboard-layout">
-            {/* Sticky Header with hamburger toggler */}
+        <div className="min-h-screen">
+            {/* ✅ Fixed Header: Does not move */}
             <Header
-                {...headerData}
-                showSidebarToggle={true}
+                position="fixed"
+                headerNavItems={headerNavItems}
+                showSidebarToggle
                 isSidebarOpen={isSidebarOpen}
-                onToggleSidebar={handleToggleSidebar}
-                className="dashboard-layout__header"
+                onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="w-full transition-all"
             />
-
-            {/* Overlay Sidebar, toggles in/out */}
-            <Sidebar
-                sidebarData={sidebarData}
-                className={`dashboard-layout__sidebar ${isSidebarOpen ? 'open' : ''}`}
-            />
-
-            {/* Main content */}
-            <Main className="dashboard-layout__main">
-                {children}
-            </Main>
-
-            {/* Optional footer */}
-            {footerData && (
-                <Footer {...footerData} className="dashboard-layout__footer" />
-            )}
+            <div className="flex">
+                {/* ✅ Sidebar: Fixed width to prevent header shifting */}
+                <Sidebar
+                    position="fixed"
+                    sidebarData={sidebarItems}
+                    isOpen={isSidebarOpen}
+                    className="h-screen bg-[var(--sidebar-bg-color)] w-64"
+                />
+                {/* ✅ Corrected Content Shifting */}
+                <div className={`flex-1 flex flex-col min-h-screen transition-all ${isSidebarOpen ? 'ml-0' : '-ml-64'}`}>
+                    <Main className="flex-1 p-6 mt-[var(--header-height)] bg-[var(--bg-color)]">
+                        {children}
+                    </Main>
+                    <Footer footerNavItems={footerNavItems} />
+                </div>
+            </div>
         </div>
     );
 };

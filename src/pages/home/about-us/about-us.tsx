@@ -3,8 +3,8 @@ import Stats, { Stat } from './stats.tsx';
 import Mission from './mission.tsx';
 import Vision from './vision.tsx';
 import Team, { TeamMember } from './team.tsx';
-import Grid from '@components/grid/grid.tsx';
-import AnimatedSection from "@components/animated-section/animated-section.tsx";
+import Grid from '@components/grid.tsx';
+import AnimatedSection from "@components/animated-section.tsx";
 
 export interface AboutUsProps {
     id?: string;

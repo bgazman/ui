@@ -1,5 +1,0 @@
-/* Tab Menu Container */
-.tab-menu {
-    @apply flex p-[var(--spacing-md)] border-b border-[var(--border-color)];
-    }
-

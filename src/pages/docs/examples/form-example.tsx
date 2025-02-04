@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '@components/form/form';
+import Form from '@components/form.tsx';
 
 const FormExample: React.FC = () => {
     const handleSubmit = (data: Record<string, string>) => {

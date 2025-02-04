@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@components/grid/grid';
+import Grid from '@components/grid.tsx';
 import Box from '@components/box';
 
 const GridExample: React.FC = () => (

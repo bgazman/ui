@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@components/card/card';
+import {Card} from '@components/card.tsx';
 
 const CardExample: React.FC = () => (
     <Card title="Card Title" description="This is a description.">

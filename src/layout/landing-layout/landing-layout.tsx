@@ -1,54 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import Header, { HeaderProps } from '@components/header/header';
-import Footer, { FooterProps } from '@components/footer/footer';
-import Main from '@components/main/main';
+// landing-layout.tsx
+import React from 'react';
+import Header from '@components/header';
+import Footer from '@components/footer';
+import { NavItem } from '@components/navigation/navigation';
 
 interface LandingLayoutProps {
-    headerData: HeaderProps;
-    footerData: FooterProps;
     children: React.ReactNode;
+    headerNavItems: NavItem[];
+    footerNavItems: NavItem[];
 }
 
-const LandingLayout: React.FC<LandingLayoutProps> = ({
-                                                         headerData,
-                                                         footerData,
-                                                         children,
-                                                     }) => {
-    const [showFooter, setShowFooter] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrolled = window.scrollY;
-            const viewportHeight = window.innerHeight;
-            const totalHeight = document.documentElement.scrollHeight;
-
-            setShowFooter(scrolled + viewportHeight >= totalHeight - 10);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
+export const LandingLayout: React.FC<LandingLayoutProps> = ({
+                                                                children,
+                                                                headerNavItems,
+                                                                footerNavItems
+                                                            }) => {
     return (
-        <div className="theme-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div className="min-h-screen flex flex-col">
             <Header
-                {...headerData}
-                className="header"
+                position="fixed"
+                headerNavItems={headerNavItems}
             />
-
-            <Main
-                className="landing-layout__main flex-grow"
-
-            >
+            <main className="flex-1 mt-[var(--header-height)]">
                 {children}
-            </Main>
-
+            </main>
             <Footer
-                {...footerData}
-                className="landing-layout__footer"
+                footerNavItems={footerNavItems}
+                socialLinks={{
+                    twitter: 'https://twitter.com',
+                    linkedin: 'https://linkedin.com'
+                }}
             />
         </div>
     );
 };
-
 export default LandingLayout;
