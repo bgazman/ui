@@ -26,7 +26,7 @@ const TabMenu: React.FC<TabMenuProps> = ({
         <Box
             as="div"
             style={style}
-            className={`flex space-x-[var(--spacing-md)] border-b border-[var(--border-color)] ${className}`}
+            className={`flex   border-[var(--border-color)] ${className}`}
         >
             {items.map((item) => (
                 <Button
@@ -34,9 +34,9 @@ const TabMenu: React.FC<TabMenuProps> = ({
                     onClick={() => setActiveTab(item.value)}
                     variant="tab"
                     isActive={activeTab === item.value}
-                    className={`py-[var(--spacing-sm)] ${
+                    className={`py-[var(--spacing-sm)]  ${
                         activeTab === item.value
-                            ? "border-b-2 border-[var(--button-bg-color)]"
+                            ? "border-b-4 border-bg-primary"
                             : ""
                     }`}
                 >

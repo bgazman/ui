@@ -7,14 +7,37 @@ const TextAreaExample: React.FC = () => {
     return (
         <div className="text-area-example">
             <TextArea
-                id="example-text-area"
-                name="example-text-area"
+                label="Default"
                 placeholder="Enter some text..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                required
                 className="custom-text-area"
-                theme="light"
+                variant="default"
+            />
+            <TextArea
+                label="Error"
+                placeholder="Enter some text..."
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                className="custom-text-area"
+                variant="error"
+            />
+            <TextArea
+                label="Success"
+                placeholder="Enter some text..."
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                className="custom-text-area"
+                variant="success"
+            />
+            <TextArea
+                label="Disabled"
+                placeholder="Enter some text..."
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                className="custom-text-area"
+                variant="disabled"
+                disabled
             />
         </div>
     );

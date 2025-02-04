@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Box from "@components/box.tsx";
 import TabMenu from "@components/tab-menu.tsx";
-import  Card from "@components/card.tsx";
+import Card from "@components/card.tsx";
 import Button from "@components/button.tsx";
 import TextArea from "@components/text-area.tsx";
 import { Check, Copy } from "lucide-react";
@@ -39,7 +39,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
 
     return (
         <div
-            className={`flex flex-col gap-[var(--spacing-md)] w-full p-[var(--spacing-md)] bg-[var(--bg-primary)] rounded-[var(--border-radius-lg)] ${className}`}
+            className={`flex flex-col gap-md w-full p-md bg-bg-primary rounded-lg ${className}`}
             style={{
                 outline: "3px solid var(--border-color)",
                 outlineOffset: "10px",
@@ -47,22 +47,29 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
             }}
         >
             {(title || description) && (
-                <div className="flex flex-col mb-[var(--spacing-sm)]">
+                <div className="flex flex-col mb-sm">
                     {title && <h3 className="text-sm font-medium">{title}</h3>}
                     {description && <p className="text-sm">{description}</p>}
                 </div>
             )}
+
+            {/* Tab Menu */}
             <TabMenu items={tabItems} activeTab={activeTab} setActiveTab={setActiveTab} />
-            <div className="flex flex-col md:flex-row gap-[var(--spacing-md)] justify-center">
+
+            {/* Preview and Code Sections */}
+            <div className="flex flex-col md:flex-row gap-md justify-center">
                 {activeTab === "code" ? (
                     <Card
                         title="Source Code"
-                        className="relative overflow-hidden rounded-lg p-[var(--spacing-lg)] border border-[var(--border-color)]"
+                        variant="outlined"
+                        className="relative overflow-hidden rounded-lg p-lg border border-border"
                     >
-                        <div className="flex justify-between items-center p-2 border-b border-b-[var(--border-color)]">
+                        {/* Button for Copying Code */}
+                        <div className="flex justify-between items-center p-2 border-b border-border">
                             <Button
                                 onClick={handleCopyCode}
-                                className="inline-flex items-center px-3 py-1 text-sm font-medium border rounded-md shadow-sm hover:bg-[var(--button-hover-bg-color)] focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                variant="secondary"
+                                className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md shadow-sm"
                             >
                                 {isCopied ? (
                                     <>
@@ -77,6 +84,8 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
                                 )}
                             </Button>
                         </div>
+
+                        {/* Code Display */}
                         <TextArea
                             id="sourceCode"
                             name="sourceCode"

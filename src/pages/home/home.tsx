@@ -4,7 +4,6 @@ import LandingLayout from '@layout/landing-layout/landing-layout';
 import Box from '@components/box';
 import AnimatedSection from '@components/animated-section';
 import Grid from '@components/grid';
-import  Card  from '@components/card';
 import Hero from './hero.tsx';
 import Statistic from "@components/statistic.tsx";
 import CTASection from "@pages/home/cta-section.tsx";
