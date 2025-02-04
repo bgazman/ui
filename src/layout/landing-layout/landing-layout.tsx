@@ -5,9 +5,10 @@ import Footer from '@components/footer';
 import { NavItem } from '@components/navigation/navigation';
 
 interface LandingLayoutProps {
-    children: React.ReactNode;
     headerNavItems: NavItem[];
     footerNavItems: NavItem[];
+    className?: string; // Add this line
+    children: React.ReactNode;
 }
 
 export const LandingLayout: React.FC<LandingLayoutProps> = ({

@@ -58,8 +58,10 @@ export const dashboardNavItems: NavItem[] = [
 ];
 
 export const dashboardHeaderItems: NavItem[] = [
-    { label: 'Search', href: '/dashboard/search' },
-    { label: 'Help', href: '/dashboard/help' }
+    { label: 'Home', href: '/' },
+    { label: 'Documentation', href: '/' },
+    { label: 'Dashboard', href: '/' }
+
 ];
 
 export const dashboardFooterItems: NavItem[] = [

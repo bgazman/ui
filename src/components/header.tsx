@@ -1,6 +1,6 @@
 import React from "react";
 import ThemeSwitcher from "@components/theme-switcher.tsx";
-import { Button } from "@components/button.tsx";
+import Button from "@components/button.tsx";
 import { Menu, X } from "lucide-react";
 import { NavItem } from "@components/navigation/navigation.tsx";
 import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";

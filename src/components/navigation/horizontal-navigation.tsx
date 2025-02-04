@@ -43,12 +43,11 @@ const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({
                     </LinkComponent>
 
                     {item.children && openDropdown === item.label && (
-                        <div className="absolute top-full left-0 bg-white min-w-[200px] border border-gray-300 shadow-lg rounded-md p-2 z-10">
+                        <div >
                             {item.children.map((child) => (
                                 <LinkComponent
                                     key={child.label}
                                     href={child.href || "#"}
-                                    className="block px-4 py-2 hover:bg-gray-100 rounded-md"
                                 >
                                     {child.label}
                                 </LinkComponent>

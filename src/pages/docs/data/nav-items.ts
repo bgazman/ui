@@ -2,10 +2,10 @@
 import { NavItem } from '@components/navigation/navigation';
 
 export const docsHeaderItems: NavItem[] = [
+
+    { label: 'Home', href: '/' },
     { label: 'Documentation', href: '/docs' },
-    { label: 'API', href: '/api' },
-    { label: 'Examples', href: '/examples' },
-    { label: 'Community', href: '/community' }
+    { label: 'Dashboard', href: '/dashboard' },
 ];
 
 export const docsSidebarItems: NavItem[] = [

@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@components/box.tsx";
-import { Button } from "@components/button.tsx";
+import Button  from "@components/button.tsx";
 
 export type TabItem = {
     label: React.ReactNode;

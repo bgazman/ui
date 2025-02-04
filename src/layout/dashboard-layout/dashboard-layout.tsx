@@ -13,16 +13,15 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({
-                                                             headerNavItems,
-                                                             footerNavItems,
-                                                             sidebarItems,
-                                                             children
-                                                         }) => {
+    headerNavItems,
+    footerNavItems,
+    sidebarItems,
+    children
+}) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     return (
-        <div className="min-h-screen">
-            {/* ✅ Fixed Header: Does not move */}
+        <div>
             <Header
                 position="fixed"
                 headerNavItems={headerNavItems}
@@ -32,15 +31,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                 className="w-full transition-all"
             />
             <div className="flex">
-                {/* ✅ Sidebar: Fixed width to prevent header shifting */}
                 <Sidebar
                     position="fixed"
                     sidebarData={sidebarItems}
                     isOpen={isSidebarOpen}
                     className="h-screen bg-[var(--sidebar-bg-color)] w-64"
                 />
-                {/* ✅ Corrected Content Shifting */}
-                <div className={`flex-1 flex flex-col min-h-screen transition-all ${isSidebarOpen ? 'ml-0' : '-ml-64'}`}>
+                <div className={`flex-1 flex flex-col transition-all ${isSidebarOpen ? 'ml-0' : '-ml-64'}`}>
                     <Main className="flex-1 p-6 mt-[var(--header-height)] bg-[var(--bg-color)]">
                         {children}
                     </Main>
@@ -50,5 +47,4 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         </div>
     );
 };
-
 export default DashboardLayout;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputField } from "@components/input-field.tsx";
 import TextAreaField from "@components/text-area.tsx";
-import { Button } from "@components/button.tsx";
+import  Button from "@components/button.tsx";
 
 export type FormVariant = "default" | "centered" | "compact";
 

@@ -7,24 +7,25 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
     alignItems?: 'start' | 'center' | 'end' | 'stretch';
     justifyItems?: 'start' | 'center' | 'end' | 'stretch';
     justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
-    className?: string | 'grid';
+    className?: string;
 }
 
 const Grid = forwardRef<HTMLDivElement, GridProps>(({
-                                                        children,
-                                                        columns = 1,
-                                                        gap = '1rem',
-                                                        alignItems = 'stretch',
-                                                        justifyItems = 'stretch',
-                                                        justifyContent = 'start',
-                                                        className = 'grid',
-                                                        style,
-                                                        ...rest
-                                                    }, ref) => (
+    children,
+    columns = 1,
+    gap = '1rem',
+    alignItems = 'stretch',
+    justifyItems = 'stretch',
+    justifyContent = 'start',
+    className = '',
+    style,
+    ...rest
+}, ref) => (
     <div
         ref={ref}
-        className={className}
+        className={`grid ${className}`}
         style={{
+            display: 'grid',
             gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
             gap,
             alignItems,

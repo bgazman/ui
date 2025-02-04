@@ -4,6 +4,8 @@ import Section from "@components/section.tsx";
 export interface AnimateSectionProps {
     id?: string;
     title?: string;
+    subtitle?: string;
+
     description?: string;
     children: React.ReactNode;
     className?: string;
@@ -12,8 +14,6 @@ export interface AnimateSectionProps {
 
 const AnimatedSection: React.FC<AnimateSectionProps> = ({
                                                             id,
-                                                            title,
-                                                            description,
                                                             children,
                                                             className = "",
                                                             variant = "center",
@@ -64,9 +64,7 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
                 isVisible ? visibleStyles : ""
             } ${className}`}
         >
-            <Section id={id} title={title} description={description}>
                 {children}
-            </Section>
         </div>
     );
 };

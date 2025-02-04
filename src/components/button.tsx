@@ -1,60 +1,47 @@
-import React from "react";
-import clsx from "clsx";
+import React from 'react';
 
-export type ButtonVariant = "primary" | "secondary" | "disabled" | "tab";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = 'primary' | 'secondary' | 'disabled' | 'large' | 'small' | 'tab';
 
-export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps {
+    type?: 'button' | 'submit' | 'reset';
+    children: React.ReactNode;
+    onClick?: () => void;
+    className?: string;
+    disabled?: boolean;
     variant?: ButtonVariant;
-    size?: ButtonSize;
+    isActive?: boolean;
 }
 
-/**
- * Button Component
- * - variant: "primary", "secondary", "disabled"
- * - size: "sm", "md", "lg"
- */
-export const Button: React.FC<ButtonProps> = ({
-                                                  variant = "primary",
-                                                  size = "md",
-                                                  className,
-                                                  disabled,
-                                                  children,
-                                                  ...rest
-                                              }) => {
-    // Common base styles for all buttons
-    const baseStyles = "inline-flex items-center justify-center font-medium rounded-md transition-colors duration-fast";
-
-    // Variant-specific styles
-    const variantStyles: Record<ButtonVariant, string> = {
-        primary: "bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText",
-        secondary: "bg-button-secondary text-button-secondary-text hover:bg-button-secondary-hover hover:text-button-secondary-hoverText",
-        disabled: "bg-button-disabled text-button-disabled-text cursor-not-allowed",
+const Button: React.FC<ButtonProps> = ({
+    type = 'button',
+    children,
+    onClick,
+    className = '',
+    disabled = false,
+    variant = 'primary',
+    isActive = false,
+}) => {
+    const baseClasses = 'px-4 py-2 rounded';
+    const variantClasses = {
+        primary: 'bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText',
+        secondary: 'bg-button-secondary text-button-secondary-text hover:bg-button-secondary-hover hover:text-button-secondary-hoverText',
+        disabled: 'bg-button-disabled text-button-disabled-text cursor-not-allowed',
+        large: 'text-lg bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText',
+        small: 'text-sm bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText',
+        tab: isActive ? 'bg-button text-button-text' : 'bg-button-secondary text-button-secondary-text',
     };
 
-    // Size-specific styles
-    const sizeStyles: Record<ButtonSize, string> = {
-        sm: "px-sm py-xs text-sm",
-        md: "px-md py-sm text-md",
-        lg: "px-lg py-md text-lg",
-    };
-
-    // If the disabled prop is passed, force the disabled variant
-    const finalVariant = disabled ? "disabled" : variant;
+    const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;
 
     return (
         <button
-            className={clsx(
-                baseStyles,
-                variantStyles[finalVariant],
-                sizeStyles[size],
-                className
-            )}
+            type={type}
+            onClick={onClick}
             disabled={disabled}
-            {...rest}
-        >
+            className={classes}>
             {children}
         </button>
     );
 };
+
+export default Button;

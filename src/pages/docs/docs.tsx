@@ -21,11 +21,11 @@ import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-
 
 const DocsPage: React.FC = () => {
     return (
-        <DocsLayout
-            headerNavItems={docsHeaderItems}
-            footerNavItems={docsFooterItems}
-            sidebarItems={docsSidebarItems}
-        >
+<DocsLayout
+    headerData={docsHeaderItems}
+    footerData={docsFooterItems}
+    sidebarData={docsSidebarItems}
+>
             <Box className="space-y-16 sm:space-y-20">
                 {docsSectionList.map((section) => (
                     <AnimatedSection

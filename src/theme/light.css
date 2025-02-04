@@ -3,10 +3,10 @@
 
     --bg-primary: #e4dede;
     --bg-secondary: #0056b3;
-    --bg-alt1: #e9ecef;  /* same as root, but can override if needed */
+    --bg-alt1: #8a98a5;  /* same as root, but can override if needed */
     --bg-alt2: #dee2e6;  /* same as root, but can override if needed */
     --text-primary: #212529;
-    --text-secondary: #495057;
+    --text-secondary: #ffffff;
 
     --border-color: #8a98a5;
     --sidebar-border-color: #ced4da;

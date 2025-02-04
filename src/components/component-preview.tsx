@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Box from "@components/box.tsx";
 import TabMenu from "@components/tab-menu.tsx";
-import { Card } from "@components/card.tsx";
-import { Button } from "@components/button.tsx";
+import  Card from "@components/card.tsx";
+import Button from "@components/button.tsx";
 import TextArea from "@components/text-area.tsx";
 import { Check, Copy } from "lucide-react";
 

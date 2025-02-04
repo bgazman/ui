@@ -38,11 +38,11 @@ const Sidebar: React.FC<SidebarProps> = ({
 
     return (
         <Box as="aside" style={style} className={`${classes.join(' ')} w-64 h-screen bg-[var(--sidebar-bg-color)]`}>
-            {header && <div className="sidebar__header">{header}</div>}
-            <div className="sidebar__body">
+            {header && <div >{header}</div>}
+            <div>
                 <VerticalNavigation navItems={sidebarData} variant="expanded" />
             </div>
-            {footer && <div className="sidebar__footer">{footer}</div>}
+            {footer && <div >{footer}</div>}
         </Box>
     );
 };

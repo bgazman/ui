@@ -31,7 +31,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                 value={value}
                 onChange={onChange}
                 required={required}
-                className="w-full p-[var(--spacing-md)] border border-[var(--border-color)] rounded-[var(--border-radius-md)] shadow-sm transition-colors"
+                className="w-full p-[var(--spacing-md)] bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-[var(--border-radius-md)] shadow-sm transition-colors"
             />
         </div>
     );
