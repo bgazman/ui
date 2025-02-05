@@ -33,9 +33,7 @@ const Button: React.FC<ButtonProps> = ({
             "text-lg bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText": variant === "large",
             "text-sm bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText": variant === "small",
             "bg-button text-button-secondary-text rounded": variant === "tab" && isActive,
-            "bg-button text-button-text border-b-4 border-bg-primary": variant === "tab" && !isActive, // Keep bottom border
-            "rounded-b-lg": variant === "tab" && !isActive, // Maintain rounded corners
-            "overflow-hidden": variant === "tab", // Prevent border from cutting off radius
+            "bg-button text-button-text border-b-4 border-r-5 border-bg-alt1 rounded-b-none": variant === "tab" && !isActive,
         },
         className
     );

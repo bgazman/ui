@@ -39,13 +39,14 @@ const Header: React.FC<HeaderProps> = ({
                 <div className="flex items-center space-x-3">
                     {showSidebarToggle && (
                         <Button
+                            variant="primary"
                             onClick={onToggleSidebar}
-                            className="inline-flex items-center bg-transparent border-none cursor-pointer"
+                            className="inline-flex text-text-secondary items-center bg-transparent border-none cursor-pointer"
                         >
-                            {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isSidebarOpen ? <Menu size={24} /> : <Menu size={24} />}
                         </Button>
                     )}
-                    <span className="font-bold text-xl">MyBrand</span>
+                    <span className="font-bold text-xl">GlidemanUI</span>
                 </div>
 
                 <HorizontalNavigation navItems={headerNavItems} />

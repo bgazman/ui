@@ -66,6 +66,7 @@ const Form: React.FC<FormProps> = ({
             <InputField
                 id="name"
                 name="name"
+                label="Name"
                 type="text"
                 placeholder="Your Name"
                 value={formData.name}
@@ -77,6 +78,7 @@ const Form: React.FC<FormProps> = ({
                 id="email"
                 name="email"
                 type="email"
+                label="Email"
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}

@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ title, description, footer, children, varia
     return (
         <div
             className={clsx(
-                "bg-bg-alt1 text-text-primary rounded-md p-4 w-64 transition-all duration-fast ease-in-out",
+                "bg-bg-alt1 text-text-primary rounded-md p-4 w-64 transition-all duration-fast ease-in-out flex flex-col",
                 {
                     "border border-border shadow-md": variant === "default", // Default styling
                     "border border-border bg-transparent": variant === "outlined", // Outlined version
@@ -25,8 +25,9 @@ const Card: React.FC<CardProps> = ({ title, description, footer, children, varia
                     "border-2 border-border sidebar:bg-sidebar-bg": variant === "bordered", // Thicker border
                 }
             )}
+            style={{ minHeight: "200px", flexGrow: 1 }} // Adjust the height as needed
         >
-            <div className="mb-4">
+            <div className="mb-4 flex-grow">
                 {title && <h3 className="text-lg font-bold mb-2">{title}</h3>}
                 {description && <p className="text-md mb-2">{description}</p>}
                 {children}

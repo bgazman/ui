@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Box from '@components/box';
 import { NavItem } from '@components/navigation/navigation';
 import VerticalNavigation from '@components/navigation/vertical-navigation';
@@ -14,9 +15,9 @@ export interface SidebarProps {
 }
 
 const positionClassMap: Record<'fixed' | 'sticky' | 'relative', string> = {
-    fixed: 'sidebar--fixed left-0',
-    sticky: 'sidebar--sticky',
-    relative: 'sidebar--relative',
+    fixed: 'fixed left-0 top-0',
+    sticky: 'sticky top-0',
+    relative: 'relative',
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -28,21 +29,24 @@ const Sidebar: React.FC<SidebarProps> = ({
                                              header,
                                              footer,
                                          }) => {
-    const classes = [
-        'sidebar',
-        'transform transition-transform duration-300 ease-in-out',
+    const classes = clsx(
+        "transform transition-transform duration-300 ease-in-out bg-[var(--sidebar-bg-color)] w-64",
         positionClassMap[position],
         isOpen ? 'translate-x-0' : '-translate-x-full',
-        className,
-    ].filter(Boolean);
+        "overflow-y-auto", // Enables scrolling
+        className
+    );
 
     return (
-        <Box as="aside" style={style} className={`${classes.join(' ')} w-64 h-screen bg-[var(--sidebar-bg-color)]`}>
-            {header && <div >{header}</div>}
-            <div>
+        <Box as="aside" style={style} className={classes}>
+            {header && <div className="p-4 border-b">{header}</div>}
+
+            {/* Scrollable Content */}
+            <div className="p-4">
                 <VerticalNavigation navItems={sidebarData} variant="expanded" />
             </div>
-            {footer && <div >{footer}</div>}
+
+            {footer && <div className="p-4 border-t">{footer}</div>}
         </Box>
     );
 };

@@ -1,26 +1,26 @@
-import React, { ElementType, ReactNode } from 'react';
+import React, { forwardRef } from "react";
 
-interface BoxProps<T extends ElementType = 'div'> {
-    as?: T; // Dynamic element type
-    children: ReactNode;
+export interface BoxProps<T extends React.ElementType> {
+    as?: T;
+    id?: string;
     className?: string;
     style?: React.CSSProperties;
+    children?: React.ReactNode;
 }
 
-const Box = <T extends ElementType = 'div'>({
-                                                as,
-                                                children,
-                                                className,
-                                                style,
-                                                ...rest
-                                            }: BoxProps<T> & React.ComponentPropsWithoutRef<T>) => {
-    const Component = as || 'div'; // Default to 'div'
-
+const Box = forwardRef<HTMLElement, BoxProps<any>>(({
+    as: Component = "div",
+    id,
+    className = "",
+    style,
+    children,
+    ...rest
+}, ref) => {
     return (
-        <Component className={className} style={style} {...rest}>
+        <Component ref={ref} id={id} className={className} style={style} {...rest}>
             {children}
         </Component>
     );
-};
+});
 
 export default Box;

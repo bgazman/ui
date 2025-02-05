@@ -5,22 +5,22 @@ export interface AnimateSectionProps {
     id?: string;
     title?: string;
     subtitle?: string;
-
     description?: string;
     children: React.ReactNode;
     className?: string;
-    variant?: "center" | "left";
+    variant?: "center" | "left" | "right";
 }
 
 const AnimatedSection: React.FC<AnimateSectionProps> = ({
-                                                            id,
-                                                            children,
-                                                            className = "",
-                                                            variant = "center",
-                                                        }) => {
+    id,
+    title,
+    subtitle,
+    children,
+    className = "",
+    variant = "center",
+}) => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
-    // Track whether we've intersected
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -30,7 +30,6 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    // Toggle isVisible based on intersection
                     if (entry.isIntersecting) {
                         setIsVisible(true);
                     } else {
@@ -45,27 +44,20 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
         return () => observer.unobserve(sectionEl);
     }, [id]);
 
-    // Tailwind classes for text alignment based on variant
-    const variantClass = variant === "left" ? "text-left" : "text-center";
-
-    // Base classes for the animated effect
-    const baseStyles =
-        "transition-all duration-700 transform opacity-0 translate-y-4";
-
-    // Classes to apply when the element is visible
+    const baseStyles = "transition-all duration-700 transform opacity-0 translate-y-4";
     const visibleStyles = "opacity-100 translate-y-0";
 
     return (
-        <div
+        <Section
             ref={sectionRef}
             id={id}
-            // Conditionally apply the "visible" styles
-            className={`${baseStyles} ${variantClass} ${
-                isVisible ? visibleStyles : ""
-            } ${className}`}
+            title={title}
+            subtitle={subtitle}
+            className={`${baseStyles} ${isVisible ? visibleStyles : ""} ${className}`}
+            variant={variant}
         >
-                {children}
-        </div>
+            {children}
+        </Section>
     );
 };
 

@@ -8,33 +8,20 @@ export const mainNavItems: NavItem[] = [
     },
     {
         label: 'Features',
-        href: '/features'
+        href: '#features'
     },
     {
         label: 'Documentation',
-        href: '/docs',
-        children: [
-            {
-                label: 'Getting Started',
-                href: '/docs/getting-started'
-            },
-            {
-                label: 'Components',
-                href: '/docs/components'
-            },
-            {
-                label: 'API Reference',
-                href: '/docs/api'
-            }
-        ]
+        href: '/docs'
+
     },
     {
-        label: 'About',
-        href: '/about'
+        label: 'Dashboard',
+        href: '/dashboard'
     },
     {
         label: 'Contact',
-        href: '/contact'
+        href: '#cta'
     }
 ];
 

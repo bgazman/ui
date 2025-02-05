@@ -16,7 +16,7 @@ const VerticalNavigation: React.FC<VerticalNavigationProps> = ({
                                                                }) => {
     return (
         <nav
-            className={`shadow-lg p-[var(--spacing-md)] rounded-[var(--border-radius-md)] w-[var(--sidebar-width)] bg-[var(--bg-primary)] ${className}`}
+            className={`p-[var(--spacing-md)] rounded-[var(--border-radius-md)] w-[var(--sidebar-width)] h-full ${className}`}
         >
             {navItems.map((item) => (
                 <TreeNode key={item.label} item={item} level={0} variant={variant} />
@@ -28,7 +28,7 @@ const VerticalNavigation: React.FC<VerticalNavigationProps> = ({
 interface TreeNodeProps {
     item: NavItem;
     level: number;
-    variant: VerticalNavigationVariant; // "expanded" | "compact" | "default"
+    variant: VerticalNavigationVariant;
 }
 
 const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
@@ -60,17 +60,13 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
                 )}
                 {hasChildren && variant !== "compact" && (
                     <span className="transition-transform">
-            {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          </span>
+                        {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    </span>
                 )}
             </div>
             {hasChildren && (variant === "expanded" || isOpen) && (
                 <div
-                    className={`bg-[var(--bg-primary)] ${
-                        variant === "compact"
-                            ? "absolute left-full top-0 shadow-md rounded-[var(--border-radius-md)] w-48 z-50"
-                            : ""
-                    }`}
+                    className={`${variant === "compact" ? "absolute left-full top-0 w-48 z-50" : ""}`}
                     style={variant !== "compact" ? { paddingLeft: `calc(${level + 1} * var(--spacing-md))` } : {}}
                 >
                     {item.children?.map((child, index) => (

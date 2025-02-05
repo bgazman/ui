@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '@components/header';
 import Footer from '@components/footer';
 import { NavItem } from '@components/navigation/navigation';
+import Main from '@components/main';
 
 interface LandingLayoutProps {
     headerNavItems: NavItem[];
@@ -22,9 +23,9 @@ export const LandingLayout: React.FC<LandingLayoutProps> = ({
                 position="fixed"
                 headerNavItems={headerNavItems}
             />
-            <main className="flex-1 mt-[var(--header-height)]">
+            <Main className="flex-1 mt-[var(--header-height)]">
                 {children}
-            </main>
+            </Main>
             <Footer
                 footerNavItems={footerNavItems}
                 socialLinks={{

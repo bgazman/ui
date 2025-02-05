@@ -1,11 +1,9 @@
 import React from 'react';
 import DocsLayout from '@layout/docs-layout/docs-layout';
-import {docsFooterItems, docsHeaderItems, docsSidebarItems,} from './data/nav-items';
-
+import { docsFooterItems, docsHeaderItems, docsSidebarItems } from './data/nav-items';
 import { docsSectionList } from './data/docs-section-data';
-
 import Box from '@components/box';
-import AnimatedSection from '@components/animated-section.tsx';
+import Section from '@components/section';
 import ComponentPreview from '@components/component-preview.tsx';
 import CardExample from '@pages/docs/examples/card-example';
 import SectionExample from '@pages/docs/examples/section-example';
@@ -14,21 +12,24 @@ import ButtonExample from '@pages/docs/examples/button-example';
 import TextAreaExample from '@pages/docs/examples/text-area-example';
 import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
-import InputFieldExample from '@pages/docs/examples/input-field-example';
 import TabMenuExample from '@pages/docs/examples/tab-menu-example';
-import HorizontalNavigationExample from '@pages/docs/examples/horizontal-navigation-example';
-import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example';
 
 const DocsPage: React.FC = () => {
+    const tocItems = docsSectionList.map(section => ({
+        label: section.title,
+        href: `#${section.id}`
+    }));
+
     return (
-<DocsLayout
-    headerData={docsHeaderItems}
-    footerData={docsFooterItems}
-    sidebarData={docsSidebarItems}
->
+        <DocsLayout
+            headerData={docsHeaderItems}
+            footerData={docsFooterItems}
+            sidebarData={docsSidebarItems}
+            tocItems={tocItems}
+        >
             <Box className="space-y-16 sm:space-y-20">
                 {docsSectionList.map((section) => (
-                    <AnimatedSection
+                    <Section
                         key={section.id}
                         id={section.id}
                         title={section.title}
@@ -76,22 +77,8 @@ const DocsPage: React.FC = () => {
                                 <FormExample />
                             </ComponentPreview>
                         )}
-                        {section.id === 'form-field-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <InputFieldExample />
-                            </ComponentPreview>
-                        )}
-                        {section.id === 'horizontal-navigation-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <HorizontalNavigationExample />
-                            </ComponentPreview>
-                        )}
-                        {section.id === 'vertical-navigation-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <VerticalNavigationExample />
-                            </ComponentPreview>
-                        )}
-                    </AnimatedSection>
+
+                    </Section>
                 ))}
             </Box>
         </DocsLayout>

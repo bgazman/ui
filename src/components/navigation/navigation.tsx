@@ -5,6 +5,7 @@ import VerticalNavigation from "./vertical-navigation";
 export interface NavItem {
     label: string;
     href?: string;
+    icon?: React.ComponentType; // Add this line
     children?: NavItem[];
 }
 

@@ -1,71 +1,23 @@
-// dashboard-nav-items.ts
 import { NavItem } from '@components/navigation/navigation';
-import {
-    Home,
-    Users,
-    Settings,
-    FileText,
-    BarChart,
-    Bell,
-    MessageSquare
-} from 'lucide-react';
-
-export const dashboardNavItems: NavItem[] = [
-    {
-        label: 'Dashboard',
-        href: '/dashboard',
-        icon: Home
-    },
-    {
-        label: 'Analytics',
-        href: '/dashboard/analytics',
-        icon: BarChart
-    },
-    {
-        label: 'Users',
-        href: '/dashboard/users',
-        icon: Users
-    },
-    {
-        label: 'Reports',
-        href: '/dashboard/reports',
-        icon: FileText,
-        children: [
-            { label: 'Monthly', href: '/dashboard/reports/monthly' },
-            { label: 'Annual', href: '/dashboard/reports/annual' },
-        ]
-    },
-    {
-        label: 'Messages',
-        href: '/dashboard/messages',
-        icon: MessageSquare
-    },
-    {
-        label: 'Notifications',
-        href: '/dashboard/notifications',
-        icon: Bell
-    },
-    {
-        label: 'Settings',
-        href: '/dashboard/settings',
-        icon: Settings,
-        children: [
-            { label: 'Profile', href: '/dashboard/settings/profile' },
-            { label: 'Security', href: '/dashboard/settings/security' },
-            { label: 'Preferences', href: '/dashboard/settings/preferences' }
-        ]
-    }
+        import { Home, Users, Settings, Shield, Key, FileJson } from 'lucide-react';
+export const dashboardNavItems:NavItem[] = [
+    { icon: Home, label: 'Dashboard', href: '#dashboard' },
+    { icon: Users, label: 'Users', href: '#users' },
+    { icon: Users, label: 'Groups', href: '#groups' },
+    { icon: Shield, label: 'Permissions', href: '#permissions' },
+    { icon: Key, label: 'Secrets', href: '#secrets' },
+    { icon: Settings, label: 'Clients', href: '#clients' },
+    { icon: FileJson, label: 'API Docs', href: '#api-docs' }
 ];
 
-export const dashboardHeaderItems: NavItem[] = [
-    { label: 'Home', href: '/' },
-    { label: 'Documentation', href: '/' },
-    { label: 'Dashboard', href: '/' }
+        export const dashboardHeaderItems: NavItem[] = [
+            { label: 'Home', href: '/' },
+            { label: 'Documentation', href: '/docs' },
+            { label: 'Dashboard', href: '/dashboard' }
+        ];
 
-];
-
-export const dashboardFooterItems: NavItem[] = [
-    { label: 'Support', href: '/support' },
-    { label: 'Documentation', href: '/docs' },
-    { label: 'Privacy', href: '/privacy' }
-];
+        export const dashboardFooterItems: NavItem[] = [
+            { label: 'Support', href: '/support' },
+            { label: 'Documentation', href: '/docs' },
+            { label: 'Privacy', href: '/privacy' }
+        ];

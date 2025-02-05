@@ -3,7 +3,7 @@ import Header from '@components/header';
 import Sidebar from '@components/sidebar';
 import Footer from '@components/footer';
 import { NavItem } from '@components/navigation/navigation';
-import Main from "@components/main.tsx";
+import Main from "@components/main";
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -13,38 +13,42 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({
-    headerNavItems,
-    footerNavItems,
-    sidebarItems,
-    children
-}) => {
+                                                             headerNavItems,
+                                                             footerNavItems,
+                                                             sidebarItems,
+                                                             children
+                                                         }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     return (
-        <div>
+        <div className="flex flex-col min-h-screen bg-[var(--bg-color)]">
             <Header
                 position="fixed"
                 headerNavItems={headerNavItems}
                 showSidebarToggle
                 isSidebarOpen={isSidebarOpen}
                 onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="w-full transition-all"
+                className="w-full z-10 bg-[var(--header-bg-color)]"
             />
-            <div className="flex">
+
+            <div className="flex flex-1 mt-[var(--header-height)]">
                 <Sidebar
                     position="fixed"
                     sidebarData={sidebarItems}
                     isOpen={isSidebarOpen}
-                    className="h-screen bg-[var(--sidebar-bg-color)] w-64"
+                    variant="primary"
+                    className="h-screen"
                 />
-                <div className={`flex-1 flex flex-col transition-all ${isSidebarOpen ? 'ml-0' : '-ml-64'}`}>
-                    <Main className="flex-1 p-6 mt-[var(--header-height)] bg-[var(--bg-color)]">
+
+                <main className={`flex-1 min-h-screen transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-16'}`}>
+                    <Main className="flex-1 p-4 bg-[var(--bg-color)]">
                         {children}
                     </Main>
                     <Footer footerNavItems={footerNavItems} />
-                </div>
+                </main>
             </div>
         </div>
     );
 };
+
 export default DashboardLayout;

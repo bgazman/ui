@@ -7,22 +7,41 @@ import Grid from '@components/grid';
 import Hero from './hero.tsx';
 import Statistic from "@components/statistic.tsx";
 import CTASection from "@pages/home/cta-section.tsx";
-import TabMenu, { TabItem } from "@components/tab-menu.tsx";
+
+import Card from '@components/card';
+
+
 
 const Features: React.FC = () => {
+    const featureItems = [
+        { title: 'Feature One', description: 'Description of feature one.', content: <p>Additional content for feature one.</p> },
+        { title: 'Feature Two', description: 'Description of feature two.', content: <p>Additional content for feature two.</p> },
+        { title: 'Feature Three', description: 'Description of feature three.', content: <p>Additional content for feature three.</p> },
+        { title: 'Feature Four', description: 'Description of feature four.', content: <p>Additional content for feature four.</p> },
+        { title: 'Feature Five', description: 'Description of feature five.', content: <p>Additional content for feature five.</p> },
+        { title: 'Feature Six', description: 'Description of feature six.', content: <p>Additional content for feature six.</p> },
+        { title: 'Feature Seven', description: 'Description of feature seven.', content: <p>Additional content for feature seven.</p> },
+        { title: 'Feature Eight', description: 'Description of feature eight.', content: <p>Additional content for feature eight.</p> },
+        { title: 'Feature Nine', description: 'Description of feature nine.', content: <p>Additional content for feature nine.</p> },
+        { title: 'Feature Ten', description: 'Description of feature ten.', content: <p>Additional content for feature ten.</p> },
+        { title: 'Feature Eleven', description: 'Description of feature eleven.', content: <p>Additional content for feature eleven.</p> },
+        { title: 'Feature Twelve', description: 'Description of feature twelve.', content: <p>Additional content for feature twelve.</p> },
+        { title: 'Feature Thirteen', description: 'Description of feature thirteen.', content: <p>Additional content for feature thirteen.</p> },
+        { title: 'Feature Fourteen', description: 'Description of feature fourteen.', content: <p>Additional content for feature fourteen.</p> },
+        { title: 'Feature Fifteen', description: 'Description of feature fifteen.', content: <p>Additional content for feature fifteen.</p> },
+        { title: 'Feature Sixteen', description: 'Description of feature sixteen.', content: <p>Additional content for feature sixteen.</p> },
+    ];
+
     return (
-        <AnimatedSection id='features' title='Our Features' description='Explore the amazing features we offer.' variant='center' className="bg-bg-secondary text-text-secondary">
-            <div className="feature-item">
-                <h3 className="feature-title text-xl font-bold">Feature One</h3>
-                <p className="feature-description">Description of feature one.</p>
-            </div>
-            <div className="feature-item">
-                <h3 className="feature-title text-xl font-bold">Feature Two</h3>
-                <p className="feature-description">Description of feature two.</p>
-            </div>
-            <div className="feature-item">
-                <h3 className="feature-title text-xl font-bold">Feature Three</h3>
-                <p className="feature-description">Description of feature three.</p>
+        <AnimatedSection id='features' title='Our Features' description='Explore the amazing features we offer.' variant='center' className="bg-bg-secondary text-text-secondary text-center">
+            <div className="flex justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {featureItems.map((item, index) => (
+                        <Card key={index} title={item.title} description={item.description}>
+                            {item.content}
+                        </Card>
+                    ))}
+                </div>
             </div>
         </AnimatedSection>
     );
