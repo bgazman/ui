@@ -1,5 +1,5 @@
 // main-nav-items.ts
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
 
 export const mainNavItems: NavItem[] = [
     {

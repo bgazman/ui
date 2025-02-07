@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalNavigation from '@components/navigation/horizontal-navigation';
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
 import Box from '@components/box';
 
 const horizontalNavItems: NavItem[] = [

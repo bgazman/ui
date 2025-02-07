@@ -1,38 +1,48 @@
 import React from "react";
 import clsx from "clsx";
+import Typography from "@components/typography.tsx"; // ✅ Use Typography
 
-interface CardProps {
+export type CardVariant = "default" | "elevated" | "bordered" | "shadow";
+
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     title?: string;
     description?: string;
-    image?: string;
-    footer?: React.ReactNode;
-    children?: React.ReactNode;
-
-    variant?: "default" | "outlined" | "shadowed" | "elevated" | "bordered"; // Variants
+    variant?: CardVariant;
     className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, footer, children, variant = "default" }) => {
+const Card: React.FC<CardProps> = ({
+                                       title,
+                                       description,
+                                       variant = "default",
+                                       className = "",
+                                       children,
+                                       ...props
+                                   }) => {
+    const cardClass = clsx(
+        "p-6 rounded-lg transition-all duration-300 border", // Base styles
+        {
+            default: "bg-surface text-content shadow-sm",
+            elevated: "bg-surface-elevated text-content shadow-lg border-border-strong",
+            bordered: "border-2 border-primary p-8 rounded-md",
+            shadow: "shadow-lg border border-border-strong",
+        }[variant],
+        className
+    );
+
     return (
-        <div
-            className={clsx(
-                "bg-bg-alt1 text-text-primary rounded-md p-4 w-64 transition-all duration-fast ease-in-out flex flex-col",
-                {
-                    "border border-border shadow-md": variant === "default", // Default styling
-                    "border border-border bg-transparent": variant === "outlined", // Outlined version
-                    "shadow-lg": variant === "shadowed", // Larger shadow
-                    "shadow-xl bg-bg-primary": variant === "elevated", // Elevated with background color
-                    "border-2 border-border sidebar:bg-sidebar-bg": variant === "bordered", // Thicker border
-                }
+        <div className={cardClass} {...props}>
+            {title && (
+                <Typography as="h2" variant="subtitle" font="sans" weight="bold" className="mb-2">
+                    {title}
+                </Typography>
             )}
-            style={{ minHeight: "200px", flexGrow: 1 }} // Adjust the height as needed
-        >
-            <div className="mb-4 flex-grow">
-                {title && <h3 className="text-lg font-bold mb-2">{title}</h3>}
-                {description && <p className="text-md mb-2">{description}</p>}
-                {children}
-            </div>
-            {footer && <div className="mt-4 border-t border-border pt-2">{footer}</div>}
+            {description && (
+                <Typography as="p" variant="body" font="sans" weight="normal" className="mb-4">
+                    {description}
+                </Typography>
+            )}
+            {children}
         </div>
     );
 };

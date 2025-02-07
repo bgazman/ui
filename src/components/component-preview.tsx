@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Box from "@components/box.tsx";
-import TabMenu from "@components/tab-menu.tsx";
+import TabMenu from "@components/tab-menu/tab-menu.tsx";
 import Card from "@components/card.tsx";
 import Button from "@components/button.tsx";
 import TextArea from "@components/text-area.tsx";
@@ -20,8 +20,6 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     description,
     sourceCode,
     children,
-    className = "",
-    style,
 }) => {
     const [activeTab, setActiveTab] = useState("preview");
     const [isCopied, setIsCopied] = useState(false);
@@ -43,7 +41,6 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
             style={{
                 outline: "3px solid var(--border-color)",
                 outlineOffset: "10px",
-                ...style,
             }}
         >
             {(title || description) && (

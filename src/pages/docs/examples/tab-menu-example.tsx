@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TabMenu from '@components/tab-menu.tsx';
+import TabMenu from '@components/tab-menu/tab-menu.tsx';
 
 const tabMenuItems = [
     { label: 'Tab 1', value: 'tab1' },

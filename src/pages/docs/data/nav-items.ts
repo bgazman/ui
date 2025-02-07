@@ -1,5 +1,5 @@
 // docs-nav-items.ts
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
 
 export const docsHeaderItems: NavItem[] = [
 
@@ -20,8 +20,8 @@ export const docsSidebarItems: NavItem[] = [
     {
         label: 'Components',
         children: [
-            { label: 'Buttons', href: '/docs/components/button' },
-            { label: 'Forms', href: '/docs/components/form' },
+            { label: 'Button', href: '#button-component' },
+            { label: 'Badge', href: '#badge-component' },
             { label: 'Navigation', href: '/docs/components/navigation' },
             { label: 'Layout', href: '/docs/components/layout' }
         ]

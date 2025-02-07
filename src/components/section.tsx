@@ -1,39 +1,49 @@
-import React, { forwardRef } from "react";
-import Box from "@components/box.tsx";
+import React from "react";
+import clsx from "clsx";
 
-export interface SectionProps {
-    id?: string;
+export type SectionVariant = "default" | "bordered" | "card" | "full-width";
+export type SectionLayout = "container" | "fluid" | "centered";
+
+export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
     title?: string;
-    subtitle?: string;
-    children: React.ReactNode;
+    footer?: React.ReactNode;
+    variant?: SectionVariant;
+    layout?: SectionLayout;
     className?: string;
-    style?: React.CSSProperties;
-    variant?: "center" | "left" | "right";
 }
 
-const Section = forwardRef<HTMLDivElement, SectionProps>(({
-    id,
-    title,
-    subtitle,
-    children,
-    className = "",
-    style,
-    variant = "center",
-}, ref) => {
-    const variantClass = variant === "left" ? "text-left" : variant === "right" ? "text-right" : "text-center";
-    const spacingClasses = "p-md md:p-lg lg:p-xl"; // Using Tailwind CSS variables for padding
+const Section: React.FC<SectionProps> = ({
+                                             title,
+                                             footer,
+                                             variant = "default",
+                                             layout = "container",
+                                             className = "",
+                                             children,
+                                             ...props
+                                         }) => {
+    const sectionClass = clsx(
+        "py-12 px-6", // Base spacing
+        {
+            default: "bg-surface text-content",
+            bordered: "border border-secondary rounded-lg shadow-sm",
+            card: "bg-secondary shadow-lg rounded-xl p-8 border border-secondary",
+            "full-width": "w-full p-12",
+        }[variant],
+        {
+            container: "max-w-7xl mx-auto",
+            fluid: "w-full",
+            centered: "flex justify-center items-center text-center",
+        }[layout],
+        className
+    );
 
     return (
-        <Box as="section" id={id} ref={ref} className={`${spacingClasses} ${className} ${variantClass}`} style={style}>
-            {(title || subtitle) && (
-                <div className="mb-lg"> {/* Adding margin-bottom for spacing */}
-                    {title && <h2 className="text-2xl font-bold mb-sm">{title}</h2>}
-                    {subtitle && <p className="text-lg mb-sm">{subtitle}</p>}
-                </div>
-            )}
+        <section className={sectionClass} {...props}>
+            {title && <h2 className="text-xl font-semibold mb-4">{title}</h2>}
             <div>{children}</div>
-        </Box>
+            {footer && <div className="mt-6">{footer}</div>}
+        </section>
     );
-});
+};
 
 export default Section;

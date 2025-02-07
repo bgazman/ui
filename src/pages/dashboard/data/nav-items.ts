@@ -1,4 +1,4 @@
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
         import { Home, Users, Settings, Shield, Key, FileJson } from 'lucide-react';
 export const dashboardNavItems:NavItem[] = [
     { icon: Home, label: 'Dashboard', href: '#dashboard' },

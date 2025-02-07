@@ -1,34 +1,50 @@
 import React from "react";
 import clsx from "clsx";
+import Typography from "@components/typography.tsx";
+
+export type BadgeVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "outline";
+export type BadgeSize = "sm" | "md" | "lg";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-    /**
-     * color: badge color variant
-     */
-    color?: "primary" | "secondary" | "success" | "danger";
+    children: React.ReactNode;
+    variant?: BadgeVariant;
+    size?: BadgeSize;
+    className?: string;
 }
 
-export const Badge: React.FC<BadgeProps> = ({
-                                                color = "primary",
-                                                className,
-                                                children,
-                                                ...rest
-                                            }) => {
-    const baseStyles = "inline-block px-sm py-xs text-xs font-semibold rounded-full";
-
-    const colorStyles = {
-        primary: "bg-button text-button-text",
-        secondary: "bg-button-secondary text-button-secondary-text",
-        success: "bg-green-500 text-white",
-        danger: "bg-red-500 text-white",
-    };
+const Badge: React.FC<BadgeProps> = ({
+                                         children,
+                                         variant = "primary",
+                                         size = "md",
+                                         className = "",
+                                         ...props
+                                     }) => {
+    const badgeClass = clsx(
+        "inline-flex items-center justify-center font-medium rounded-full transition-all",
+        {
+            // Variants
+            primary: "bg-primary text-primary-foreground",
+            secondary: "bg-surface text-content",
+            success: "bg-green-500/10 text-green-500 ring-1 ring-green-500/20",
+            danger: "bg-red-500/10 text-red-500 ring-1 ring-red-500/20",
+            warning: "bg-yellow-500/10 text-yellow-500 ring-1 ring-yellow-500/20",
+            info: "bg-blue-500/10 text-blue-500 ring-1 ring-blue-500/20",
+            outline: "border border-border text-content",
+        }[variant],
+        {
+            // Sizes
+            sm: "px-2 py-0.5 text-xs",
+            md: "px-2.5 py-1 text-sm",
+            lg: "px-3 py-1.5 text-base",
+        }[size],
+        className
+    );
 
     return (
-        <span
-            className={clsx(baseStyles, colorStyles[color], className)}
-            {...rest}
-        >
-      {children}
-    </span>
+        <span className={badgeClass} {...props}>
+            {children}
+        </span>
     );
 };
+
+export default Badge;

@@ -1,0 +1,34 @@
+/* Base Navigation */
+.horizontal-nav {
+    @apply flex gap-6 items-center bg-surface p-4 border-b border-border;
+}
+
+/* Navigation Item */
+.nav-item {
+    @apply relative;
+}
+
+/* Navigation Link */
+.nav-link {
+    @apply px-4 py-2 inline-flex items-center justify-center text-content-muted cursor-pointer
+    transition-colors duration-200 hover:text-content hover:bg-surface-elevated rounded-md;
+}
+
+/* Dropdown Styles */
+.nav-dropdown {
+    @apply absolute left-0 top-full mt-2 w-48 bg-surface-elevated border border-border rounded-md shadow-lg;
+}
+
+/* Dropdown Items */
+.nav-dropdown-item {
+    @apply block px-4 py-2 text-content-muted hover:bg-primary hover:text-primary-foreground transition-all;
+}
+
+/* Variants */
+.nav-underline .nav-link {
+    @apply border-b-2 border-transparent hover:border-primary;
+}
+
+.nav-minimal .nav-link {
+    @apply px-2 py-1 rounded-md hover:bg-surface-lowered text-content-muted;
+}

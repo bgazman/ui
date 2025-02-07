@@ -1,55 +1,46 @@
 import React from "react";
+import clsx from "clsx";
+import Typography from "@components/typography.tsx";
 
 export type LinkVariant = "default" | "primary" | "secondary" | "disabled";
+export type LinkSize = "sm" | "md" | "lg";
 
-export interface LinkComponentProps {
-    href: string;
-    isActive?: boolean;
-    variant?: LinkVariant;
-    className?: string;
-    onKeyDown?: (e: React.KeyboardEvent<HTMLAnchorElement>) => void;
-    role?: string;
-    "aria-haspopup"?: boolean;
-    "aria-expanded"?: boolean;
+export interface LinkComponentProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     children: React.ReactNode;
+    variant?: LinkVariant;
+    size?: LinkSize;
+    className?: string;
+    href?: string;
 }
 
-const LinkComponent: React.FC<LinkComponentProps> = ({
-                                                         href,
-                                                         isActive = false,
-                                                         variant = "default",
-                                                         className = "",
-                                                         children,
-                                                         ...props
-                                                     }) => {
-    // Base classes for all links
-    const baseClasses = "block px-[var(--spacing-sm)] py-[var(--spacing-xs)] text-sm rounded-md transition-colors";
-
-    // Variant-specific classes
-    const variantClasses: Record<LinkVariant, string> = {
-        default: "text-[var(--text-secondary)] hover:bg-[var(--bg-alt1)]",
-        primary: "text-[var(--text-primary)] font-semibold hover:bg-[var(--bg-alt1)]",
-        secondary: "text-[var(--text-tertiary)] hover:bg-[var(--bg-alt2)]",
-        disabled: "pointer-events-none opacity-50",
-    };
-
-    // Active state overrides variant styles if needed
-    const activeClasses = isActive ? "bg-[var(--bg-alt1)] text-[var(--text-primary)] font-semibold" : "";
-
-    // If href is falsy, disable pointer events and reduce opacity
-    const disabledClasses = !href ? "pointer-events-none opacity-50" : "";
+const Link: React.FC<LinkComponentProps> = ({
+    children,
+    variant = "default",
+    size = "md",
+    className = "",
+    ...rest
+}) => {
+    const linkClass = clsx(
+        "inline-block transition duration-200",
+        {
+            default: "text-content hover:text-primary",
+            primary: "text-primary-foreground hover:text-primary-surface",
+            secondary: "text-secondary hover:text-secondary-foreground",
+            disabled: "text-content-muted cursor-not-allowed opacity-50 pointer-events-none",
+        }[variant],
+        {
+            sm: "text-sm",
+            md: "text-base",
+            lg: "text-lg font-semibold",
+        }[size],
+        className
+    );
 
     return (
-        <a
-            href={href}
-            className={`${baseClasses} ${variantClasses[variant]} ${activeClasses} ${disabledClasses} ${className}`.trim()}
-            role="link"
-            aria-current={isActive ? "page" : undefined}
-            {...props}
-        >
+        <Typography as="a" className={linkClass} {...rest}>
             {children}
-        </a>
+        </Typography>
     );
 };
 
-export default LinkComponent;
+export default Link;

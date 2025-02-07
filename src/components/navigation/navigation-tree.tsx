@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import LinkComponent from "@components/link.tsx";
-import { NavItem } from "@components/navigation/navigation";
+import Link from "@components/link.tsx";
+import { NavItem } from "@components/navigation.tsx";
 
 export interface NavigationTreeProps {
     data: NavItem[];
@@ -34,12 +34,12 @@ const NavigationTreeNode: React.FC<{ item: NavItem; level: number }> = ({ item, 
                     {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
                 </div>
             ) : (
-                <LinkComponent
+                <Link
                     href={item.href || "#"}
                     className="block px-[var(--spacing-md)] py-[var(--spacing-sm)] transition-all rounded-[var(--border-radius-md)] hover:bg-[var(--button-hover-bg-color)] hover:text-[var(--button-hover-text-color)]"
                 >
                     {item.label}
-                </LinkComponent>
+                </Link>
             )}
             {hasChildren && isOpen && (
                 <div style={{ paddingLeft }}>

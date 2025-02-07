@@ -1,60 +1,48 @@
 import React from "react";
-import ThemeSwitcher from "@components/theme-switcher.tsx";
+import clsx from "clsx";
 import Button from "@components/button.tsx";
-import { Menu, X } from "lucide-react";
-import { NavItem } from "@components/navigation/navigation.tsx";
-import HorizontalNavigation from "@components/navigation/horizontal-navigation.tsx";
+import { Menu } from "lucide-react";
 
 export interface HeaderProps {
-    position?: "fixed" | "sticky" | "relative";
+    variant?: "fixed" | "sticky" | "relative";
     className?: string;
     style?: React.CSSProperties;
-    headerNavItems: NavItem[];
     showSidebarToggle?: boolean;
-    isSidebarOpen?: boolean;
     onToggleSidebar?: () => void;
+    children: React.ReactNode;
 }
 
-const Header: React.FC<HeaderProps> = ({
-                                           position = "fixed",
-                                           className = "",
-                                           style,
-                                           headerNavItems,
-                                           showSidebarToggle = false,
-                                           isSidebarOpen = false,
-                                           onToggleSidebar,
-                                       }) => {
-    const positionClasses = {
-        fixed: "fixed top-0 left-0 right-0 z-50",
-        sticky: "sticky top-0 z-50",
-        relative: "relative",
-    };
+const variantClasses = {
+    fixed: "fixed top-0",
+    sticky: "sticky top-0",
+    relative: "relative",
+};
 
+const Header: React.FC<HeaderProps> = ({
+    variant = "fixed",
+    className = "",
+    style,
+    showSidebarToggle = false,
+    onToggleSidebar,
+    children,
+}) => {
     return (
         <header
             style={style}
-            className={`${positionClasses[position]} h-[var(--header-height)] w-full bg-[var(--header-bg-color)] text-[var(--header-text-color)] ${className}`}
+            className={clsx(
+                variantClasses[variant],
+                "h-header w-full z-10", // Ensure the header is full width and on top
+                className
+            )}
         >
-            <div className="flex items-center justify-between p-[var(--spacing-md)] h-full">
-                <div className="flex items-center space-x-3">
-                    {showSidebarToggle && (
-                        <Button
-                            variant="primary"
-                            onClick={onToggleSidebar}
-                            className="inline-flex text-text-secondary items-center bg-transparent border-none cursor-pointer"
-                        >
-                            {isSidebarOpen ? <Menu size={24} /> : <Menu size={24} />}
-                        </Button>
-                    )}
-                    <span className="font-bold text-xl">GlidemanUI</span>
-                </div>
-
-                <HorizontalNavigation navItems={headerNavItems} />
-
-                <div className="flex items-center space-x-4">
-                    <ThemeSwitcher />
-                    <Button variant="secondary">Sign In</Button>
-                    <Button variant="primary">Sign Up</Button>
+            <div className={clsx("flex items-center justify-between p-4 h-full bg-primary", className)}>
+                {showSidebarToggle && (
+                    <Button onClick={onToggleSidebar} className="primary">
+                        <Menu size={24} />
+                    </Button>
+                )}
+                <div className="flex-1 flex justify-center">
+                    {children}
                 </div>
             </div>
         </header>

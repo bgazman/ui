@@ -1,63 +1,46 @@
 import React from "react";
+import clsx from "clsx";
+import Typography from "@components/typography.tsx"; // ✅ Use Typography
 
-interface TextAreaProps {
+export type TextAreaVariant = "default" | "primary" | "secondary" | "success" | "danger";
+
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string;
-    placeholder?: string;
-    footer?: React.ReactNode;
-    variant?: "default" | "error" | "success" | "disabled";
+    error?: string;
+    variant?: TextAreaVariant;
     className?: string;
-    value?: string;
-    rows?: number;
-    name: string;  // Added this as required
-    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    required?: boolean;
+    minRows?: number;
 }
 
-const TextArea: React.FC<TextAreaProps> = ({
-                                               label,
-                                               placeholder = "Enter text...",
-                                               footer,
-                                               variant = "default",
-                                               className = "",
-                                               value,
-                                               rows = 3,
-                                               name,
-                                               onChange,
-                                               required
-                                           }) => {
-    const baseClasses = "w-full rounded-md border outline-none transition-all duration-fast ease-in-out resize-none p-md";
+const TextArea: React.FC<TextAreaProps> = ({ label, error, variant = "default", className = "", id, minRows, ...rest }) => {
+    const containerClass = "flex flex-col w-full";
 
-    const variantClasses = {
-        default: "border-border bg-bg-primary text-text-primary focus:ring-2 focus:ring-button-hover",
-        error: "border-[var(--border-color-error)] text-[var(--text-error)] bg-[var(--bg-error)] focus:ring-2 focus:ring-[var(--border-color-error)]",
-        success: "border-[var(--border-color-success)] text-[var(--text-success)] bg-[var(--bg-success)] focus:ring-2 focus:ring-[var(--border-color-success)]",
-        disabled: "bg-button-disabled text-button-disabled-text cursor-not-allowed opacity-50"
-    };
+    const textareaClass = clsx(
+        "w-full border bg-surface text-content rounded-md p-2 outline-none transition-all duration-200 ease-in-out focus:ring-2",
+        "resize-none",
+        {
+            default: "border-border focus:ring-primary",
+            primary: "bg-primary text-primary-foreground border-primary focus:ring-primary-foreground",
+            secondary: "bg-secondary text-secondary-foreground border-secondary focus:ring-secondary-foreground",
+            success: "bg-green-100 text-green-800 border-green-500 focus:ring-green-600",
+            danger: "bg-red-100 text-red-800 border-red-500 focus:ring-red-600",
+        }[variant],
+        error && "border-danger",
+        className
+    );
 
     return (
-        <div className="flex flex-col w-full">
+        <div className={containerClass}>
             {label && (
-                <label htmlFor={name} className="mb-1 text-text-primary font-medium">
+                <Typography as="label" htmlFor={id} variant="body" font="sans" weight="normal" className="mb-1">
                     {label}
-                </label>
+                </Typography>
             )}
-
-            <textarea
-                id={name}
-                name={name}
-                className={`${baseClasses} ${variantClasses[variant]} ${className}`}
-                placeholder={placeholder}
-                disabled={variant === "disabled"}
-                value={value}
-                rows={rows}
-                onChange={onChange}
-                required={required}
-            />
-
-            {footer && (
-                <div className="mt-2 text-sm text-text-secondary">
-                    {footer}
-                </div>
+            <textarea id={id} className={textareaClass} rows={minRows} {...rest} />
+            {error && (
+                <Typography as="span" variant="caption" font="sans" weight="normal" className="mt-2 text-danger">
+                    {error}
+                </Typography>
             )}
         </div>
     );

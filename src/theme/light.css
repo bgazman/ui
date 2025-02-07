@@ -1,41 +1,27 @@
-.theme-container[data-theme="light"] {
-    /* Background Colors */
-    --bg-primary: #f8f9fa; /* Light neutral background */
-    --bg-secondary: #e9ecef; /* Slightly darker than primary for sections */
-    --bg-alt1: #dee2e6; /* Alternative light gray */
-    --bg-alt2: #ced4da; /* Muted gray */
+[data-theme="light"] {
+    /* Surfaces */
+    --surface: #ffffff;
+    --surface-elevated: #ffffff;
+    --surface-lowered: #e0e0e0;
 
-    /* Text Colors */
-    --text-primary: #212529; /* Standard dark text */
-    --text-secondary: #495057; /* Muted text */
+    /* Brand Colors */
+    --bg-primary: #007bff;
+    --primary-foreground: #ffffff;
+    --secondary: #6c757d;
+    --secondary-foreground: #1c1c1c;
+
+    /* Status Colors */
+    --success: #28a745;
+    --success-foreground: #ffffff;
+    --danger: #dc3545;
+    --danger-foreground: #ffffff;
+
+    /* Content */
+    --content: #1c1c1c;
+    --content-muted: #6c757d;
+    --content-subtle: #adb5bd;
 
     /* Borders */
-    --border-color: #ced4da;
-    --sidebar-border-color: #adb5bd;
-    --sidebar-bg-color: #ffffff; /* White sidebar for clarity */
-
-    /* Header & Footer */
-    --header-bg-color: #ffffff; /* Standard white header */
-    --header-text-color: #212529;
-    --footer-bg-color: #f8f9fa;
-    --footer-text-color: #6c757d;
-
-    /* Buttons */
-    --button-bg-color: #0d6efd; /* Bootstrap standard primary blue */
-    --button-text-color: #ffffff;
-    --button-hover-bg-color: #0b5ed7; /* Darker blue on hover */
-    --button-hover-text-color: #ffffff;
-
-    --button-secondary-bg-color: #6c757d; /* Standard gray secondary */
-    --button-secondary-text-color: #ffffff;
-    --button-secondary-hover-bg-color: #5a6268;
-    --button-secondary-hover-text-color: #ffffff;
-
-    --button-disabled-bg-color: #d6d6d6;
-    --button-disabled-text-color: #a1a1a1;
-
-    /* Fonts */
-    --font-family-sans: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-    --font-family-serif: "Merriweather", "Times New Roman", serif;
-    --font-family-mono: "Fira Code", "Courier New", monospace;
+    --border: #dee2e6;
+    --border-strong: #ced4da;
 }

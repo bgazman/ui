@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@components/box.tsx';
-import { NavItem } from '@components/navigation/navigation.tsx';
+import { NavItem } from '@components/navigation.tsx';
 import HorizontalNavigation from '@components/navigation/horizontal-navigation.tsx';
 import { Facebook as FacebookIcon, Linkedin as LinkedinIcon, X as TwitterIcon } from 'lucide-react';
 

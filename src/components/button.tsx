@@ -1,47 +1,43 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
+import Typography from "@components/typography.tsx";
 
-export type ButtonVariant = 'primary' | 'secondary' | 'disabled' | 'large' | 'small' | 'tab';
+export type ButtonVariant = "primary" | "secondary" | "disabled";
+export type ButtonSize = "default" | "large";
 
-export interface ButtonProps {
-    type?: 'button' | 'submit' | 'reset';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    onClick?: () => void;
-    className?: string;
-    disabled?: boolean;
     variant?: ButtonVariant;
-    isActive?: boolean;
+    size?: ButtonSize;
+    className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
-                                           type = 'button',
                                            children,
-                                           onClick,
-                                           className = '',
+                                           variant = "primary",
+                                           size = "default",
                                            disabled = false,
-                                           variant = 'primary',
-                                           isActive = false,
+                                           className = "",
+                                           ...props
                                        }) => {
-    const classes = clsx(
-        "px-4 py-2 rounded transition-all",
+    const buttonClass = clsx(
+        "px-4 py-2 rounded-md transition-all duration-200 flex items-center justify-center",
         {
-            "duration-[var(--animation-duration-fast)] ease-[var(--animation-ease)]": true,
-            "bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText": variant === "primary",
-            "bg-button-secondary text-button-secondary-text hover:bg-button-secondary-hover hover:text-button-secondary-hoverText":
-                variant === "secondary",
-            "bg-button-disabled text-button-disabled-text cursor-not-allowed": variant === "disabled",
-            "text-lg bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText": variant === "large",
-            "text-sm bg-button text-button-text hover:bg-button-hover hover:text-button-hoverText": variant === "small",
-            "bg-button text-button-secondary-text rounded": variant === "tab" && isActive,
-            "bg-button text-button-text border-b-4 border-r-5 border-bg-alt1 rounded-b-none": variant === "tab" && !isActive,
-        },
+            primary: "bg-primary text-primary-foreground hover:bg-primary-foreground hover:text-primary",
+            secondary: "bg-surface text-content hover:bg-surface-elevated hover:text-content-muted",
+            disabled: "bg-border text-content-muted cursor-not-allowed",
+        }[variant],
+        size === "large" && "px-6 py-3 text-lg border-r-2 border-2 rounded-lg",
+        disabled && "pointer-events-none opacity-50",
         className
     );
 
     return (
-        <button type={type} onClick={onClick} disabled={disabled} className={classes}>
-            {children}
-        </button>
+            <button className={buttonClass} disabled={disabled} {...props}>
+                <Typography as="span" variant="body" font="sans" weight="medium">
+                    {children}
+                </Typography>
+            </button>
     );
 };
 

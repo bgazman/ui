@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '@components/navigation/navigation.tsx';
+import Navigation from '@components/navigation.tsx';
 
 const navItems = [
     {

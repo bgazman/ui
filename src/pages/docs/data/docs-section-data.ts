@@ -8,10 +8,10 @@ import FormExample from "@pages/docs/examples/form-example?raw";
 import InputFieldExample from "@pages/docs/examples/input-field-example?raw";
 import TabMenuExample from "@pages/docs/examples/tab-menu-example?raw";
 import HorizontalNavigationExample from "@pages/docs/examples/horizontal-navigation-example?raw";
-import VerticalNavigationExample from '../examples/vertical-navigation-example?raw';
-import LandingLayoutExample from '../examples/landing-layout-example?raw';
-import DocsLayoutExample from '../examples/docs-layout-example?raw';
-
+import VerticalNavigationExample from '@pages/docs/examples/vertical-navigation-example?raw';
+import LandingLayoutExample from '@pages/docs/examples/landing-layout-example?raw';
+import DocsLayoutExample from '@pages/docs/examples/docs-layout-example?raw';
+import BadgeExample from "@pages/docs/examples/badge-example.tsx";
 export interface DocsSection {
     id: string;
     title: string;
@@ -39,6 +39,18 @@ export const docsSectionList: DocsSection[] = [
         sourceCode: '',
     },
     {
+        id: 'button-component',
+        title: 'Button Component',
+        description: 'This section provides an example of how to use the Button component.',
+        sourceCode: ButtonExample,
+    },
+    {
+        id: 'badge-component',
+        title: 'Badge Component',
+        description: 'This section provides an example of how to use the Badge component.',
+        sourceCode: BadgeExample,
+    },
+    {
         id: 'card-component',
         title: 'Card Component',
         description: 'This section provides an example of how to use the Card component.',
@@ -56,12 +68,7 @@ export const docsSectionList: DocsSection[] = [
         description: 'This section provides an example of how to use the Grid component.',
         sourceCode: GridExample,
     },
-    {
-        id: 'button-component',
-        title: 'Button Component',
-        description: 'This section provides an example of how to use the Button component.',
-        sourceCode: ButtonExample,
-    },
+
     {
         id: 'text-area-component',
         title: 'Text Area Component',

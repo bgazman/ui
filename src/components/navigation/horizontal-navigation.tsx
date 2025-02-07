@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import LinkComponent from "@components/link.tsx";
-import { HorizontalNavigationVariant, NavItem } from "@components/navigation/navigation";
+import Link from "@components/link.tsx";
+import { HorizontalNavigationVariant, NavItem } from "@components/navigation.tsx";
+import "./horizontal-navigation.css";
 
 const variantClassMap: Record<HorizontalNavigationVariant, string> = {
-    default: "",
-    underline: "hover:border-b-2 hover:border-[var(--button-hover-bg-color)]",
-    minimal: "px-1 py-1 text-gray-600 rounded transition-colors hover:bg-gray-100 hover:text-gray-800",
+    default: "nav-default",
+    underline: "nav-underline",
+    minimal: "nav-minimal",
 };
 
 export interface HorizontalNavigationProps {
@@ -23,34 +24,34 @@ const HorizontalNavigation: React.FC<HorizontalNavigationProps> = ({
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     return (
-        <nav className={`flex gap-4 items-center ${variantClassMap[variant]} ${className}`.trim()} role="menubar">
+        <nav
+            className={`horizontal-nav ${variantClassMap[variant]} ${className}`.trim()}
+            role="menubar"
+        >
             {navItems.map((item) => (
                 <div
                     key={item.label}
-                    className="relative"
+                    className="nav-item"
                     onMouseEnter={() => item.children && setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                 >
-                    <LinkComponent
+                    <Link
                         href={item.href || "#"}
-                        className="px-4 py-2 inline-flex items-center justify-center cursor-pointer"
+                        className="nav-link"
                         role="menuitem"
                         aria-haspopup={!!item.children}
                         aria-expanded={openDropdown === item.label}
                     >
                         {item.label}
                         {item.children && <ChevronDown className="ml-1" size={16} />}
-                    </LinkComponent>
+                    </Link>
 
                     {item.children && openDropdown === item.label && (
-                        <div >
+                        <div className="nav-dropdown">
                             {item.children.map((child) => (
-                                <LinkComponent
-                                    key={child.label}
-                                    href={child.href || "#"}
-                                >
+                                <Link key={child.label} href={child.href || "#"} className="nav-dropdown-item">
                                     {child.label}
-                                </LinkComponent>
+                                </Link>
                             ))}
                         </div>
                     )}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import LinkComponent from "@components/link.tsx";
-import { NavItem, VerticalNavigationVariant } from "@components/navigation/navigation";
+import Link from "@components/link.tsx";
+import { NavItem, VerticalNavigationVariant } from "@components/navigation.tsx";
 
 export interface VerticalNavigationProps {
     navItems: NavItem[];
@@ -52,9 +52,9 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, variant }) => {
                 onClick={handleClick}
             >
                 {item.href ? (
-                    <LinkComponent href={item.href} className="text-text-primary">
+                    <Link href={item.href} className="text-text-primary">
                         {item.label}
-                    </LinkComponent>
+                    </Link>
                 ) : (
                     <span className="text-[var(--sidebar-text-color)]">{item.label}</span>
                 )}

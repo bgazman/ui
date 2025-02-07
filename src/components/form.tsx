@@ -1,109 +1,89 @@
-import React, { useState } from "react";
-import { InputField } from "@components/input-field.tsx";
+import React from "react";
+import clsx from "clsx";
+import InputField from "@components/input-field.tsx";
 import TextArea from "@components/text-area.tsx";
 import Button from "@components/button.tsx";
+import Typography from "@components/typography.tsx"; // ✅ Use Typography
 
-export type FormVariant = "default" | "centered" | "compact";
+export type FormVariant = "default" | "card" | "minimal" | "bordered";
 
-export interface FormProps {
-    onSubmit: (data: Record<string, string>) => void;
+export interface FormField {
+    type: "input" | "textarea";
+    name: string;
+    label?: string;
+    placeholder?: string;
+    error?: string;
     className?: string;
-    variant?: FormVariant;
-    style?: React.CSSProperties;
+    [key: string]: unknown;
 }
 
-const Form: React.FC<FormProps> = ({
-                                       onSubmit,
-                                       className = "",
-                                       variant = "default",
-                                       style,
-                                   }) => {
-    const [formData, setFormData] = useState<Record<string, string>>({
-        name: "",
-        email: "",
-        message: "",
-    });
+export interface FormProps {
+    fields: FormField[];
+    onSubmit: (data: Record<string, string>) => void;
+    variant?: FormVariant;
+    className?: string;
+}
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+const Form: React.FC<FormProps> = ({ fields, onSubmit, variant = "default", className = "" }) => {
+    const [formData, setFormData] = React.useState<Record<string, string>>({});
+
+    const handleChange = (name: string, value: string) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
         onSubmit(formData);
     };
 
-    const handleClear = () => {
-        setFormData({
-            name: "",
-            email: "",
-            message: "",
-        });
-    };
-
-    const baseClasses =
-        "flex flex-col gap-[var(--spacing-md)] w-full max-w-lg p-[var(--spacing-md)] bg-[var(--bg-primary)] rounded-[var(--border-radius-lg)]";
-    const outlineStyle = { outline: "3px solid var(--border-color)", outlineOffset: "10px" };
-
-    const variantClasses = {
-        default: "",
-        centered: "mx-auto text-center",
-        compact: "max-w-sm p-[var(--spacing-sm)]",
-    };
+    const formClass = clsx(
+        "flex flex-col gap-4 p-6",
+        {
+            default: "bg-surface rounded-lg shadow-md border border-border",
+            card: "bg-primary shadow-lg rounded-xl p-8 border border-primary",
+            minimal: "bg-transparent p-0 shadow-none border-none",
+            bordered: "border-2 border-primary p-8 rounded-md",
+        }[variant],
+        className
+    );
 
     return (
-        <form
-            className={`${baseClasses} ${variantClasses[variant]} ${className}`}
-            style={{ ...outlineStyle, ...style }}
-            onSubmit={handleSubmit}
-        >
-            <InputField
-                id="name"
-                name="name"
-                label="Name"
-                type="text"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-            />
+        <form onSubmit={handleSubmit} className={formClass}>
+            {fields.map((field) => (
+                <div key={field.name} className="flex flex-col">
+                    {field.type === "input" ? (
+                        <InputField
+                            id={field.name}
+                            placeholder={field.placeholder}
+                            value={formData[field.name] || ""}
+                            onChange={(e) => handleChange(field.name, e.target.value)}
+                            {...field}
+                            error={undefined} // Remove error from InputField
+                        />
+                    ) : (
+                        <TextArea
+                            id={field.name}
+                            placeholder={field.placeholder}
+                            value={formData[field.name] || ""}
+                            onChange={(e) => handleChange(field.name, e.target.value)}
+                            {...field}
+                            error={undefined} // Remove error from TextArea
+                        />
+                    )}
+                    {field.error && (
+                        <Typography as="span" variant="caption" font="sans" weight="normal" className="mt-2 text-danger">
+                            {field.error}
+                        </Typography>
+                    )}
+                </div>
+            ))}
 
-            <InputField
-                id="email"
-                name="email"
-                type="email"
-                label="Email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-            />
-
-            <TextArea
-                name="message"
-                label="Your Message"
-                placeholder="Enter your message"
-                value={formData.message}
-                onChange={handleTextAreaChange}
-                className="custom-text-area"
-                variant="default"
-                required
-            />
-
-            <div className="mt-[var(--spacing-md)] flex flex-col gap-[var(--spacing-xs)]">
-                <Button type="submit" variant="primary">
-                    Submit
-                </Button>
-                <Button type="button" onClick={handleClear} variant="secondary">
-                    Clear
-                </Button>
-            </div>
+            <Button className="w-full py-3 mt-4 rounded-md text-center font-medium transition-all duration-200 bg-primary text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Submit
+            </Button>
         </form>
     );
 };

@@ -16,7 +16,7 @@ const CTASection = () => {
             description="Fill out the form below to get started."
             variant="center"
         >
-            <Form onSubmit={handleSubmit} className="mx-auto" />
+            {/*<Form onSubmit={handleSubmit} className="mx-auto" />*/}
         </AnimatedSection>
     );
 };

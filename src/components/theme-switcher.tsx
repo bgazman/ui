@@ -7,7 +7,7 @@ const ThemeSwitcher: React.FC = () => {
 
     // Cycles through the themes in order
     const handleThemeChange = () => {
-        const themes: Theme[] = ["light", "dark", "forest", "ocean", "desert"];
+        const themes: Theme[] = ["light", "dark"];
         const nextTheme = themes[(themes.indexOf(theme) + 1) % themes.length];
         setTheme(nextTheme);
 
@@ -32,7 +32,7 @@ const ThemeSwitcher: React.FC = () => {
             onClick={handleThemeChange}
             className="hover:opacity-80 transition-opacity"
             aria-label={`Switch to ${
-                theme === "light" ? "Dark" : theme === "dark" ? "Forest" : theme === "forest" ? "Ocean" : theme === "ocean" ? "Desert" : "Light"
+theme === "light" ? "Dark" : "Light"
             } theme`}
         >
             {themeIcons[theme]}

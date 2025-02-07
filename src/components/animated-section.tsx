@@ -44,8 +44,7 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
         return () => observer.unobserve(sectionEl);
     }, [id]);
 
-    const baseStyles = "transition-all duration-700 transform opacity-0 translate-y-4";
-    const visibleStyles = "opacity-100 translate-y-0";
+
 
     return (
         <Section
@@ -53,8 +52,7 @@ const AnimatedSection: React.FC<AnimateSectionProps> = ({
             id={id}
             title={title}
             subtitle={subtitle}
-            className={`${baseStyles} ${isVisible ? visibleStyles : ""} ${className}`}
-            variant={variant}
+            className='default'
         >
             {children}
         </Section>

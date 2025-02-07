@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {InputField} from '@components/input-field.tsx';
+import InputField from '@components/input-field.tsx';
 
 const InputFieldExample: React.FC = () => {
     const [inputValue, setInputValue] = useState('');
@@ -19,7 +19,7 @@ const InputFieldExample: React.FC = () => {
                 value={inputValue}
                 onChange={handleChange}
                 required
-                theme="light"
+                className="input-field-primary"
             />
             <p>Current value: {inputValue}</p>
         </div>

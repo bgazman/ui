@@ -1,6 +1,6 @@
 import React from 'react';
 import VerticalNavigation from '@components/navigation/vertical-navigation';
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
 import Box from '@components/box';
 
 const verticalNavItems: NavItem[] = [

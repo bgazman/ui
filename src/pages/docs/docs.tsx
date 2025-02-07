@@ -3,7 +3,7 @@ import DocsLayout from '@layout/docs-layout/docs-layout';
 import { docsFooterItems, docsHeaderItems, docsSidebarItems } from './data/nav-items';
 import { docsSectionList } from './data/docs-section-data';
 import Box from '@components/box';
-import Section from '@components/section';
+import Section from '@components/section.tsx';
 import ComponentPreview from '@components/component-preview.tsx';
 import CardExample from '@pages/docs/examples/card-example';
 import SectionExample from '@pages/docs/examples/section-example';
@@ -13,6 +13,7 @@ import TextAreaExample from '@pages/docs/examples/text-area-example';
 import BoxExample from '@pages/docs/examples/box-example';
 import FormExample from '@pages/docs/examples/form-example';
 import TabMenuExample from '@pages/docs/examples/tab-menu-example';
+import BadgeExample from '@pages/docs/examples/badge-example';
 
 const DocsPage: React.FC = () => {
     const tocItems = docsSectionList.map(section => ({
@@ -33,10 +34,18 @@ const DocsPage: React.FC = () => {
                         key={section.id}
                         id={section.id}
                         title={section.title}
-                        description={section.description}
-                        variant="left"
-                        className="animated-section-border"
+                        className="left"
                     >
+                        {section.id === 'button-component' && (
+                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
+                                <ButtonExample />
+                            </ComponentPreview>
+                        )}
+                        {section.id === 'badge-component' && (
+                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
+                                <BadgeExample />
+                            </ComponentPreview>
+                        )}
                         {section.id === 'card-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
                                 <CardExample />
@@ -52,11 +61,7 @@ const DocsPage: React.FC = () => {
                                 <GridExample />
                             </ComponentPreview>
                         )}
-                        {section.id === 'button-component' && (
-                            <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
-                                <ButtonExample />
-                            </ComponentPreview>
-                        )}
+
                         {section.id === 'tab-menu-component' && (
                             <ComponentPreview sourceCode={section.sourceCode} className="custom-class">
                                 <TabMenuExample />

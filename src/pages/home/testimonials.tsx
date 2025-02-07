@@ -18,7 +18,7 @@ const TestimonialCard = ({ quote, author, role, company }: TestimonialCardProps)
 
 export default TestimonialCard;
 
-import Section from '@components/section';
+import Section from '@components/section.tsx';
 // TestimonialsSection.tsx
 import TestimonialCard from './TestimonialCard';
 

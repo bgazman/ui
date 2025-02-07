@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Box from '@components/box';
-import { NavItem } from '@components/navigation/navigation';
+import { NavItem } from '@components/navigation.tsx';
 import VerticalNavigation from '@components/navigation/vertical-navigation';
 
 export interface SidebarProps {

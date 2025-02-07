@@ -1,28 +1,27 @@
-.theme-container[data-theme="dark"] {
-    --bg-primary: #1a202c;
-    --bg-secondary: #2d3748;
-    --bg-alt1: #4a5568;
-    --bg-alt2: #718096;
-    --text-primary: #f7fafc;
-    --text-secondary: #cbd5e0;
-    --border-color: #4a5568;
-    --sidebar-border-color: #4a5568;
-    --sidebar-bg-color: #1a202c;
-    --footer-bg-color: #2d3748;
-    --footer-text-color: #cbd5e0;
-    --header-bg-color: #1b418c;
-    --header-text-color: #f7fafc;
-    --button-bg-color: #4299e1;
-    --button-text-color: #ffffff;
-    --button-hover-bg-color: #2b6cb0;
-    --button-hover-text-color: #ffffff;
-    --button-secondary-bg-color: #6c757d;
-    --button-secondary-text-color: #ffffff;
-    --button-secondary-hover-bg-color: #5a6268;
-    --button-secondary-hover-text-color: #ffffff;
-    --button-disabled-bg-color: #d6d6d6;
-    --button-disabled-text-color: #a1a1a1;
-    --font-family-sans: "Poppins", "Arial", sans-serif;
-    --font-family-serif: "Lora", serif;
-    --font-family-mono: "JetBrains Mono", monospace;
+[data-theme="dark"] {
+    /* Surfaces */
+    --surface: #1a1a1a;
+    --surface-elevated: #2d2d2d;
+    --surface-lowered: #141414;
+
+    /* Brand Colors */
+    --bg-primary: #121313;
+    --primary-foreground: #ffffff;
+    --secondary: #6c757d;
+    --secondary-foreground: #1c1c1c;
+
+    /* Status Colors */
+    --success: #28a745;
+    --success-foreground: #ffffff;
+    --danger: #dc3545;
+    --danger-foreground: #ffffff;
+
+    /* Content */
+    --content: #ffffff;
+    --content-muted: #a1a1aa;
+    --content-subtle: #71717a;
+
+    /* Borders */
+    --border: #27272a;
+    --border-strong: #3f3f46;
 }

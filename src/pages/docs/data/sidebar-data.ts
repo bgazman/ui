@@ -1,4 +1,4 @@
-import { NavItem } from '@components/navigation/navigation.tsx';
+import { NavItem } from '@components/navigation.tsx';
 
 export const mockSidebarData: NavItem[] = [
     { label: "Dashboard", href: "/" },

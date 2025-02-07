@@ -1,0 +1,15 @@
+/* src/components/tab-menu/tab-menu.css */
+
+.tab-menu {
+    @apply flex justify-start border-b border-border; /* Align tabs left & add bottom border */
+}
+
+/* src/components/tab-menu/tab-menu.css */
+
+.button-tab-active {
+    @apply bg-primary text-primary-foreground border-b-0;
+}
+
+.button-tab-inactive {
+    @apply bg-surface text-content;
+}
